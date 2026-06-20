@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eAuto Vergleich</title>
+<style>
+  :root {
+    --bg: #f5f5f5; --surface: #fff; --text: #1a1a1a; --text-muted: #666;
+    --border: #ddd; --accent: #0066cc; --accent-light: #e6f0ff;
+    --hover: #f0f0f0; --success: #28a745; --warn: #ffc107;
+    --header-bg: #1a1a1a; --header-text: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121212; --surface: #1e1e1e; --text: #e0e0e0; --text-muted: #999;
+      --border: #333; --accent: #4da6ff; --accent-light: #1a2e44;
+      --hover: #2a2a2a; --header-bg: #0a0a0a; --header-text: #e0e0e0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121212; --surface: #1e1e1e; --text: #e0e0e0; --text-muted: #999;
+    --border: #333; --accent: #4da6ff; --accent-light: #1a2e44;
+    --hover: #2a2a2a; --header-bg: #0a0a0a; --header-text: #e0e0e0;
+  }
+  .theme-toggle { background: none; border: 1px solid rgba(255,255,255,.3); border-radius: 6px; padding: 4px 10px; cursor: pointer; font-size: 16px; line-height: 1; color: var(--header-text); }
+  .theme-toggle:hover { background: rgba(255,255,255,.1); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
+
+  .top-bar { background: var(--header-bg); color: var(--header-text); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .top-bar h1 { font-size: 18px; font-weight: 600; }
+  .top-bar-right { display: flex; gap: 12px; align-items: center; }
+  .search-box { padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); width: 260px; font-size: 14px; }
+  .search-box:focus { outline: 2px solid var(--accent); border-color: transparent; }
+
+  .toolbar { padding: 12px 24px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .btn { padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; font-size: 13px; transition: all .15s; }
+  .btn:hover { background: var(--hover); }
+  .btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-sm { padding: 4px 10px; font-size: 12px; }
+  .badge { background: var(--accent-light); color: var(--accent); padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; margin-left: 4px; }
+
+  .table-wrap { overflow: auto; padding: 0 24px 24px; height: calc(100vh - 130px); }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+  thead { position: sticky; top: 0; z-index: 50; }
+  th { background: var(--header-bg); color: var(--header-text); padding: 8px 10px; text-align: left; white-space: nowrap; cursor: pointer; user-select: none; font-weight: 500; font-size: 12px; border-right: 1px solid rgba(255,255,255,.1); }
+  th:hover { background: #333; }
+  th .sort-icon { margin-left: 4px; opacity: .4; font-size: 10px; }
+  th.sorted-asc .sort-icon, th.sorted-desc .sort-icon { opacity: 1; color: var(--accent); }
+  th .col-filter { display: block; margin-top: 4px; padding: 3px 6px; font-size: 11px; border: 1px solid rgba(255,255,255,.2); border-radius: 4px; background: rgba(255,255,255,.1); color: var(--header-text); width: 100%; }
+  th .col-filter:focus { border-color: var(--accent); outline: none; }
+  th .col-filter::placeholder { color: rgba(255,255,255,.4); }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  tr:hover td { background: var(--hover); }
+  .link-icon { text-decoration: none; font-size: 15px; opacity: .7; transition: opacity .15s; }
+  .link-icon:hover { opacity: 1; }
+  .src-badge { display: inline-block; font-size: 9px; background: var(--warn); color: #333; padding: 1px 4px; border-radius: 3px; font-weight: 700; vertical-align: middle; margin-right: 3px; cursor: help; }
+  .wish-input { width: 50px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 4px; background: var(--surface); color: var(--text); text-align: center; font-size: 13px; }
+  .wish-input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+  .note-input { width: 140px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 4px; background: var(--surface); color: var(--text); font-size: 13px; }
+  .note-input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+  .val-min { color: var(--text); }
+  .val-max { color: var(--text-muted); }
+  .bool-yes { color: var(--success); font-weight: 600; }
+  .bool-no { color: var(--text-muted); }
+  .no-data { color: var(--text-muted); font-style: italic; }
+
+  .preset-group { display: flex; gap: 6px; align-items: center; }
+  .preset-group label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+  .status-bar { padding: 8px 24px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); background: var(--surface); display: flex; justify-content: space-between; position: sticky; bottom: 0; }
+  .group-header { background: #2a4a7a; color: #fff; text-align: center; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 5px 8px; border-right: 2px solid rgba(255,255,255,.2); cursor: default; }
+  .group-header:hover { background: #2a4a7a; }
+  .group-header:nth-child(even) { background: #3a5a8a; }
+  :root[data-theme="dark"] .group-header { background: #1a3050; }
+  :root[data-theme="dark"] .group-header:nth-child(even) { background: #243a5a; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .group-header { background: #1a3050; } :root:not([data-theme="light"]) .group-header:nth-child(even) { background: #243a5a; } }
+  .group-toggles { padding: 6px 24px; gap: 6px; border-bottom: 1px solid var(--border); }
+  .group-toggle { padding: 3px 10px; font-size: 11px; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text-muted); cursor: pointer; transition: all .15s; }
+  .group-toggle:hover { background: var(--hover); }
+  .group-toggle.active { background: #2a4a7a; color: #fff; border-color: #2a4a7a; }
+  :root[data-theme="dark"] .group-toggle.active { background: #1a3050; border-color: #1a3050; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .group-toggle.active { background: #1a3050; border-color: #1a3050; } }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>eAuto Vergleich</h1>
+  <div class="top-bar-right">
+    <input type="text" class="search-box" id="globalSearch" placeholder="Suche (Modell, Marke, Wert...)">
+    <button class="theme-toggle" id="themeToggle" title="Dark/Light umschalten">&#9790;</button>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="preset-group">
+    <label>Autofilter:</label>
+    <button class="btn btn-sm" data-preset="all">Alle</button>
+    <button class="btn btn-sm" data-preset="pref">Pr&auml;ferenz</button>
+    <button class="btn btn-sm" data-preset="range400">Reichweite &gt; 400 km</button>
+    <button class="btn btn-sm" data-preset="price50k">Preis &lt; 50.000 &euro;</button>
+    <button class="btn btn-sm" data-preset="awd">Allrad</button>
+    <button class="btn btn-sm" data-preset="dc150">DC &gt; 150 kW</button>
+    <button class="btn btn-sm" data-preset="ac22">AC 22 kW</button>
+    <button class="btn btn-sm" data-preset="heatpump">W&auml;rmepumpe</button>
+    <button class="btn btn-sm" data-preset="fast06">0-100 &lt; 6s</button>
+  </div>
+  <div style="margin-left:auto; display:flex; gap:8px;">
+    <button class="btn btn-sm" id="btnExportCSV">CSV Export</button>
+    <button class="btn btn-sm" id="btnExportJSON">JSON Export</button>
+    <label class="btn btn-sm" style="cursor:pointer;">JSON Import<input type="file" id="btnImportJSON" accept=".json" style="display:none;"></label>
+    <button class="btn btn-sm" id="btnReset">Filter zur&uuml;cksetzen</button>
+  </div>
+</div>
+
+<div class="toolbar group-toggles" id="groupToggles">
+  <div class="preset-group">
+    <label>Rubriken:</label>
+  </div>
+</div>
+
+<div class="table-wrap">
+  <table id="mainTable">
+    <thead><tr id="groupRow"></tr><tr id="headerRow"></tr></thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<div class="status-bar">
+  <span id="statusCount"></span>
+  <span id="statusFile"></span>
+</div>
+
+<script>
+const DEFAULT_DATA = {"fahrzeuge":[{"modell":"BMW iX1 eDrive20","marke":"BMW","modelljahr":"2022-2026","plattform":"FAAR","autotyp":"Kompakt-SUV","user_wish":null,"antrieb":{"konzept":"Frontantrieb (FWD)","anzahl_motoren":1,"motortyp":"EESM"},"leistung":{"systemleistung_kw":150,"systemleistung_ps":204,"drehmoment_nm":250,"beschleunigung_0_100_s":8.6,"hoechstgeschwindigkeit_kmh":170},"batterie":{"brutto_kwh":66.5,"netto_kwh":65.2,"chemie":"NMC","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["Samsung SDI","CATL"],"gewicht_kg":{"min":360,"max":380},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":22,"dc_max_kw":130,"dc_10_80_min":29,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":720},"verbrauch":{"wltp_kwh_100km":{"min":16.0,"max":16.1},"wltp_reichweite_km":{"min":458,"max":514},"realverbrauch_kwh_100km":{"min":18,"max":23},"realreichweite_sommer_stadt_km":500,"realreichweite_autobahn_130_km":363,"effizienz_wh_km":{"min":160,"max":165}},"abmessungen":{"laenge_mm":4500,"breite_mm":1845,"hoehe_mm":1616,"radstand_mm":2692,"leergewicht_kg":2010,"zulaessiges_gesamtgewicht_kg":2530,"kofferraum_liter":490,"kofferraum_umgeklappt_liter":1495,"anhaengelast_gebremst_kg":1200,"anhaengelast_ungebremst_kg":750,"wendekreis_m":11.9,"bodenfreiheit_mm":180,"cw_wert":0.26,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Verbundlenker","rekuperation":"B-Modus mit One-Pedal-Driving","waermepumpe":true},"preis":{"basispreis_eur":49400,"stromkosten_eur_100km":{"min":5.5,"max":6.5},"versicherung_eur_jahr":{"min":800,"max":1400},"wertverlust_3_jahre_pct":{"min":30,"max":40}},"garantien":{"fahrzeug_jahre":3,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":3},"service":{"wartungsintervall":"2 Jahre / 30.000 km","wartungskosten_eur":{"min":200,"max":350},"anfaellige_punkte":["Antriebswelle vorne (Knacken bei Kaelte)","Softwareprobleme iDrive (Neustarts)","Ladeklappe (Verriegelung klemmt vereinzelt)"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"225/55 R18","quellen":["InsideEVs.de (Jan. 2026)","BMW.de Konfigurator (Apr. 2026)","ADAC","Carwow","FirstEV.de"],"datenerfassung":"2026-06-16","adac_note":2.1,"euro_ncap":{"sterne":5,"erwachsene":85,"kinder":89,"fussgaenger":75,"assistenten":78},"ota_updates":true},{"modell":"BMW iX1 xDrive30","marke":"BMW","modelljahr":"2022-2026","plattform":"FAAR","autotyp":"Kompakt-SUV","user_wish":null,"antrieb":{"konzept":"Allrad (AWD)","anzahl_motoren":2,"motortyp":"EESM"},"leistung":{"systemleistung_kw":230,"systemleistung_ps":313,"drehmoment_nm":494,"boost_kw":240,"boost_ps":326,"beschleunigung_0_100_s":5.6,"hoechstgeschwindigkeit_kmh":180},"batterie":{"brutto_kwh":66.5,"netto_kwh":65.2,"chemie":"NMC","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["Samsung SDI","CATL"],"gewicht_kg":{"min":360,"max":380},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":22,"dc_max_kw":130,"dc_10_80_min":29,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":720},"verbrauch":{"wltp_kwh_100km":{"min":17.1,"max":17.2},"wltp_reichweite_km":{"min":429,"max":466},"realverbrauch_kwh_100km":{"min":18,"max":23},"realreichweite_sommer_stadt_km":null,"realreichweite_autobahn_130_km":null,"effizienz_wh_km":null},"abmessungen":{"laenge_mm":4500,"breite_mm":1845,"hoehe_mm":1616,"radstand_mm":2692,"leergewicht_kg":2185,"zulaessiges_gesamtgewicht_kg":2720,"kofferraum_liter":490,"kofferraum_umgeklappt_liter":1495,"anhaengelast_gebremst_kg":1200,"anhaengelast_ungebremst_kg":750,"wendekreis_m":11.9,"bodenfreiheit_mm":180,"cw_wert":0.26,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Verbundlenker","rekuperation":"B-Modus mit One-Pedal-Driving","waermepumpe":true},"preis":{"basispreis_eur":56600,"stromkosten_eur_100km":{"min":5.5,"max":6.5},"versicherung_eur_jahr":{"min":800,"max":1400},"wertverlust_3_jahre_pct":{"min":30,"max":40}},"garantien":{"fahrzeug_jahre":3,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":3},"service":{"wartungsintervall":"2 Jahre / 30.000 km","wartungskosten_eur":{"min":200,"max":350},"anfaellige_punkte":["Antriebswelle vorne (Knacken bei Kaelte)","Softwareprobleme iDrive (Neustarts)","Ladeklappe (Verriegelung klemmt vereinzelt)"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"225/50 R19","quellen":["InsideEVs.de (Jan. 2026)","BMW.de Konfigurator (Apr. 2026)","ADAC","Carwow","FirstEV.de"],"datenerfassung":"2026-06-16","adac_note":2.0,"euro_ncap":{"sterne":5,"erwachsene":85,"kinder":89,"fussgaenger":75,"assistenten":78},"ota_updates":true},{"modell":"Tesla Model 3 Long Range","marke":"Tesla","modelljahr":"2024-2026","plattform":"Tesla 3/Y Platform (Highland)","autotyp":"Limousine","user_wish":null,"antrieb":{"konzept":"Allrad (AWD)","anzahl_motoren":2,"motortyp":"PMSMr (hinten) + Asynchron (vorne)"},"leistung":{"systemleistung_kw":324,"systemleistung_ps":441,"drehmoment_nm":550,"beschleunigung_0_100_s":4.4,"hoechstgeschwindigkeit_kmh":201},"batterie":{"brutto_kwh":78.1,"netto_kwh":75.0,"chemie":"NMC","systemspannung_v":400,"zelltyp":"zylindrisch (2170)","zelllieferant":["LG Energy Solution","Panasonic"],"gewicht_kg":{"min":455,"max":475},"garantie_jahre":8,"garantie_km":192000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":250,"dc_10_80_min":27,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":14.0,"max":14.9},"wltp_reichweite_km":{"min":554,"max":629},"realverbrauch_kwh_100km":{"min":15,"max":20},"realreichweite_sommer_stadt_km":550,"realreichweite_autobahn_130_km":420,"effizienz_wh_km":{"min":140,"max":149}},"abmessungen":{"laenge_mm":4720,"breite_mm":1849,"hoehe_mm":1441,"radstand_mm":2875,"leergewicht_kg":1828,"zulaessiges_gesamtgewicht_kg":2232,"kofferraum_liter":561,"kofferraum_umgeklappt_liter":1200,"anhaengelast_gebremst_kg":1000,"anhaengelast_ungebremst_kg":750,"wendekreis_m":12.0,"bodenfreiheit_mm":138,"cw_wert":0.219,"frunk":true,"frunk_liter":88,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"Doppelquerlenker","federung_hinten":"Mehrlenker","rekuperation":"One-Pedal-Driving serienmässig","waermepumpe":true},"preis":{"basispreis_eur":46990,"stromkosten_eur_100km":{"min":4.8,"max":5.8},"versicherung_eur_jahr":{"min":900,"max":1500},"wertverlust_3_jahre_pct":{"min":25,"max":35}},"garantien":{"fahrzeug_jahre":4,"fahrzeug_km":80000,"lack_jahre":4,"durchrostung_jahre":12,"mobilitaet_jahre":4},"service":{"wartungsintervall":"2 Jahre / 40.000 km","wartungskosten_eur":{"min":150,"max":300},"anfaellige_punkte":["Spaltmasse Karosserie","Fahrwerksgeraeusche (Poltern Hinterachse)","Displayausfall (selten)"],"garantie_relevant":false},"bemerkung":null,"reifen_serie":"235/45 R18","quellen":["Tesla.com (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":1.8,"euro_ncap":{"sterne":5,"erwachsene":96,"kinder":89,"fussgaenger":74,"assistenten":85},"ota_updates":true},{"modell":"Tesla Model Y Long Range","marke":"Tesla","modelljahr":"2025-2026","plattform":"Tesla 3/Y Platform (Juniper)","autotyp":"Kompakt-SUV","user_wish":null,"antrieb":{"konzept":"Allrad (AWD)","anzahl_motoren":2,"motortyp":"PMSMr (hinten) + Asynchron (vorne)"},"leistung":{"systemleistung_kw":340,"systemleistung_ps":462,"drehmoment_nm":565,"beschleunigung_0_100_s":4.3,"hoechstgeschwindigkeit_kmh":201},"batterie":{"brutto_kwh":79.0,"netto_kwh":75.0,"chemie":"NMC","systemspannung_v":400,"zelltyp":"zylindrisch (2170)","zelllieferant":["LG Energy Solution"],"gewicht_kg":{"min":460,"max":480},"garantie_jahre":8,"garantie_km":192000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":250,"dc_10_80_min":28,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":15.5,"max":16.9},"wltp_reichweite_km":{"min":533,"max":568},"realverbrauch_kwh_100km":{"min":17,"max":22},"realreichweite_sommer_stadt_km":500,"realreichweite_autobahn_130_km":380,"effizienz_wh_km":{"min":155,"max":169}},"abmessungen":{"laenge_mm":4751,"breite_mm":1921,"hoehe_mm":1624,"radstand_mm":2890,"leergewicht_kg":1979,"zulaessiges_gesamtgewicht_kg":2450,"kofferraum_liter":854,"kofferraum_umgeklappt_liter":2158,"anhaengelast_gebremst_kg":1600,"anhaengelast_ungebremst_kg":750,"wendekreis_m":12.1,"bodenfreiheit_mm":167,"cw_wert":0.23,"frunk":true,"frunk_liter":117,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"Doppelquerlenker","federung_hinten":"Mehrlenker","rekuperation":"One-Pedal-Driving serienmässig","waermepumpe":true},"preis":{"basispreis_eur":51990,"stromkosten_eur_100km":{"min":5.3,"max":6.3},"versicherung_eur_jahr":{"min":900,"max":1500},"wertverlust_3_jahre_pct":{"min":25,"max":35}},"garantien":{"fahrzeug_jahre":4,"fahrzeug_km":80000,"lack_jahre":4,"durchrostung_jahre":12,"mobilitaet_jahre":4},"service":{"wartungsintervall":"2 Jahre / 40.000 km","wartungskosten_eur":{"min":150,"max":300},"anfaellige_punkte":["Spaltmasse Karosserie","Quietschen Hinterachse","Wassereintritt Rueckleuchten (aeltere Chargen)"],"garantie_relevant":false},"bemerkung":null,"reifen_serie":"255/45 R19","quellen":["Tesla.com (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":1.8,"euro_ncap":{"sterne":5,"erwachsene":97,"kinder":87,"fussgaenger":82,"assistenten":98},"ota_updates":true},{"modell":"VW ID.4 Pro","marke":"Volkswagen","modelljahr":"2024-2026","plattform":"MEB","autotyp":"Kompakt-SUV","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM (APP550)"},"leistung":{"systemleistung_kw":210,"systemleistung_ps":286,"drehmoment_nm":545,"beschleunigung_0_100_s":6.7,"hoechstgeschwindigkeit_kmh":160},"batterie":{"brutto_kwh":82.0,"netto_kwh":77.0,"chemie":"NMC811","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["LG Energy Solution","SK Innovation"],"gewicht_kg":{"min":480,"max":500},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":175,"dc_10_80_min":28,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":16.3,"max":17.5},"wltp_reichweite_km":{"min":467,"max":531},"realverbrauch_kwh_100km":{"min":18,"max":23},"realreichweite_sommer_stadt_km":460,"realreichweite_autobahn_130_km":340,"effizienz_wh_km":{"min":163,"max":175}},"abmessungen":{"laenge_mm":4584,"breite_mm":1852,"hoehe_mm":1634,"radstand_mm":2771,"leergewicht_kg":2124,"zulaessiges_gesamtgewicht_kg":2650,"kofferraum_liter":543,"kofferraum_umgeklappt_liter":1575,"anhaengelast_gebremst_kg":1200,"anhaengelast_ungebremst_kg":750,"wendekreis_m":10.2,"bodenfreiheit_mm":163,"cw_wert":0.28,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"B-Modus mit One-Pedal-Driving","waermepumpe":true},"preis":{"basispreis_eur":44990,"stromkosten_eur_100km":{"min":5.5,"max":6.8},"versicherung_eur_jahr":{"min":700,"max":1200},"wertverlust_3_jahre_pct":{"min":35,"max":45}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":2},"service":{"wartungsintervall":"2 Jahre / 30.000 km","wartungskosten_eur":{"min":200,"max":350},"anfaellige_punkte":["Softwarebugs Infotainment (fruehe Baujahre)","12V-Batterie (vorzeitiger Ausfall)","Kondenswasser Scheinwerfer"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"235/50 R20","quellen":["volkswagen.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.1,"euro_ncap":{"sterne":5,"erwachsene":93,"kinder":89,"fussgaenger":72,"assistenten":85},"ota_updates":true},{"modell":"VW ID.7 Pro S","marke":"Volkswagen","modelljahr":"2024-2026","plattform":"MEB","autotyp":"Limousine","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM (APP550)"},"leistung":{"systemleistung_kw":210,"systemleistung_ps":286,"drehmoment_nm":545,"beschleunigung_0_100_s":6.5,"hoechstgeschwindigkeit_kmh":180},"batterie":{"brutto_kwh":86.0,"netto_kwh":82.0,"chemie":"NMC","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["CATL"],"gewicht_kg":{"min":490,"max":510},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":22,"dc_max_kw":200,"dc_10_80_min":26,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":720},"verbrauch":{"wltp_kwh_100km":{"min":14.1,"max":15.2},"wltp_reichweite_km":{"min":595,"max":700},"realverbrauch_kwh_100km":{"min":16,"max":21},"realreichweite_sommer_stadt_km":600,"realreichweite_autobahn_130_km":440,"effizienz_wh_km":{"min":141,"max":152}},"abmessungen":{"laenge_mm":4961,"breite_mm":1862,"hoehe_mm":1536,"radstand_mm":2971,"leergewicht_kg":2160,"zulaessiges_gesamtgewicht_kg":2640,"kofferraum_liter":532,"kofferraum_umgeklappt_liter":1586,"anhaengelast_gebremst_kg":1000,"anhaengelast_ungebremst_kg":750,"wendekreis_m":11.5,"bodenfreiheit_mm":150,"cw_wert":0.23,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"B-Modus mit One-Pedal-Driving","waermepumpe":true},"preis":{"basispreis_eur":56995,"stromkosten_eur_100km":{"min":4.8,"max":5.8},"versicherung_eur_jahr":{"min":800,"max":1400},"wertverlust_3_jahre_pct":{"min":30,"max":40}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":2},"service":{"wartungsintervall":"2 Jahre / 30.000 km","wartungskosten_eur":{"min":200,"max":350},"anfaellige_punkte":["Software-Updates noetig","Windgeraeusche A-Saeule (vereinzelt)"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"235/45 R20","quellen":["volkswagen.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":1.8,"euro_ncap":{"sterne":5,"erwachsene":96,"kinder":89,"fussgaenger":73,"assistenten":84},"ota_updates":true},{"modell":"Hyundai Ioniq 5 77 kWh RWD","marke":"Hyundai","modelljahr":"2024-2026","plattform":"E-GMP","autotyp":"Crossover","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":168,"systemleistung_ps":229,"drehmoment_nm":350,"beschleunigung_0_100_s":7.3,"hoechstgeschwindigkeit_kmh":185},"batterie":{"brutto_kwh":84.0,"netto_kwh":77.4,"chemie":"NMC811","systemspannung_v":800,"zelltyp":"pouch","zelllieferant":["SK Innovation"],"gewicht_kg":{"min":460,"max":480},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":240,"dc_10_80_min":18,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":true,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":16.7,"max":18.1},"wltp_reichweite_km":{"min":454,"max":507},"realverbrauch_kwh_100km":{"min":18,"max":24},"realreichweite_sommer_stadt_km":470,"realreichweite_autobahn_130_km":340,"effizienz_wh_km":{"min":167,"max":181}},"abmessungen":{"laenge_mm":4635,"breite_mm":1890,"hoehe_mm":1605,"radstand_mm":3000,"leergewicht_kg":1985,"zulaessiges_gesamtgewicht_kg":2430,"kofferraum_liter":527,"kofferraum_umgeklappt_liter":1587,"anhaengelast_gebremst_kg":1600,"anhaengelast_ungebremst_kg":750,"wendekreis_m":11.0,"bodenfreiheit_mm":178,"cw_wert":0.288,"frunk":true,"frunk_liter":57,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"i-Pedal (One-Pedal) + Paddel-Stufen","waermepumpe":true},"preis":{"basispreis_eur":47900,"stromkosten_eur_100km":{"min":5.7,"max":7.0},"versicherung_eur_jahr":{"min":700,"max":1200},"wertverlust_3_jahre_pct":{"min":30,"max":40}},"garantien":{"fahrzeug_jahre":5,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":5},"service":{"wartungsintervall":"1 Jahr / 15.000 km","wartungskosten_eur":{"min":150,"max":300},"anfaellige_punkte":["12V-Batterie (entlaedt sich im Stand)","Rueckruf Ladegeraet (fruehe Chargen)","Bremsscheiben rosten bei wenig Nutzung"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"235/55 R19","quellen":["hyundai.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":1.9,"euro_ncap":{"sterne":5,"erwachsene":88,"kinder":86,"fussgaenger":63,"assistenten":88},"ota_updates":true},{"modell":"Hyundai Ioniq 6 77 kWh RWD","marke":"Hyundai","modelljahr":"2023-2026","plattform":"E-GMP","autotyp":"Limousine","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":168,"systemleistung_ps":229,"drehmoment_nm":350,"beschleunigung_0_100_s":7.4,"hoechstgeschwindigkeit_kmh":185},"batterie":{"brutto_kwh":84.0,"netto_kwh":77.4,"chemie":"NMC811","systemspannung_v":800,"zelltyp":"pouch","zelllieferant":["SK Innovation"],"gewicht_kg":{"min":460,"max":480},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":233,"dc_10_80_min":18,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":true,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":13.9,"max":14.3},"wltp_reichweite_km":{"min":545,"max":614},"realverbrauch_kwh_100km":{"min":15,"max":20},"realreichweite_sommer_stadt_km":550,"realreichweite_autobahn_130_km":420,"effizienz_wh_km":{"min":139,"max":143}},"abmessungen":{"laenge_mm":4855,"breite_mm":1880,"hoehe_mm":1495,"radstand_mm":2950,"leergewicht_kg":1985,"zulaessiges_gesamtgewicht_kg":2430,"kofferraum_liter":401,"kofferraum_umgeklappt_liter":1578,"anhaengelast_gebremst_kg":1500,"anhaengelast_ungebremst_kg":750,"wendekreis_m":12.0,"bodenfreiheit_mm":142,"cw_wert":0.21,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"i-Pedal (One-Pedal) + Paddel-Stufen","waermepumpe":true},"preis":{"basispreis_eur":46900,"stromkosten_eur_100km":{"min":4.7,"max":5.6},"versicherung_eur_jahr":{"min":700,"max":1200},"wertverlust_3_jahre_pct":{"min":30,"max":40}},"garantien":{"fahrzeug_jahre":5,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":5},"service":{"wartungsintervall":"1 Jahr / 15.000 km","wartungskosten_eur":{"min":150,"max":300},"anfaellige_punkte":["12V-Batterie (entlaedt sich)","Windgeraeusche rahmenloses Fenster","Kofferraum eng"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"225/55 R18","quellen":["hyundai.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":1.7,"euro_ncap":{"sterne":5,"erwachsene":97,"kinder":89,"fussgaenger":64,"assistenten":90},"ota_updates":true},{"modell":"Kia EV6 77 kWh RWD","marke":"Kia","modelljahr":"2024-2026","plattform":"E-GMP","autotyp":"Crossover","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":168,"systemleistung_ps":229,"drehmoment_nm":350,"beschleunigung_0_100_s":7.3,"hoechstgeschwindigkeit_kmh":185},"batterie":{"brutto_kwh":84.0,"netto_kwh":77.4,"chemie":"NMC811","systemspannung_v":800,"zelltyp":"pouch","zelllieferant":["SK Innovation"],"gewicht_kg":{"min":460,"max":480},"garantie_jahre":7,"garantie_km":150000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":240,"dc_10_80_min":18,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":true,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":16.5,"max":17.2},"wltp_reichweite_km":{"min":464,"max":528},"realverbrauch_kwh_100km":{"min":18,"max":24},"realreichweite_sommer_stadt_km":480,"realreichweite_autobahn_130_km":350,"effizienz_wh_km":{"min":165,"max":172}},"abmessungen":{"laenge_mm":4695,"breite_mm":1890,"hoehe_mm":1550,"radstand_mm":2900,"leergewicht_kg":2015,"zulaessiges_gesamtgewicht_kg":2470,"kofferraum_liter":490,"kofferraum_umgeklappt_liter":1300,"anhaengelast_gebremst_kg":1600,"anhaengelast_ungebremst_kg":750,"wendekreis_m":11.6,"bodenfreiheit_mm":178,"cw_wert":0.28,"frunk":true,"frunk_liter":52,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"i-Pedal (One-Pedal) + Paddel-Stufen","waermepumpe":true},"preis":{"basispreis_eur":46990,"stromkosten_eur_100km":{"min":5.6,"max":6.8},"versicherung_eur_jahr":{"min":700,"max":1200},"wertverlust_3_jahre_pct":{"min":30,"max":40}},"garantien":{"fahrzeug_jahre":7,"fahrzeug_km":150000,"lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":7},"service":{"wartungsintervall":"1 Jahr / 15.000 km","wartungskosten_eur":{"min":150,"max":280},"anfaellige_punkte":["12V-Batterie (wie Ioniq 5)","Rueckruf Ladegeraet (fruehe Chargen)","Plastikqualitaet Innenraum"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"235/55 R19","quellen":["kia.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":1.9,"euro_ncap":{"sterne":5,"erwachsene":90,"kinder":87,"fussgaenger":64,"assistenten":87},"ota_updates":true},{"modell":"Mercedes EQA 250+","marke":"Mercedes-Benz","modelljahr":"2024-2026","plattform":"EVA 1.5 (MFA2)","autotyp":"Kompakt-SUV","user_wish":null,"antrieb":{"konzept":"Frontantrieb (FWD)","anzahl_motoren":1,"motortyp":"Asynchron (ASM)"},"leistung":{"systemleistung_kw":140,"systemleistung_ps":190,"drehmoment_nm":385,"beschleunigung_0_100_s":8.6,"hoechstgeschwindigkeit_kmh":160},"batterie":{"brutto_kwh":70.5,"netto_kwh":66.5,"chemie":"NMC","systemspannung_v":400,"zelltyp":"pouch","zelllieferant":["CATL","Farasis"],"gewicht_kg":{"min":440,"max":460},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":22,"dc_max_kw":100,"dc_10_80_min":32,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":500},"verbrauch":{"wltp_kwh_100km":{"min":15.7,"max":17.4},"wltp_reichweite_km":{"min":426,"max":496},"realverbrauch_kwh_100km":{"min":18,"max":24},"realreichweite_sommer_stadt_km":430,"realreichweite_autobahn_130_km":300,"effizienz_wh_km":{"min":157,"max":174}},"abmessungen":{"laenge_mm":4463,"breite_mm":1834,"hoehe_mm":1620,"radstand_mm":2729,"leergewicht_kg":2055,"zulaessiges_gesamtgewicht_kg":2535,"kofferraum_liter":340,"kofferraum_umgeklappt_liter":1320,"anhaengelast_gebremst_kg":750,"anhaengelast_ungebremst_kg":750,"wendekreis_m":11.4,"bodenfreiheit_mm":150,"cw_wert":0.28,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":false},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"3-stufig + D Auto","waermepumpe":true},"preis":{"basispreis_eur":50780,"stromkosten_eur_100km":{"min":5.3,"max":6.8},"versicherung_eur_jahr":{"min":900,"max":1500},"wertverlust_3_jahre_pct":{"min":35,"max":45}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":30,"mobilitaet_jahre":30},"service":{"wartungsintervall":"1 Jahr / 25.000 km","wartungskosten_eur":{"min":250,"max":400},"anfaellige_punkte":["DC-Ladeleistung nur 100 kW (langsam)","MBUX Softwareabstuerze","Kofferraum sehr klein"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"235/55 R18","quellen":["mercedes-benz.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.3,"euro_ncap":{"sterne":5,"erwachsene":96,"kinder":90,"fussgaenger":80,"assistenten":75},"ota_updates":true},{"modell":"BYD Atto 3","marke":"BYD","modelljahr":"2023-2026","plattform":"BYD e-Platform 3.0","autotyp":"Kompakt-SUV","user_wish":null,"antrieb":{"konzept":"Frontantrieb (FWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":150,"systemleistung_ps":204,"drehmoment_nm":310,"beschleunigung_0_100_s":7.3,"hoechstgeschwindigkeit_kmh":160},"batterie":{"brutto_kwh":60.5,"netto_kwh":60.0,"chemie":"LFP (Blade)","systemspannung_v":400,"zelltyp":"prismatisch (Blade)","zelllieferant":["BYD (FinDreams)"],"gewicht_kg":{"min":370,"max":390},"garantie_jahre":8,"garantie_km":200000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":88,"dc_10_80_min":37,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":false,"v2l":true,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":16.0,"max":17.3},"wltp_reichweite_km":{"min":370,"max":420},"realverbrauch_kwh_100km":{"min":18,"max":23},"realreichweite_sommer_stadt_km":380,"realreichweite_autobahn_130_km":270,"effizienz_wh_km":{"min":160,"max":173}},"abmessungen":{"laenge_mm":4455,"breite_mm":1875,"hoehe_mm":1615,"radstand_mm":2720,"leergewicht_kg":1830,"zulaessiges_gesamtgewicht_kg":2255,"kofferraum_liter":440,"kofferraum_umgeklappt_liter":1338,"anhaengelast_gebremst_kg":0,"anhaengelast_ungebremst_kg":0,"wendekreis_m":11.6,"bodenfreiheit_mm":175,"cw_wert":0.29,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":false},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"2 Stufen","waermepumpe":false},"preis":{"basispreis_eur":37990,"stromkosten_eur_100km":{"min":5.4,"max":6.8},"versicherung_eur_jahr":{"min":600,"max":1100},"wertverlust_3_jahre_pct":{"min":35,"max":50}},"garantien":{"fahrzeug_jahre":6,"fahrzeug_km":150000,"lack_jahre":6,"durchrostung_jahre":12,"mobilitaet_jahre":6},"service":{"wartungsintervall":"1 Jahr / 20.000 km","wartungskosten_eur":{"min":120,"max":250},"anfaellige_punkte":["DC-Ladeleistung sehr niedrig (88 kW)","Keine Waermepumpe","Servicenetz in DE duenn","Materialanmutung Innenraum"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"235/50 R18","quellen":["byd.com/de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.2,"euro_ncap":{"sterne":5,"erwachsene":91,"kinder":89,"fussgaenger":69,"assistenten":74},"ota_updates":true},{"modell":"BYD Seal Design","marke":"BYD","modelljahr":"2024-2026","plattform":"BYD e-Platform 3.0","autotyp":"Limousine","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":230,"systemleistung_ps":313,"drehmoment_nm":360,"beschleunigung_0_100_s":5.9,"hoechstgeschwindigkeit_kmh":180},"batterie":{"brutto_kwh":82.5,"netto_kwh":80.0,"chemie":"LFP (Blade)","systemspannung_v":400,"zelltyp":"prismatisch (Blade / CTB)","zelllieferant":["BYD (FinDreams)"],"gewicht_kg":{"min":500,"max":520},"garantie_jahre":8,"garantie_km":200000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":150,"dc_10_80_min":30,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":false,"v2l":true,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":16.3,"max":17.1},"wltp_reichweite_km":{"min":500,"max":570},"realverbrauch_kwh_100km":{"min":17,"max":22},"realreichweite_sommer_stadt_km":500,"realreichweite_autobahn_130_km":370,"effizienz_wh_km":{"min":163,"max":171}},"abmessungen":{"laenge_mm":4800,"breite_mm":1875,"hoehe_mm":1460,"radstand_mm":2920,"leergewicht_kg":2060,"zulaessiges_gesamtgewicht_kg":2510,"kofferraum_liter":400,"kofferraum_umgeklappt_liter":1200,"anhaengelast_gebremst_kg":0,"anhaengelast_ungebremst_kg":0,"wendekreis_m":11.4,"bodenfreiheit_mm":150,"cw_wert":0.219,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":false},"fahrwerk":{"federung_vorne":"Doppelquerlenker","federung_hinten":"Mehrlenker","rekuperation":"2 Stufen","waermepumpe":true},"preis":{"basispreis_eur":44990,"stromkosten_eur_100km":{"min":5.5,"max":6.7},"versicherung_eur_jahr":{"min":700,"max":1200},"wertverlust_3_jahre_pct":{"min":35,"max":50}},"garantien":{"fahrzeug_jahre":6,"fahrzeug_km":150000,"lack_jahre":6,"durchrostung_jahre":12,"mobilitaet_jahre":6},"service":{"wartungsintervall":"1 Jahr / 20.000 km","wartungskosten_eur":{"min":120,"max":250},"anfaellige_punkte":["Keine Anhaengerkupplung moeglich","Servicenetz DE duenn","Keine Vorkonditionierung"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"235/45 R19","quellen":["byd.com/de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.0,"euro_ncap":{"sterne":5,"erwachsene":91,"kinder":89,"fussgaenger":70,"assistenten":79},"ota_updates":true},{"modell":"Polestar 2 Long Range Single Motor","marke":"Polestar","modelljahr":"2024-2026","plattform":"SPA2 / CMA","autotyp":"Limousine","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":220,"systemleistung_ps":299,"drehmoment_nm":490,"beschleunigung_0_100_s":6.2,"hoechstgeschwindigkeit_kmh":205},"batterie":{"brutto_kwh":82.0,"netto_kwh":79.0,"chemie":"NMC","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["CATL"],"gewicht_kg":{"min":480,"max":500},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":205,"dc_10_80_min":28,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":15.2,"max":16.5},"wltp_reichweite_km":{"min":510,"max":592},"realverbrauch_kwh_100km":{"min":17,"max":22},"realreichweite_sommer_stadt_km":500,"realreichweite_autobahn_130_km":380,"effizienz_wh_km":{"min":152,"max":165}},"abmessungen":{"laenge_mm":4606,"breite_mm":1859,"hoehe_mm":1482,"radstand_mm":2735,"leergewicht_kg":2065,"zulaessiges_gesamtgewicht_kg":2520,"kofferraum_liter":405,"kofferraum_umgeklappt_liter":1095,"anhaengelast_gebremst_kg":1500,"anhaengelast_ungebremst_kg":750,"wendekreis_m":11.5,"bodenfreiheit_mm":151,"cw_wert":0.27,"frunk":true,"frunk_liter":41,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"One-Pedal-Driving","waermepumpe":true},"preis":{"basispreis_eur":48690,"stromkosten_eur_100km":{"min":5.2,"max":6.4},"versicherung_eur_jahr":{"min":800,"max":1400},"wertverlust_3_jahre_pct":{"min":35,"max":45}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":2},"service":{"wartungsintervall":"2 Jahre / 30.000 km","wartungskosten_eur":{"min":200,"max":350},"anfaellige_punkte":["Google-Infotainment (Abstuerze vereinzelt)","Anpassung Spurhalteassistent noetig","Hoher Wertverlust"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"245/45 R19","quellen":["polestar.com/de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.1,"euro_ncap":{"sterne":5,"erwachsene":93,"kinder":80,"fussgaenger":68,"assistenten":85},"ota_updates":true},{"modell":"Skoda Enyaq 85","marke":"Skoda","modelljahr":"2024-2026","plattform":"MEB","autotyp":"SUV","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM (APP550)"},"leistung":{"systemleistung_kw":210,"systemleistung_ps":286,"drehmoment_nm":545,"beschleunigung_0_100_s":6.7,"hoechstgeschwindigkeit_kmh":160},"batterie":{"brutto_kwh":82.0,"netto_kwh":77.0,"chemie":"NMC811","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["LG Energy Solution"],"gewicht_kg":{"min":480,"max":500},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":175,"dc_10_80_min":28,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":15.8,"max":17.4},"wltp_reichweite_km":{"min":467,"max":548},"realverbrauch_kwh_100km":{"min":18,"max":23},"realreichweite_sommer_stadt_km":470,"realreichweite_autobahn_130_km":350,"effizienz_wh_km":{"min":158,"max":174}},"abmessungen":{"laenge_mm":4649,"breite_mm":1879,"hoehe_mm":1616,"radstand_mm":2770,"leergewicht_kg":2110,"zulaessiges_gesamtgewicht_kg":2610,"kofferraum_liter":585,"kofferraum_umgeklappt_liter":1710,"anhaengelast_gebremst_kg":1200,"anhaengelast_ungebremst_kg":750,"wendekreis_m":10.2,"bodenfreiheit_mm":171,"cw_wert":0.26,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"B-Modus mit One-Pedal-Driving","waermepumpe":true},"preis":{"basispreis_eur":44900,"stromkosten_eur_100km":{"min":5.4,"max":6.8},"versicherung_eur_jahr":{"min":700,"max":1200},"wertverlust_3_jahre_pct":{"min":30,"max":40}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":2},"service":{"wartungsintervall":"2 Jahre / 30.000 km","wartungskosten_eur":{"min":180,"max":320},"anfaellige_punkte":["12V-Batterie (wie ID.4)","Softwarebugs (fruehe Baujahre)","Kondenswasser Rueckleuchten"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"235/50 R20","quellen":["skoda.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":1.9,"euro_ncap":{"sterne":5,"erwachsene":93,"kinder":89,"fussgaenger":72,"assistenten":82},"ota_updates":true},{"modell":"Cupra Born 170 kW","marke":"Cupra","modelljahr":"2024-2026","plattform":"MEB","autotyp":"Kompaktwagen","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM (APP310)"},"leistung":{"systemleistung_kw":170,"systemleistung_ps":231,"drehmoment_nm":310,"beschleunigung_0_100_s":6.6,"hoechstgeschwindigkeit_kmh":160},"batterie":{"brutto_kwh":82.0,"netto_kwh":77.0,"chemie":"NMC811","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["LG Energy Solution"],"gewicht_kg":{"min":480,"max":500},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":170,"dc_10_80_min":28,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":15.5,"max":16.8},"wltp_reichweite_km":{"min":472,"max":548},"realverbrauch_kwh_100km":{"min":17,"max":22},"realreichweite_sommer_stadt_km":480,"realreichweite_autobahn_130_km":350,"effizienz_wh_km":{"min":155,"max":168}},"abmessungen":{"laenge_mm":4322,"breite_mm":1809,"hoehe_mm":1540,"radstand_mm":2766,"leergewicht_kg":1919,"zulaessiges_gesamtgewicht_kg":2370,"kofferraum_liter":385,"kofferraum_umgeklappt_liter":1267,"anhaengelast_gebremst_kg":0,"anhaengelast_ungebremst_kg":0,"wendekreis_m":10.2,"bodenfreiheit_mm":150,"cw_wert":0.27,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":false},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"B-Modus","waermepumpe":true},"preis":{"basispreis_eur":40770,"stromkosten_eur_100km":{"min":5.3,"max":6.5},"versicherung_eur_jahr":{"min":650,"max":1100},"wertverlust_3_jahre_pct":{"min":30,"max":40}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":2},"service":{"wartungsintervall":"2 Jahre / 30.000 km","wartungskosten_eur":{"min":180,"max":300},"anfaellige_punkte":["Keine Anhaengerkupplung moeglich","12V-Batterie (MEB-typisch)","Software fruehe Baujahre"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"215/50 R19","quellen":["cupraofficial.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.1,"euro_ncap":{"sterne":5,"erwachsene":93,"kinder":89,"fussgaenger":72,"assistenten":85},"ota_updates":true},{"modell":"Renault Megane E-Tech EV60","marke":"Renault","modelljahr":"2023-2026","plattform":"CMF-EV","autotyp":"Kompaktwagen","user_wish":null,"antrieb":{"konzept":"Frontantrieb (FWD)","anzahl_motoren":1,"motortyp":"EESM"},"leistung":{"systemleistung_kw":160,"systemleistung_ps":218,"drehmoment_nm":300,"beschleunigung_0_100_s":7.4,"hoechstgeschwindigkeit_kmh":160},"batterie":{"brutto_kwh":60.0,"netto_kwh":57.0,"chemie":"NMC","systemspannung_v":400,"zelltyp":"pouch","zelllieferant":["LG Energy Solution"],"gewicht_kg":{"min":370,"max":395},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":7,"ac_optional_kw":22,"dc_max_kw":130,"dc_10_80_min":30,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":600},"verbrauch":{"wltp_kwh_100km":{"min":15.5,"max":16.1},"wltp_reichweite_km":{"min":380,"max":450},"realverbrauch_kwh_100km":{"min":17,"max":22},"realreichweite_sommer_stadt_km":400,"realreichweite_autobahn_130_km":290,"effizienz_wh_km":{"min":155,"max":161}},"abmessungen":{"laenge_mm":4200,"breite_mm":1768,"hoehe_mm":1505,"radstand_mm":2685,"leergewicht_kg":1636,"zulaessiges_gesamtgewicht_kg":2050,"kofferraum_liter":440,"kofferraum_umgeklappt_liter":1245,"anhaengelast_gebremst_kg":0,"anhaengelast_ungebremst_kg":0,"wendekreis_m":10.4,"bodenfreiheit_mm":140,"cw_wert":0.28,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":false},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Verbundlenker","rekuperation":"B-Modus","waermepumpe":true},"preis":{"basispreis_eur":40600,"stromkosten_eur_100km":{"min":5.3,"max":6.3},"versicherung_eur_jahr":{"min":600,"max":1100},"wertverlust_3_jahre_pct":{"min":35,"max":45}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":2},"service":{"wartungsintervall":"1 Jahr / 30.000 km","wartungskosten_eur":{"min":150,"max":280},"anfaellige_punkte":["AC nur 7 kW Serie","Keine AHK moeglich","Kleine Batterie - begrenzte Reichweite"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"215/45 R20","quellen":["renault.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.2,"euro_ncap":{"sterne":5,"erwachsene":85,"kinder":87,"fussgaenger":64,"assistenten":73},"ota_updates":true},{"modell":"Volvo EX30 Single Motor Extended Range","marke":"Volvo","modelljahr":"2024-2026","plattform":"SEA (Geely)","autotyp":"Klein-SUV","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":200,"systemleistung_ps":272,"drehmoment_nm":343,"beschleunigung_0_100_s":5.3,"hoechstgeschwindigkeit_kmh":180},"batterie":{"brutto_kwh":69.0,"netto_kwh":64.0,"chemie":"NMC","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["CATL"],"gewicht_kg":{"min":380,"max":400},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":153,"dc_10_80_min":27,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":15.7,"max":16.7},"wltp_reichweite_km":{"min":394,"max":476},"realverbrauch_kwh_100km":{"min":17,"max":22},"realreichweite_sommer_stadt_km":400,"realreichweite_autobahn_130_km":300,"effizienz_wh_km":{"min":157,"max":167}},"abmessungen":{"laenge_mm":4233,"breite_mm":1837,"hoehe_mm":1550,"radstand_mm":2650,"leergewicht_kg":1790,"zulaessiges_gesamtgewicht_kg":2200,"kofferraum_liter":318,"kofferraum_umgeklappt_liter":904,"anhaengelast_gebremst_kg":1000,"anhaengelast_ungebremst_kg":750,"wendekreis_m":10.8,"bodenfreiheit_mm":175,"cw_wert":0.28,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"One-Pedal-Driving","waermepumpe":true},"preis":{"basispreis_eur":38590,"stromkosten_eur_100km":{"min":5.3,"max":6.5},"versicherung_eur_jahr":{"min":700,"max":1200},"wertverlust_3_jahre_pct":{"min":25,"max":35}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":2},"service":{"wartungsintervall":"1 Jahr / 30.000 km","wartungskosten_eur":{"min":180,"max":320},"anfaellige_punkte":["Kofferraum klein","Kein physischer Heckscheibenwischer-Schalter","Google-Infotainment (Lernkurve)"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"225/50 R18","quellen":["volvocars.com/de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.1,"euro_ncap":{"sterne":5,"erwachsene":92,"kinder":84,"fussgaenger":81,"assistenten":82},"ota_updates":true},{"modell":"MG4 Electric 77 kWh","marke":"MG","modelljahr":"2024-2026","plattform":"MSP (Modular Scalable Platform)","autotyp":"Kompaktwagen","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":180,"systemleistung_ps":245,"drehmoment_nm":350,"beschleunigung_0_100_s":6.5,"hoechstgeschwindigkeit_kmh":160},"batterie":{"brutto_kwh":77.0,"netto_kwh":74.4,"chemie":"NMC","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["CATL"],"gewicht_kg":{"min":430,"max":450},"garantie_jahre":7,"garantie_km":150000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":144,"dc_10_80_min":30,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":false,"v2l":true,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":15.8,"max":17.0},"wltp_reichweite_km":{"min":435,"max":520},"realverbrauch_kwh_100km":{"min":17,"max":22},"realreichweite_sommer_stadt_km":450,"realreichweite_autobahn_130_km":330,"effizienz_wh_km":{"min":158,"max":170}},"abmessungen":{"laenge_mm":4287,"breite_mm":1836,"hoehe_mm":1504,"radstand_mm":2705,"leergewicht_kg":1775,"zulaessiges_gesamtgewicht_kg":2175,"kofferraum_liter":363,"kofferraum_umgeklappt_liter":1165,"anhaengelast_gebremst_kg":500,"anhaengelast_ungebremst_kg":500,"wendekreis_m":10.6,"bodenfreiheit_mm":150,"cw_wert":0.275,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":false},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"3 Stufen + KERS","waermepumpe":false},"preis":{"basispreis_eur":36990,"stromkosten_eur_100km":{"min":5.4,"max":6.6},"versicherung_eur_jahr":{"min":550,"max":1000},"wertverlust_3_jahre_pct":{"min":35,"max":50}},"garantien":{"fahrzeug_jahre":7,"fahrzeug_km":150000,"lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":7},"service":{"wartungsintervall":"1 Jahr / 20.000 km","wartungskosten_eur":{"min":120,"max":250},"anfaellige_punkte":["Keine Waermepumpe","Materialqualitaet Innenraum","Servicenetz duenn","Keine Vorkonditionierung"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"225/45 R18","quellen":["mgmotor.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.2,"euro_ncap":{"sterne":5,"erwachsene":83,"kinder":80,"fussgaenger":65,"assistenten":74},"ota_updates":true},{"modell":"Audi Q4 e-tron 55 quattro","marke":"Audi","modelljahr":"2024-2026","plattform":"MEB","autotyp":"Kompakt-SUV","user_wish":null,"antrieb":{"konzept":"Allrad (AWD)","anzahl_motoren":2,"motortyp":"ASM (vorne) + PSM (hinten)"},"leistung":{"systemleistung_kw":250,"systemleistung_ps":340,"drehmoment_nm":545,"beschleunigung_0_100_s":5.4,"hoechstgeschwindigkeit_kmh":180},"batterie":{"brutto_kwh":82.0,"netto_kwh":77.0,"chemie":"NMC811","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["LG Energy Solution"],"gewicht_kg":{"min":480,"max":500},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":22,"dc_max_kw":175,"dc_10_80_min":28,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":590},"verbrauch":{"wltp_kwh_100km":{"min":17.0,"max":19.3},"wltp_reichweite_km":{"min":412,"max":487},"realverbrauch_kwh_100km":{"min":19,"max":25},"realreichweite_sommer_stadt_km":420,"realreichweite_autobahn_130_km":310,"effizienz_wh_km":{"min":170,"max":193}},"abmessungen":{"laenge_mm":4588,"breite_mm":1865,"hoehe_mm":1632,"radstand_mm":2764,"leergewicht_kg":2215,"zulaessiges_gesamtgewicht_kg":2750,"kofferraum_liter":520,"kofferraum_umgeklappt_liter":1490,"anhaengelast_gebremst_kg":1200,"anhaengelast_ungebremst_kg":750,"wendekreis_m":10.2,"bodenfreiheit_mm":180,"cw_wert":0.28,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"B-Modus + Segeln","waermepumpe":true},"preis":{"basispreis_eur":57900,"stromkosten_eur_100km":{"min":5.8,"max":7.5},"versicherung_eur_jahr":{"min":900,"max":1500},"wertverlust_3_jahre_pct":{"min":30,"max":40}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":2},"service":{"wartungsintervall":"2 Jahre / 30.000 km","wartungskosten_eur":{"min":250,"max":400},"anfaellige_punkte":["Hoher Verbrauch bei Kaelte","Softwarebugs (MEB-typisch)","Hoher Preis fuer MEB-Plattform"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"235/50 R20","quellen":["audi.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.0,"euro_ncap":{"sterne":5,"erwachsene":93,"kinder":89,"fussgaenger":71,"assistenten":85},"ota_updates":true},{"modell":"Opel Mokka Electric","marke":"Opel","modelljahr":"2024-2026","plattform":"e-CMP / STLA Small","autotyp":"Klein-SUV","user_wish":null,"antrieb":{"konzept":"Frontantrieb (FWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":115,"systemleistung_ps":156,"drehmoment_nm":260,"beschleunigung_0_100_s":9.0,"hoechstgeschwindigkeit_kmh":150},"batterie":{"brutto_kwh":54.0,"netto_kwh":51.0,"chemie":"NMC","systemspannung_v":400,"zelltyp":"pouch","zelllieferant":["CATL","BYD"],"gewicht_kg":{"min":340,"max":360},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":100,"dc_10_80_min":30,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":false,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":15.2,"max":16.5},"wltp_reichweite_km":{"min":322,"max":406},"realverbrauch_kwh_100km":{"min":17,"max":22},"realreichweite_sommer_stadt_km":350,"realreichweite_autobahn_130_km":240,"effizienz_wh_km":{"min":152,"max":165}},"abmessungen":{"laenge_mm":4151,"breite_mm":1791,"hoehe_mm":1531,"radstand_mm":2557,"leergewicht_kg":1598,"zulaessiges_gesamtgewicht_kg":1960,"kofferraum_liter":310,"kofferraum_umgeklappt_liter":1060,"anhaengelast_gebremst_kg":0,"anhaengelast_ungebremst_kg":0,"wendekreis_m":10.7,"bodenfreiheit_mm":160,"cw_wert":0.32,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":false},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Verbundlenker","rekuperation":"B-Modus","waermepumpe":false},"preis":{"basispreis_eur":38400,"stromkosten_eur_100km":{"min":5.2,"max":6.4},"versicherung_eur_jahr":{"min":550,"max":1000},"wertverlust_3_jahre_pct":{"min":35,"max":45}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":2},"service":{"wartungsintervall":"1 Jahr / 20.000 km","wartungskosten_eur":{"min":150,"max":280},"anfaellige_punkte":["Geringe Reichweite","DC nur 100 kW","Keine Waermepumpe","Keine AHK moeglich"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"215/60 R17","quellen":["opel.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.5,"euro_ncap":{"sterne":4,"erwachsene":73,"kinder":76,"fussgaenger":58,"assistenten":62},"ota_updates":false},{"modell":"Mercedes EQE 350+","marke":"Mercedes-Benz","modelljahr":"2023-2026","plattform":"EVA2","autotyp":"Limousine","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":215,"systemleistung_ps":292,"drehmoment_nm":565,"beschleunigung_0_100_s":6.4,"hoechstgeschwindigkeit_kmh":210},"batterie":{"brutto_kwh":96.1,"netto_kwh":90.6,"chemie":"NMC811","systemspannung_v":400,"zelltyp":"pouch","zelllieferant":["CATL","Farasis"],"gewicht_kg":{"min":600,"max":630},"garantie_jahre":10,"garantie_km":250000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":22,"dc_max_kw":170,"dc_10_80_min":32,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":500},"verbrauch":{"wltp_kwh_100km":{"min":15.9,"max":18.7},"wltp_reichweite_km":{"min":535,"max":620},"realverbrauch_kwh_100km":{"min":18,"max":24},"realreichweite_sommer_stadt_km":550,"realreichweite_autobahn_130_km":400,"effizienz_wh_km":{"min":159,"max":187}},"abmessungen":{"laenge_mm":4946,"breite_mm":1906,"hoehe_mm":1492,"radstand_mm":3120,"leergewicht_kg":2355,"zulaessiges_gesamtgewicht_kg":2850,"kofferraum_liter":430,"kofferraum_umgeklappt_liter":895,"anhaengelast_gebremst_kg":750,"anhaengelast_ungebremst_kg":750,"wendekreis_m":12.5,"bodenfreiheit_mm":136,"cw_wert":0.22,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":false},"fahrwerk":{"federung_vorne":"Vierlenker","federung_hinten":"Mehrlenker","rekuperation":"3-stufig + D Auto","waermepumpe":true},"preis":{"basispreis_eur":66402,"stromkosten_eur_100km":{"min":5.4,"max":7.3},"versicherung_eur_jahr":{"min":1000,"max":1700},"wertverlust_3_jahre_pct":{"min":35,"max":50}},"garantien":{"fahrzeug_jahre":2,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":30,"mobilitaet_jahre":30},"service":{"wartungsintervall":"1 Jahr / 25.000 km","wartungskosten_eur":{"min":300,"max":500},"anfaellige_punkte":["MBUX Softwarebugs","Hoher Wertverlust","Grosser Wendekreis","Ruecksitzlehne nicht umklappbar (teilweise)"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"255/45 R19","quellen":["mercedes-benz.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":1.9,"euro_ncap":{"sterne":5,"erwachsene":96,"kinder":91,"fussgaenger":76,"assistenten":80},"ota_updates":true},{"modell":"Kia EV3 Long Range","marke":"Kia","modelljahr":"2025-2026","plattform":"E-GMP","autotyp":"Klein-SUV","user_wish":null,"antrieb":{"konzept":"Frontantrieb (FWD)","anzahl_motoren":1,"motortyp":"PSM"},"leistung":{"systemleistung_kw":150,"systemleistung_ps":204,"drehmoment_nm":283,"beschleunigung_0_100_s":7.5,"hoechstgeschwindigkeit_kmh":170},"batterie":{"brutto_kwh":81.4,"netto_kwh":78.7,"chemie":"NMC","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["Samsung SDI"],"gewicht_kg":{"min":440,"max":460},"garantie_jahre":7,"garantie_km":150000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":null,"dc_max_kw":128,"dc_10_80_min":31,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":true,"v2g":false,"v2h":false,"ac_optional_preis_eur":null},"verbrauch":{"wltp_kwh_100km":{"min":14.8,"max":15.6},"wltp_reichweite_km":{"min":505,"max":600},"realverbrauch_kwh_100km":{"min":16,"max":21},"realreichweite_sommer_stadt_km":520,"realreichweite_autobahn_130_km":380,"effizienz_wh_km":{"min":148,"max":156}},"abmessungen":{"laenge_mm":4300,"breite_mm":1850,"hoehe_mm":1560,"radstand_mm":2680,"leergewicht_kg":1810,"zulaessiges_gesamtgewicht_kg":2260,"kofferraum_liter":460,"kofferraum_umgeklappt_liter":1251,"anhaengelast_gebremst_kg":0,"anhaengelast_ungebremst_kg":0,"wendekreis_m":10.8,"bodenfreiheit_mm":171,"cw_wert":0.28,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":false},"fahrwerk":{"federung_vorne":"MacPherson","federung_hinten":"Mehrlenker","rekuperation":"i-Pedal + Paddel-Stufen","waermepumpe":true},"preis":{"basispreis_eur":40990,"stromkosten_eur_100km":{"min":5.0,"max":6.1},"versicherung_eur_jahr":{"min":600,"max":1100},"wertverlust_3_jahre_pct":{"min":25,"max":35}},"garantien":{"fahrzeug_jahre":7,"fahrzeug_km":150000,"lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":7},"service":{"wartungsintervall":"1 Jahr / 15.000 km","wartungskosten_eur":{"min":150,"max":280},"anfaellige_punkte":["Neues Modell - wenig Langzeitdaten","DC nur 128 kW (400V)","Keine AHK moeglich"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"215/55 R18","quellen":["kia.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":2.0,"euro_ncap":{"sterne":5,"erwachsene":91,"kinder":87,"fussgaenger":65,"assistenten":82},"ota_updates":true},{"modell":"BMW i4 eDrive40","marke":"BMW","modelljahr":"2022-2026","plattform":"CLAR","autotyp":"Limousine (Gran Coupe)","user_wish":null,"antrieb":{"konzept":"Heckantrieb (RWD)","anzahl_motoren":1,"motortyp":"EESM"},"leistung":{"systemleistung_kw":250,"systemleistung_ps":340,"drehmoment_nm":430,"beschleunigung_0_100_s":5.6,"hoechstgeschwindigkeit_kmh":190},"batterie":{"brutto_kwh":83.9,"netto_kwh":81.1,"chemie":"NMC","systemspannung_v":400,"zelltyp":"prismatisch","zelllieferant":["Samsung SDI"],"gewicht_kg":{"min":540,"max":560},"garantie_jahre":8,"garantie_km":160000,"garantie_restkapazitaet_pct":70},"laden":{"ac_serie_kw":11,"ac_optional_kw":22,"dc_max_kw":205,"dc_10_80_min":31,"ladestecker":["CCS","Typ 2"],"vorkonditionierung":true,"v2l":false,"v2g":false,"v2h":false,"ac_optional_preis_eur":720},"verbrauch":{"wltp_kwh_100km":{"min":16.1,"max":18.4},"wltp_reichweite_km":{"min":480,"max":590},"realverbrauch_kwh_100km":{"min":18,"max":24},"realreichweite_sommer_stadt_km":520,"realreichweite_autobahn_130_km":380,"effizienz_wh_km":{"min":161,"max":184}},"abmessungen":{"laenge_mm":4783,"breite_mm":1852,"hoehe_mm":1448,"radstand_mm":2856,"leergewicht_kg":2125,"zulaessiges_gesamtgewicht_kg":2605,"kofferraum_liter":470,"kofferraum_umgeklappt_liter":1290,"anhaengelast_gebremst_kg":1600,"anhaengelast_ungebremst_kg":750,"wendekreis_m":12.0,"bodenfreiheit_mm":135,"cw_wert":0.24,"frunk":false,"frunk_liter":null,"ahk_verfuegbar":true},"fahrwerk":{"federung_vorne":"Doppelquerlenker","federung_hinten":"Fuenflenker","rekuperation":"B-Modus mit One-Pedal-Driving","waermepumpe":true},"preis":{"basispreis_eur":58500,"stromkosten_eur_100km":{"min":5.5,"max":7.1},"versicherung_eur_jahr":{"min":900,"max":1500},"wertverlust_3_jahre_pct":{"min":30,"max":40}},"garantien":{"fahrzeug_jahre":3,"fahrzeug_km":"unbegrenzt","lack_jahre":3,"durchrostung_jahre":12,"mobilitaet_jahre":3},"service":{"wartungsintervall":"2 Jahre / 30.000 km","wartungskosten_eur":{"min":200,"max":400},"anfaellige_punkte":["Conversion-Design (Verbrenner-Basis)","Hohes Gewicht","Kein Frunk"],"garantie_relevant":true},"bemerkung":null,"reifen_serie":"245/45 R18","quellen":["bmw.de (2026)","ADAC","InsideEVs.de"],"datenerfassung":"2026-06-20","adac_note":1.8,"euro_ncap":{"sterne":5,"erwachsene":85,"kinder":89,"fussgaenger":75,"assistenten":78},"ota_updates":true}]};
+
+const COLUMNS = [
+  { key: 'user_wish', label: 'Pref', editable: true, group: '' },
+  { key: 'modell', label: 'Modell', group: '' },
+  { key: 'marke', label: 'Marke', group: '' },
+  { key: 'autotyp', label: 'Segment', group: '' },
+  { key: 'produkt_url', label: 'Link', group: '', type: 'link' },
+  { key: 'adac_note', label: 'ADAC', group: 'Sicherheit' },
+  { key: 'euro_ncap.sterne', label: 'NCAP', group: 'Sicherheit' },
+  { key: 'euro_ncap.erwachsene', label: 'Erw.%', group: 'Sicherheit' },
+  { key: 'euro_ncap.kinder', label: 'Kind%', group: 'Sicherheit' },
+  { key: 'euro_ncap.fussgaenger', label: 'Fuss%', group: 'Sicherheit' },
+  { key: 'euro_ncap.assistenten', label: 'Assi%', group: 'Sicherheit' },
+  { key: 'antrieb.konzept', label: 'Antrieb', group: 'Motor' },
+  { key: 'leistung.systemleistung_kw', label: 'kW', group: 'Motor' },
+  { key: 'leistung.systemleistung_ps', label: 'PS', group: 'Motor' },
+  { key: 'leistung.drehmoment_nm', label: 'Nm', group: 'Motor' },
+  { key: 'leistung.beschleunigung_0_100_s', label: '0-100', group: 'Motor' },
+  { key: 'leistung.hoechstgeschwindigkeit_kmh', label: 'Vmax', group: 'Motor' },
+  { key: 'batterie.netto_kwh', label: 'kWh netto', group: 'Batterie' },
+  { key: 'batterie.systemspannung_v', label: 'Volt', group: 'Batterie' },
+  { key: 'batterie.chemie', label: 'Chemie', group: 'Batterie' },
+  { key: 'batterie.zelltyp', label: 'Zelltyp', group: 'Batterie' },
+  { key: 'laden.dc_max_kw', label: 'DC kW', group: 'Laden' },
+  { key: 'laden.dc_10_80_min', label: '10-80%', group: 'Laden' },
+  { key: 'laden.ac_serie_kw', label: 'AC kW', group: 'Laden' },
+  { key: 'laden.ac_optional_kw', label: 'AC opt.', group: 'Laden' },
+  { key: 'laden.ac_optional_preis_eur', label: 'AC opt. EUR', group: 'Laden' },
+  { key: 'laden.v2l', label: 'V2L', type: 'bool', group: 'Laden' },
+  { key: 'verbrauch.wltp_kwh_100km', label: 'WLTP kWh', type: 'range', group: 'Reichweite' },
+  { key: 'verbrauch.wltp_reichweite_km', label: 'WLTP km', type: 'range', group: 'Reichweite' },
+  { key: 'verbrauch.realverbrauch_kwh_100km', label: 'Real kWh', type: 'range', group: 'Reichweite' },
+  { key: 'abmessungen.leergewicht_kg', label: 'Gewicht', group: 'Specs' },
+  { key: 'abmessungen.kofferraum_liter', label: 'Kofferr.', group: 'Specs' },
+  { key: 'abmessungen.kofferraum_umgeklappt_liter', label: 'Koff. max', group: 'Specs' },
+  { key: 'abmessungen.frunk', label: 'Frunk', type: 'bool', group: 'Specs' },
+  { key: 'abmessungen.frunk_liter', label: 'Frunk L', group: 'Specs' },
+  { key: 'abmessungen.ahk_verfuegbar', label: 'AHK', type: 'bool', group: 'Specs' },
+  { key: 'ota_updates', label: 'OTA', type: 'bool', group: 'Specs' },
+  { key: 'fahrwerk.waermepumpe', label: 'WP', type: 'bool', group: 'Specs' },
+  { key: 'preis.basispreis_eur', label: 'Preis EUR', group: 'Kosten' },
+  { key: 'preis.versicherung_eur_jahr', label: 'Versich.', type: 'range', group: 'Kosten' },
+  { key: 'service.garantie_relevant', label: 'Gar.rel.', type: 'bool', group: 'Kosten' },
+  { key: 'service.wartungsintervall', label: 'Wartungsintervall', group: 'Kosten' },
+  { key: 'service.wartungskosten_eur', label: 'Wartung EUR', type: 'range', group: 'Kosten' },
+  { key: 'service.anfaellige_punkte', label: 'Anfaellige Punkte', group: 'Kosten' },
+  { key: 'bemerkung', label: 'Bemerkung', editable: 'text', group: '' },
+];
+
+const GROUP_NAMES = [...new Set(COLUMNS.map(c => c.group).filter(g => g))];
+let hiddenGroups = new Set();
+
+function initGroupToggles() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('eauto_groups') || '[]');
+    hiddenGroups = new Set(saved);
+  } catch(e) {}
+  const container = document.getElementById('groupToggles');
+  const allBtn = document.createElement('button');
+  allBtn.className = 'group-toggle' + (hiddenGroups.size === 0 ? ' active' : '');
+  allBtn.textContent = 'Alle';
+  allBtn.addEventListener('click', () => {
+    hiddenGroups.clear();
+    localStorage.setItem('eauto_groups', '[]');
+    container.querySelectorAll('.group-toggle').forEach(b => b.classList.add('active'));
+    noneBtn.classList.remove('active');
+    buildHeader();
+    renderTable();
+  });
+  container.appendChild(allBtn);
+  const noneBtn = document.createElement('button');
+  noneBtn.className = 'group-toggle' + (hiddenGroups.size === GROUP_NAMES.length ? ' active' : '');
+  noneBtn.textContent = 'Keine';
+  noneBtn.addEventListener('click', () => {
+    GROUP_NAMES.forEach(n => hiddenGroups.add(n));
+    localStorage.setItem('eauto_groups', JSON.stringify([...hiddenGroups]));
+    container.querySelectorAll('.group-toggle').forEach(b => b.classList.remove('active'));
+    noneBtn.classList.add('active');
+    buildHeader();
+    renderTable();
+  });
+  container.appendChild(noneBtn);
+  GROUP_NAMES.forEach(name => {
+    const btn = document.createElement('button');
+    btn.className = 'group-toggle' + (hiddenGroups.has(name) ? '' : ' active');
+    btn.textContent = name;
+    btn.addEventListener('click', () => {
+      if (hiddenGroups.has(name)) { hiddenGroups.delete(name); btn.classList.add('active'); }
+      else { hiddenGroups.add(name); btn.classList.remove('active'); }
+      allBtn.classList.toggle('active', hiddenGroups.size === 0);
+      noneBtn.classList.toggle('active', hiddenGroups.size === GROUP_NAMES.length);
+      localStorage.setItem('eauto_groups', JSON.stringify([...hiddenGroups]));
+      buildHeader();
+      renderTable();
+    });
+    container.appendChild(btn);
+  });
+}
+
+function isColVisible(col) {
+  return !col.group || !hiddenGroups.has(col.group);
+}
+
+let data = [];
+let dataSource = 'embedded';
+let sortCol = null;
+let sortDir = 'asc';
+let activePreset = 'all';
+let colFilters = {};
+
+function getVal(obj, path) {
+  return path.split('.').reduce((o, k) => o && o[k] !== undefined ? o[k] : null, obj);
+}
+
+function isRange(v) {
+  return v && typeof v === 'object' && 'min' in v && 'max' in v;
+}
+
+function numVal(v) {
+  if (v === null || v === undefined) return null;
+  if (isRange(v)) return v.min;
+  if (typeof v === 'boolean') return v ? 1 : 0;
+  const n = parseFloat(v);
+  return isNaN(n) ? null : n;
+}
+
+function displayVal(v, col) {
+  if (v === null || v === undefined) return '<span class="no-data">-</span>';
+  if (col.type === 'link') return `<a href="${v}" target="_blank" rel="noopener" class="link-icon" title="${v}">&#128279;</a>`;
+  if (col.type === 'bool') return v ? '<span class="bool-yes">Ja</span>' : '<span class="bool-no">Nein</span>';
+  if (isRange(v)) return `<span class="val-min">${v.min}</span> <span class="val-max">/ ${v.max}</span>`;
+  if (typeof v === 'number') return v.toLocaleString('de-DE');
+  if (Array.isArray(v)) return v.join(', ');
+  return String(v);
+}
+
+function rangeHeaders(col) {
+  if (col.type === 'range') return [col.label + ' min', col.label + ' max'];
+  return [col.label];
+}
+
+function rangeCells(v, col) {
+  if (col.type === 'range' && isRange(v)) {
+    return [`<span class="val-min">${v.min}</span>`, `<span class="val-max">${v.max}</span>`];
+  }
+  if (col.type === 'range') {
+    const d = '<span class="no-data">-</span>';
+    return [v !== null ? String(v) : d, d];
+  }
+  return [displayVal(v, col)];
+}
+
+function buildHeader() {
+  const gr = document.getElementById('groupRow');
+  const tr = document.getElementById('headerRow');
+  gr.innerHTML = '';
+  tr.innerHTML = '';
+  const groups = [];
+  COLUMNS.filter(isColVisible).forEach(col => {
+    const span = col.type === 'range' ? 2 : 1;
+    const name = col.group || '';
+    if (groups.length && groups[groups.length-1].name === name) {
+      groups[groups.length-1].span += span;
+    } else {
+      groups.push({ name, span });
+    }
+  });
+  groups.forEach(g => {
+    const th = document.createElement('th');
+    th.colSpan = g.span;
+    th.className = 'group-header';
+    th.textContent = g.name;
+    gr.appendChild(th);
+  });
+  COLUMNS.forEach((col, ci) => {
+    if (!isColVisible(col)) return;
+    const headers = col.type === 'range' ? [col.label + ' min', col.label + ' max'] : [col.label];
+    headers.forEach((h, hi) => {
+      const th = document.createElement('th');
+      const sortKey = col.type === 'range' ? col.key + (hi === 0 ? '.min' : '.max') : col.key;
+      th.dataset.sortKey = sortKey;
+      th.dataset.colIdx = ci;
+      th.innerHTML = `${h}<span class="sort-icon">▲</span><input type="text" class="col-filter" placeholder="Filter..." data-filter-key="${sortKey}">`;
+      th.addEventListener('click', (e) => {
+        if (e.target.classList.contains('col-filter')) return;
+        toggleSort(sortKey);
+      });
+      const input = th.querySelector('.col-filter');
+      input.addEventListener('input', () => {
+        colFilters[sortKey] = input.value.trim().toLowerCase();
+        renderTable();
+      });
+      input.addEventListener('click', e => e.stopPropagation());
+      tr.appendChild(th);
+    });
+  });
+}
+
+function toggleSort(key) {
+  if (sortCol === key) { sortDir = sortDir === 'asc' ? 'desc' : 'asc'; }
+  else { sortCol = key; sortDir = 'asc'; }
+  renderTable();
+}
+
+function getSortVal(item, key) {
+  if (key.endsWith('.min') || key.endsWith('.max')) {
+    const base = key.replace(/\.(min|max)$/, '');
+    const which = key.endsWith('.min') ? 'min' : 'max';
+    const v = getVal(item, base);
+    if (isRange(v)) return v[which];
+    return numVal(v);
+  }
+  const v = getVal(item, key);
+  return numVal(v) !== null ? numVal(v) : (v ? String(v).toLowerCase() : '');
+}
+
+function matchFilter(item, key, filter) {
+  if (!filter) return true;
+  const v = getSortVal(item, key);
+  if (filter.startsWith('>')) { const n = parseFloat(filter.slice(1)); return !isNaN(n) && typeof v === 'number' && v > n; }
+  if (filter.startsWith('<')) { const n = parseFloat(filter.slice(1)); return !isNaN(n) && typeof v === 'number' && v < n; }
+  if (filter.startsWith('=')) { const t = filter.slice(1); return String(v) === t; }
+  return String(v).toLowerCase().includes(filter);
+}
+
+function applyPreset(items) {
+  switch (activePreset) {
+    case 'pref': return items.filter(d => d.user_wish !== null && d.user_wish !== undefined && d.user_wish !== '');
+    case 'range400': return items.filter(d => { const v = getVal(d, 'verbrauch.wltp_reichweite_km'); return isRange(v) ? v.max > 400 : numVal(v) > 400; });
+    case 'price50k': return items.filter(d => getVal(d, 'preis.basispreis_eur') < 50000);
+    case 'awd': return items.filter(d => (getVal(d, 'antrieb.konzept') || '').includes('AWD') || (getVal(d, 'antrieb.konzept') || '').includes('Allrad'));
+    case 'dc150': return items.filter(d => getVal(d, 'laden.dc_max_kw') > 150);
+    case 'ac22': return items.filter(d => getVal(d, 'laden.ac_serie_kw') >= 22 || getVal(d, 'laden.ac_optional_kw') >= 22);
+    case 'heatpump': return items.filter(d => getVal(d, 'fahrwerk.waermepumpe') === true);
+    case 'fast06': return items.filter(d => getVal(d, 'leistung.beschleunigung_0_100_s') < 6);
+    default: return items;
+  }
+}
+
+function renderTable() {
+  let items = [...data];
+  const search = document.getElementById('globalSearch').value.trim().toLowerCase();
+  if (search) {
+    items = items.filter(d => JSON.stringify(d).toLowerCase().includes(search));
+  }
+  items = applyPreset(items);
+  for (const [key, filter] of Object.entries(colFilters)) {
+    if (filter) items = items.filter(d => matchFilter(d, key, filter));
+  }
+  if (sortCol) {
+    items.sort((a, b) => {
+      let va = getSortVal(a, sortCol), vb = getSortVal(b, sortCol);
+      if (va === null || va === '') return 1;
+      if (vb === null || vb === '') return -1;
+      if (typeof va === 'number' && typeof vb === 'number') return sortDir === 'asc' ? va - vb : vb - va;
+      return sortDir === 'asc' ? String(va).localeCompare(String(vb)) : String(vb).localeCompare(String(va));
+    });
+  }
+  document.querySelectorAll('th').forEach(th => { th.classList.remove('sorted-asc', 'sorted-desc'); if (th.dataset.sortKey === sortCol) th.classList.add('sorted-' + sortDir); });
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+  items.forEach((item, idx) => {
+    const tr = document.createElement('tr');
+    COLUMNS.forEach(col => {
+      if (!isColVisible(col)) return;
+      const v = getVal(item, col.key);
+      const cells = rangeCells(v, col);
+      cells.forEach(html => {
+        const td = document.createElement('td');
+        if (col.editable === true) {
+          if (dataSource === 'embedded') {
+            const badge = document.createElement('span');
+            badge.className = 'src-badge';
+            badge.title = 'Eingebettete Daten';
+            badge.textContent = 'int';
+            td.appendChild(badge);
+          }
+          const inp = document.createElement('input');
+          inp.type = 'number';
+          inp.className = 'wish-input';
+          inp.value = v !== null && v !== undefined ? v : '';
+          inp.addEventListener('change', () => {
+            const newVal = inp.value === '' ? null : parseInt(inp.value);
+            item.user_wish = newVal;
+            saveUserData();
+            if (activePreset === 'pref') renderTable();
+          });
+          td.appendChild(inp);
+        } else if (col.editable === 'text') {
+          const inp = document.createElement('input');
+          inp.type = 'text';
+          inp.className = 'note-input';
+          inp.value = v || '';
+          inp.placeholder = 'Notiz...';
+          inp.addEventListener('change', () => {
+            item.bemerkung = inp.value || null;
+            saveUserData();
+          });
+          td.appendChild(inp);
+        } else {
+          td.innerHTML = html;
+        }
+        tr.appendChild(td);
+      });
+    });
+    tbody.appendChild(tr);
+  });
+  const modelsShown = new Set(items.map(d => d.marke + ' ' + d.modell.replace(/ (eDrive|xDrive|AWD|RWD|FWD|Long Range|Standard).*/, ''))).size;
+  const modelsTotal = new Set(data.map(d => d.marke + ' ' + d.modell.replace(/ (eDrive|xDrive|AWD|RWD|FWD|Long Range|Standard).*/, ''))).size;
+  document.getElementById('statusCount').textContent = `${items.length} Varianten (${modelsShown} Modelle) von ${data.length} gesamt (${modelsTotal} Modelle)`;
+  document.querySelectorAll('[data-preset]').forEach(b => b.classList.toggle('active', b.dataset.preset === activePreset));
+}
+
+function saveUserData() {
+  const ud = {};
+  data.forEach(d => {
+    const entry = {};
+    if (d.user_wish !== null) entry.wish = d.user_wish;
+    if (d.bemerkung) entry.bemerkung = d.bemerkung;
+    if (Object.keys(entry).length) ud[d.modell] = entry;
+  });
+  localStorage.setItem('eauto_userdata', JSON.stringify(ud));
+}
+
+function loadUserData() {
+  try {
+    const ud = JSON.parse(localStorage.getItem('eauto_userdata') || '{}');
+    data.forEach(d => {
+      if (ud[d.modell]) {
+        if (ud[d.modell].wish !== undefined) d.user_wish = ud[d.modell].wish;
+        if (ud[d.modell].bemerkung) d.bemerkung = ud[d.modell].bemerkung;
+      }
+    });
+  } catch(e) {}
+}
+
+function getFilteredItems() {
+  let items = [...data];
+  const search = document.getElementById('globalSearch').value.trim().toLowerCase();
+  if (search) items = items.filter(d => JSON.stringify(d).toLowerCase().includes(search));
+  items = applyPreset(items);
+  for (const [key, filter] of Object.entries(colFilters)) {
+    if (filter) items = items.filter(d => matchFilter(d, key, filter));
+  }
+  if (sortCol) {
+    items.sort((a, b) => {
+      let va = getSortVal(a, sortCol), vb = getSortVal(b, sortCol);
+      if (va === null || va === '') return 1;
+      if (vb === null || vb === '') return -1;
+      if (typeof va === 'number' && typeof vb === 'number') return sortDir === 'asc' ? va - vb : vb - va;
+      return sortDir === 'asc' ? String(va).localeCompare(String(vb)) : String(vb).localeCompare(String(va));
+    });
+  }
+  return items;
+}
+
+function exportCSV() {
+  const items = getFilteredItems();
+  const headers = [];
+  const visCols = COLUMNS.filter(isColVisible);
+  visCols.forEach(col => { if (col.type === 'range') { headers.push(col.label + ' min', col.label + ' max'); } else headers.push(col.label); });
+  const rows = [headers.join(';')];
+  items.forEach(d => {
+    const cells = [];
+    visCols.forEach(col => {
+      const v = getVal(d, col.key);
+      if (col.type === 'range' && isRange(v)) { cells.push(v.min, v.max); }
+      else if (col.type === 'range') { cells.push(v || '', ''); }
+      else if (col.type === 'bool') { cells.push(v ? 'Ja' : 'Nein'); }
+      else { cells.push(v !== null && v !== undefined ? v : ''); }
+    });
+    rows.push(cells.join(';'));
+  });
+  const blob = new Blob(['﻿' + rows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'eAuto_Vergleich.csv';
+  a.click();
+}
+
+async function loadData() {
+  try {
+    const resp = await fetch('eAuto.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('not found');
+    const json = await resp.json();
+    data = json.fahrzeuge || [];
+    dataSource = 'json';
+    document.getElementById('statusFile').textContent = `eAuto.json geladen (${data.length} Fahrzeuge)`;
+  } catch(e) {
+    data = JSON.parse(JSON.stringify(DEFAULT_DATA.fahrzeuge));
+    dataSource = 'embedded';
+    document.getElementById('statusFile').textContent = `Eingebettete Daten (${data.length} Fahrzeuge)`;
+  }
+  loadUserData();
+  buildHeader();
+  renderTable();
+}
+
+document.getElementById('globalSearch').addEventListener('input', renderTable);
+document.querySelectorAll('[data-preset]').forEach(btn => {
+  btn.addEventListener('click', () => { activePreset = btn.dataset.preset; renderTable(); });
+});
+document.getElementById('btnExportCSV').addEventListener('click', exportCSV);
+document.getElementById('btnExportJSON').addEventListener('click', () => {
+  const items = getFilteredItems();
+  const exportData = { fahrzeuge: items };
+  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'eAuto.json';
+  a.click();
+});
+document.getElementById('btnImportJSON').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const json = JSON.parse(ev.target.result);
+      if (!json.fahrzeuge || !Array.isArray(json.fahrzeuge)) { alert('Ungueltige JSON-Datei: "fahrzeuge" Array fehlt.'); return; }
+      data = json.fahrzeuge;
+      dataSource = 'json';
+      loadUserData();
+      buildHeader();
+      renderTable();
+      document.getElementById('statusFile').textContent = `${file.name} importiert (${data.length} Fahrzeuge)`;
+    } catch(err) { alert('Fehler beim Einlesen: ' + err.message); }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+document.getElementById('btnReset').addEventListener('click', () => {
+  activePreset = 'all';
+  document.getElementById('globalSearch').value = '';
+  colFilters = {};
+  sortCol = null; sortDir = 'asc';
+  document.querySelectorAll('.col-filter').forEach(i => i.value = '');
+  renderTable();
+});
+
+function initTheme() {
+  const saved = localStorage.getItem('eauto_theme');
+  if (saved) { document.documentElement.dataset.theme = saved; }
+  updateThemeIcon();
+}
+function updateThemeIcon() {
+  const t = document.documentElement.dataset.theme;
+  const isDark = t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.getElementById('themeToggle').textContent = isDark ? '☀' : '☾';
+}
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const current = document.documentElement.dataset.theme;
+  const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let next;
+  if (!current) { next = sysDark ? 'light' : 'dark'; }
+  else if (current === 'dark') { next = 'light'; }
+  else { next = 'dark'; }
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('eauto_theme', next);
+  updateThemeIcon();
+});
+initTheme();
+initGroupToggles();
+loadData();
+</script>
+</body>
+</html>
