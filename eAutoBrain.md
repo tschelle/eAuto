@@ -146,32 +146,68 @@ reifen_serie, quellen[], datenerfassung
 
 ## Anleitung
 
-### Seite starten (mit JSON)
+### Seite aufrufen (GitHub Pages — empfohlen)
+Live unter: **https://tschelle.github.io/eAuto/**
+Laedt automatisch die eAuto.json aus dem Repo. Keine Serverinstallation noetig.
+
+### Seite lokal starten (mit JSON)
 ```bash
-cd /pfad/zu/eAuto
+cd /Users/tschelle/Desktop/SchreibtischAblage/eAuto
 python3 -m http.server 9090
 ```
 Dann im Browser: http://localhost:9090
 
-### Seite starten (ohne Server)
+### Seite lokal starten (ohne Server)
 Einfach `index.html` doppelklicken — zeigt die 23 eingebetteten Fahrzeuge (mit "int"-Badge).
-Um alle 33 zu sehen: JSON-Import Button nutzen und `eAuto.json` auswaehlen.
+Um alle 52 zu sehen: JSON-Import Button nutzen und `eAuto.json` auswaehlen.
 
-### Neues Fahrzeug hinzufuegen
+### Neues Fahrzeug hinzufuegen (mit Claude Code)
+So geht's — vom Handy, Desktop oder Web:
+
+1. Claude Code oeffnen (App, Desktop oder claude.ai/code)
+2. Diese Datei (eAutoBrain.md) als Kontext uebergeben
+3. Sagen: **"Ergaenze die eAuto.json um [Modellname]. Dann commit und push auf GitHub."**
+4. Claude ergaenzt die JSON mit allen Feldern, committed und pusht
+5. GitHub Pages aktualisiert sich automatisch (~1 Min)
+6. Seite unter tschelle.github.io/eAuto zeigt das neue Fahrzeug
+
+Beispiel-Prompts:
+- "Ergaenze den Ferrari SF90 in die eAuto.json und pushe auf GitHub"
+- "Fuege Lucid Air und Genesis G80 hinzu, commit und push"
+- "Aktualisiere den Preis vom BMW iX1 auf 47.900 EUR und pushe"
+
+Wichtig fuer Claude Code:
+- Arbeitsverzeichnis: `/Users/tschelle/Desktop/SchreibtischAblage/eAuto`
+- GitHub Repo: `tschelle/eAuto` (public, GitHub Pages aktiv)
+- Nur eAuto.json aendern, NICHT die eingebetteten Daten im HTML
+- Nach Aenderung: `git add eAuto.json && git commit -m "..." && git push`
+
+### Neues Fahrzeug manuell hinzufuegen
 1. In `eAuto.json` neuen Eintrag im `fahrzeuge`-Array ergaenzen (gleiche Struktur wie bestehende)
-2. Seite neu laden — fertig
-3. HTML (DEFAULT_DATA) wird NICHT aktualisiert
+2. `git add eAuto.json && git commit -m "Add [Modell]" && git push`
+3. GitHub Pages baut automatisch neu (~1 Min)
 
 ### Daten weitergeben
 - **Nur HTML**: Empfaenger sieht 23 eingebettete Fahrzeuge (mit "int"-Badge)
 - **HTML + JSON**: Empfaenger startet lokalen Server oder nutzt JSON-Import fuer alle Daten
 - **JSON-Export**: Button exportiert aktuelle gefilterte Ansicht als JSON — kann vom Empfaenger importiert werden
+- **GitHub Pages**: Link teilen: https://tschelle.github.io/eAuto/
+
+---
+
+## GitHub Repository
+
+- **Repo:** https://github.com/tschelle/eAuto
+- **Live-Seite:** https://tschelle.github.io/eAuto/
+- **Branch:** main
+- **Auto-Deploy:** GitHub Actions Workflow (bei jedem Push auf main)
+- **Lokaler Pfad:** `/Users/tschelle/Desktop/SchreibtischAblage/eAuto`
 
 ---
 
 ## Naechste Schritte
 - JSON-Daten pruefen und ggf. korrigieren (ADAC, NCAP, Preise verifizieren)
-- Weitere Fahrzeuge erfassen (NIO, Lucid, Genesis, ...)
+- Eingabeformular in HTML einbauen (Fahrzeug direkt im Browser hinzufuegen)
 - Vergleichsmodus (2-3 Autos nebeneinander, Unterschiede farblich)
 - Farbkodierung bei Zahlenwerten (gruen=gut, rot=schlecht)
 
@@ -181,3 +217,4 @@ Um alle 33 zu sehen: JSON-Import Button nutzen und `eAuto.json` auswaehlen.
 - Varianten (z.B. eDrive20 vs. xDrive30) als separate Zeilen im JSON
 - Alle Preise brutto, Stand Deutschland
 - Produkt-URLs verlinken auf Hersteller-Modellseiten (koennen sich aendern)
+- **eAuto_intern.json** ist in .gitignore und wird NICHT gepusht (persoenliche Notizen)
