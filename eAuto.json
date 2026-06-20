@@ -7761,6 +7761,452 @@
         "fussgaenger": 72,
         "assistenten": 85
       }
+    },
+    {
+      "modell": "Lucid Air Pure RWD",
+      "marke": "Lucid",
+      "modelljahr": "2024-2026",
+      "plattform": "LEAP",
+      "autotyp": "Oberklasse-Limousine",
+      "user_wish": null,
+      "produkt_url": "https://lucidmotors.com/de-de/air",
+      "antrieb": {
+        "konzept": "Heckantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 325,
+        "systemleistung_ps": 442,
+        "drehmoment_nm": 600,
+        "beschleunigung_0_100_s": 4.6,
+        "hoechstgeschwindigkeit_kmh": 200
+      },
+      "batterie": {
+        "brutto_kwh": 88.0,
+        "netto_kwh": 84.0,
+        "chemie": "NMC",
+        "systemspannung_v": 900,
+        "zelltyp": "zylindrisch (2170)",
+        "zelllieferant": [
+          "LG Energy Solution"
+        ],
+        "gewicht_kg": {
+          "min": 500,
+          "max": 520
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 19.2,
+        "ac_optional_kw": null,
+        "dc_max_kw": 250,
+        "dc_10_80_min": 22,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 13.8,
+          "max": 15.2
+        },
+        "wltp_reichweite_km": {
+          "min": 560,
+          "max": 660
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 16,
+          "max": 21
+        },
+        "realreichweite_sommer_stadt_km": 580,
+        "realreichweite_autobahn_130_km": 430,
+        "effizienz_wh_km": {
+          "min": 138,
+          "max": 152
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4975,
+        "breite_mm": 1939,
+        "hoehe_mm": 1410,
+        "radstand_mm": 2960,
+        "leergewicht_kg": 2150,
+        "zulaessiges_gesamtgewicht_kg": 2630,
+        "kofferraum_liter": 456,
+        "kofferraum_umgeklappt_liter": 1220,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "wendekreis_m": 11.6,
+        "bodenfreiheit_mm": 135,
+        "cw_wert": 0.197,
+        "frunk": true,
+        "frunk_liter": 280,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "One-Pedal-Driving",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 82900,
+        "stromkosten_eur_100km": {
+          "min": 4.7,
+          "max": 5.9
+        },
+        "versicherung_eur_jahr": {
+          "min": 1200,
+          "max": 2000
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 40,
+          "max": 55
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 4,
+        "fahrzeug_km": 80000,
+        "lack_jahre": 4,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 4
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 20.000 km",
+        "wartungskosten_eur": {
+          "min": 300,
+          "max": 500
+        },
+        "anfaellige_punkte": [
+          "Servicenetz DE minimal",
+          "Ersatzteile schwer verfuegbar",
+          "Restwert unsicher",
+          "Keine AHK moeglich"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "245/45 R19 / 265/40 R19",
+      "quellen": [
+        "lucidmotors.com/de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 1.8,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 90,
+        "kinder": 82,
+        "fussgaenger": 69,
+        "assistenten": 84
+      }
+    },
+    {
+      "modell": "Lucid Air Grand Touring AWD",
+      "marke": "Lucid",
+      "modelljahr": "2024-2026",
+      "plattform": "LEAP",
+      "autotyp": "Oberklasse-Limousine",
+      "user_wish": null,
+      "produkt_url": "https://lucidmotors.com/de-de/air",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 597,
+        "systemleistung_ps": 812,
+        "drehmoment_nm": 1100,
+        "beschleunigung_0_100_s": 3.0,
+        "hoechstgeschwindigkeit_kmh": 270
+      },
+      "batterie": {
+        "brutto_kwh": 118.0,
+        "netto_kwh": 112.0,
+        "chemie": "NMC",
+        "systemspannung_v": 900,
+        "zelltyp": "zylindrisch (2170)",
+        "zelllieferant": [
+          "LG Energy Solution"
+        ],
+        "gewicht_kg": {
+          "min": 650,
+          "max": 680
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 19.2,
+        "ac_optional_kw": null,
+        "dc_max_kw": 300,
+        "dc_10_80_min": 20,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 16.5,
+          "max": 18.8
+        },
+        "wltp_reichweite_km": {
+          "min": 620,
+          "max": 830
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 19,
+          "max": 25
+        },
+        "realreichweite_sommer_stadt_km": 700,
+        "realreichweite_autobahn_130_km": 520,
+        "effizienz_wh_km": {
+          "min": 165,
+          "max": 188
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4975,
+        "breite_mm": 1939,
+        "hoehe_mm": 1410,
+        "radstand_mm": 2960,
+        "leergewicht_kg": 2360,
+        "zulaessiges_gesamtgewicht_kg": 2840,
+        "kofferraum_liter": 456,
+        "kofferraum_umgeklappt_liter": 1220,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "wendekreis_m": 11.6,
+        "bodenfreiheit_mm": 135,
+        "cw_wert": 0.197,
+        "frunk": true,
+        "frunk_liter": 280,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "One-Pedal-Driving",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 139900,
+        "stromkosten_eur_100km": {
+          "min": 5.6,
+          "max": 7.3
+        },
+        "versicherung_eur_jahr": {
+          "min": 1600,
+          "max": 2500
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 40,
+          "max": 55
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 4,
+        "fahrzeug_km": 80000,
+        "lack_jahre": 4,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 4
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 20.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Servicenetz DE minimal",
+          "Ersatzteile schwer verfuegbar",
+          "Extremer Wertverlust",
+          "Keine AHK moeglich"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "245/40 R21 / 265/35 R21",
+      "quellen": [
+        "lucidmotors.com/de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 1.7,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 90,
+        "kinder": 82,
+        "fussgaenger": 69,
+        "assistenten": 84
+      }
+    },
+    {
+      "modell": "Lucid Gravity Grand Touring AWD",
+      "marke": "Lucid",
+      "modelljahr": "2025-2026",
+      "plattform": "LEAP",
+      "autotyp": "SUV (Oberklasse)",
+      "user_wish": null,
+      "produkt_url": "https://lucidmotors.com/de-de/gravity",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 533,
+        "systemleistung_ps": 725,
+        "drehmoment_nm": 1050,
+        "beschleunigung_0_100_s": 3.5,
+        "hoechstgeschwindigkeit_kmh": 250
+      },
+      "batterie": {
+        "brutto_kwh": 113.0,
+        "netto_kwh": 107.0,
+        "chemie": "NMC",
+        "systemspannung_v": 900,
+        "zelltyp": "zylindrisch (2170)",
+        "zelllieferant": [
+          "LG Energy Solution"
+        ],
+        "gewicht_kg": {
+          "min": 630,
+          "max": 660
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 19.2,
+        "ac_optional_kw": null,
+        "dc_max_kw": 300,
+        "dc_10_80_min": 20,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 18.5,
+          "max": 21.0
+        },
+        "wltp_reichweite_km": {
+          "min": 530,
+          "max": 700
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 21,
+          "max": 28
+        },
+        "realreichweite_sommer_stadt_km": 600,
+        "realreichweite_autobahn_130_km": 440,
+        "effizienz_wh_km": {
+          "min": 185,
+          "max": 210
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 5034,
+        "breite_mm": 2008,
+        "hoehe_mm": 1686,
+        "radstand_mm": 3040,
+        "leergewicht_kg": 2650,
+        "zulaessiges_gesamtgewicht_kg": 3200,
+        "kofferraum_liter": 895,
+        "kofferraum_umgeklappt_liter": 2100,
+        "anhaengelast_gebremst_kg": 2700,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 12.2,
+        "bodenfreiheit_mm": 185,
+        "cw_wert": 0.24,
+        "frunk": true,
+        "frunk_liter": 230,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "One-Pedal-Driving",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 94900,
+        "stromkosten_eur_100km": {
+          "min": 6.3,
+          "max": 8.2
+        },
+        "versicherung_eur_jahr": {
+          "min": 1400,
+          "max": 2200
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 40,
+          "max": 55
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 4,
+        "fahrzeug_km": 80000,
+        "lack_jahre": 4,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 4
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 20.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Servicenetz DE minimal",
+          "Neues Modell - keine Langzeitdaten",
+          "Ersatzteile schwer verfuegbar"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "265/40 R22 / 295/35 R22",
+      "quellen": [
+        "lucidmotors.com/de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      }
     }
   ]
 }
