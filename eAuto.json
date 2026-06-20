@@ -8207,6 +8207,904 @@
         "fussgaenger": null,
         "assistenten": null
       }
+    },
+    {
+      "modell": "Audi Q4 Sportback e-tron 55 quattro",
+      "marke": "Audi",
+      "modelljahr": "2024-2026",
+      "plattform": "MEB",
+      "autotyp": "SUV (Coupe)",
+      "user_wish": null,
+      "produkt_url": "https://www.audi.de/de/models/q4-sportback-e-tron.html",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "ASM (vorne) + PSM (hinten)"
+      },
+      "leistung": {
+        "systemleistung_kw": 250,
+        "systemleistung_ps": 340,
+        "drehmoment_nm": 545,
+        "beschleunigung_0_100_s": 5.4,
+        "hoechstgeschwindigkeit_kmh": 180
+      },
+      "batterie": {
+        "brutto_kwh": 82.0,
+        "netto_kwh": 77.0,
+        "chemie": "NMC811",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "LG Energy Solution"
+        ],
+        "gewicht_kg": {
+          "min": 480,
+          "max": 500
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 175,
+        "dc_10_80_min": 28,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 590
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 16.4,
+          "max": 18.5
+        },
+        "wltp_reichweite_km": {
+          "min": 432,
+          "max": 511
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 19,
+          "max": 24
+        },
+        "realreichweite_sommer_stadt_km": 440,
+        "realreichweite_autobahn_130_km": 320,
+        "effizienz_wh_km": {
+          "min": 164,
+          "max": 185
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4588,
+        "breite_mm": 1865,
+        "hoehe_mm": 1614,
+        "radstand_mm": 2764,
+        "leergewicht_kg": 2215,
+        "zulaessiges_gesamtgewicht_kg": 2750,
+        "kofferraum_liter": 535,
+        "kofferraum_umgeklappt_liter": 1460,
+        "anhaengelast_gebremst_kg": 1200,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 10.2,
+        "bodenfreiheit_mm": 180,
+        "cw_wert": 0.26,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "B-Modus + Segeln",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 59250,
+        "stromkosten_eur_100km": {
+          "min": 5.6,
+          "max": 7.2
+        },
+        "versicherung_eur_jahr": {
+          "min": 900,
+          "max": 1500
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 250,
+          "max": 400
+        },
+        "anfaellige_punkte": [
+          "Hoher Verbrauch bei Kaelte",
+          "Softwarebugs (MEB-typisch)",
+          "Hoher Preis fuer MEB"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "235/50 R20",
+      "quellen": [
+        "audi.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 2.0,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 93,
+        "kinder": 89,
+        "fussgaenger": 71,
+        "assistenten": 85
+      }
+    },
+    {
+      "modell": "Audi Q6 e-tron quattro",
+      "marke": "Audi",
+      "modelljahr": "2024-2026",
+      "plattform": "PPE",
+      "autotyp": "SUV (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.audi.de/de/models/q6-e-tron.html",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 285,
+        "systemleistung_ps": 387,
+        "drehmoment_nm": 580,
+        "boost_kw": 315,
+        "boost_ps": 428,
+        "beschleunigung_0_100_s": 5.9,
+        "hoechstgeschwindigkeit_kmh": 210
+      },
+      "batterie": {
+        "brutto_kwh": 100.0,
+        "netto_kwh": 94.9,
+        "chemie": "NMC811",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI"
+        ],
+        "gewicht_kg": {
+          "min": 570,
+          "max": 600
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 270,
+        "dc_10_80_min": 21,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 590
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 17.0,
+          "max": 19.4
+        },
+        "wltp_reichweite_km": {
+          "min": 533,
+          "max": 625
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 19,
+          "max": 25
+        },
+        "realreichweite_sommer_stadt_km": 530,
+        "realreichweite_autobahn_130_km": 390,
+        "effizienz_wh_km": {
+          "min": 170,
+          "max": 194
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4771,
+        "breite_mm": 1965,
+        "hoehe_mm": 1648,
+        "radstand_mm": 2899,
+        "leergewicht_kg": 2325,
+        "zulaessiges_gesamtgewicht_kg": 2860,
+        "kofferraum_liter": 526,
+        "kofferraum_umgeklappt_liter": 1529,
+        "anhaengelast_gebremst_kg": 2400,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 11.6,
+        "bodenfreiheit_mm": 184,
+        "cw_wert": 0.28,
+        "frunk": true,
+        "frunk_liter": 64,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "B-Modus + Segeln + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 74700,
+        "stromkosten_eur_100km": {
+          "min": 5.8,
+          "max": 7.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 1000,
+          "max": 1700
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 300,
+          "max": 500
+        },
+        "anfaellige_punkte": [
+          "Neues Modell - wenig Langzeitdaten",
+          "Hoher Verbrauch",
+          "Software-Updates noetig"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "255/50 R19",
+      "quellen": [
+        "audi.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 1.8,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 92,
+        "kinder": 88,
+        "fussgaenger": 74,
+        "assistenten": 82
+      }
+    },
+    {
+      "modell": "Audi Q6 Sportback e-tron quattro",
+      "marke": "Audi",
+      "modelljahr": "2025-2026",
+      "plattform": "PPE",
+      "autotyp": "SUV (Coupe/Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.audi.de/de/models/q6-sportback-e-tron.html",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 285,
+        "systemleistung_ps": 387,
+        "drehmoment_nm": 580,
+        "boost_kw": 315,
+        "boost_ps": 428,
+        "beschleunigung_0_100_s": 5.9,
+        "hoechstgeschwindigkeit_kmh": 210
+      },
+      "batterie": {
+        "brutto_kwh": 100.0,
+        "netto_kwh": 94.9,
+        "chemie": "NMC811",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI"
+        ],
+        "gewicht_kg": {
+          "min": 570,
+          "max": 600
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 270,
+        "dc_10_80_min": 21,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 590
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 16.2,
+          "max": 18.5
+        },
+        "wltp_reichweite_km": {
+          "min": 545,
+          "max": 656
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 18,
+          "max": 24
+        },
+        "realreichweite_sommer_stadt_km": 550,
+        "realreichweite_autobahn_130_km": 410,
+        "effizienz_wh_km": {
+          "min": 162,
+          "max": 185
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4771,
+        "breite_mm": 1965,
+        "hoehe_mm": 1607,
+        "radstand_mm": 2899,
+        "leergewicht_kg": 2310,
+        "zulaessiges_gesamtgewicht_kg": 2840,
+        "kofferraum_liter": 511,
+        "kofferraum_umgeklappt_liter": 1373,
+        "anhaengelast_gebremst_kg": 2400,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 11.6,
+        "bodenfreiheit_mm": 184,
+        "cw_wert": 0.26,
+        "frunk": true,
+        "frunk_liter": 64,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "B-Modus + Segeln + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 77450,
+        "stromkosten_eur_100km": {
+          "min": 5.5,
+          "max": 7.2
+        },
+        "versicherung_eur_jahr": {
+          "min": 1000,
+          "max": 1700
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 300,
+          "max": 500
+        },
+        "anfaellige_punkte": [
+          "Neues Modell",
+          "Hoher Verbrauch",
+          "Software-Updates noetig"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "255/50 R19",
+      "quellen": [
+        "audi.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 1.8,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 92,
+        "kinder": 88,
+        "fussgaenger": 74,
+        "assistenten": 82
+      }
+    },
+    {
+      "modell": "Audi Q8 e-tron 55 quattro",
+      "marke": "Audi",
+      "modelljahr": "2023-2026",
+      "plattform": "MLB evo",
+      "autotyp": "SUV (Oberklasse)",
+      "user_wish": null,
+      "produkt_url": "https://www.audi.de/de/models/q8-e-tron.html",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "ASM"
+      },
+      "leistung": {
+        "systemleistung_kw": 300,
+        "systemleistung_ps": 408,
+        "drehmoment_nm": 664,
+        "boost_kw": 335,
+        "boost_ps": 456,
+        "beschleunigung_0_100_s": 5.6,
+        "hoechstgeschwindigkeit_kmh": 200
+      },
+      "batterie": {
+        "brutto_kwh": 114.0,
+        "netto_kwh": 106.0,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "pouch",
+        "zelllieferant": [
+          "LG Energy Solution",
+          "Samsung SDI"
+        ],
+        "gewicht_kg": {
+          "min": 700,
+          "max": 730
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 170,
+        "dc_10_80_min": 32,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 720
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 20.1,
+          "max": 24.0
+        },
+        "wltp_reichweite_km": {
+          "min": 441,
+          "max": 582
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 23,
+          "max": 30
+        },
+        "realreichweite_sommer_stadt_km": 480,
+        "realreichweite_autobahn_130_km": 340,
+        "effizienz_wh_km": {
+          "min": 201,
+          "max": 240
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4915,
+        "breite_mm": 1937,
+        "hoehe_mm": 1633,
+        "radstand_mm": 2928,
+        "leergewicht_kg": 2620,
+        "zulaessiges_gesamtgewicht_kg": 3170,
+        "kofferraum_liter": 569,
+        "kofferraum_umgeklappt_liter": 1637,
+        "anhaengelast_gebremst_kg": 2400,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 12.2,
+        "bodenfreiheit_mm": 172,
+        "cw_wert": 0.28,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "Fuenflenker (Luft)",
+        "federung_hinten": "Fuenflenker (Luft)",
+        "rekuperation": "3 Stufen + Segeln",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 79900,
+        "stromkosten_eur_100km": {
+          "min": 6.8,
+          "max": 9.3
+        },
+        "versicherung_eur_jahr": {
+          "min": 1100,
+          "max": 1800
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 350,
+          "max": 550
+        },
+        "anfaellige_punkte": [
+          "Sehr hoher Verbrauch",
+          "DC nur 170 kW (langsam fuer Groesse)",
+          "Hoher Wertverlust",
+          "Hohes Gewicht (2,6t)"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "255/55 R19",
+      "quellen": [
+        "audi.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 2.0,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 93,
+        "kinder": 90,
+        "fussgaenger": 68,
+        "assistenten": 79
+      }
+    },
+    {
+      "modell": "Audi e-tron GT quattro",
+      "marke": "Audi",
+      "modelljahr": "2024-2026",
+      "plattform": "J1 / PPE",
+      "autotyp": "Limousine (Oberklasse)",
+      "user_wish": null,
+      "produkt_url": "https://www.audi.de/de/models/e-tron-gt.html",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 370,
+        "systemleistung_ps": 503,
+        "drehmoment_nm": 630,
+        "boost_kw": 415,
+        "boost_ps": 564,
+        "beschleunigung_0_100_s": 3.5,
+        "hoechstgeschwindigkeit_kmh": 245
+      },
+      "batterie": {
+        "brutto_kwh": 105.0,
+        "netto_kwh": 97.0,
+        "chemie": "NMC811",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI",
+          "LG Energy Solution"
+        ],
+        "gewicht_kg": {
+          "min": 570,
+          "max": 600
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 320,
+        "dc_10_80_min": 18,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 590
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 17.8,
+          "max": 20.4
+        },
+        "wltp_reichweite_km": {
+          "min": 508,
+          "max": 609
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 20,
+          "max": 27
+        },
+        "realreichweite_sommer_stadt_km": 500,
+        "realreichweite_autobahn_130_km": 380,
+        "effizienz_wh_km": {
+          "min": 178,
+          "max": 204
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4990,
+        "breite_mm": 1964,
+        "hoehe_mm": 1396,
+        "radstand_mm": 2900,
+        "leergewicht_kg": 2340,
+        "zulaessiges_gesamtgewicht_kg": 2830,
+        "kofferraum_liter": 405,
+        "kofferraum_umgeklappt_liter": 1171,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "wendekreis_m": 11.6,
+        "bodenfreiheit_mm": 128,
+        "cw_wert": 0.24,
+        "frunk": true,
+        "frunk_liter": 85,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 126900,
+        "stromkosten_eur_100km": {
+          "min": 6.1,
+          "max": 7.9
+        },
+        "versicherung_eur_jahr": {
+          "min": 1400,
+          "max": 2200
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 45
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Hohe Servicekosten",
+          "Keine AHK moeglich",
+          "Hoher Verbrauch bei Autobahntempo"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "225/55 R19 / 275/45 R19",
+      "quellen": [
+        "audi.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 1.7,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 93,
+        "kinder": 83,
+        "fussgaenger": 70,
+        "assistenten": 78
+      }
+    },
+    {
+      "modell": "Audi A6 e-tron Sportback",
+      "marke": "Audi",
+      "modelljahr": "2025-2026",
+      "plattform": "PPE",
+      "autotyp": "Limousine (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.audi.de/de/models/a6-e-tron.html",
+      "antrieb": {
+        "konzept": "Heckantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 270,
+        "systemleistung_ps": 367,
+        "drehmoment_nm": 540,
+        "beschleunigung_0_100_s": 5.4,
+        "hoechstgeschwindigkeit_kmh": 210
+      },
+      "batterie": {
+        "brutto_kwh": 100.0,
+        "netto_kwh": 94.9,
+        "chemie": "NMC811",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI"
+        ],
+        "gewicht_kg": {
+          "min": 570,
+          "max": 600
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 270,
+        "dc_10_80_min": 21,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 590
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 14.0,
+          "max": 16.5
+        },
+        "wltp_reichweite_km": {
+          "min": 610,
+          "max": 756
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 17,
+          "max": 22
+        },
+        "realreichweite_sommer_stadt_km": 620,
+        "realreichweite_autobahn_130_km": 470,
+        "effizienz_wh_km": {
+          "min": 140,
+          "max": 165
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4928,
+        "breite_mm": 1923,
+        "hoehe_mm": 1487,
+        "radstand_mm": 2899,
+        "leergewicht_kg": 2180,
+        "zulaessiges_gesamtgewicht_kg": 2680,
+        "kofferraum_liter": 502,
+        "kofferraum_umgeklappt_liter": 1330,
+        "anhaengelast_gebremst_kg": 2100,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 11.6,
+        "bodenfreiheit_mm": 148,
+        "cw_wert": 0.21,
+        "frunk": true,
+        "frunk_liter": 27,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "B-Modus + Segeln + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 65400,
+        "stromkosten_eur_100km": {
+          "min": 4.8,
+          "max": 6.4
+        },
+        "versicherung_eur_jahr": {
+          "min": 1000,
+          "max": 1700
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 25,
+          "max": 35
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 300,
+          "max": 500
+        },
+        "anfaellige_punkte": [
+          "Neues Modell - keine Langzeitdaten",
+          "Matrix LED Scheinwerfer komplex"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "245/45 R20",
+      "quellen": [
+        "audi.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 1.7,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 91,
+        "kinder": 87,
+        "fussgaenger": 73,
+        "assistenten": 83
+      }
     }
   ]
 }
