@@ -9406,6 +9406,754 @@
         "fussgaenger": null,
         "assistenten": null
       }
+    },
+    {
+      "modell": "Renault 5 E-Tech Comfort Range",
+      "marke": "Renault",
+      "modelljahr": "2025-2026",
+      "plattform": "AmpR Small",
+      "autotyp": "Kleinwagen",
+      "user_wish": null,
+      "produkt_url": "https://www.renault.de/elektrofahrzeuge/renault-5-e-tech.html",
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "EESM"
+      },
+      "leistung": {
+        "systemleistung_kw": 110,
+        "systemleistung_ps": 150,
+        "drehmoment_nm": 245,
+        "beschleunigung_0_100_s": 8.0,
+        "hoechstgeschwindigkeit_kmh": 150
+      },
+      "batterie": {
+        "brutto_kwh": 52.0,
+        "netto_kwh": 49.0,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Envision AESC"
+        ],
+        "gewicht_kg": {
+          "min": 330,
+          "max": 350
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "dc_max_kw": 100,
+        "dc_10_80_min": 30,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": true,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 14.5,
+          "max": 15.5
+        },
+        "wltp_reichweite_km": {
+          "min": 312,
+          "max": 410
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 16,
+          "max": 21
+        },
+        "realreichweite_sommer_stadt_km": 360,
+        "realreichweite_autobahn_130_km": 240,
+        "effizienz_wh_km": {
+          "min": 145,
+          "max": 155
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 3922,
+        "breite_mm": 1774,
+        "hoehe_mm": 1498,
+        "radstand_mm": 2540,
+        "leergewicht_kg": 1449,
+        "zulaessiges_gesamtgewicht_kg": 1830,
+        "kofferraum_liter": 326,
+        "kofferraum_umgeklappt_liter": 1106,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "wendekreis_m": 10.3,
+        "bodenfreiheit_mm": 145,
+        "cw_wert": 0.28,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Verbundlenker",
+        "rekuperation": "B-Modus",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 25000,
+        "stromkosten_eur_100km": {
+          "min": 4.9,
+          "max": 6.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 450,
+          "max": 850
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 25,
+          "max": 35
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 120,
+          "max": 250
+        },
+        "anfaellige_punkte": [
+          "Neues Modell - keine Langzeitdaten",
+          "DC nur 100 kW",
+          "Keine AHK",
+          "V2G aber kein V2L"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "195/55 R18",
+      "quellen": [
+        "renault.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 84,
+        "kinder": 86,
+        "fussgaenger": 67,
+        "assistenten": 73
+      }
+    },
+    {
+      "modell": "Renault Scenic E-Tech Long Range",
+      "marke": "Renault",
+      "modelljahr": "2024-2026",
+      "plattform": "CMF-EV",
+      "autotyp": "Kompakt-Van",
+      "user_wish": null,
+      "produkt_url": "https://www.renault.de/elektrofahrzeuge/scenic-e-tech.html",
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "EESM"
+      },
+      "leistung": {
+        "systemleistung_kw": 160,
+        "systemleistung_ps": 218,
+        "drehmoment_nm": 300,
+        "beschleunigung_0_100_s": 7.9,
+        "hoechstgeschwindigkeit_kmh": 170
+      },
+      "batterie": {
+        "brutto_kwh": 87.0,
+        "netto_kwh": 82.0,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Envision AESC"
+        ],
+        "gewicht_kg": {
+          "min": 510,
+          "max": 530
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 22,
+        "ac_optional_kw": null,
+        "dc_max_kw": 150,
+        "dc_10_80_min": 33,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": true,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 15.2,
+          "max": 16.8
+        },
+        "wltp_reichweite_km": {
+          "min": 530,
+          "max": 625
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 17,
+          "max": 22
+        },
+        "realreichweite_sommer_stadt_km": 540,
+        "realreichweite_autobahn_130_km": 390,
+        "effizienz_wh_km": {
+          "min": 152,
+          "max": 168
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4470,
+        "breite_mm": 1863,
+        "hoehe_mm": 1571,
+        "radstand_mm": 2785,
+        "leergewicht_kg": 1930,
+        "zulaessiges_gesamtgewicht_kg": 2380,
+        "kofferraum_liter": 545,
+        "kofferraum_umgeklappt_liter": 1670,
+        "anhaengelast_gebremst_kg": 900,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 10.4,
+        "bodenfreiheit_mm": 163,
+        "cw_wert": 0.268,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "B-Modus",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 43500,
+        "stromkosten_eur_100km": {
+          "min": 5.2,
+          "max": 6.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 650,
+          "max": 1100
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 25,
+          "max": 35
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 150,
+          "max": 280
+        },
+        "anfaellige_punkte": [
+          "DC nur 150 kW",
+          "Frontantrieb",
+          "V2G aber kein V2L"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "215/55 R19",
+      "quellen": [
+        "renault.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 1.8,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 89,
+        "kinder": 87,
+        "fussgaenger": 73,
+        "assistenten": 79
+      }
+    },
+    {
+      "modell": "Tesla Model S Long Range",
+      "marke": "Tesla",
+      "modelljahr": "2024-2026",
+      "plattform": "Tesla S/X Platform",
+      "autotyp": "Oberklasse-Limousine",
+      "user_wish": null,
+      "produkt_url": "https://www.tesla.com/de_de/models",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PMSMr (hinten) + Asynchron (vorne)"
+      },
+      "leistung": {
+        "systemleistung_kw": 493,
+        "systemleistung_ps": 670,
+        "drehmoment_nm": 900,
+        "beschleunigung_0_100_s": 3.2,
+        "hoechstgeschwindigkeit_kmh": 250
+      },
+      "batterie": {
+        "brutto_kwh": 100.0,
+        "netto_kwh": 95.0,
+        "chemie": "NCA",
+        "systemspannung_v": 400,
+        "zelltyp": "zylindrisch (1865 + 4680)",
+        "zelllieferant": [
+          "Panasonic",
+          "Tesla"
+        ],
+        "gewicht_kg": {
+          "min": 570,
+          "max": 600
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 240000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "dc_max_kw": 250,
+        "dc_10_80_min": 27,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 16.2,
+          "max": 18.5
+        },
+        "wltp_reichweite_km": {
+          "min": 560,
+          "max": 634
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 18,
+          "max": 24
+        },
+        "realreichweite_sommer_stadt_km": 560,
+        "realreichweite_autobahn_130_km": 420,
+        "effizienz_wh_km": {
+          "min": 162,
+          "max": 185
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4970,
+        "breite_mm": 1964,
+        "hoehe_mm": 1445,
+        "radstand_mm": 2960,
+        "leergewicht_kg": 2162,
+        "zulaessiges_gesamtgewicht_kg": 2629,
+        "kofferraum_liter": 793,
+        "kofferraum_umgeklappt_liter": 1822,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "wendekreis_m": 12.4,
+        "bodenfreiheit_mm": 137,
+        "cw_wert": 0.208,
+        "frunk": true,
+        "frunk_liter": 150,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "One-Pedal-Driving serienmässig",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 89990,
+        "stromkosten_eur_100km": {
+          "min": 5.5,
+          "max": 7.2
+        },
+        "versicherung_eur_jahr": {
+          "min": 1200,
+          "max": 2000
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 4,
+        "fahrzeug_km": 80000,
+        "lack_jahre": 4,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 4
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 40.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 400
+        },
+        "anfaellige_punkte": [
+          "Spaltmasse",
+          "Yoke-Lenkrad gewoehnungsbeduerftig",
+          "Keine AHK moeglich",
+          "Grosser Wendekreis"
+        ],
+        "garantie_relevant": false
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "255/35 R21 / 265/35 R21",
+      "quellen": [
+        "tesla.com/de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 1.8,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 94,
+        "kinder": 91,
+        "fussgaenger": 76,
+        "assistenten": 98
+      }
+    },
+    {
+      "modell": "Tesla Model X Long Range",
+      "marke": "Tesla",
+      "modelljahr": "2024-2026",
+      "plattform": "Tesla S/X Platform",
+      "autotyp": "SUV (Oberklasse)",
+      "user_wish": null,
+      "produkt_url": "https://www.tesla.com/de_de/modelx",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PMSMr (hinten) + Asynchron (vorne)"
+      },
+      "leistung": {
+        "systemleistung_kw": 493,
+        "systemleistung_ps": 670,
+        "drehmoment_nm": 900,
+        "beschleunigung_0_100_s": 3.9,
+        "hoechstgeschwindigkeit_kmh": 250
+      },
+      "batterie": {
+        "brutto_kwh": 100.0,
+        "netto_kwh": 95.0,
+        "chemie": "NCA",
+        "systemspannung_v": 400,
+        "zelltyp": "zylindrisch (1865 + 4680)",
+        "zelllieferant": [
+          "Panasonic",
+          "Tesla"
+        ],
+        "gewicht_kg": {
+          "min": 580,
+          "max": 610
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 240000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "dc_max_kw": 250,
+        "dc_10_80_min": 27,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 18.3,
+          "max": 20.8
+        },
+        "wltp_reichweite_km": {
+          "min": 480,
+          "max": 576
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 20,
+          "max": 27
+        },
+        "realreichweite_sommer_stadt_km": 500,
+        "realreichweite_autobahn_130_km": 370,
+        "effizienz_wh_km": {
+          "min": 183,
+          "max": 208
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 5057,
+        "breite_mm": 1999,
+        "hoehe_mm": 1684,
+        "radstand_mm": 2965,
+        "leergewicht_kg": 2455,
+        "zulaessiges_gesamtgewicht_kg": 2995,
+        "kofferraum_liter": 1050,
+        "kofferraum_umgeklappt_liter": 2577,
+        "anhaengelast_gebremst_kg": 2250,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 13.0,
+        "bodenfreiheit_mm": 174,
+        "cw_wert": 0.24,
+        "frunk": true,
+        "frunk_liter": 183,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "One-Pedal-Driving serienmässig",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 93990,
+        "stromkosten_eur_100km": {
+          "min": 6.2,
+          "max": 8.1
+        },
+        "versicherung_eur_jahr": {
+          "min": 1300,
+          "max": 2100
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 4,
+        "fahrzeug_km": 80000,
+        "lack_jahre": 4,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 4
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 40.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 400
+        },
+        "anfaellige_punkte": [
+          "Falcon-Wing-Tueren (Mechanik/Sensorik)",
+          "Grosser Wendekreis",
+          "Spaltmasse",
+          "Hohes Gewicht"
+        ],
+        "garantie_relevant": false
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "265/35 R22 / 275/35 R22",
+      "quellen": [
+        "tesla.com/de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 1.9,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 94,
+        "kinder": 91,
+        "fussgaenger": 76,
+        "assistenten": 98
+      }
+    },
+    {
+      "modell": "BMW iX2 xDrive30",
+      "marke": "BMW",
+      "modelljahr": "2024-2026",
+      "plattform": "FAAR",
+      "autotyp": "Kompakt-SUV (Coupe)",
+      "user_wish": null,
+      "produkt_url": "https://www.bmw.de/de/models/bmw-ix2.html",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "EESM"
+      },
+      "leistung": {
+        "systemleistung_kw": 230,
+        "systemleistung_ps": 313,
+        "drehmoment_nm": 494,
+        "boost_kw": 240,
+        "boost_ps": 326,
+        "beschleunigung_0_100_s": 5.6,
+        "hoechstgeschwindigkeit_kmh": 180
+      },
+      "batterie": {
+        "brutto_kwh": 66.5,
+        "netto_kwh": 64.8,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI",
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 360,
+          "max": 380
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 130,
+        "dc_10_80_min": 29,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 720
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 16.6,
+          "max": 17.5
+        },
+        "wltp_reichweite_km": {
+          "min": 394,
+          "max": 449
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 18,
+          "max": 24
+        },
+        "realreichweite_sommer_stadt_km": 400,
+        "realreichweite_autobahn_130_km": 290,
+        "effizienz_wh_km": {
+          "min": 166,
+          "max": 175
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4554,
+        "breite_mm": 1845,
+        "hoehe_mm": 1560,
+        "radstand_mm": 2692,
+        "leergewicht_kg": 2100,
+        "zulaessiges_gesamtgewicht_kg": 2610,
+        "kofferraum_liter": 525,
+        "kofferraum_umgeklappt_liter": 1400,
+        "anhaengelast_gebremst_kg": 1200,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 11.9,
+        "bodenfreiheit_mm": 175,
+        "cw_wert": 0.26,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "B-Modus mit One-Pedal-Driving",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 56500,
+        "stromkosten_eur_100km": {
+          "min": 5.6,
+          "max": 6.8
+        },
+        "versicherung_eur_jahr": {
+          "min": 800,
+          "max": 1400
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 3,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 3
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 350
+        },
+        "anfaellige_punkte": [
+          "FAAR-Plattform (Conversion)",
+          "Max 130 kW DC",
+          "Geringere Reichweite als iX1 (Coupe-Dach aber hoeher)"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "225/50 R19",
+      "quellen": [
+        "bmw.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 2.0,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 85,
+        "kinder": 89,
+        "fussgaenger": 75,
+        "assistenten": 78
+      }
     }
   ]
 }
