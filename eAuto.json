@@ -10304,6 +10304,303 @@
         "fussgaenger": 72,
         "assistenten": 80
       }
+    },
+    {
+      "modell": "Lotus Emeya S",
+      "marke": "Lotus",
+      "modelljahr": "2024-2026",
+      "plattform": "SEA (Geely)",
+      "autotyp": "Limousine (Premium/GT)",
+      "user_wish": null,
+      "produkt_url": "https://www.lotuscars.com/de-de/emeya/",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 450,
+        "systemleistung_ps": 612,
+        "drehmoment_nm": 710,
+        "beschleunigung_0_100_s": 4.2,
+        "hoechstgeschwindigkeit_kmh": 256
+      },
+      "batterie": {
+        "brutto_kwh": 102.0,
+        "netto_kwh": 98.0,
+        "chemie": "NMC",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 580,
+          "max": 610
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 22,
+        "ac_optional_kw": null,
+        "dc_max_kw": 350,
+        "dc_10_80_min": 18,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 18.8,
+          "max": 21.5
+        },
+        "wltp_reichweite_km": {
+          "min": 485,
+          "max": 560
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 21,
+          "max": 28
+        },
+        "realreichweite_sommer_stadt_km": 480,
+        "realreichweite_autobahn_130_km": 360,
+        "effizienz_wh_km": {
+          "min": 188,
+          "max": 215
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 5139,
+        "breite_mm": 2005,
+        "hoehe_mm": 1459,
+        "radstand_mm": 3069,
+        "leergewicht_kg": 2530,
+        "zulaessiges_gesamtgewicht_kg": 3050,
+        "kofferraum_liter": 509,
+        "kofferraum_umgeklappt_liter": 1280,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "wendekreis_m": 12.0,
+        "bodenfreiheit_mm": 132,
+        "cw_wert": 0.21,
+        "frunk": true,
+        "frunk_liter": 46,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 96990,
+        "stromkosten_eur_100km": {
+          "min": 6.4,
+          "max": 8.3
+        },
+        "versicherung_eur_jahr": {
+          "min": 1400,
+          "max": 2200
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 5,
+        "fahrzeug_km": 100000,
+        "lack_jahre": 5,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 5
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 20.000 km",
+        "wartungskosten_eur": {
+          "min": 350,
+          "max": 600
+        },
+        "anfaellige_punkte": [
+          "Servicenetz DE sehr duenn",
+          "Hoher Verbrauch",
+          "Keine AHK moeglich",
+          "Ersatzteile schwer verfuegbar"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "265/40 R21 / 305/35 R21",
+      "quellen": [
+        "lotuscars.com/de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 1.9,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 91,
+        "kinder": 87,
+        "fussgaenger": 72,
+        "assistenten": 80
+      }
+    },
+    {
+      "modell": "Lotus Evija",
+      "marke": "Lotus",
+      "modelljahr": "2024-2026",
+      "plattform": "Lotus Evija (Eigenentwicklung)",
+      "autotyp": "Hypercar",
+      "user_wish": null,
+      "produkt_url": "https://www.lotuscars.com/de-de/evija/",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 4,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 1471,
+        "systemleistung_ps": 2000,
+        "drehmoment_nm": 1700,
+        "beschleunigung_0_100_s": 2.8,
+        "hoechstgeschwindigkeit_kmh": 340
+      },
+      "batterie": {
+        "brutto_kwh": 70.0,
+        "netto_kwh": 66.0,
+        "chemie": "NMC",
+        "systemspannung_v": 800,
+        "zelltyp": "zylindrisch",
+        "zelllieferant": [
+          "Williams Advanced Engineering"
+        ],
+        "gewicht_kg": {
+          "min": 380,
+          "max": 400
+        },
+        "garantie_jahre": 3,
+        "garantie_km": 30000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 22,
+        "ac_optional_kw": null,
+        "dc_max_kw": 350,
+        "dc_10_80_min": 12,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 28.0,
+          "max": 35.0
+        },
+        "wltp_reichweite_km": {
+          "min": 215,
+          "max": 270
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 30,
+          "max": 50
+        },
+        "realreichweite_sommer_stadt_km": 230,
+        "realreichweite_autobahn_130_km": 150,
+        "effizienz_wh_km": {
+          "min": 280,
+          "max": 350
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4459,
+        "breite_mm": 2000,
+        "hoehe_mm": 1122,
+        "radstand_mm": 2650,
+        "leergewicht_kg": 1680,
+        "zulaessiges_gesamtgewicht_kg": 1900,
+        "kofferraum_liter": 0,
+        "kofferraum_umgeklappt_liter": 0,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "wendekreis_m": 11.0,
+        "bodenfreiheit_mm": 100,
+        "cw_wert": 0.28,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Rennstrecke)",
+        "federung_hinten": "Mehrlenker (Rennstrecke)",
+        "rekuperation": "mehrstufig",
+        "waermepumpe": false
+      },
+      "preis": {
+        "basispreis_eur": 2100000,
+        "stromkosten_eur_100km": {
+          "min": 9.5,
+          "max": 13.6
+        },
+        "versicherung_eur_jahr": {
+          "min": 5000,
+          "max": 15000
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 0,
+          "max": 10
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 3,
+        "fahrzeug_km": 30000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 6,
+        "mobilitaet_jahre": 3
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 10.000 km",
+        "wartungskosten_eur": {
+          "min": 2000,
+          "max": 5000
+        },
+        "anfaellige_punkte": [
+          "Kleinstserie (130 Stueck)",
+          "Nur bei Lotus-Haupthaendlern",
+          "Kein Alltagsauto",
+          "Kein Kofferraum"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Hypercar. Kleinstserie, 130 Stueck weltweit. Sammlerstueck.",
+      "ota_updates": true,
+      "reifen_serie": "285/30 ZR20 / 345/30 ZR21",
+      "quellen": [
+        "lotuscars.com/de (2026)"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      }
     }
   ]
 }
