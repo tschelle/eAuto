@@ -9105,6 +9105,307 @@
         "fussgaenger": 73,
         "assistenten": 83
       }
+    },
+    {
+      "modell": "VW ID. Buzz Pro LWB",
+      "marke": "Volkswagen",
+      "modelljahr": "2024-2026",
+      "plattform": "MEB",
+      "autotyp": "Van / Camper",
+      "user_wish": null,
+      "produkt_url": "https://www.volkswagen.de/de/modelle/id-buzz.html",
+      "antrieb": {
+        "konzept": "Heckantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM (APP550)"
+      },
+      "leistung": {
+        "systemleistung_kw": 210,
+        "systemleistung_ps": 286,
+        "drehmoment_nm": 545,
+        "beschleunigung_0_100_s": 7.9,
+        "hoechstgeschwindigkeit_kmh": 160
+      },
+      "batterie": {
+        "brutto_kwh": 91.0,
+        "netto_kwh": 86.0,
+        "chemie": "NMC811",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "LG Energy Solution"
+        ],
+        "gewicht_kg": {
+          "min": 530,
+          "max": 550
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 185,
+        "dc_10_80_min": 28,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 720
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 18.9,
+          "max": 21.7
+        },
+        "wltp_reichweite_km": {
+          "min": 411,
+          "max": 487
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 21,
+          "max": 27
+        },
+        "realreichweite_sommer_stadt_km": 420,
+        "realreichweite_autobahn_130_km": 300,
+        "effizienz_wh_km": {
+          "min": 189,
+          "max": 217
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4962,
+        "breite_mm": 1985,
+        "hoehe_mm": 1927,
+        "radstand_mm": 3239,
+        "leergewicht_kg": 2470,
+        "zulaessiges_gesamtgewicht_kg": 3000,
+        "kofferraum_liter": 1340,
+        "kofferraum_umgeklappt_liter": 2469,
+        "anhaengelast_gebremst_kg": 1600,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 11.1,
+        "bodenfreiheit_mm": 175,
+        "cw_wert": 0.29,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "B-Modus",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 61515,
+        "stromkosten_eur_100km": {
+          "min": 6.4,
+          "max": 8.4
+        },
+        "versicherung_eur_jahr": {
+          "min": 800,
+          "max": 1400
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 25,
+          "max": 35
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 380
+        },
+        "anfaellige_punkte": [
+          "Hoher Verbrauch (Kastenform)",
+          "12V-Batterie (MEB-typisch)",
+          "California-Camperversion erst ab 2025/26",
+          "Hoher Preis"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "235/55 R19",
+      "quellen": [
+        "volkswagen.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 2.0,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 89,
+        "kinder": 87,
+        "fussgaenger": 68,
+        "assistenten": 83
+      }
+    },
+    {
+      "modell": "Mercedes EQV 300 Long",
+      "marke": "Mercedes-Benz",
+      "modelljahr": "2023-2026",
+      "plattform": "EVA 1.0 (Vito)",
+      "autotyp": "Van / MPV",
+      "user_wish": null,
+      "produkt_url": "https://www.mercedes-benz.de/vans/de/eqv/",
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "Asynchron (ASM)"
+      },
+      "leistung": {
+        "systemleistung_kw": 150,
+        "systemleistung_ps": 204,
+        "drehmoment_nm": 362,
+        "beschleunigung_0_100_s": 12.1,
+        "hoechstgeschwindigkeit_kmh": 140
+      },
+      "batterie": {
+        "brutto_kwh": 100.0,
+        "netto_kwh": 90.0,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "pouch",
+        "zelllieferant": [
+          "SK Innovation"
+        ],
+        "gewicht_kg": {
+          "min": 600,
+          "max": 630
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "dc_max_kw": 110,
+        "dc_10_80_min": 45,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 26.4,
+          "max": 28.9
+        },
+        "wltp_reichweite_km": {
+          "min": 297,
+          "max": 362
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 28,
+          "max": 35
+        },
+        "realreichweite_sommer_stadt_km": 320,
+        "realreichweite_autobahn_130_km": 200,
+        "effizienz_wh_km": {
+          "min": 264,
+          "max": 289
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 5370,
+        "breite_mm": 1928,
+        "hoehe_mm": 1910,
+        "radstand_mm": 3430,
+        "leergewicht_kg": 2780,
+        "zulaessiges_gesamtgewicht_kg": 3500,
+        "kofferraum_liter": 1030,
+        "kofferraum_umgeklappt_liter": 4630,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "wendekreis_m": 13.0,
+        "bodenfreiheit_mm": 156,
+        "cw_wert": 0.35,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Blattfeder",
+        "rekuperation": "Segeln + Rekuperation",
+        "waermepumpe": false
+      },
+      "preis": {
+        "basispreis_eur": 77924,
+        "stromkosten_eur_100km": {
+          "min": 9.0,
+          "max": 11.2
+        },
+        "versicherung_eur_jahr": {
+          "min": 1000,
+          "max": 1600
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 30,
+        "mobilitaet_jahre": 30
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 25.000 km",
+        "wartungskosten_eur": {
+          "min": 300,
+          "max": 500
+        },
+        "anfaellige_punkte": [
+          "Sehr hoher Verbrauch",
+          "DC nur 110 kW (sehr langsam)",
+          "Geringe Reichweite fuer Reisen",
+          "Keine Waermepumpe",
+          "Keine AHK",
+          "Vmax nur 140 km/h",
+          "Grosser Wendekreis"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "245/45 R19",
+      "quellen": [
+        "mercedes-benz.de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 2.5,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      }
     }
   ]
 }
