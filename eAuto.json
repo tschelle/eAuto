@@ -10154,6 +10154,156 @@
         "fussgaenger": 75,
         "assistenten": 78
       }
+    },
+    {
+      "modell": "Lotus Eletre S",
+      "marke": "Lotus",
+      "modelljahr": "2024-2026",
+      "plattform": "SEA (Geely)",
+      "autotyp": "SUV (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.lotuscars.com/de-de/eletre/",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 450,
+        "systemleistung_ps": 612,
+        "drehmoment_nm": 710,
+        "beschleunigung_0_100_s": 4.5,
+        "hoechstgeschwindigkeit_kmh": 258
+      },
+      "batterie": {
+        "brutto_kwh": 112.0,
+        "netto_kwh": 109.0,
+        "chemie": "NMC",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 620,
+          "max": 650
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 22,
+        "ac_optional_kw": null,
+        "dc_max_kw": 350,
+        "dc_10_80_min": 20,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 20.6,
+          "max": 23.5
+        },
+        "wltp_reichweite_km": {
+          "min": 490,
+          "max": 600
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 23,
+          "max": 30
+        },
+        "realreichweite_sommer_stadt_km": 500,
+        "realreichweite_autobahn_130_km": 370,
+        "effizienz_wh_km": {
+          "min": 206,
+          "max": 235
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 5103,
+        "breite_mm": 2019,
+        "hoehe_mm": 1630,
+        "radstand_mm": 3019,
+        "leergewicht_kg": 2615,
+        "zulaessiges_gesamtgewicht_kg": 3160,
+        "kofferraum_liter": 688,
+        "kofferraum_umgeklappt_liter": 1532,
+        "anhaengelast_gebremst_kg": 2200,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 12.2,
+        "bodenfreiheit_mm": 190,
+        "cw_wert": 0.26,
+        "frunk": true,
+        "frunk_liter": 46,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 89990,
+        "stromkosten_eur_100km": {
+          "min": 7.0,
+          "max": 9.1
+        },
+        "versicherung_eur_jahr": {
+          "min": 1300,
+          "max": 2100
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 5,
+        "fahrzeug_km": 100000,
+        "lack_jahre": 5,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 5
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 20.000 km",
+        "wartungskosten_eur": {
+          "min": 350,
+          "max": 600
+        },
+        "anfaellige_punkte": [
+          "Servicenetz DE sehr duenn",
+          "Hoher Verbrauch",
+          "Hohes Gewicht (2,6t)",
+          "Ersatzteile schwer verfuegbar",
+          "Hoher Wertverlust erwartet"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "ota_updates": true,
+      "reifen_serie": "265/45 R21 / 305/40 R21",
+      "quellen": [
+        "lotuscars.com/de (2026)",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-20",
+      "adac_note": 2.0,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 91,
+        "kinder": 87,
+        "fussgaenger": 72,
+        "assistenten": 80
+      }
     }
   ]
 }
