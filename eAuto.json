@@ -10601,6 +10601,150 @@
         "fussgaenger": null,
         "assistenten": null
       }
+    },
+    {
+      "modell": "Ferrari Luce",
+      "marke": "Ferrari",
+      "modelljahr": "2026",
+      "plattform": "Ferrari BEV-Plattform",
+      "autotyp": "Sportwagen / GT",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 3,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 750,
+        "systemleistung_ps": 1020,
+        "drehmoment_nm": 1350,
+        "beschleunigung_0_100_s": 2.7,
+        "hoechstgeschwindigkeit_kmh": 330
+      },
+      "batterie": {
+        "brutto_kwh": 101,
+        "netto_kwh": 96,
+        "chemie": "NMC",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI"
+        ],
+        "gewicht_kg": {
+          "min": 480,
+          "max": 500
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 22,
+        "ac_optional_kw": null,
+        "dc_max_kw": 350,
+        "dc_10_80_min": 18,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 21,
+          "max": 24
+        },
+        "wltp_reichweite_km": {
+          "min": 400,
+          "max": 450
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 24,
+          "max": 32
+        },
+        "realreichweite_sommer_stadt_km": 420,
+        "realreichweite_autobahn_130_km": 340,
+        "effizienz_wh_km": {
+          "min": 210,
+          "max": 240
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4700,
+        "breite_mm": 2050,
+        "hoehe_mm": 1280,
+        "radstand_mm": 2800,
+        "leergewicht_kg": 2080,
+        "zulaessiges_gesamtgewicht_kg": 2400,
+        "kofferraum_liter": 270,
+        "kofferraum_umgeklappt_liter": null,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 11.5,
+        "bodenfreiheit_mm": 120,
+        "cw_wert": 0.28,
+        "frunk": true,
+        "frunk_liter": 50,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "Mehrstufig einstellbar",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 535000,
+        "stromkosten_eur_100km": {
+          "min": 7.5,
+          "max": 11
+        },
+        "versicherung_eur_jahr": {
+          "min": 3500,
+          "max": 6000
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 20,
+          "max": 30
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 3,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 3
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 20.000 km",
+        "wartungskosten_eur": {
+          "min": 1500,
+          "max": 3000
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "275/35 ZR20 / 315/35 ZR20",
+      "quellen": [
+        "ferrari.com (2026)",
+        "Auto Motor Sport (2026)"
+      ],
+      "datenerfassung": "2026-06-21",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.ferrari.com/de-DE"
     }
   ]
 }
