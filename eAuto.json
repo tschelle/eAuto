@@ -10889,6 +10889,438 @@
       },
       "ota_updates": true,
       "produkt_url": "https://www.deepal-europe.com"
+    },
+    {
+      "modell": "Denza D9 EV",
+      "marke": "Denza",
+      "modelljahr": "2023-2026",
+      "plattform": "BYD e-Platform 3.0",
+      "autotyp": "Luxus-Van / MPV",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Hinterradantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 265,
+        "systemleistung_ps": 360,
+        "drehmoment_nm": 380,
+        "beschleunigung_0_100_s": 8.2,
+        "hoechstgeschwindigkeit_kmh": 180
+      },
+      "batterie": {
+        "brutto_kwh": 103,
+        "netto_kwh": 98,
+        "chemie": "LFP (Blade)",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch (Blade)",
+        "zelllieferant": [
+          "BYD"
+        ],
+        "gewicht_kg": {
+          "min": 560,
+          "max": 580
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 150000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 166,
+        "dc_10_80_min": 32,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 20,
+          "max": 23
+        },
+        "wltp_reichweite_km": {
+          "min": 390,
+          "max": 450
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 23,
+          "max": 30
+        },
+        "realreichweite_sommer_stadt_km": 410,
+        "realreichweite_autobahn_130_km": 300,
+        "effizienz_wh_km": {
+          "min": 200,
+          "max": 230
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 5250,
+        "breite_mm": 1960,
+        "hoehe_mm": 1920,
+        "radstand_mm": 3110,
+        "leergewicht_kg": 2835,
+        "zulaessiges_gesamtgewicht_kg": 3410,
+        "kofferraum_liter": 580,
+        "kofferraum_umgeklappt_liter": 1780,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 12.2,
+        "bodenfreiheit_mm": 165,
+        "cw_wert": 0.28,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "Mehrstufig einstellbar",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 72000,
+        "stromkosten_eur_100km": {
+          "min": 7.0,
+          "max": 10.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 1200,
+          "max": 2200
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 6,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 6
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 400
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "245/50 R19",
+      "quellen": [
+        "denza.com (2026)",
+        "ChinaAutoNews (2026)"
+      ],
+      "datenerfassung": "2026-06-21",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.denza.com"
+    },
+    {
+      "modell": "Denza N7",
+      "marke": "Denza",
+      "modelljahr": "2023-2026",
+      "plattform": "BYD e-Platform 3.0",
+      "autotyp": "Mittelklasse-SUV",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 390,
+        "systemleistung_ps": 530,
+        "drehmoment_nm": 670,
+        "beschleunigung_0_100_s": 3.9,
+        "hoechstgeschwindigkeit_kmh": 200
+      },
+      "batterie": {
+        "brutto_kwh": 100,
+        "netto_kwh": 95,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "BYD"
+        ],
+        "gewicht_kg": {
+          "min": 520,
+          "max": 550
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 150000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 230,
+        "dc_10_80_min": 22,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 19,
+          "max": 22
+        },
+        "wltp_reichweite_km": {
+          "min": 430,
+          "max": 480
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 22,
+          "max": 28
+        },
+        "realreichweite_sommer_stadt_km": 440,
+        "realreichweite_autobahn_130_km": 330,
+        "effizienz_wh_km": {
+          "min": 190,
+          "max": 220
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4860,
+        "breite_mm": 1935,
+        "hoehe_mm": 1602,
+        "radstand_mm": 2940,
+        "leergewicht_kg": 2390,
+        "zulaessiges_gesamtgewicht_kg": 2850,
+        "kofferraum_liter": 480,
+        "kofferraum_umgeklappt_liter": 1350,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 11.6,
+        "bodenfreiheit_mm": 175,
+        "cw_wert": 0.27,
+        "frunk": true,
+        "frunk_liter": 40,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "Mehrstufig einstellbar",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 55000,
+        "stromkosten_eur_100km": {
+          "min": 6.5,
+          "max": 9.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 900,
+          "max": 1800
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 6,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 6
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 400
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "255/45 R21",
+      "quellen": [
+        "denza.com (2026)",
+        "ChinaAutoNews (2026)"
+      ],
+      "datenerfassung": "2026-06-21",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.denza.com"
+    },
+    {
+      "modell": "Denza Z9 GT",
+      "marke": "Denza",
+      "modelljahr": "2024-2026",
+      "plattform": "BYD e-Platform 3.0 Evo",
+      "autotyp": "Sport-GT / Limousine",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 3,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 522,
+        "systemleistung_ps": 710,
+        "drehmoment_nm": 940,
+        "beschleunigung_0_100_s": 3.4,
+        "hoechstgeschwindigkeit_kmh": 210
+      },
+      "batterie": {
+        "brutto_kwh": 109,
+        "netto_kwh": 104,
+        "chemie": "NMC",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "BYD"
+        ],
+        "gewicht_kg": {
+          "min": 550,
+          "max": 580
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 150000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 22,
+        "ac_optional_kw": null,
+        "dc_max_kw": 280,
+        "dc_10_80_min": 20,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 19,
+          "max": 22
+        },
+        "wltp_reichweite_km": {
+          "min": 450,
+          "max": 520
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 22,
+          "max": 29
+        },
+        "realreichweite_sommer_stadt_km": 480,
+        "realreichweite_autobahn_130_km": 360,
+        "effizienz_wh_km": {
+          "min": 190,
+          "max": 220
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 5180,
+        "breite_mm": 1990,
+        "hoehe_mm": 1450,
+        "radstand_mm": 3125,
+        "leergewicht_kg": 2620,
+        "zulaessiges_gesamtgewicht_kg": 3100,
+        "kofferraum_liter": 450,
+        "kofferraum_umgeklappt_liter": 1200,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 12.0,
+        "bodenfreiheit_mm": 130,
+        "cw_wert": 0.24,
+        "frunk": true,
+        "frunk_liter": 60,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "Mehrstufig einstellbar",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 85000,
+        "stromkosten_eur_100km": {
+          "min": 6.5,
+          "max": 10.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 1500,
+          "max": 2800
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 45
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 6,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 6
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 300,
+          "max": 600
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "255/40 R21 / 285/35 R21",
+      "quellen": [
+        "denza.com (2026)",
+        "Auto Motor Sport (2026)"
+      ],
+      "datenerfassung": "2026-06-21",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.denza.com"
     }
   ]
 }
