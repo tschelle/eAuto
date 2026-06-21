@@ -10745,6 +10745,150 @@
       },
       "ota_updates": true,
       "produkt_url": "https://www.ferrari.com/de-DE"
+    },
+    {
+      "modell": "Deepal S05",
+      "marke": "Deepal",
+      "modelljahr": "2025-2026",
+      "plattform": "Changan EPA1",
+      "autotyp": "Kompakt-SUV",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Hinterradantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 160,
+        "systemleistung_ps": 218,
+        "drehmoment_nm": 320,
+        "beschleunigung_0_100_s": 7.4,
+        "hoechstgeschwindigkeit_kmh": 175
+      },
+      "batterie": {
+        "brutto_kwh": 66.8,
+        "netto_kwh": 63.2,
+        "chemie": "LFP",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 390,
+          "max": 410
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 150000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "dc_max_kw": 230,
+        "dc_10_80_min": 18,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 15.5,
+          "max": 17.0
+        },
+        "wltp_reichweite_km": {
+          "min": 390,
+          "max": 430
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 17,
+          "max": 22
+        },
+        "realreichweite_sommer_stadt_km": 400,
+        "realreichweite_autobahn_130_km": 310,
+        "effizienz_wh_km": {
+          "min": 155,
+          "max": 170
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4400,
+        "breite_mm": 1860,
+        "hoehe_mm": 1580,
+        "radstand_mm": 2710,
+        "leergewicht_kg": 1710,
+        "zulaessiges_gesamtgewicht_kg": 2150,
+        "kofferraum_liter": 420,
+        "kofferraum_umgeklappt_liter": 1280,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 10.8,
+        "bodenfreiheit_mm": 165,
+        "cw_wert": 0.26,
+        "frunk": true,
+        "frunk_liter": 32,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "Mehrstufig einstellbar",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 33900,
+        "stromkosten_eur_100km": {
+          "min": 5.3,
+          "max": 5.8
+        },
+        "versicherung_eur_jahr": {
+          "min": 600,
+          "max": 1100
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 5,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 5
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 150,
+          "max": 300
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "235/50 R19",
+      "quellen": [
+        "deepal-europe.com (2026)",
+        "Auto Motor Sport (2026)"
+      ],
+      "datenerfassung": "2026-06-21",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.deepal-europe.com"
     }
   ]
 }
