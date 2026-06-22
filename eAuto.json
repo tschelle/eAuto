@@ -11321,6 +11321,726 @@
       },
       "ota_updates": true,
       "produkt_url": "https://www.denza.com"
+    },
+    {
+      "modell": "Zeekr X",
+      "marke": "Zeekr",
+      "modelljahr": "2023-2026",
+      "plattform": "SEA (Geely)",
+      "autotyp": "Kompakt-SUV",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Hinterradantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 200,
+        "systemleistung_ps": 272,
+        "drehmoment_nm": 343,
+        "beschleunigung_0_100_s": 5.8,
+        "hoechstgeschwindigkeit_kmh": 180
+      },
+      "batterie": {
+        "brutto_kwh": 66,
+        "netto_kwh": 64,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 370,
+          "max": 390
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "dc_max_kw": 150,
+        "dc_10_80_min": 28,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 16.0,
+          "max": 17.5
+        },
+        "wltp_reichweite_km": {
+          "min": 400,
+          "max": 440
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 18,
+          "max": 23
+        },
+        "realreichweite_sommer_stadt_km": 400,
+        "realreichweite_autobahn_130_km": 310,
+        "effizienz_wh_km": {
+          "min": 160,
+          "max": 175
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4432,
+        "breite_mm": 1836,
+        "hoehe_mm": 1566,
+        "radstand_mm": 2750,
+        "leergewicht_kg": 1815,
+        "zulaessiges_gesamtgewicht_kg": 2270,
+        "kofferraum_liter": 362,
+        "kofferraum_umgeklappt_liter": 1144,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 10.8,
+        "bodenfreiheit_mm": 160,
+        "cw_wert": 0.27,
+        "frunk": true,
+        "frunk_liter": 28,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "Mehrstufig einstellbar",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 38600,
+        "stromkosten_eur_100km": {
+          "min": 5.5,
+          "max": 6.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 700,
+          "max": 1300
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 5,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 5
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 150,
+          "max": 300
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "245/45 R20",
+      "quellen": [
+        "zeekrlife.com (2026)",
+        "ADAC (2026)"
+      ],
+      "datenerfassung": "2026-06-22",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 90,
+        "kinder": 88,
+        "fussgaenger": 72,
+        "assistenten": 81
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.zeekrlife.com"
+    },
+    {
+      "modell": "Zeekr 001",
+      "marke": "Zeekr",
+      "modelljahr": "2022-2026",
+      "plattform": "SEA (Geely)",
+      "autotyp": "Shooting Brake / GT",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 400,
+        "systemleistung_ps": 544,
+        "drehmoment_nm": 686,
+        "beschleunigung_0_100_s": 3.8,
+        "hoechstgeschwindigkeit_kmh": 200
+      },
+      "batterie": {
+        "brutto_kwh": 100,
+        "netto_kwh": 95,
+        "chemie": "NMC",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 520,
+          "max": 550
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 360,
+        "dc_10_80_min": 15,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 18.0,
+          "max": 20.0
+        },
+        "wltp_reichweite_km": {
+          "min": 480,
+          "max": 590
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 20,
+          "max": 26
+        },
+        "realreichweite_sommer_stadt_km": 520,
+        "realreichweite_autobahn_130_km": 380,
+        "effizienz_wh_km": {
+          "min": 180,
+          "max": 200
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4970,
+        "breite_mm": 1999,
+        "hoehe_mm": 1560,
+        "radstand_mm": 3005,
+        "leergewicht_kg": 2310,
+        "zulaessiges_gesamtgewicht_kg": 2800,
+        "kofferraum_liter": 587,
+        "kofferraum_umgeklappt_liter": 1530,
+        "anhaengelast_gebremst_kg": 1500,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 11.6,
+        "bodenfreiheit_mm": 145,
+        "cw_wert": 0.23,
+        "frunk": true,
+        "frunk_liter": 55,
+        "ahk_verfuegbar": true
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "Mehrstufig einstellbar, One-Pedal-Driving",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 49900,
+        "stromkosten_eur_100km": {
+          "min": 6.0,
+          "max": 7.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 900,
+          "max": 1600
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 5,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 5
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 400
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "255/40 R22",
+      "quellen": [
+        "zeekrlife.com (2026)",
+        "Auto Motor Sport (2026)"
+      ],
+      "datenerfassung": "2026-06-22",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 92,
+        "kinder": 89,
+        "fussgaenger": 75,
+        "assistenten": 84
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.zeekrlife.com"
+    },
+    {
+      "modell": "Zeekr 007",
+      "marke": "Zeekr",
+      "modelljahr": "2024-2026",
+      "plattform": "SEA-E (Geely)",
+      "autotyp": "Limousine",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 475,
+        "systemleistung_ps": 646,
+        "drehmoment_nm": 710,
+        "beschleunigung_0_100_s": 3.5,
+        "hoechstgeschwindigkeit_kmh": 210
+      },
+      "batterie": {
+        "brutto_kwh": 100,
+        "netto_kwh": 96,
+        "chemie": "LFP (Qilin)",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 510,
+          "max": 540
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 400,
+        "dc_10_80_min": 13,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 16.5,
+          "max": 18.5
+        },
+        "wltp_reichweite_km": {
+          "min": 520,
+          "max": 600
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 19,
+          "max": 25
+        },
+        "realreichweite_sommer_stadt_km": 540,
+        "realreichweite_autobahn_130_km": 400,
+        "effizienz_wh_km": {
+          "min": 165,
+          "max": 185
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4865,
+        "breite_mm": 1900,
+        "hoehe_mm": 1450,
+        "radstand_mm": 2928,
+        "leergewicht_kg": 2175,
+        "zulaessiges_gesamtgewicht_kg": 2650,
+        "kofferraum_liter": 420,
+        "kofferraum_umgeklappt_liter": 1100,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 11.2,
+        "bodenfreiheit_mm": 135,
+        "cw_wert": 0.21,
+        "frunk": true,
+        "frunk_liter": 65,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "Mehrstufig einstellbar, One-Pedal-Driving",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 52000,
+        "stromkosten_eur_100km": {
+          "min": 5.5,
+          "max": 6.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 900,
+          "max": 1600
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 5,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 5
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 400
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "245/40 R20",
+      "quellen": [
+        "zeekrlife.com (2026)",
+        "Auto Motor Sport (2026)"
+      ],
+      "datenerfassung": "2026-06-22",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.zeekrlife.com"
+    },
+    {
+      "modell": "Zeekr 009",
+      "marke": "Zeekr",
+      "modelljahr": "2023-2026",
+      "plattform": "SEA (Geely)",
+      "autotyp": "Luxus-Van / MPV",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 400,
+        "systemleistung_ps": 544,
+        "drehmoment_nm": 686,
+        "beschleunigung_0_100_s": 4.5,
+        "hoechstgeschwindigkeit_kmh": 190
+      },
+      "batterie": {
+        "brutto_kwh": 140,
+        "netto_kwh": 134,
+        "chemie": "NMC (Qilin)",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 680,
+          "max": 720
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 22,
+        "ac_optional_kw": null,
+        "dc_max_kw": 360,
+        "dc_10_80_min": 22,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 23,
+          "max": 26
+        },
+        "wltp_reichweite_km": {
+          "min": 500,
+          "max": 580
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 26,
+          "max": 34
+        },
+        "realreichweite_sommer_stadt_km": 520,
+        "realreichweite_autobahn_130_km": 380,
+        "effizienz_wh_km": {
+          "min": 230,
+          "max": 260
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 5217,
+        "breite_mm": 2024,
+        "hoehe_mm": 1856,
+        "radstand_mm": 3205,
+        "leergewicht_kg": 2850,
+        "zulaessiges_gesamtgewicht_kg": 3400,
+        "kofferraum_liter": 568,
+        "kofferraum_umgeklappt_liter": 1580,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 12.4,
+        "bodenfreiheit_mm": 170,
+        "cw_wert": 0.27,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker, Luftfederung",
+        "federung_hinten": "Mehrlenker, Luftfederung",
+        "rekuperation": "Mehrstufig einstellbar",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 78000,
+        "stromkosten_eur_100km": {
+          "min": 7.8,
+          "max": 11.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 1400,
+          "max": 2600
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 5,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 5
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 300,
+          "max": 500
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "265/45 R22",
+      "quellen": [
+        "zeekrlife.com (2026)",
+        "Auto Motor Sport (2026)"
+      ],
+      "datenerfassung": "2026-06-22",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.zeekrlife.com"
+    },
+    {
+      "modell": "Zeekr Mix",
+      "marke": "Zeekr",
+      "modelljahr": "2024-2026",
+      "plattform": "SEA (Geely)",
+      "autotyp": "Kompakt-Van",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Hinterradantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 230,
+        "systemleistung_ps": 313,
+        "drehmoment_nm": 440,
+        "beschleunigung_0_100_s": 6.8,
+        "hoechstgeschwindigkeit_kmh": 180
+      },
+      "batterie": {
+        "brutto_kwh": 76,
+        "netto_kwh": 72,
+        "chemie": "LFP",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 420,
+          "max": 450
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "dc_max_kw": 300,
+        "dc_10_80_min": 16,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 17,
+          "max": 19
+        },
+        "wltp_reichweite_km": {
+          "min": 380,
+          "max": 420
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 19,
+          "max": 25
+        },
+        "realreichweite_sommer_stadt_km": 390,
+        "realreichweite_autobahn_130_km": 300,
+        "effizienz_wh_km": {
+          "min": 170,
+          "max": 190
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4638,
+        "breite_mm": 1895,
+        "hoehe_mm": 1720,
+        "radstand_mm": 2900,
+        "leergewicht_kg": 2100,
+        "zulaessiges_gesamtgewicht_kg": 2600,
+        "kofferraum_liter": 450,
+        "kofferraum_umgeklappt_liter": 1300,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 11.0,
+        "bodenfreiheit_mm": 155,
+        "cw_wert": 0.26,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "Mehrstufig einstellbar",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 42000,
+        "stromkosten_eur_100km": {
+          "min": 5.8,
+          "max": 6.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 800,
+          "max": 1400
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 5,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 5
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 150,
+          "max": 300
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "245/50 R19",
+      "quellen": [
+        "zeekrlife.com (2026)",
+        "ChinaAutoNews (2026)"
+      ],
+      "datenerfassung": "2026-06-22",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.zeekrlife.com"
     }
   ]
 }

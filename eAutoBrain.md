@@ -5,7 +5,7 @@ Strukturierte Erfassung und Vergleich vollelektrischer Fahrzeuge anhand eines ei
 
 ## Status
 
-### Erfasste Fahrzeuge (73 Varianten, 35 Marken — Stand 2026-06-21)
+### Erfasste Fahrzeuge (78 Varianten, 36 Marken — Stand 2026-06-22)
 
 Eingebettete Daten (HTML, FIXIERT - 23 Varianten, 15 Marken):
 BMW (iX1 eDrive20, iX1 xDrive30, i4 eDrive40), Tesla (Model 3 LR, Model Y LR),
@@ -22,7 +22,7 @@ XPENG: G6
 Premium: Porsche (Macan Electric, Taycan), BMW (iX xDrive50, i5 eDrive40), Lexus RZ 450e, Genesis GV60
 Volumen: VW (ID.3 Pro S, ID.5 Pro, ID. Buzz LWB), Ford (Mustang Mach-E, Explorer), Peugeot (e-3008, e-208), Nissan Ariya, Toyota bZ4X, Renault (5 E-Tech, Scenic E-Tech)
 Nischen: Jeep Avenger, Honda e:Ny1, Citroen e-C4
-China: NIO (ET5, EL6) — mit Batterietausch, Deepal S05, Denza (D9 EV, N7, Z9 GT)
+China: NIO (ET5, EL6) — mit Batterietausch, Deepal S05, Denza (D9 EV, N7, Z9 GT), Zeekr (X, 001, 007, 009, Mix)
 Oberklasse: Lucid (Air Pure, Air Grand Touring, Gravity), Tesla (Model S, Model X), Mercedes EQV 300, Ferrari Luce
 Ergaenzt: Audi (Q4 Sportback, Q6, Q6 Sportback, Q8, e-tron GT, A6 e-tron), BMW iX2
 
