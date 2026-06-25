@@ -5,7 +5,7 @@ Strukturierte Erfassung und Vergleich vollelektrischer Fahrzeuge anhand eines ei
 
 ## Status
 
-### Erfasste Fahrzeuge (78 Varianten, 36 Marken — Stand 2026-06-22)
+### Erfasste Fahrzeuge (79 Varianten, 36 Marken — Stand 2026-06-25)
 
 Eingebettete Daten (HTML, FIXIERT - 23 Varianten, 15 Marken):
 BMW (iX1 eDrive20, iX1 xDrive30, i4 eDrive40), Tesla (Model 3 LR, Model Y LR),
@@ -15,7 +15,7 @@ Skoda Enyaq 85, Cupra Born, Renault Megane E-Tech, Volvo EX30,
 MG4 Electric, Audi Q4 e-tron 55, Opel Mokka Electric
 
 Nur in JSON (29 weitere Varianten, 16 neue Marken):
-Kleinwagen: Fiat (500e, 600e), Dacia Spring, Mini (Cooper SE, Countryman SE ALL4), Peugeot e-208
+Kleinwagen: Fiat (500e, 600e), Dacia Spring, Mini (Cooper SE, Countryman SE ALL4), Peugeot e-208, Kia EV2
 Smart: #1, #3
 Mercedes: EQB 250+, EQS 450+
 XPENG: G6

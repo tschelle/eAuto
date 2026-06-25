@@ -12041,6 +12041,151 @@
       },
       "ota_updates": true,
       "produkt_url": "https://www.zeekrlife.com"
+    },
+    {
+      "modell": "Kia EV2",
+      "marke": "Kia",
+      "modelljahr": "2026",
+      "plattform": "E-GMP Lite",
+      "autotyp": "Kleinwagen",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 115,
+        "systemleistung_ps": 156,
+        "drehmoment_nm": 255,
+        "beschleunigung_0_100_s": 8.5,
+        "hoechstgeschwindigkeit_kmh": 160
+      },
+      "batterie": {
+        "brutto_kwh": 45,
+        "netto_kwh": 42,
+        "chemie": "LFP",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "BYD",
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 280,
+          "max": 310
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "dc_max_kw": 100,
+        "dc_10_80_min": 30,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 14.0,
+          "max": 15.5
+        },
+        "wltp_reichweite_km": {
+          "min": 300,
+          "max": 350
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 16,
+          "max": 20
+        },
+        "realreichweite_sommer_stadt_km": 330,
+        "realreichweite_autobahn_130_km": 240,
+        "effizienz_wh_km": {
+          "min": 140,
+          "max": 155
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4050,
+        "breite_mm": 1780,
+        "hoehe_mm": 1520,
+        "radstand_mm": 2580,
+        "leergewicht_kg": 1450,
+        "zulaessiges_gesamtgewicht_kg": 1850,
+        "kofferraum_liter": 310,
+        "kofferraum_umgeklappt_liter": 1050,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 10.2,
+        "bodenfreiheit_mm": 155,
+        "cw_wert": 0.29,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Verbundlenker",
+        "rekuperation": "Mehrstufig einstellbar, i-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 25000,
+        "stromkosten_eur_100km": {
+          "min": 4.8,
+          "max": 5.3
+        },
+        "versicherung_eur_jahr": {
+          "min": 500,
+          "max": 900
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 7,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 7
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 150,
+          "max": 280
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "205/55 R17",
+      "quellen": [
+        "kia.com/de (2026)",
+        "Auto Motor Sport (2026)"
+      ],
+      "datenerfassung": "2026-06-22",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.kia.com/de/modelle/ev2.html"
     }
   ]
 }
