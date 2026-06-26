@@ -5,7 +5,7 @@ Strukturierte Erfassung und Vergleich vollelektrischer Fahrzeuge anhand eines ei
 
 ## Status
 
-### Erfasste Fahrzeuge (79 Varianten, 36 Marken — Stand 2026-06-25)
+### Erfasste Fahrzeuge (80 Varianten, 36 Marken — Stand 2026-06-26)
 
 Eingebettete Daten (HTML, FIXIERT - 23 Varianten, 15 Marken):
 BMW (iX1 eDrive20, iX1 xDrive30, i4 eDrive40), Tesla (Model 3 LR, Model Y LR),
