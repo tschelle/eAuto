@@ -164,7 +164,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.bmw.de/de/models/bmw-ix1.html",
       "produktionsland": "Deutschland (Regensburg)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/BMW_X1_(U11)",
       "lieferzeit_wochen": 8
     },
     {
@@ -330,7 +330,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.bmw.de/de/models/bmw-ix1.html",
       "produktionsland": "Deutschland (Regensburg)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/BMW_X1_(U11)",
       "lieferzeit_wochen": 8
     },
     {
@@ -495,7 +495,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.tesla.com/de_de/model3",
       "produktionsland": "USA (Fremont)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Tesla_Model_3",
       "lieferzeit_wochen": 4
     },
     {
@@ -659,7 +659,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.tesla.com/de_de/modely",
       "produktionsland": "Deutschland (Grünheide)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Tesla_Model_Y",
       "lieferzeit_wochen": 4
     },
     {
@@ -824,7 +824,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.volkswagen.de/de/modelle/id4.html",
       "produktionsland": "Deutschland (Emden)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID.4",
       "lieferzeit_wochen": 10
     },
     {
@@ -987,7 +987,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.volkswagen.de/de/modelle/id7.html",
       "produktionsland": "Deutschland (Emden)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID.7",
       "lieferzeit_wochen": 10
     },
     {
@@ -1151,7 +1151,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.hyundai.de/modelle/ioniq5/",
       "produktionsland": "Südkorea (Ulsan)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Hyundai_Ioniq_5",
       "lieferzeit_wochen": 8
     },
     {
@@ -1315,7 +1315,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.hyundai.de/modelle/ioniq6/",
       "produktionsland": "Südkorea (Ulsan)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Hyundai_Ioniq_6",
       "lieferzeit_wochen": 8
     },
     {
@@ -1479,7 +1479,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.kia.com/de/modelle/ev6/",
       "produktionsland": "Südkorea (Hwaseong)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Kia_EV6",
       "lieferzeit_wochen": 8
     },
     {
@@ -1644,7 +1644,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqa.html",
       "produktionsland": "Deutschland (Rastatt)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQA",
       "lieferzeit_wochen": 10
     },
     {
@@ -1809,7 +1809,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.byd.com/de/car/atto-3",
       "produktionsland": "China (Changsha)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/BYD_Atto_3",
       "lieferzeit_wochen": 6
     },
     {
@@ -1973,7 +1973,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.byd.com/de/car/seal",
       "produktionsland": "China (Changsha)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/BYD_Seal",
       "lieferzeit_wochen": 6
     },
     {
@@ -2137,7 +2137,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.polestar.com/de/polestar-2/",
       "produktionsland": "China (Luqiao)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Polestar_2",
       "lieferzeit_wochen": 6
     },
     {
@@ -2301,7 +2301,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.skoda.de/modelle/enyaq",
       "produktionsland": "Tschechien (Mladá Boleslav)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/%C5%A0koda_Enyaq_iV",
       "lieferzeit_wochen": 8
     },
     {
@@ -2465,7 +2465,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.cupraofficial.de/modelle/born",
       "produktionsland": "Deutschland (Zwickau)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Cupra_Born",
       "lieferzeit_wochen": 8
     },
     {
@@ -2629,7 +2629,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.renault.de/elektrofahrzeuge/megane-e-tech.html",
       "produktionsland": "Frankreich (Douai)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Renault_Megane_E-Tech_Electric",
       "lieferzeit_wochen": 6
     },
     {
@@ -2793,7 +2793,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.volvocars.com/de/cars/ex30/",
       "produktionsland": "China (Chongqing)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Volvo_EX30",
       "lieferzeit_wochen": 6
     },
     {
@@ -2958,7 +2958,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.mgmotor.de/model/mg4-electric",
       "produktionsland": "China (Shanghai)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/MG4",
       "lieferzeit_wochen": 4
     },
     {
@@ -3122,7 +3122,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.audi.de/de/models/q4-e-tron.html",
       "produktionsland": "Deutschland (Zwickau)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Audi_Q4_e-tron",
       "lieferzeit_wochen": 10
     },
     {
@@ -3288,7 +3288,7 @@
       "ota_updates": false,
       "produkt_url": "https://www.opel.de/fahrzeuge/mokka/uebersicht.html",
       "produktionsland": "Frankreich (Poissy)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Opel_Mokka_(B)",
       "lieferzeit_wochen": 6
     },
     {
@@ -3454,7 +3454,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqe.html",
       "produktionsland": "Deutschland (Bremen)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQE",
       "lieferzeit_wochen": 10
     },
     {
@@ -3618,7 +3618,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.kia.com/de/modelle/ev3/",
       "produktionsland": "Südkorea (Gwangmyeong)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Kia_EV3",
       "lieferzeit_wochen": 8
     },
     {
@@ -3782,7 +3782,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.bmw.de/de/models/bmw-i4.html",
       "produktionsland": "Deutschland (München)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/BMW_i4",
       "lieferzeit_wochen": 8
     },
     {
@@ -3946,7 +3946,7 @@
       },
       "produkt_url": "https://www.fiat.de/500e",
       "produktionsland": "Italien (Turin)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Fiat_500e",
       "lieferzeit_wochen": 6
     },
     {
@@ -4110,7 +4110,7 @@
       },
       "produkt_url": "https://www.fiat.de/600e",
       "produktionsland": "Polen (Tychy)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Fiat_600e",
       "lieferzeit_wochen": 6
     },
     {
@@ -4276,7 +4276,7 @@
       },
       "produkt_url": "https://www.dacia.de/modelle/spring.html",
       "produktionsland": "China (Shiyan)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Dacia_Spring",
       "lieferzeit_wochen": 4
     },
     {
@@ -4439,7 +4439,7 @@
       },
       "produkt_url": "https://www.mini.de/de_DE/home/range/electric.html",
       "produktionsland": "China (Zhangjiagang)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Mini_Electric",
       "lieferzeit_wochen": 8
     },
     {
@@ -4601,7 +4601,7 @@
       },
       "produkt_url": "https://www.mini.de/de_DE/home/range/countryman-electric.html",
       "produktionsland": "Deutschland (Leipzig)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Mini_Countryman",
       "lieferzeit_wochen": 8
     },
     {
@@ -4764,7 +4764,7 @@
       },
       "produkt_url": "https://www.smart.com/de/de/models/smart-hash-1",
       "produktionsland": "China (Xi'an)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Smart_%231",
       "lieferzeit_wochen": 6
     },
     {
@@ -4927,7 +4927,7 @@
       },
       "produkt_url": "https://www.smart.com/de/de/models/smart-hash-3",
       "produktionsland": "China (Xi'an)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Smart_3",
       "lieferzeit_wochen": 6
     },
     {
@@ -5092,7 +5092,7 @@
       },
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqb.html",
       "produktionsland": "Ungarn (Kecskemét)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQB",
       "lieferzeit_wochen": 10
     },
     {
@@ -5257,7 +5257,7 @@
       },
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqs.html",
       "produktionsland": "Deutschland (Sindelfingen)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQS",
       "lieferzeit_wochen": 12
     },
     {
@@ -5420,7 +5420,7 @@
       },
       "produkt_url": "https://www.xpeng.com/de/g6",
       "produktionsland": "China (Zhaoqing)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Xpeng_G6",
       "lieferzeit_wochen": 6
     },
     {
@@ -5583,7 +5583,7 @@
         "assistenten": 82
       },
       "produktionsland": "Deutschland (Leipzig)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Porsche_Macan_Electric",
       "lieferzeit_wochen": 10
     },
     {
@@ -5747,7 +5747,7 @@
         "assistenten": 78
       },
       "produktionsland": "Deutschland (Zuffenhausen)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Porsche_Taycan",
       "lieferzeit_wochen": 10
     },
     {
@@ -5912,7 +5912,7 @@
         "assistenten": 81
       },
       "produktionsland": "Deutschland (Dingolfing)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/BMW_iX",
       "lieferzeit_wochen": 10
     },
     {
@@ -6075,7 +6075,7 @@
         "assistenten": 82
       },
       "produktionsland": "Deutschland (Dingolfing)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/BMW_i5",
       "lieferzeit_wochen": 8
     },
     {
@@ -6238,7 +6238,7 @@
         "assistenten": 82
       },
       "produktionsland": "Japan (Toyota City)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Lexus_RZ",
       "lieferzeit_wochen": 12
     },
     {
@@ -6401,7 +6401,7 @@
         "assistenten": 90
       },
       "produktionsland": "Deutschland (Zwickau)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID.3",
       "lieferzeit_wochen": 8
     },
     {
@@ -6566,7 +6566,7 @@
         "assistenten": 82
       },
       "produktionsland": "Mexiko (Cuautitlán)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Ford_Mustang_Mach-E",
       "lieferzeit_wochen": 8
     },
     {
@@ -6729,7 +6729,7 @@
         "assistenten": 85
       },
       "produktionsland": "Deutschland (Köln)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Ford_Explorer_EV",
       "lieferzeit_wochen": 8
     },
     {
@@ -6892,7 +6892,7 @@
         "assistenten": 78
       },
       "produktionsland": "Frankreich (Sochaux)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Peugeot_3008",
       "lieferzeit_wochen": 8
     },
     {
@@ -7057,7 +7057,7 @@
         "assistenten": 64
       },
       "produktionsland": "Frankreich (Poissy)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Peugeot_e-208",
       "lieferzeit_wochen": 6
     },
     {
@@ -7221,7 +7221,7 @@
         "assistenten": 81
       },
       "produktionsland": "Japan (Tochigi)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Nissan_Ariya",
       "lieferzeit_wochen": 8
     },
     {
@@ -7385,7 +7385,7 @@
         "assistenten": 81
       },
       "produktionsland": "Japan (Toyota City)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Toyota_bZ4X",
       "lieferzeit_wochen": 10
     },
     {
@@ -7550,7 +7550,7 @@
         "assistenten": 76
       },
       "produktionsland": "Polen (Tychy)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Jeep_Avenger",
       "lieferzeit_wochen": 6
     },
     {
@@ -7714,7 +7714,7 @@
         "assistenten": 71
       },
       "produktionsland": "China (Wuhan)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Honda_e:Ny1",
       "lieferzeit_wochen": 6
     },
     {
@@ -7879,7 +7879,7 @@
         "assistenten": 60
       },
       "produktionsland": "Spanien (Zaragoza)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_C4",
       "lieferzeit_wochen": 6
     },
     {
@@ -8045,7 +8045,7 @@
         "assistenten": 88
       },
       "produktionsland": "Südkorea (Ulsan)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Genesis_GV60",
       "lieferzeit_wochen": 10
     },
     {
@@ -8210,7 +8210,7 @@
         "assistenten": 81
       },
       "produktionsland": "China (Hefei)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Nio_ET5",
       "lieferzeit_wochen": 6
     },
     {
@@ -8375,7 +8375,7 @@
         "assistenten": 80
       },
       "produktionsland": "China (Hefei)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Nio_ES6",
       "lieferzeit_wochen": 6
     },
     {
@@ -8539,7 +8539,7 @@
         "assistenten": 85
       },
       "produktionsland": "Deutschland (Zwickau)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID.5",
       "lieferzeit_wochen": 10
     },
     {
@@ -8703,7 +8703,7 @@
         "assistenten": 84
       },
       "produktionsland": "USA (Casa Grande)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Lucid_Air",
       "lieferzeit_wochen": 12
     },
     {
@@ -8867,7 +8867,7 @@
         "assistenten": 84
       },
       "produktionsland": "USA (Casa Grande)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Lucid_Air",
       "lieferzeit_wochen": 12
     },
     {
@@ -9030,7 +9030,7 @@
         "assistenten": null
       },
       "produktionsland": "USA (Casa Grande)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Lucid_Gravity",
       "lieferzeit_wochen": 12
     },
     {
@@ -9193,7 +9193,7 @@
         "assistenten": 85
       },
       "produktionsland": "Deutschland (Zwickau)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Audi_Q4_e-tron",
       "lieferzeit_wochen": 10
     },
     {
@@ -9358,7 +9358,7 @@
         "assistenten": 82
       },
       "produktionsland": "Deutschland (Ingolstadt)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Audi_Q6_e-tron",
       "lieferzeit_wochen": 10
     },
     {
@@ -9523,7 +9523,7 @@
         "assistenten": 82
       },
       "produktionsland": "Deutschland (Ingolstadt)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Audi_Q6_e-tron",
       "lieferzeit_wochen": 10
     },
     {
@@ -9690,7 +9690,7 @@
         "assistenten": 79
       },
       "produktionsland": "Belgien (Brüssel)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Audi_Q8_e-tron",
       "lieferzeit_wochen": 10
     },
     {
@@ -9856,7 +9856,7 @@
         "assistenten": 78
       },
       "produktionsland": "Deutschland (Neckarsulm)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Audi_e-tron_GT",
       "lieferzeit_wochen": 10
     },
     {
@@ -10018,7 +10018,7 @@
         "assistenten": 83
       },
       "produktionsland": "Deutschland (Ingolstadt)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Audi_A6_e-tron",
       "lieferzeit_wochen": 10
     },
     {
@@ -10182,7 +10182,7 @@
         "assistenten": 83
       },
       "produktionsland": "Deutschland (Hannover)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID._Buzz",
       "lieferzeit_wochen": 12
     },
     {
@@ -10349,7 +10349,7 @@
         "assistenten": null
       },
       "produktionsland": "Spanien (Vitoria)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQV",
       "lieferzeit_wochen": 12
     },
     {
@@ -10513,7 +10513,7 @@
         "assistenten": 73
       },
       "produktionsland": "Frankreich (Douai)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Renault_5_E-Tech",
       "lieferzeit_wochen": 6
     },
     {
@@ -10676,7 +10676,7 @@
         "assistenten": 79
       },
       "produktionsland": "Frankreich (Douai)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Renault_Scenic_E-Tech",
       "lieferzeit_wochen": 6
     },
     {
@@ -10841,7 +10841,7 @@
         "assistenten": 98
       },
       "produktionsland": "USA (Fremont)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Tesla_Model_S",
       "lieferzeit_wochen": 6
     },
     {
@@ -11006,7 +11006,7 @@
         "assistenten": 98
       },
       "produktionsland": "USA (Fremont)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Tesla_Model_X",
       "lieferzeit_wochen": 6
     },
     {
@@ -11172,7 +11172,7 @@
         "assistenten": 78
       },
       "produktionsland": "Deutschland (Regensburg)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/BMW_X2",
       "lieferzeit_wochen": 8
     },
     {
@@ -11337,7 +11337,7 @@
         "assistenten": 80
       },
       "produktionsland": "China (Wuhan)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Lotus_Eletre",
       "lieferzeit_wochen": 10
     },
     {
@@ -11501,7 +11501,7 @@
         "assistenten": 80
       },
       "produktionsland": "China (Wuhan)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Lotus_Emeya",
       "lieferzeit_wochen": 10
     },
     {
@@ -11664,7 +11664,7 @@
         "assistenten": null
       },
       "produktionsland": "UK (Hethel)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Lotus_Evija",
       "lieferzeit_wochen": null
     },
     {
@@ -11823,7 +11823,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.ferrari.com/de-DE",
       "produktionsland": "Italien (Maranello)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Ferrari_Luce",
       "lieferzeit_wochen": null
     },
     {
@@ -11982,7 +11982,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.deepal-europe.com",
       "produktionsland": "China (Chongqing)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Deepal_S05",
       "lieferzeit_wochen": 6
     },
     {
@@ -12141,7 +12141,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.denza.com",
       "produktionsland": "China (Shenzhen)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Denza_D9",
       "lieferzeit_wochen": 8
     },
     {
@@ -12300,7 +12300,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.denza.com",
       "produktionsland": "China (Shenzhen)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Denza_N7",
       "lieferzeit_wochen": 8
     },
     {
@@ -12459,7 +12459,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.denza.com",
       "produktionsland": "China (Shenzhen)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Denza_Z9",
       "lieferzeit_wochen": 8
     },
     {
@@ -12618,7 +12618,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.zeekrlife.com",
       "produktionsland": "China (Ningbo)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Zeekr_X",
       "lieferzeit_wochen": 6
     },
     {
@@ -12777,7 +12777,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.zeekrlife.com",
       "produktionsland": "China (Ningbo)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Zeekr_001",
       "lieferzeit_wochen": 8
     },
     {
@@ -12936,7 +12936,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.zeekrlife.com",
       "produktionsland": "China (Ningbo)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Zeekr_007",
       "lieferzeit_wochen": 8
     },
     {
@@ -13095,7 +13095,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.zeekrlife.com",
       "produktionsland": "China (Ningbo)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Zeekr_009",
       "lieferzeit_wochen": 8
     },
     {
@@ -13254,7 +13254,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.zeekrlife.com",
       "produktionsland": "China (Ningbo)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Zeekr_Mix",
       "lieferzeit_wochen": 6
     },
     {
@@ -13414,7 +13414,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.kia.com/de/modelle/ev2.html",
       "produktionsland": "Südkorea",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Kia_EV2",
       "lieferzeit_wochen": 8
     },
     {
@@ -13573,7 +13573,7 @@
       "ota_updates": true,
       "produkt_url": "https://www.cupraofficial.de/modelle/raval.html",
       "produktionsland": "Spanien (Martorell)",
-      "bild_url": null,
+      "bild_url": "https://en.wikipedia.org/wiki/Cupra_Raval",
       "lieferzeit_wochen": 8
     }
   ]
