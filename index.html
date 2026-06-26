@@ -42,13 +42,15 @@
   .btn-sm { padding: 4px 10px; font-size: 12px; }
   .badge { background: var(--accent-light); color: var(--accent); padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; margin-left: 4px; }
 
-  .table-wrap { overflow: scroll; padding: 0; flex: 1 1 0; min-height: 0; }
-  .table-wrap { scrollbar-color: var(--text-muted) var(--bg); scrollbar-width: auto; }
-  .table-wrap::-webkit-scrollbar { width: 14px; height: 14px; }
-  .table-wrap::-webkit-scrollbar-track { background: var(--bg); }
-  .table-wrap::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 6px; min-height: 30px; }
+  .table-wrap { overflow-x: scroll; overflow-y: scroll; padding: 0; flex: 1 1 0; min-height: 0; }
+  .table-wrap { scrollbar-color: var(--text-muted) var(--surface); scrollbar-width: auto; }
+  .table-wrap::-webkit-scrollbar { width: 14px; }
+  .table-wrap::-webkit-scrollbar-track { background: var(--surface); }
+  .table-wrap::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 6px; border: 3px solid var(--surface); min-height: 40px; }
   .table-wrap::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-  .table-wrap::-webkit-scrollbar-corner { background: var(--bg); }
+  .hscroll-bar { flex-shrink: 0; height: 14px; border-top: 1px solid var(--border); background: var(--surface); position: relative; cursor: pointer; }
+  .hscroll-thumb { position: absolute; top: 2px; height: 10px; min-width: 40px; background: var(--text-muted); border-radius: 5px; cursor: grab; transition: background .15s; }
+  .hscroll-thumb:hover, .hscroll-thumb.dragging { background: var(--accent); }
   table { width: max-content; border-collapse: collapse; margin-top: 0; font-size: 12px; }
   thead { position: sticky; top: 0; z-index: 50; }
   th { background: var(--header-bg); color: var(--header-text); padding: 4px 6px; text-align: left; white-space: nowrap; cursor: pointer; user-select: none; font-weight: 500; font-size: 11px; border-right: 1px solid rgba(255,255,255,.1); }
@@ -128,12 +130,13 @@
   </div>
 </div>
 
-<div class="table-wrap">
+<div class="table-wrap" id="tableWrap">
   <table id="mainTable">
     <thead><tr id="groupRow"></tr><tr id="headerRow"></tr></thead>
     <tbody id="tableBody"></tbody>
   </table>
 </div>
+<div class="hscroll-bar" id="hscrollBar"><div class="hscroll-thumb" id="hscrollThumb"></div></div>
 
 <div class="status-bar">
   <span id="statusCount"></span>
@@ -627,6 +630,54 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 initTheme();
 initGroupToggles();
 loadData();
+
+const tw = document.getElementById('tableWrap');
+const hBar = document.getElementById('hscrollBar');
+const hThumb = document.getElementById('hscrollThumb');
+
+function updateThumb() {
+  const ratio = tw.clientWidth / tw.scrollWidth;
+  if (ratio >= 1) { hBar.style.display = 'none'; return; }
+  hBar.style.display = 'block';
+  const trackW = hBar.clientWidth;
+  const thumbW = Math.max(40, trackW * ratio);
+  const maxLeft = trackW - thumbW;
+  const scrollRatio = tw.scrollLeft / (tw.scrollWidth - tw.clientWidth);
+  hThumb.style.width = thumbW + 'px';
+  hThumb.style.left = (maxLeft * scrollRatio) + 'px';
+}
+
+tw.addEventListener('scroll', updateThumb);
+new ResizeObserver(updateThumb).observe(tw);
+
+let dragging = false, dragStartX = 0, dragStartLeft = 0;
+hThumb.addEventListener('mousedown', e => {
+  dragging = true; dragStartX = e.clientX; dragStartLeft = parseFloat(hThumb.style.left) || 0;
+  hThumb.classList.add('dragging'); e.preventDefault();
+});
+window.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  const trackW = hBar.clientWidth;
+  const thumbW = hThumb.offsetWidth;
+  const maxLeft = trackW - thumbW;
+  const newLeft = Math.max(0, Math.min(maxLeft, dragStartLeft + e.clientX - dragStartX));
+  const scrollRatio = newLeft / maxLeft;
+  tw.scrollLeft = scrollRatio * (tw.scrollWidth - tw.clientWidth);
+});
+window.addEventListener('mouseup', () => { dragging = false; hThumb.classList.remove('dragging'); });
+hBar.addEventListener('click', e => {
+  if (e.target === hThumb) return;
+  const rect = hBar.getBoundingClientRect();
+  const clickX = e.clientX - rect.left;
+  const trackW = hBar.clientWidth;
+  tw.scrollLeft = (clickX / trackW) * (tw.scrollWidth - tw.clientWidth);
+});
+
+const _origRender = renderTable;
+renderTable = function() { _origRender.apply(this, arguments); setTimeout(updateThumb, 50); };
+const _origBuild = buildHeader;
+buildHeader = function() { _origBuild.apply(this, arguments); setTimeout(updateThumb, 50); };
+setTimeout(updateThumb, 500);
 </script>
 </body>
 </html>
