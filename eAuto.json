@@ -90,10 +90,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2089,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "10,25\" + 10,7\" Curved Display"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -246,10 +246,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2089,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "10,25\" + 10,7\" Curved Display"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -403,10 +403,10 @@
         "frunk": true,
         "frunk_liter": 88,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2089,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "15,4\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -557,10 +557,10 @@
         "frunk": true,
         "frunk_liter": 117,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2129,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "15,4\" + 8\" Fond-Display"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -712,10 +712,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2108,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "5,3\" + 12,9\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -866,10 +866,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2096,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "5,3\" + 15\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1019,10 +1019,10 @@
         "frunk": true,
         "frunk_liter": 57,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2090,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "2x 12,3\" Dual-Display"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1173,10 +1173,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2092,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "2x 12,3\" Dual-Display"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1327,10 +1327,10 @@
         "frunk": true,
         "frunk_liter": 52,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2090,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "2x 12,3\" Curved Display"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1482,10 +1482,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2020,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "10,25\" + 10,25\" MBUX"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1636,10 +1636,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2073,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "12,8\" drehbarer Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1791,10 +1791,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2077,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "15,6\" drehbarer Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -1945,10 +1945,10 @@
         "frunk": true,
         "frunk_liter": 41,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2080,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "11,15\" Touchscreen (Google)"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2099,10 +2099,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2108,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "5,3\" + 13\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2253,10 +2253,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2069,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "5,3\" + 12,9\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2407,10 +2407,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1986,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "12,3\" + 12\" OpenR Link"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2561,10 +2561,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2032,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "12,3\" Touchscreen (Google)"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2715,10 +2715,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2044,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "10,25\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2870,10 +2870,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2108,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "10,25\" + 11,6\" MMI"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -3025,10 +3025,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2006,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 17,
+        "display": "10\" + 12\" Pure Panel"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -3181,10 +3181,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2120,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "12,3\" + 12,8\" MBUX Hyperscreen opt."
       },
       "fahrwerk": {
         "federung_vorne": "Vierlenker",
@@ -3336,10 +3336,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2065,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "12,3\" + 5,3\" Kombi"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -3490,10 +3490,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2074,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "12,3\" + 14,9\" Curved Display"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -3644,10 +3644,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1900,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 17,
+        "display": "10,25\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -3799,10 +3799,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1968,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 17,
+        "display": "10,25\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -3952,10 +3952,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1804,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 14,
+        "display": "7\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4108,10 +4108,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1928,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 17,
+        "display": "9,4\" OLED rund"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4261,10 +4261,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2070,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "9,4\" OLED rund"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4413,10 +4413,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2065,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "12,8\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4566,10 +4566,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2065,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "12,8\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4720,10 +4720,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2035,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "10,25\" + 10,25\" MBUX"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4875,10 +4875,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2135,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 21,
+        "display": "12,3\" + 17,7\" MBUX Hyperscreen"
       },
       "fahrwerk": {
         "federung_vorne": "Vierlenker (Luft)",
@@ -5029,10 +5029,10 @@
         "frunk": true,
         "frunk_liter": 71,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2075,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "10,2\" + 14,96\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -5183,10 +5183,10 @@
         "frunk": true,
         "frunk_liter": 84,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2104,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "12,6\" + 10,9\" Curved Display"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -5337,10 +5337,10 @@
         "frunk": true,
         "frunk_liter": 84,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2114,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "10,9\" + 10,9\" Curved Display"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -5491,10 +5491,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2215,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 21,
+        "display": "12,3\" + 14,9\" Curved Display"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -5645,10 +5645,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2098,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "12,3\" + 14,9\" Curved Display"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -5798,10 +5798,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2087,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "7\" + 14\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -5951,10 +5951,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2070,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "5,3\" + 12,9\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6105,10 +6105,10 @@
         "frunk": true,
         "frunk_liter": 100,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2090,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "10,2\" + 15,5\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6259,10 +6259,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2100,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "5,3\" + 14,6\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6413,10 +6413,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2075,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "10\" + 21\" Panoramic i-Cockpit"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6566,10 +6566,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1985,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 16,
+        "display": "10\" i-Cockpit 3D"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6720,10 +6720,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2075,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "12,3\" + 12,3\" Dual-Display"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6874,10 +6874,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2085,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "7\" + 12,3\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -7029,10 +7029,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1990,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "10,25\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -7183,10 +7183,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2075,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "10,25\" + 15,1\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -7338,10 +7338,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1990,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "10\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -7494,10 +7494,10 @@
         "frunk": true,
         "frunk_liter": 54,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2095,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "12,3\" + 12,3\" Dual-Display"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -7648,10 +7648,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2080,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "10,2\" + 12,8\" + HUD"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -7803,10 +7803,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2100,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 21,
+        "display": "10,2\" + 12,8\" + HUD"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -7959,10 +7959,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2108,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "5,3\" + 12,9\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -8112,10 +8112,10 @@
         "frunk": true,
         "frunk_liter": 280,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2098,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "34\" 5K Curved Glass"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -8266,10 +8266,10 @@
         "frunk": true,
         "frunk_liter": 280,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2098,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 21,
+        "display": "34\" 5K Curved Glass"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -8420,10 +8420,10 @@
         "frunk": true,
         "frunk_liter": 230,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
-        "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "breite_mit_spiegel_mm": 2115,
+        "sitze": 7,
+        "felgen_zoll": 22,
+        "display": "34\" 5K Curved Glass + Fond"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -8573,10 +8573,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2108,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "10,25\" + 11,6\" MMI"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -8728,10 +8728,10 @@
         "frunk": true,
         "frunk_liter": 64,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2116,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "11,9\" + 14,5\" + 10,9\" MMI"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -8883,10 +8883,10 @@
         "frunk": true,
         "frunk_liter": 64,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2116,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "11,9\" + 14,5\" + 10,9\" MMI"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -9039,10 +9039,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2158,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "10,25\" + 10,1\" MMI"
       },
       "fahrwerk": {
         "federung_vorne": "Fuenflenker (Luft)",
@@ -9196,10 +9196,10 @@
         "frunk": true,
         "frunk_liter": 85,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2158,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "12,3\" + 10,1\" MMI"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -9349,10 +9349,10 @@
         "frunk": true,
         "frunk_liter": 27,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2118,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "11,9\" + 14,5\" + 10,9\" MMI"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -9501,10 +9501,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2212,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "5,3\" + 12,9\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -9655,10 +9655,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
-        "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "breite_mit_spiegel_mm": 2200,
+        "sitze": 7,
+        "felgen_zoll": 19,
+        "display": "10,25\" + 10,25\" MBUX"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -9812,10 +9812,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1999,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 18,
+        "display": "10,1\" + 10,1\" OpenR"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -9966,10 +9966,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2075,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "12,3\" + 12\" OpenR Link"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -10120,10 +10120,10 @@
         "frunk": true,
         "frunk_liter": 150,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2129,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 21,
+        "display": "17\" Touchscreen + 8\" Fond"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -10275,10 +10275,10 @@
         "frunk": true,
         "frunk_liter": 183,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2158,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 22,
+        "display": "17\" Touchscreen + 8\" Fond"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -10432,10 +10432,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2087,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "10,25\" + 10,7\" Curved Display"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -10585,10 +10585,10 @@
         "frunk": true,
         "frunk_liter": 46,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2231,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 21,
+        "display": "15,1\" OLED Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -10740,10 +10740,10 @@
         "frunk": true,
         "frunk_liter": 46,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2165,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 21,
+        "display": "15,1\" OLED Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -10896,8 +10896,8 @@
         "ahk_verfuegbar": false,
         "breite_mit_spiegel_mm": null,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "digitales Cockpit"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Rennstrecke)",
@@ -11048,8 +11048,8 @@
         "ahk_verfuegbar": false,
         "breite_mit_spiegel_mm": null,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "digitales Cockpit + Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -11195,10 +11195,10 @@
         "frunk": true,
         "frunk_liter": 32,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2065,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "15,6\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -11344,10 +11344,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
-        "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "breite_mit_spiegel_mm": 2170,
+        "sitze": 7,
+        "felgen_zoll": 19,
+        "display": "12,3\" + 15,6\" + Fond-Displays"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -11493,10 +11493,10 @@
         "frunk": true,
         "frunk_liter": 40,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2120,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 21,
+        "display": "12,3\" + 15,6\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -11642,10 +11642,10 @@
         "frunk": true,
         "frunk_liter": 60,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2170,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 21,
+        "display": "12,3\" + 15,6\" + HUD"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -11791,10 +11791,10 @@
         "frunk": true,
         "frunk_liter": 28,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2058,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "14,5\" AMOLED Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -11940,10 +11940,10 @@
         "frunk": true,
         "frunk_liter": 55,
         "ahk_verfuegbar": true,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2189,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 22,
+        "display": "13,02\" + 15,4\" AMOLED"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -12089,10 +12089,10 @@
         "frunk": true,
         "frunk_liter": 65,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2100,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 20,
+        "display": "13,02\" + 16\" AMOLED"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -12238,10 +12238,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
-        "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "breite_mit_spiegel_mm": 2218,
+        "sitze": 7,
+        "felgen_zoll": 22,
+        "display": "15,4\" + Fond-Displays"
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker, Luftfederung",
@@ -12387,10 +12387,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 2089,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 19,
+        "display": "15,6\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -12537,10 +12537,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1990,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 17,
+        "display": "12,3\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -12686,10 +12686,10 @@
         "frunk": false,
         "frunk_liter": null,
         "ahk_verfuegbar": false,
-        "breite_mit_spiegel_mm": null,
+        "breite_mit_spiegel_mm": 1980,
         "sitze": 5,
-        "felgen_zoll": null,
-        "display": null
+        "felgen_zoll": 17,
+        "display": "12,9\" Touchscreen"
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
