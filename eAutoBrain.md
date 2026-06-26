@@ -5,7 +5,7 @@ Strukturierte Erfassung und Vergleich vollelektrischer Fahrzeuge anhand eines ei
 
 ## Status
 
-### Erfasste Fahrzeuge (80 Varianten, 36 Marken — Stand 2026-06-26)
+### Erfasste Fahrzeuge (83 Varianten, 36 Marken — Stand 2026-06-26)
 
 Eingebettete Daten (HTML, FIXIERT - 23 Varianten, 15 Marken):
 BMW (iX1 eDrive20, iX1 xDrive30, i4 eDrive40), Tesla (Model 3 LR, Model Y LR),
@@ -14,8 +14,8 @@ Mercedes (EQA 250+, EQE 350+), BYD (Atto 3, Seal), Polestar 2,
 Skoda Enyaq 85, Cupra Born, Renault Megane E-Tech, Volvo EX30,
 MG4 Electric, Audi Q4 e-tron 55, Opel Mokka Electric
 
-Nur in JSON (29 weitere Varianten, 16 neue Marken):
-Kleinwagen: Fiat (500e, 600e), Dacia Spring, Mini (Cooper SE, Countryman SE ALL4), Peugeot e-208, Kia EV2
+Nur in JSON (60 weitere Varianten, 21 neue Marken):
+Kleinwagen: Fiat (500e, 600e), Dacia Spring, Mini (Cooper SE, Countryman SE ALL4), Peugeot e-208, Kia EV2, Cupra Raval
 Smart: #1, #3
 Mercedes: EQB 250+, EQS 450+
 XPENG: G6
@@ -27,7 +27,7 @@ Oberklasse: Lucid (Air Pure, Air Grand Touring, Gravity), Tesla (Model S, Model 
 Ergaenzt: Audi (Q4 Sportback, Q6, Q6 Sportback, Q8, e-tron GT, A6 e-tron), BMW iX2
 
 ### Bemerkungen (persoenliche Notizen)
-23 der 68 Fahrzeuge haben persoenliche Bemerkungen aus Probefahrten und Recherche.
+23 der 83 Fahrzeuge haben persoenliche Bemerkungen aus Probefahrten und Recherche.
 Quelle: eAuto_intern.json → uebertragen in eAuto.json am 2026-06-20.
 
 Detailliertes Datenblatt (Markdown):
@@ -39,7 +39,7 @@ Detailliertes Datenblatt (Markdown):
 | Datei | Beschreibung |
 |---|---|
 | **eAutoBrain.md** | Projektfortschritt, Doku, Anleitung (diese Datei) |
-| **eAuto.json** | Zentrale Fahrzeugdaten (68 Fahrzeuge, alle Felder) |
+| **eAuto.json** | Zentrale Fahrzeugdaten (83 Fahrzeuge, alle Felder) |
 | **eAuto_intern.json** | Persoenliche Arbeitsdatei mit eigenen Bemerkungen/Probefahrt-Notizen |
 | **BMW_iX1.md** | Lesbares Datenblatt BMW iX1 (Detailansicht) |
 | **index.html** | Standalone-Vergleichstabelle (HTML + 23 eingebettete Fallback-Daten) |
@@ -118,25 +118,26 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 | Sicherheit | ADAC, NCAP Sterne, Erw.%, Kind%, Fuss%, Assi% | ja |
 | Motor | Antrieb, kW, PS, Nm, 0-100, Vmax | ja |
 | Batterie | kWh netto, Volt, Chemie, Zelltyp | ja |
-| Laden | DC kW, 10-80%, AC kW, AC opt., AC opt. EUR, V2L | ja |
-| Reichweite | WLTP kWh (min/max), WLTP km (min/max), Real kWh (min/max) | ja |
-| Abmessungen | Laenge, Breite, Br. Spiegel, Hoehe, Radstand, Bodenfreiheit, Sitze, Felgen, Display, Wendekreis, cw | ja |
-| Specs | Gewicht, Kofferraum, Koff. max, Frunk, Frunk L, AHK, OTA, WP | ja |
-| Kosten | Preis EUR, Versich. (min/max), Gar.rel., Wartungsintervall, Wartung EUR (min/max), Anfaellige Punkte | ja |
-| (ohne) | Bemerkung | immer sichtbar |
+| Laden | DC kW, 10-80%, AC kW, AC opt., AC opt. EUR, V2L, P&C, Routenpl. | ja |
+| Reichweite | WLTP kWh (min/max), WLTP km (min/max), Real kWh (min/max), Winter km | ja |
+| Abmessungen | Laenge, Breite, Br. Spiegel, Hoehe, Radstand, Bodenfreiheit, Sitze, Felgen, Display, Wendekreis, cw, Dachlast, HUD | ja |
+| Specs | Gewicht, Kofferraum, Koff. max, Frunk, Frunk L, AHK, Koff. el., OTA, WP | ja |
+| Kosten | Preis EUR, Versich. (min/max), Gar.rel., Wartungsintervall, Wartung EUR (min/max), Anfaellige Punkte, AHK EUR | ja |
+| (ohne) | Prod.land, Lieferz., Bemerkung | immer sichtbar |
 
 ---
 
 ## JSON-Struktur pro Fahrzeug
 
 ```
-id, modell, marke, modelljahr, plattform, autotyp, user_wish, bemerkung, produkt_url,
+id, modell, marke, modelljahr, plattform, autotyp, produktionsland, bild_url, lieferzeit_wochen,
+user_wish, bemerkung, produkt_url,
 antrieb: { konzept, anzahl_motoren, motortyp }
 leistung: { systemleistung_kw, systemleistung_ps, drehmoment_nm, beschleunigung_0_100_s, hoechstgeschwindigkeit_kmh }
 batterie: { brutto_kwh, netto_kwh, chemie, systemspannung_v, zelltyp, zelllieferant[], gewicht_kg{min,max}, garantie_jahre, garantie_km, garantie_restkapazitaet_pct }
-laden: { ac_serie_kw, ac_optional_kw, ac_optional_preis_eur, dc_max_kw, dc_10_80_min, ladestecker[], vorkonditionierung, v2l, v2g, v2h }
-verbrauch: { wltp_kwh_100km{min,max}, wltp_reichweite_km{min,max}, realverbrauch_kwh_100km{min,max}, realreichweite_sommer_stadt_km, realreichweite_autobahn_130_km, effizienz_wh_km{min,max} }
-abmessungen: { laenge_mm, breite_mm, breite_mit_spiegel_mm, hoehe_mm, radstand_mm, leergewicht_kg, zulaessiges_gesamtgewicht_kg, kofferraum_liter, kofferraum_umgeklappt_liter, anhaengelast_gebremst_kg, anhaengelast_ungebremst_kg, wendekreis_m, bodenfreiheit_mm, cw_wert, frunk, frunk_liter, ahk_verfuegbar, sitze, felgen_zoll, display }
+laden: { ac_serie_kw, ac_optional_kw, ac_optional_preis_eur, dc_max_kw, dc_10_80_min, ladestecker[], vorkonditionierung, v2l, v2g, v2h, plug_and_charge, laderoutenplaner }
+verbrauch: { wltp_kwh_100km{min,max}, wltp_reichweite_km{min,max}, realverbrauch_kwh_100km{min,max}, realreichweite_sommer_stadt_km, realreichweite_autobahn_130_km, realreichweite_winter_km, effizienz_wh_km{min,max} }
+abmessungen: { laenge_mm, breite_mm, breite_mit_spiegel_mm, hoehe_mm, radstand_mm, leergewicht_kg, zulaessiges_gesamtgewicht_kg, kofferraum_liter, kofferraum_umgeklappt_liter, kofferraum_elektrisch, anhaengelast_gebremst_kg, anhaengelast_ungebremst_kg, ahk_preis_eur, wendekreis_m, bodenfreiheit_mm, cw_wert, dachlast_kg, frunk, frunk_liter, ahk_verfuegbar, sitze, felgen_zoll, display, hud }
 fahrwerk: { federung_vorne, federung_hinten, rekuperation, waermepumpe }
 preis: { basispreis_eur, stromkosten_eur_100km{min,max}, versicherung_eur_jahr{min,max}, wertverlust_3_jahre_pct{min,max} }
 garantien: { fahrzeug_jahre, fahrzeug_km, lack_jahre, durchrostung_jahre, mobilitaet_jahre }
