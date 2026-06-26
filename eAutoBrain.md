@@ -102,7 +102,8 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 - **Sortierung** — Klick auf Spaltenheader (aufsteigend/absteigend)
 - **Praeferenz** — editierbares Zahlenfeld pro Zeile (LocalStorage)
 - **Bemerkung** — editierbares Textfeld pro Zeile (LocalStorage)
-- **Link** — klickbares Symbol, oeffnet Hersteller-Modellseite im neuen Tab
+- **Link** — klickbares 🔗-Symbol, oeffnet Hersteller-Modellseite im neuen Tab
+- **Bild** — klickbares 📷-Symbol, oeffnet Wikipedia-Artikel mit Fahrzeugfoto im neuen Tab
 
 ### Statusleiste (unten)
 - Links: Anzahl Varianten/Modelle (gefiltert / gesamt)
@@ -163,7 +164,7 @@ Dann im Browser: http://localhost:9090
 
 ### Seite lokal starten (ohne Server)
 Einfach `index.html` doppelklicken — zeigt die 23 eingebetteten Fahrzeuge (mit "int"-Badge).
-Um alle 52 zu sehen: JSON-Import Button nutzen und `eAuto.json` auswaehlen.
+Um alle 83 zu sehen: JSON-Import Button nutzen und `eAuto.json` auswaehlen.
 
 ### Neues Fahrzeug hinzufuegen (mit Claude Code)
 So geht's — vom Handy, Desktop oder Web:
@@ -221,4 +222,5 @@ Wichtig fuer Claude Code:
 - Varianten (z.B. eDrive20 vs. xDrive30) als separate Zeilen im JSON
 - Alle Preise brutto, Stand Deutschland
 - Produkt-URLs verlinken auf Hersteller-Modellseiten (koennen sich aendern)
+- Bild-URLs verlinken auf Wikipedia-Artikel mit Fahrzeugfotos (stabile Links)
 - **eAuto_intern.json** ist in .gitignore und wird NICHT gepusht (persoenliche Notizen)
