@@ -114,12 +114,13 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 
 | Gruppe | Spalten | Ein-/Ausklappbar |
 |---|---|---|
-| (ohne) | Pref, Modell, Marke, Segment, Link | immer sichtbar |
+| (ohne) | ID, Pref, Modell, Marke, Segment, Link | immer sichtbar |
 | Sicherheit | ADAC, NCAP Sterne, Erw.%, Kind%, Fuss%, Assi% | ja |
 | Motor | Antrieb, kW, PS, Nm, 0-100, Vmax | ja |
 | Batterie | kWh netto, Volt, Chemie, Zelltyp | ja |
 | Laden | DC kW, 10-80%, AC kW, AC opt., AC opt. EUR, V2L | ja |
 | Reichweite | WLTP kWh (min/max), WLTP km (min/max), Real kWh (min/max) | ja |
+| Abmessungen | Laenge, Breite, Br. Spiegel, Hoehe, Radstand, Bodenfreiheit, Sitze, Felgen, Display, Wendekreis, cw | ja |
 | Specs | Gewicht, Kofferraum, Koff. max, Frunk, Frunk L, AHK, OTA, WP | ja |
 | Kosten | Preis EUR, Versich. (min/max), Gar.rel., Wartungsintervall, Wartung EUR (min/max), Anfaellige Punkte | ja |
 | (ohne) | Bemerkung | immer sichtbar |
@@ -129,13 +130,13 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 ## JSON-Struktur pro Fahrzeug
 
 ```
-modell, marke, modelljahr, plattform, autotyp, user_wish, bemerkung, produkt_url,
+id, modell, marke, modelljahr, plattform, autotyp, user_wish, bemerkung, produkt_url,
 antrieb: { konzept, anzahl_motoren, motortyp }
 leistung: { systemleistung_kw, systemleistung_ps, drehmoment_nm, beschleunigung_0_100_s, hoechstgeschwindigkeit_kmh }
 batterie: { brutto_kwh, netto_kwh, chemie, systemspannung_v, zelltyp, zelllieferant[], gewicht_kg{min,max}, garantie_jahre, garantie_km, garantie_restkapazitaet_pct }
 laden: { ac_serie_kw, ac_optional_kw, ac_optional_preis_eur, dc_max_kw, dc_10_80_min, ladestecker[], vorkonditionierung, v2l, v2g, v2h }
 verbrauch: { wltp_kwh_100km{min,max}, wltp_reichweite_km{min,max}, realverbrauch_kwh_100km{min,max}, realreichweite_sommer_stadt_km, realreichweite_autobahn_130_km, effizienz_wh_km{min,max} }
-abmessungen: { laenge_mm, breite_mm, hoehe_mm, radstand_mm, leergewicht_kg, zulaessiges_gesamtgewicht_kg, kofferraum_liter, kofferraum_umgeklappt_liter, anhaengelast_gebremst_kg, anhaengelast_ungebremst_kg, wendekreis_m, bodenfreiheit_mm, cw_wert, frunk, frunk_liter, ahk_verfuegbar }
+abmessungen: { laenge_mm, breite_mm, breite_mit_spiegel_mm, hoehe_mm, radstand_mm, leergewicht_kg, zulaessiges_gesamtgewicht_kg, kofferraum_liter, kofferraum_umgeklappt_liter, anhaengelast_gebremst_kg, anhaengelast_ungebremst_kg, wendekreis_m, bodenfreiheit_mm, cw_wert, frunk, frunk_liter, ahk_verfuegbar, sitze, felgen_zoll, display }
 fahrwerk: { federung_vorne, federung_hinten, rekuperation, waermepumpe }
 preis: { basispreis_eur, stromkosten_eur_100km{min,max}, versicherung_eur_jahr{min,max}, wertverlust_3_jahre_pct{min,max} }
 garantien: { fahrzeug_jahre, fahrzeug_km, lack_jahre, durchrostung_jahre, mobilitaet_jahre }

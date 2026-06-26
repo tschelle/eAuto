@@ -1,6 +1,7 @@
 {
   "fahrzeuge": [
     {
+      "id": "000001",
       "modell": "BMW iX1 eDrive20",
       "marke": "BMW",
       "modelljahr": "2022-2026",
@@ -88,7 +89,11 @@
         "cw_wert": 0.26,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -153,6 +158,7 @@
       "produkt_url": "https://www.bmw.de/de/models/bmw-ix1.html"
     },
     {
+      "id": "000002",
       "modell": "BMW iX1 xDrive30",
       "marke": "BMW",
       "modelljahr": "2022-2026",
@@ -239,7 +245,11 @@
         "cw_wert": 0.26,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -304,6 +314,7 @@
       "produkt_url": "https://www.bmw.de/de/models/bmw-ix1.html"
     },
     {
+      "id": "000003",
       "modell": "Tesla Model 3 Long Range",
       "marke": "Tesla",
       "modelljahr": "2024-2026",
@@ -391,7 +402,11 @@
         "cw_wert": 0.219,
         "frunk": true,
         "frunk_liter": 88,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -454,6 +469,7 @@
       "produkt_url": "https://www.tesla.com/de_de/model3"
     },
     {
+      "id": "000004",
       "modell": "Tesla Model Y Long Range",
       "marke": "Tesla",
       "modelljahr": "2025-2026",
@@ -540,7 +556,11 @@
         "cw_wert": 0.23,
         "frunk": true,
         "frunk_liter": 117,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -603,6 +623,7 @@
       "produkt_url": "https://www.tesla.com/de_de/modely"
     },
     {
+      "id": "000005",
       "modell": "VW ID.4 Pro",
       "marke": "Volkswagen",
       "modelljahr": "2024-2026",
@@ -690,7 +711,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -753,6 +778,7 @@
       "produkt_url": "https://www.volkswagen.de/de/modelle/id4.html"
     },
     {
+      "id": "000006",
       "modell": "VW ID.7 Pro S",
       "marke": "Volkswagen",
       "modelljahr": "2024-2026",
@@ -839,7 +865,11 @@
         "cw_wert": 0.23,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -901,6 +931,7 @@
       "produkt_url": "https://www.volkswagen.de/de/modelle/id7.html"
     },
     {
+      "id": "000007",
       "modell": "Hyundai Ioniq 5 77 kWh RWD",
       "marke": "Hyundai",
       "modelljahr": "2024-2026",
@@ -987,7 +1018,11 @@
         "cw_wert": 0.288,
         "frunk": true,
         "frunk_liter": 57,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1050,6 +1085,7 @@
       "produkt_url": "https://www.hyundai.de/modelle/ioniq5/"
     },
     {
+      "id": "000008",
       "modell": "Hyundai Ioniq 6 77 kWh RWD",
       "marke": "Hyundai",
       "modelljahr": "2023-2026",
@@ -1136,7 +1172,11 @@
         "cw_wert": 0.21,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1199,6 +1239,7 @@
       "produkt_url": "https://www.hyundai.de/modelle/ioniq6/"
     },
     {
+      "id": "000009",
       "modell": "Kia EV6 77 kWh RWD",
       "marke": "Kia",
       "modelljahr": "2024-2026",
@@ -1285,7 +1326,11 @@
         "cw_wert": 0.28,
         "frunk": true,
         "frunk_liter": 52,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1348,6 +1393,7 @@
       "produkt_url": "https://www.kia.com/de/modelle/ev6/"
     },
     {
+      "id": "000010",
       "modell": "Mercedes EQA 250+",
       "marke": "Mercedes-Benz",
       "modelljahr": "2024-2026",
@@ -1435,7 +1481,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1498,6 +1548,7 @@
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqa.html"
     },
     {
+      "id": "000011",
       "modell": "BYD Atto 3",
       "marke": "BYD",
       "modelljahr": "2023-2026",
@@ -1584,7 +1635,11 @@
         "cw_wert": 0.29,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1648,6 +1703,7 @@
       "produkt_url": "https://www.byd.com/de/car/atto-3"
     },
     {
+      "id": "000012",
       "modell": "BYD Seal Design",
       "marke": "BYD",
       "modelljahr": "2024-2026",
@@ -1734,7 +1790,11 @@
         "cw_wert": 0.219,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -1797,6 +1857,7 @@
       "produkt_url": "https://www.byd.com/de/car/seal"
     },
     {
+      "id": "000013",
       "modell": "Polestar 2 Long Range Single Motor",
       "marke": "Polestar",
       "modelljahr": "2024-2026",
@@ -1883,7 +1944,11 @@
         "cw_wert": 0.27,
         "frunk": true,
         "frunk_liter": 41,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -1946,6 +2011,7 @@
       "produkt_url": "https://www.polestar.com/de/polestar-2/"
     },
     {
+      "id": "000014",
       "modell": "Skoda Enyaq 85",
       "marke": "Skoda",
       "modelljahr": "2024-2026",
@@ -2032,7 +2098,11 @@
         "cw_wert": 0.26,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2095,6 +2165,7 @@
       "produkt_url": "https://www.skoda.de/modelle/enyaq"
     },
     {
+      "id": "000015",
       "modell": "Cupra Born 170 kW",
       "marke": "Cupra",
       "modelljahr": "2024-2026",
@@ -2181,7 +2252,11 @@
         "cw_wert": 0.27,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2244,6 +2319,7 @@
       "produkt_url": "https://www.cupraofficial.de/modelle/born"
     },
     {
+      "id": "000016",
       "modell": "Renault Megane E-Tech EV60",
       "marke": "Renault",
       "modelljahr": "2023-2026",
@@ -2330,7 +2406,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2393,6 +2473,7 @@
       "produkt_url": "https://www.renault.de/elektrofahrzeuge/megane-e-tech.html"
     },
     {
+      "id": "000017",
       "modell": "Volvo EX30 Single Motor Extended Range",
       "marke": "Volvo",
       "modelljahr": "2024-2026",
@@ -2479,7 +2560,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2542,6 +2627,7 @@
       "produkt_url": "https://www.volvocars.com/de/cars/ex30/"
     },
     {
+      "id": "000018",
       "modell": "MG4 Electric 77 kWh",
       "marke": "MG",
       "modelljahr": "2024-2026",
@@ -2628,7 +2714,11 @@
         "cw_wert": 0.275,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2692,6 +2782,7 @@
       "produkt_url": "https://www.mgmotor.de/model/mg4-electric"
     },
     {
+      "id": "000019",
       "modell": "Audi Q4 e-tron 55 quattro",
       "marke": "Audi",
       "modelljahr": "2024-2026",
@@ -2778,7 +2869,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2841,6 +2936,7 @@
       "produkt_url": "https://www.audi.de/de/models/q4-e-tron.html"
     },
     {
+      "id": "000020",
       "modell": "Opel Mokka Electric",
       "marke": "Opel",
       "modelljahr": "2024-2026",
@@ -2928,7 +3024,11 @@
         "cw_wert": 0.32,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -2992,6 +3092,7 @@
       "produkt_url": "https://www.opel.de/fahrzeuge/mokka/uebersicht.html"
     },
     {
+      "id": "000021",
       "modell": "Mercedes EQE 350+",
       "marke": "Mercedes-Benz",
       "modelljahr": "2023-2026",
@@ -3079,7 +3180,11 @@
         "cw_wert": 0.22,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Vierlenker",
@@ -3143,6 +3248,7 @@
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqe.html"
     },
     {
+      "id": "000022",
       "modell": "Kia EV3 Long Range",
       "marke": "Kia",
       "modelljahr": "2025-2026",
@@ -3229,7 +3335,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -3292,6 +3402,7 @@
       "produkt_url": "https://www.kia.com/de/modelle/ev3/"
     },
     {
+      "id": "000023",
       "modell": "BMW i4 eDrive40",
       "marke": "BMW",
       "modelljahr": "2022-2026",
@@ -3378,7 +3489,11 @@
         "cw_wert": 0.24,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -3441,6 +3556,7 @@
       "produkt_url": "https://www.bmw.de/de/models/bmw-i4.html"
     },
     {
+      "id": "000024",
       "modell": "Fiat 500e La Prima",
       "marke": "Fiat",
       "modelljahr": "2023-2026",
@@ -3527,7 +3643,11 @@
         "cw_wert": 0.33,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -3590,6 +3710,7 @@
       "produkt_url": "https://www.fiat.de/500e"
     },
     {
+      "id": "000025",
       "modell": "Fiat 600e La Prima",
       "marke": "Fiat",
       "modelljahr": "2024-2026",
@@ -3677,7 +3798,11 @@
         "cw_wert": 0.31,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -3739,6 +3864,7 @@
       "produkt_url": "https://www.fiat.de/600e"
     },
     {
+      "id": "000026",
       "modell": "Dacia Spring Electric 45",
       "marke": "Dacia",
       "modelljahr": "2024-2026",
@@ -3825,7 +3951,11 @@
         "cw_wert": 0.34,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -3890,6 +4020,7 @@
       "produkt_url": "https://www.dacia.de/modelle/spring.html"
     },
     {
+      "id": "000027",
       "modell": "Mini Cooper SE",
       "marke": "Mini",
       "modelljahr": "2024-2026",
@@ -3976,7 +4107,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4038,6 +4173,7 @@
       "produkt_url": "https://www.mini.de/de_DE/home/range/electric.html"
     },
     {
+      "id": "000028",
       "modell": "Mini Countryman SE ALL4",
       "marke": "Mini",
       "modelljahr": "2024-2026",
@@ -4124,7 +4260,11 @@
         "cw_wert": 0.26,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4185,6 +4325,7 @@
       "produkt_url": "https://www.mini.de/de_DE/home/range/countryman-electric.html"
     },
     {
+      "id": "000029",
       "modell": "Smart #1 Pro+",
       "marke": "Smart",
       "modelljahr": "2023-2026",
@@ -4271,7 +4412,11 @@
         "cw_wert": 0.29,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4333,6 +4478,7 @@
       "produkt_url": "https://www.smart.com/de/de/models/smart-hash-1"
     },
     {
+      "id": "000030",
       "modell": "Smart #3 Pro+",
       "marke": "Smart",
       "modelljahr": "2024-2026",
@@ -4419,7 +4565,11 @@
         "cw_wert": 0.27,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4481,6 +4631,7 @@
       "produkt_url": "https://www.smart.com/de/de/models/smart-hash-3"
     },
     {
+      "id": "000031",
       "modell": "Mercedes EQB 250+",
       "marke": "Mercedes-Benz",
       "modelljahr": "2024-2026",
@@ -4568,7 +4719,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4631,6 +4786,7 @@
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqb.html"
     },
     {
+      "id": "000032",
       "modell": "Mercedes EQS 450+",
       "marke": "Mercedes-Benz",
       "modelljahr": "2023-2026",
@@ -4718,7 +4874,11 @@
         "cw_wert": 0.2,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Vierlenker (Luft)",
@@ -4781,6 +4941,7 @@
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqs.html"
     },
     {
+      "id": "000033",
       "modell": "XPENG G6 Standard Range",
       "marke": "XPENG",
       "modelljahr": "2024-2026",
@@ -4867,7 +5028,11 @@
         "cw_wert": 0.248,
         "frunk": true,
         "frunk_liter": 71,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -4929,6 +5094,7 @@
       "produkt_url": "https://www.xpeng.com/de/g6"
     },
     {
+      "id": "000034",
       "modell": "Porsche Macan Electric",
       "marke": "Porsche",
       "modelljahr": "2024-2026",
@@ -5016,7 +5182,11 @@
         "cw_wert": 0.25,
         "frunk": true,
         "frunk_liter": 84,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -5077,6 +5247,7 @@
       }
     },
     {
+      "id": "000035",
       "modell": "Porsche Taycan Performance",
       "marke": "Porsche",
       "modelljahr": "2024-2026",
@@ -5165,7 +5336,11 @@
         "cw_wert": 0.22,
         "frunk": true,
         "frunk_liter": 84,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -5226,6 +5401,7 @@
       }
     },
     {
+      "id": "000036",
       "modell": "BMW iX xDrive50",
       "marke": "BMW",
       "modelljahr": "2023-2026",
@@ -5314,7 +5490,11 @@
         "cw_wert": 0.25,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -5376,6 +5556,7 @@
       }
     },
     {
+      "id": "000037",
       "modell": "BMW i5 eDrive40",
       "marke": "BMW",
       "modelljahr": "2024-2026",
@@ -5463,7 +5644,11 @@
         "cw_wert": 0.23,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -5524,6 +5709,7 @@
       }
     },
     {
+      "id": "000038",
       "modell": "Lexus RZ 450e",
       "marke": "Lexus",
       "modelljahr": "2023-2026",
@@ -5611,7 +5797,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -5672,6 +5862,7 @@
       }
     },
     {
+      "id": "000039",
       "modell": "VW ID.3 Pro S",
       "marke": "Volkswagen",
       "modelljahr": "2024-2026",
@@ -5759,7 +5950,11 @@
         "cw_wert": 0.263,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -5820,6 +6015,7 @@
       }
     },
     {
+      "id": "000040",
       "modell": "Ford Mustang Mach-E Extended Range AWD",
       "marke": "Ford",
       "modelljahr": "2024-2026",
@@ -5908,7 +6104,11 @@
         "cw_wert": 0.27,
         "frunk": true,
         "frunk_liter": 100,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -5970,6 +6170,7 @@
       }
     },
     {
+      "id": "000041",
       "modell": "Ford Explorer Electric Extended Range RWD",
       "marke": "Ford",
       "modelljahr": "2024-2026",
@@ -6057,7 +6258,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6118,6 +6323,7 @@
       }
     },
     {
+      "id": "000042",
       "modell": "Peugeot e-3008 Long Range",
       "marke": "Peugeot",
       "modelljahr": "2024-2026",
@@ -6206,7 +6412,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6266,6 +6476,7 @@
       }
     },
     {
+      "id": "000043",
       "modell": "Peugeot e-208",
       "marke": "Peugeot",
       "modelljahr": "2024-2026",
@@ -6354,7 +6565,11 @@
         "cw_wert": 0.29,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6416,6 +6631,7 @@
       }
     },
     {
+      "id": "000044",
       "modell": "Nissan Ariya 87 kWh",
       "marke": "Nissan",
       "modelljahr": "2023-2026",
@@ -6503,7 +6719,11 @@
         "cw_wert": 0.297,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6565,6 +6785,7 @@
       }
     },
     {
+      "id": "000045",
       "modell": "Toyota bZ4X AWD",
       "marke": "Toyota",
       "modelljahr": "2023-2026",
@@ -6652,7 +6873,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6714,6 +6939,7 @@
       }
     },
     {
+      "id": "000046",
       "modell": "Jeep Avenger Electric",
       "marke": "Jeep",
       "modelljahr": "2023-2026",
@@ -6802,7 +7028,11 @@
         "cw_wert": 0.31,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -6864,6 +7094,7 @@
       }
     },
     {
+      "id": "000047",
       "modell": "Honda e:Ny1",
       "marke": "Honda",
       "modelljahr": "2023-2026",
@@ -6951,7 +7182,11 @@
         "cw_wert": 0.3,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -7013,6 +7248,7 @@
       }
     },
     {
+      "id": "000048",
       "modell": "Citroen e-C4",
       "marke": "Citroen",
       "modelljahr": "2024-2026",
@@ -7101,7 +7337,11 @@
         "cw_wert": 0.29,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -7163,6 +7403,7 @@
       }
     },
     {
+      "id": "000049",
       "modell": "Genesis GV60 Sport Plus",
       "marke": "Genesis",
       "modelljahr": "2023-2026",
@@ -7252,7 +7493,11 @@
         "cw_wert": 0.29,
         "frunk": true,
         "frunk_liter": 54,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -7314,6 +7559,7 @@
       }
     },
     {
+      "id": "000050",
       "modell": "NIO ET5 100 kWh",
       "marke": "NIO",
       "modelljahr": "2024-2026",
@@ -7401,7 +7647,11 @@
         "cw_wert": 0.24,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -7464,6 +7714,7 @@
       }
     },
     {
+      "id": "000051",
       "modell": "NIO EL6 100 kWh",
       "marke": "NIO",
       "modelljahr": "2024-2026",
@@ -7551,7 +7802,11 @@
         "cw_wert": 0.27,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -7614,6 +7869,7 @@
       }
     },
     {
+      "id": "000052",
       "modell": "VW ID.5 Pro",
       "marke": "Volkswagen",
       "modelljahr": "2024-2026",
@@ -7702,7 +7958,11 @@
         "cw_wert": 0.26,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -7763,6 +8023,7 @@
       }
     },
     {
+      "id": "000053",
       "modell": "Lucid Air Pure RWD",
       "marke": "Lucid",
       "modelljahr": "2024-2026",
@@ -7850,7 +8111,11 @@
         "cw_wert": 0.197,
         "frunk": true,
         "frunk_liter": 280,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -7912,6 +8177,7 @@
       }
     },
     {
+      "id": "000054",
       "modell": "Lucid Air Grand Touring AWD",
       "marke": "Lucid",
       "modelljahr": "2024-2026",
@@ -7999,7 +8265,11 @@
         "cw_wert": 0.197,
         "frunk": true,
         "frunk_liter": 280,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -8061,6 +8331,7 @@
       }
     },
     {
+      "id": "000055",
       "modell": "Lucid Gravity Grand Touring AWD",
       "marke": "Lucid",
       "modelljahr": "2025-2026",
@@ -8148,7 +8419,11 @@
         "cw_wert": 0.24,
         "frunk": true,
         "frunk_liter": 230,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -8209,6 +8484,7 @@
       }
     },
     {
+      "id": "000056",
       "modell": "Audi Q4 Sportback e-tron 55 quattro",
       "marke": "Audi",
       "modelljahr": "2024-2026",
@@ -8296,7 +8572,11 @@
         "cw_wert": 0.26,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -8357,6 +8637,7 @@
       }
     },
     {
+      "id": "000057",
       "modell": "Audi Q6 e-tron quattro",
       "marke": "Audi",
       "modelljahr": "2024-2026",
@@ -8446,7 +8727,11 @@
         "cw_wert": 0.28,
         "frunk": true,
         "frunk_liter": 64,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -8507,6 +8792,7 @@
       }
     },
     {
+      "id": "000058",
       "modell": "Audi Q6 Sportback e-tron quattro",
       "marke": "Audi",
       "modelljahr": "2025-2026",
@@ -8596,7 +8882,11 @@
         "cw_wert": 0.26,
         "frunk": true,
         "frunk_liter": 64,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -8657,6 +8947,7 @@
       }
     },
     {
+      "id": "000059",
       "modell": "Audi Q8 e-tron 55 quattro",
       "marke": "Audi",
       "modelljahr": "2023-2026",
@@ -8747,7 +9038,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Fuenflenker (Luft)",
@@ -8809,6 +9104,7 @@
       }
     },
     {
+      "id": "000060",
       "modell": "Audi e-tron GT quattro",
       "marke": "Audi",
       "modelljahr": "2024-2026",
@@ -8899,7 +9195,11 @@
         "cw_wert": 0.24,
         "frunk": true,
         "frunk_liter": 85,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -8960,6 +9260,7 @@
       }
     },
     {
+      "id": "000061",
       "modell": "Audi A6 e-tron Sportback",
       "marke": "Audi",
       "modelljahr": "2025-2026",
@@ -9047,7 +9348,11 @@
         "cw_wert": 0.21,
         "frunk": true,
         "frunk_liter": 27,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -9107,6 +9412,7 @@
       }
     },
     {
+      "id": "000062",
       "modell": "VW ID. Buzz Pro LWB",
       "marke": "Volkswagen",
       "modelljahr": "2024-2026",
@@ -9194,7 +9500,11 @@
         "cw_wert": 0.29,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -9256,6 +9566,7 @@
       }
     },
     {
+      "id": "000063",
       "modell": "Mercedes EQV 300 Long",
       "marke": "Mercedes-Benz",
       "modelljahr": "2023-2026",
@@ -9343,7 +9654,11 @@
         "cw_wert": 0.35,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -9408,6 +9723,7 @@
       }
     },
     {
+      "id": "000064",
       "modell": "Renault 5 E-Tech Comfort Range",
       "marke": "Renault",
       "modelljahr": "2025-2026",
@@ -9495,7 +9811,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -9557,6 +9877,7 @@
       }
     },
     {
+      "id": "000065",
       "modell": "Renault Scenic E-Tech Long Range",
       "marke": "Renault",
       "modelljahr": "2024-2026",
@@ -9644,7 +9965,11 @@
         "cw_wert": 0.268,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -9705,6 +10030,7 @@
       }
     },
     {
+      "id": "000066",
       "modell": "Tesla Model S Long Range",
       "marke": "Tesla",
       "modelljahr": "2024-2026",
@@ -9793,7 +10119,11 @@
         "cw_wert": 0.208,
         "frunk": true,
         "frunk_liter": 150,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -9855,6 +10185,7 @@
       }
     },
     {
+      "id": "000067",
       "modell": "Tesla Model X Long Range",
       "marke": "Tesla",
       "modelljahr": "2024-2026",
@@ -9943,7 +10274,11 @@
         "cw_wert": 0.24,
         "frunk": true,
         "frunk_liter": 183,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -10005,6 +10340,7 @@
       }
     },
     {
+      "id": "000068",
       "modell": "BMW iX2 xDrive30",
       "marke": "BMW",
       "modelljahr": "2024-2026",
@@ -10095,7 +10431,11 @@
         "cw_wert": 0.26,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -10156,6 +10496,7 @@
       }
     },
     {
+      "id": "000069",
       "modell": "Lotus Eletre S",
       "marke": "Lotus",
       "modelljahr": "2024-2026",
@@ -10243,7 +10584,11 @@
         "cw_wert": 0.26,
         "frunk": true,
         "frunk_liter": 46,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -10306,6 +10651,7 @@
       }
     },
     {
+      "id": "000070",
       "modell": "Lotus Emeya S",
       "marke": "Lotus",
       "modelljahr": "2024-2026",
@@ -10393,7 +10739,11 @@
         "cw_wert": 0.21,
         "frunk": true,
         "frunk_liter": 46,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Luft)",
@@ -10455,6 +10805,7 @@
       }
     },
     {
+      "id": "000071",
       "modell": "Lotus Evija",
       "marke": "Lotus",
       "modelljahr": "2024-2026",
@@ -10542,7 +10893,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker (Rennstrecke)",
@@ -10603,6 +10958,7 @@
       }
     },
     {
+      "id": "000072",
       "modell": "Ferrari Luce",
       "marke": "Ferrari",
       "modelljahr": "2026",
@@ -10689,7 +11045,11 @@
         "cw_wert": 0.28,
         "frunk": true,
         "frunk_liter": 50,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -10747,6 +11107,7 @@
       "produkt_url": "https://www.ferrari.com/de-DE"
     },
     {
+      "id": "000073",
       "modell": "Deepal S05",
       "marke": "Deepal",
       "modelljahr": "2025-2026",
@@ -10833,7 +11194,11 @@
         "cw_wert": 0.26,
         "frunk": true,
         "frunk_liter": 32,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -10891,6 +11256,7 @@
       "produkt_url": "https://www.deepal-europe.com"
     },
     {
+      "id": "000074",
       "modell": "Denza D9 EV",
       "marke": "Denza",
       "modelljahr": "2023-2026",
@@ -10977,7 +11343,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -11035,6 +11405,7 @@
       "produkt_url": "https://www.denza.com"
     },
     {
+      "id": "000075",
       "modell": "Denza N7",
       "marke": "Denza",
       "modelljahr": "2023-2026",
@@ -11121,7 +11492,11 @@
         "cw_wert": 0.27,
         "frunk": true,
         "frunk_liter": 40,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -11179,6 +11554,7 @@
       "produkt_url": "https://www.denza.com"
     },
     {
+      "id": "000076",
       "modell": "Denza Z9 GT",
       "marke": "Denza",
       "modelljahr": "2024-2026",
@@ -11265,7 +11641,11 @@
         "cw_wert": 0.24,
         "frunk": true,
         "frunk_liter": 60,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -11323,6 +11703,7 @@
       "produkt_url": "https://www.denza.com"
     },
     {
+      "id": "000077",
       "modell": "Zeekr X",
       "marke": "Zeekr",
       "modelljahr": "2023-2026",
@@ -11409,7 +11790,11 @@
         "cw_wert": 0.27,
         "frunk": true,
         "frunk_liter": 28,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -11467,6 +11852,7 @@
       "produkt_url": "https://www.zeekrlife.com"
     },
     {
+      "id": "000078",
       "modell": "Zeekr 001",
       "marke": "Zeekr",
       "modelljahr": "2022-2026",
@@ -11553,7 +11939,11 @@
         "cw_wert": 0.23,
         "frunk": true,
         "frunk_liter": 55,
-        "ahk_verfuegbar": true
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -11611,6 +12001,7 @@
       "produkt_url": "https://www.zeekrlife.com"
     },
     {
+      "id": "000079",
       "modell": "Zeekr 007",
       "marke": "Zeekr",
       "modelljahr": "2024-2026",
@@ -11697,7 +12088,11 @@
         "cw_wert": 0.21,
         "frunk": true,
         "frunk_liter": 65,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker",
@@ -11755,6 +12150,7 @@
       "produkt_url": "https://www.zeekrlife.com"
     },
     {
+      "id": "000080",
       "modell": "Zeekr 009",
       "marke": "Zeekr",
       "modelljahr": "2023-2026",
@@ -11841,7 +12237,11 @@
         "cw_wert": 0.27,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "Doppelquerlenker, Luftfederung",
@@ -11899,6 +12299,7 @@
       "produkt_url": "https://www.zeekrlife.com"
     },
     {
+      "id": "000081",
       "modell": "Zeekr Mix",
       "marke": "Zeekr",
       "modelljahr": "2024-2026",
@@ -11985,7 +12386,11 @@
         "cw_wert": 0.26,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -12043,6 +12448,7 @@
       "produkt_url": "https://www.zeekrlife.com"
     },
     {
+      "id": "000082",
       "modell": "Kia EV2",
       "marke": "Kia",
       "modelljahr": "2026",
@@ -12130,7 +12536,11 @@
         "cw_wert": 0.29,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
@@ -12188,6 +12598,7 @@
       "produkt_url": "https://www.kia.com/de/modelle/ev2.html"
     },
     {
+      "id": "000083",
       "modell": "Cupra Raval",
       "marke": "Cupra",
       "modelljahr": "2025-2026",
@@ -12274,7 +12685,11 @@
         "cw_wert": 0.28,
         "frunk": false,
         "frunk_liter": null,
-        "ahk_verfuegbar": false
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": null,
+        "display": null
       },
       "fahrwerk": {
         "federung_vorne": "MacPherson",
