@@ -153,6 +153,7 @@ const COLUMNS = [
   { key: 'marke', label: 'Marke', group: '' },
   { key: 'autotyp', label: 'Segment', group: '' },
   { key: 'produkt_url', label: 'Link', group: '', type: 'link' },
+  { key: 'bild_url', label: 'Bild', group: '', type: 'link' },
   { key: 'adac_note', label: 'ADAC', group: 'Sicherheit' },
   { key: 'euro_ncap.sterne', label: 'NCAP', group: 'Sicherheit' },
   { key: 'euro_ncap.erwachsene', label: 'Erw.%', group: 'Sicherheit' },
@@ -294,7 +295,7 @@ function numVal(v) {
 
 function displayVal(v, col) {
   if (v === null || v === undefined) return '<span class="no-data">-</span>';
-  if (col.type === 'link') return `<a href="${v}" target="_blank" rel="noopener" class="link-icon" title="${v}">&#128279;</a>`;
+  if (col.type === 'link') { const icon = col.key === 'bild_url' ? '&#128247;' : '&#128279;'; return `<a href="${v}" target="_blank" rel="noopener" class="link-icon" title="${v}">${icon}</a>`; }
   if (col.type === 'bool') return v ? '<span class="bool-yes">Ja</span>' : '<span class="bool-no">Nein</span>';
   if (isRange(v)) return `<span class="val-min">${v.min}</span> <span class="val-max">/ ${v.max}</span>`;
   if (typeof v === 'number') return v.toLocaleString('de-DE');

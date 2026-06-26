@@ -114,7 +114,7 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 
 | Gruppe | Spalten | Ein-/Ausklappbar |
 |---|---|---|
-| (ohne) | ID, Pref, Modell, Marke, Segment, Link | immer sichtbar |
+| (ohne) | ID, Pref, Modell, Marke, Segment, Link, Bild | immer sichtbar |
 | Sicherheit | ADAC, NCAP Sterne, Erw.%, Kind%, Fuss%, Assi% | ja |
 | Motor | Antrieb, kW, PS, Nm, 0-100, Vmax | ja |
 | Batterie | kWh netto, Volt, Chemie, Zelltyp | ja |
