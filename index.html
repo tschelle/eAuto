@@ -211,28 +211,41 @@ const COLUMNS = [
   { key: 'service.wartungskosten_eur', label: 'Wartung €', type: 'range', group: 'Kosten' },
   { key: 'service.anfaellige_punkte', label: 'Anfaellige Punkte', group: 'Kosten' },
   { key: 'abmessungen.ahk_preis_eur', label: 'AHK €', group: 'Kosten' },
+  { key: 'abmessungen.nutzlast_kg', label: 'Nutzlast kg', group: 'LKW' },
+  { key: 'abmessungen.anzahl_achsen', label: 'Achsen', group: 'LKW' },
+  { key: 'antrieb.achskonfiguration', label: 'Achskonf.', group: 'LKW' },
+  { key: 'abmessungen.laderaum_m3', label: 'Laderaum m³', group: 'LKW' },
+  { key: 'abmessungen.fuehrerhaus', label: 'Führerhaus', group: 'LKW' },
+  { key: 'verbrauch.verbrauch_kwh_tkm', label: 'kWh/tkm', group: 'LKW' },
   { key: 'produktionsland', label: 'Prod.land', group: '' },
   { key: 'lieferzeit_wochen', label: 'Lieferz. Wo', group: '' },
   { key: 'bemerkung', label: 'Bemerkung', editable: 'text', group: '' },
 ];
 
 const GROUP_NAMES = [...new Set(COLUMNS.map(c => c.group).filter(g => g))];
+const EXCLUDED_FROM_ALLE = new Set(['LKW']);
 let hiddenGroups = new Set();
 
 function initGroupToggles() {
   try {
-    const saved = JSON.parse(localStorage.getItem('eauto_groups') || '[]');
-    hiddenGroups = new Set(saved);
-  } catch(e) {}
+    const saved = localStorage.getItem('eauto_groups');
+    hiddenGroups = saved ? new Set(JSON.parse(saved)) : new Set(EXCLUDED_FROM_ALLE);
+  } catch(e) { hiddenGroups = new Set(EXCLUDED_FROM_ALLE); }
   const container = document.getElementById('groupToggles');
   const allBtn = document.createElement('button');
-  allBtn.className = 'group-toggle' + (hiddenGroups.size === 0 ? ' active' : '');
+  const isAlleActive = () => { const nonExcluded = GROUP_NAMES.filter(g => !EXCLUDED_FROM_ALLE.has(g)); return nonExcluded.every(g => !hiddenGroups.has(g)); };
+  allBtn.className = 'group-toggle' + (isAlleActive() ? ' active' : '');
   allBtn.textContent = 'Alle';
   allBtn.addEventListener('click', () => {
     hiddenGroups.clear();
-    localStorage.setItem('eauto_groups', '[]');
-    container.querySelectorAll('.group-toggle').forEach(b => b.classList.add('active'));
+    EXCLUDED_FROM_ALLE.forEach(g => hiddenGroups.add(g));
+    localStorage.setItem('eauto_groups', JSON.stringify([...hiddenGroups]));
+    container.querySelectorAll('.group-toggle').forEach(b => {
+      const name = b.textContent;
+      b.classList.toggle('active', !EXCLUDED_FROM_ALLE.has(name));
+    });
     noneBtn.classList.remove('active');
+    allBtn.classList.add('active');
     buildHeader();
     renderTable();
   });
@@ -256,7 +269,7 @@ function initGroupToggles() {
     btn.addEventListener('click', () => {
       if (hiddenGroups.has(name)) { hiddenGroups.delete(name); btn.classList.add('active'); }
       else { hiddenGroups.add(name); btn.classList.remove('active'); }
-      allBtn.classList.toggle('active', hiddenGroups.size === 0);
+      allBtn.classList.toggle('active', isAlleActive());
       noneBtn.classList.toggle('active', hiddenGroups.size === GROUP_NAMES.length);
       localStorage.setItem('eauto_groups', JSON.stringify([...hiddenGroups]));
       buildHeader();

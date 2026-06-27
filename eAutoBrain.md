@@ -5,7 +5,7 @@ Strukturierte Erfassung und Vergleich vollelektrischer Fahrzeuge anhand eines ei
 
 ## Status
 
-### Erfasste Fahrzeuge (89 Varianten, 39 Marken — Stand 2026-06-27)
+### Erfasste Fahrzeuge (97 Varianten, 47 Marken — Stand 2026-06-27)
 
 Eingebettete Daten (HTML, FIXIERT - 23 Varianten, 15 Marken):
 BMW (iX1 eDrive20, iX1 xDrive30, i4 eDrive40), Tesla (Model 3 LR, Model Y LR),
@@ -14,7 +14,7 @@ Mercedes (EQA 250+, EQE 350+), BYD (Atto 3, Seal), Polestar 2,
 Skoda Enyaq 85, Cupra Born, Renault Megane E-Tech, Volvo EX30,
 MG4 Electric, Audi Q4 e-tron 55, Opel Mokka Electric
 
-Nur in JSON (64 weitere Varianten, 24 neue Marken):
+Nur in JSON (72 weitere Varianten, 32 neue Marken):
 Kleinwagen: Fiat (500e, 600e), Dacia Spring, Mini (Cooper SE, Countryman SE ALL4), Peugeot e-208, Kia EV2, Cupra Raval
 Smart: #1, #3
 Mercedes: EQB 250+, EQS 450+
@@ -26,9 +26,10 @@ China: NIO (ET5, EL6) — mit Batterietausch, Deepal S05, Denza (D9 EV, N7, Z9 G
 Oberklasse: Lucid (Air Pure, Air Grand Touring, Gravity), Tesla (Model S, Model X), Mercedes EQV 300, Ferrari Luce
 Ergaenzt: Audi (Q4 Sportback, Q6, Q6 Sportback, Q8, e-tron GT, A6 e-tron), BMW iX2
 Campervan (gasfrei, rein elektrisch): Tonke (ID.Buzz Explorer, EQV Touring), Iridium e-V25, Poessl E-Vanster
+eLKW (Sattelzugmaschinen): Mercedes-Benz Trucks (eActros 600), MAN (eTGX), Volvo Trucks (FH Aero Electric), Tesla (Semi LR), DAF (XF Electric), Scania (45 R BEV), IVECO (S-eWay Artic), Renault Trucks (E-Tech T 780)
 
 ### Bemerkungen (persoenliche Notizen)
-23 der 89 Fahrzeuge haben persoenliche Bemerkungen aus Probefahrten und Recherche.
+23 der 97 Fahrzeuge haben persoenliche Bemerkungen aus Probefahrten und Recherche.
 Quelle: eAuto_intern.json → uebertragen in eAuto.json am 2026-06-20.
 
 Detailliertes Datenblatt (Markdown):
@@ -125,6 +126,7 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 | Abmessungen | Laenge, Breite, Br. Spiegel, Hoehe, Radstand, Bodenfreiheit, Sitze, Felgen, Display, Wendekreis, cw, Dachlast, HUD | ja |
 | Specs | Gewicht, Kofferraum, Koff. max, Frunk, Frunk L, AHK, Koff. el., OTA, WP | ja |
 | Kosten | Preis EUR, Versich. (min/max), Gar.rel., Wartungsintervall, Wartung EUR (min/max), Anfaellige Punkte, AHK EUR | ja |
+| LKW | Nutzlast kg, Achsen, Achskonf., Laderaum m3, Fuehrerhaus, kWh/tkm | ja (bei "Alle" NICHT eingeblendet) |
 | (ohne) | Prod.land, Lieferz., Bemerkung | immer sichtbar |
 
 ---
@@ -134,12 +136,12 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 ```
 id, modell, marke, modelljahr, plattform, autotyp, produktionsland, bild_url, lieferzeit_wochen,
 user_wish, bemerkung, produkt_url,
-antrieb: { konzept, anzahl_motoren, motortyp }
+antrieb: { konzept, anzahl_motoren, motortyp, achskonfiguration }
 leistung: { systemleistung_kw, systemleistung_ps, drehmoment_nm, beschleunigung_0_100_s, hoechstgeschwindigkeit_kmh }
 batterie: { brutto_kwh, netto_kwh, chemie, systemspannung_v, zelltyp, zelllieferant[], gewicht_kg{min,max}, garantie_jahre, garantie_km, garantie_restkapazitaet_pct }
 laden: { ac_serie_kw, ac_optional_kw, ac_optional_preis_eur, dc_max_kw, dc_10_80_min, ladestecker[], vorkonditionierung, v2l, v2g, v2h, plug_and_charge, laderoutenplaner }
-verbrauch: { wltp_kwh_100km{min,max}, wltp_reichweite_km{min,max}, realverbrauch_kwh_100km{min,max}, realreichweite_sommer_stadt_km, realreichweite_autobahn_130_km, realreichweite_winter_km, effizienz_wh_km{min,max} }
-abmessungen: { laenge_mm, breite_mm, breite_mit_spiegel_mm, hoehe_mm, radstand_mm, leergewicht_kg, zulaessiges_gesamtgewicht_kg, kofferraum_liter, kofferraum_umgeklappt_liter, kofferraum_elektrisch, anhaengelast_gebremst_kg, anhaengelast_ungebremst_kg, ahk_preis_eur, wendekreis_m, bodenfreiheit_mm, cw_wert, dachlast_kg, frunk, frunk_liter, ahk_verfuegbar, sitze, felgen_zoll, display, hud }
+verbrauch: { wltp_kwh_100km{min,max}, wltp_reichweite_km{min,max}, realverbrauch_kwh_100km{min,max}, realreichweite_sommer_stadt_km, realreichweite_autobahn_130_km, realreichweite_winter_km, effizienz_wh_km{min,max}, verbrauch_kwh_tkm }
+abmessungen: { laenge_mm, breite_mm, breite_mit_spiegel_mm, hoehe_mm, radstand_mm, leergewicht_kg, zulaessiges_gesamtgewicht_kg, kofferraum_liter, kofferraum_umgeklappt_liter, kofferraum_elektrisch, anhaengelast_gebremst_kg, anhaengelast_ungebremst_kg, ahk_preis_eur, wendekreis_m, bodenfreiheit_mm, cw_wert, dachlast_kg, frunk, frunk_liter, ahk_verfuegbar, sitze, felgen_zoll, display, hud, nutzlast_kg, anzahl_achsen, laderaum_m3, fuehrerhaus }
 fahrwerk: { federung_vorne, federung_hinten, rekuperation, waermepumpe }
 preis: { basispreis_eur, stromkosten_eur_100km{min,max}, versicherung_eur_jahr{min,max}, wertverlust_3_jahre_pct{min,max} }
 garantien: { fahrzeug_jahre, fahrzeug_km, lack_jahre, durchrostung_jahre, mobilitaet_jahre }
@@ -224,4 +226,6 @@ Wichtig fuer Claude Code:
 - Alle Preise brutto, Stand Deutschland
 - Produkt-URLs verlinken auf Hersteller-Modellseiten (koennen sich aendern)
 - Bild-URLs verlinken auf Wikipedia-Artikel mit Fahrzeugfotos (stabile Links)
+- **LKW-Felder** bei PKW/Campervans mit "n/a" befuellt; LKW-Rubrik wird bei "Alle" nicht eingeblendet (nur manuell)
+- **eLKW-Preise** sind Listenpreise in EUR (soweit bekannt); Tesla Semi Preis in USD umgerechnet
 - **eAuto_intern.json** ist in .gitignore und wird NICHT gepusht (persoenliche Notizen)
