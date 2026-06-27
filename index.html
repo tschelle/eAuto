@@ -85,6 +85,18 @@
   :root[data-theme="dark"] .group-header { background: #1a3050; }
   :root[data-theme="dark"] .group-header:nth-child(even) { background: #243a5a; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .group-header { background: #1a3050; } :root:not([data-theme="light"]) .group-header:nth-child(even) { background: #243a5a; } }
+  .ms-wrap { position: relative; }
+  .ms-btn { display: block; width: 100%; margin-top: 2px; padding: 2px 4px; font-size: 10px; border: 1px solid rgba(255,255,255,.2); border-radius: 3px; background: rgba(255,255,255,.1); color: var(--header-text); cursor: pointer; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ms-btn.has-selection { border-color: var(--accent); background: rgba(42,74,122,.4); }
+  .ms-drop { display: none; position: absolute; top: 100%; left: 0; min-width: 180px; max-height: 320px; overflow-y: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,.4); z-index: 200; padding: 4px 0; }
+  .ms-drop.open { display: block; }
+  .ms-drop label { display: flex; align-items: center; gap: 6px; padding: 3px 10px; font-size: 11px; color: var(--text); cursor: pointer; white-space: nowrap; }
+  .ms-drop label:hover { background: var(--hover); }
+  .ms-drop input[type="checkbox"] { accent-color: var(--accent); margin: 0; }
+  .ms-drop .ms-count { font-size: 9px; color: var(--text-muted); margin-left: auto; }
+  .ms-drop .ms-actions { display: flex; gap: 4px; padding: 4px 8px; border-bottom: 1px solid var(--border); margin-bottom: 2px; }
+  .ms-drop .ms-actions button { font-size: 10px; padding: 1px 6px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); color: var(--text-muted); cursor: pointer; }
+  .ms-drop .ms-actions button:hover { background: var(--hover); color: var(--text); }
   .group-toggles { padding: 4px 24px; gap: 4px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
   .group-toggle { padding: 3px 10px; font-size: 11px; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text-muted); cursor: pointer; transition: all .15s; }
   .group-toggle:hover { background: var(--hover); }
@@ -151,7 +163,7 @@ const COLUMNS = [
   { key: 'user_wish', label: 'Pref', editable: true, group: '' },
   { key: 'modell', label: 'Modell', group: '' },
   { key: 'marke', label: 'Marke', group: '' },
-  { key: 'autotyp', label: 'Segment', group: '' },
+  { key: 'autotyp', label: 'Segment', group: '', type: 'multiselect' },
   { key: 'produkt_url', label: 'Link', group: '', type: 'link' },
   { key: 'bild_url', label: 'Bild', group: '', type: 'link' },
   { key: 'adac_note', label: 'ADAC', group: 'Sicherheit' },
@@ -283,6 +295,69 @@ function isColVisible(col) {
   return !col.group || !hiddenGroups.has(col.group);
 }
 
+function buildMultiselectOptions(drop, colKey, sortKey, btn) {
+  drop.innerHTML = '';
+  const counts = {};
+  data.forEach(d => {
+    const v = getVal(d, colKey);
+    const s = v != null ? String(v) : '';
+    if (s && s !== 'null') counts[s] = (counts[s] || 0) + 1;
+  });
+  const values = Object.keys(counts).sort((a, b) => a.localeCompare(b));
+  const selected = colFilters[sortKey] instanceof Set ? colFilters[sortKey] : new Set();
+  const actions = document.createElement('div');
+  actions.className = 'ms-actions';
+  const selAll = document.createElement('button');
+  selAll.textContent = 'Alle';
+  selAll.type = 'button';
+  selAll.addEventListener('click', (e) => { e.stopPropagation(); drop.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = true); values.forEach(v => selected.add(v)); colFilters[sortKey] = new Set(selected); updateMsBtn(btn, selected, values.length); renderTable(); });
+  const selNone = document.createElement('button');
+  selNone.textContent = 'Keine';
+  selNone.type = 'button';
+  selNone.addEventListener('click', (e) => { e.stopPropagation(); drop.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false); selected.clear(); delete colFilters[sortKey]; updateMsBtn(btn, selected, values.length); renderTable(); });
+  actions.appendChild(selAll);
+  actions.appendChild(selNone);
+  drop.appendChild(actions);
+  values.forEach(val => {
+    const label = document.createElement('label');
+    label.addEventListener('click', e => e.stopPropagation());
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.checked = selected.has(val);
+    cb.addEventListener('change', () => {
+      if (cb.checked) selected.add(val); else selected.delete(val);
+      if (selected.size === 0 || selected.size === values.length) { delete colFilters[sortKey]; } else { colFilters[sortKey] = new Set(selected); }
+      updateMsBtn(btn, selected, values.length);
+      renderTable();
+    });
+    const text = document.createTextNode(val);
+    const count = document.createElement('span');
+    count.className = 'ms-count';
+    count.textContent = counts[val];
+    label.appendChild(cb);
+    label.appendChild(text);
+    label.appendChild(count);
+    drop.appendChild(label);
+  });
+}
+
+function updateMsBtn(btn, selected, total) {
+  if (selected.size === 0 || selected.size === total) {
+    btn.textContent = 'Filter...';
+    btn.classList.remove('has-selection');
+  } else if (selected.size <= 2) {
+    btn.textContent = [...selected].join(', ');
+    btn.classList.add('has-selection');
+  } else {
+    btn.textContent = selected.size + ' gewählt';
+    btn.classList.add('has-selection');
+  }
+}
+
+document.addEventListener('click', () => {
+  document.querySelectorAll('.ms-drop.open').forEach(d => d.classList.remove('open'));
+});
+
 let data = [];
 let dataSource = 'embedded';
 let sortCol = null;
@@ -362,17 +437,46 @@ function buildHeader() {
       const sortKey = col.type === 'range' ? col.key + (hi === 0 ? '.min' : '.max') : col.key;
       th.dataset.sortKey = sortKey;
       th.dataset.colIdx = ci;
-      th.innerHTML = `${h}<span class="sort-icon">▲</span><input type="text" class="col-filter" placeholder="Filter..." data-filter-key="${sortKey}">`;
-      th.addEventListener('click', (e) => {
-        if (e.target.classList.contains('col-filter')) return;
-        toggleSort(sortKey);
-      });
-      const input = th.querySelector('.col-filter');
-      input.addEventListener('input', () => {
-        colFilters[sortKey] = input.value.trim().toLowerCase();
-        renderTable();
-      });
-      input.addEventListener('click', e => e.stopPropagation());
+      if (col.type === 'multiselect') {
+        th.innerHTML = `${h}<span class="sort-icon">▲</span>`;
+        th.addEventListener('click', (e) => {
+          if (e.target.closest('.ms-wrap')) return;
+          toggleSort(sortKey);
+        });
+        const wrap = document.createElement('div');
+        wrap.className = 'ms-wrap';
+        const btn = document.createElement('button');
+        btn.className = 'ms-btn';
+        btn.type = 'button';
+        btn.textContent = 'Filter...';
+        btn.dataset.filterKey = sortKey;
+        const drop = document.createElement('div');
+        drop.className = 'ms-drop';
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const wasOpen = drop.classList.contains('open');
+          document.querySelectorAll('.ms-drop.open').forEach(d => d.classList.remove('open'));
+          if (!wasOpen) {
+            buildMultiselectOptions(drop, col.key, sortKey, btn);
+            drop.classList.add('open');
+          }
+        });
+        wrap.appendChild(btn);
+        wrap.appendChild(drop);
+        th.appendChild(wrap);
+      } else {
+        th.innerHTML = `${h}<span class="sort-icon">▲</span><input type="text" class="col-filter" placeholder="Filter..." data-filter-key="${sortKey}">`;
+        th.addEventListener('click', (e) => {
+          if (e.target.classList.contains('col-filter')) return;
+          toggleSort(sortKey);
+        });
+        const input = th.querySelector('.col-filter');
+        input.addEventListener('input', () => {
+          colFilters[sortKey] = input.value.trim().toLowerCase();
+          renderTable();
+        });
+        input.addEventListener('click', e => e.stopPropagation());
+      }
       tr.appendChild(th);
     });
   });
@@ -398,6 +502,10 @@ function getSortVal(item, key) {
 
 function matchFilter(item, key, filter) {
   if (!filter) return true;
+  if (filter instanceof Set) {
+    const v = getVal(item, key);
+    return filter.has(v != null ? String(v) : '');
+  }
   const v = getSortVal(item, key);
   if (filter.startsWith('>')) { const n = parseFloat(filter.slice(1)); return !isNaN(n) && typeof v === 'number' && v > n; }
   if (filter.startsWith('<')) { const n = parseFloat(filter.slice(1)); return !isNaN(n) && typeof v === 'number' && v < n; }
@@ -617,6 +725,8 @@ document.getElementById('btnReset').addEventListener('click', () => {
   colFilters = {};
   sortCol = null; sortDir = 'asc';
   document.querySelectorAll('.col-filter').forEach(i => i.value = '');
+  document.querySelectorAll('.ms-btn').forEach(b => { b.textContent = 'Filter...'; b.classList.remove('has-selection'); });
+  document.querySelectorAll('.ms-drop.open').forEach(d => d.classList.remove('open'));
   renderTable();
 });
 
