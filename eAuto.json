@@ -13736,6 +13736,167 @@
       "produktionsland": "China (Yancheng)",
       "bild_url": "https://en.wikipedia.org/wiki/Kia_EV5",
       "lieferzeit_wochen": 12
+    },
+    {
+      "id": "000085",
+      "modell": "Kia PV5 Passenger 71,2 kWh",
+      "marke": "Kia",
+      "modelljahr": "2025-2026",
+      "plattform": "eS (Scalable PBV)",
+      "autotyp": "Minivan / MPV",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 120,
+        "systemleistung_ps": 163,
+        "drehmoment_nm": 250,
+        "beschleunigung_0_100_s": 10.7,
+        "hoechstgeschwindigkeit_kmh": 135
+      },
+      "batterie": {
+        "brutto_kwh": 71.2,
+        "netto_kwh": 68,
+        "chemie": "LFP",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 420,
+          "max": 450
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "ac_optional_preis_eur": null,
+        "dc_max_kw": 150,
+        "dc_10_80_min": 30,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "plug_and_charge": false,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 19.5,
+          "max": 20.3
+        },
+        "wltp_reichweite_km": {
+          "min": 370,
+          "max": 400
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 21,
+          "max": 27
+        },
+        "realreichweite_sommer_stadt_km": 370,
+        "realreichweite_autobahn_130_km": 260,
+        "realreichweite_winter_km": 250,
+        "effizienz_wh_km": {
+          "min": 195,
+          "max": 203
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4695,
+        "breite_mm": 1895,
+        "breite_mit_spiegel_mm": 2100,
+        "hoehe_mm": 1915,
+        "radstand_mm": 2995,
+        "leergewicht_kg": 2145,
+        "zulaessiges_gesamtgewicht_kg": 2700,
+        "kofferraum_liter": 1330,
+        "kofferraum_umgeklappt_liter": 3615,
+        "kofferraum_elektrisch": false,
+        "anhaengelast_gebremst_kg": 1500,
+        "anhaengelast_ungebremst_kg": 750,
+        "ahk_preis_eur": null,
+        "wendekreis_m": 11.0,
+        "bodenfreiheit_mm": 165,
+        "cw_wert": 0.29,
+        "dachlast_kg": 80,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": true,
+        "sitze": 5,
+        "felgen_zoll": 17,
+        "display": "12,3\" + 12,3\" + 5,3\"",
+        "hud": false
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "Paddel-Stufen",
+        "waermepumpe": "Option"
+      },
+      "preis": {
+        "basispreis_eur": 42290,
+        "stromkosten_eur_100km": {
+          "min": 6.6,
+          "max": 8.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 600,
+          "max": 1100
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 7,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 7
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 15.000 km",
+        "wartungskosten_eur": {
+          "min": 150,
+          "max": 280
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "235/55 R17",
+      "quellen": [
+        "kia.de (2026)",
+        "ev-database.org",
+        "Euro NCAP",
+        "ADAC"
+      ],
+      "datenerfassung": "2026-06-27",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 4,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.kia.com/de/modelle/pv5-passenger/entdecken/",
+      "produktionsland": "Südkorea (Hwaseong)",
+      "bild_url": "https://en.wikipedia.org/wiki/Kia_PV5",
+      "lieferzeit_wochen": 10
     }
   ]
 }
