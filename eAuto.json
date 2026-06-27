@@ -13897,6 +13897,660 @@
       "produktionsland": "Südkorea (Hwaseong)",
       "bild_url": "https://en.wikipedia.org/wiki/Kia_PV5",
       "lieferzeit_wochen": 10
+    },
+    {
+      "id": "000086",
+      "modell": "Tonke ID.Buzz Explorer",
+      "marke": "Tonke",
+      "modelljahr": "2025-2026",
+      "plattform": "MEB (VW ID. Buzz LWB)",
+      "autotyp": "Campervan",
+      "user_wish": null,
+      "produkt_url": "https://www.tonke.eu/explorer",
+      "antrieb": {
+        "konzept": "Heckantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 210,
+        "systemleistung_ps": 286,
+        "drehmoment_nm": 545,
+        "beschleunigung_0_100_s": 8.0,
+        "hoechstgeschwindigkeit_kmh": 160
+      },
+      "batterie": {
+        "brutto_kwh": 91.0,
+        "netto_kwh": 86.0,
+        "chemie": "NMC811",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "LG Energy Solution"
+        ],
+        "gewicht_kg": {
+          "min": 530,
+          "max": 550
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 185,
+        "dc_10_80_min": 28,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null,
+        "plug_and_charge": true,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 19.0,
+          "max": 22.0
+        },
+        "wltp_reichweite_km": {
+          "min": 400,
+          "max": 455
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 22,
+          "max": 28
+        },
+        "realreichweite_sommer_stadt_km": 380,
+        "realreichweite_autobahn_130_km": 280,
+        "effizienz_wh_km": {
+          "min": 190,
+          "max": 220
+        },
+        "realreichweite_winter_km": 240
+      },
+      "abmessungen": {
+        "laenge_mm": 5000,
+        "breite_mm": 1985,
+        "hoehe_mm": 1990,
+        "breite_mit_spiegel_mm": 2212,
+        "radstand_mm": 3239,
+        "leergewicht_kg": 2650,
+        "zulaessiges_gesamtgewicht_kg": 3080,
+        "kofferraum_liter": null,
+        "kofferraum_umgeklappt_liter": null,
+        "anhaengelast_gebremst_kg": 1600,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 11.1,
+        "bodenfreiheit_mm": 175,
+        "cw_wert": null,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": true,
+        "sitze": 4,
+        "felgen_zoll": 19,
+        "display": "5,3\" + 12,9\" Touchscreen",
+        "dachlast_kg": null,
+        "kofferraum_elektrisch": false,
+        "ahk_preis_eur": null,
+        "hud": null
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "B-Modus",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 74300,
+        "stromkosten_eur_100km": {
+          "min": 7.0,
+          "max": 9.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 900,
+          "max": 1500
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 20,
+          "max": 30
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 250,
+          "max": 450
+        },
+        "anfaellige_punkte": [
+          "Camper-Ausbau durch Drittanbieter (Tonke)",
+          "Hoher Preis (Basisfahrzeug + Ausbau)",
+          "Pop-Up-Dach optional (Aufpreis)"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Gasfreier Campervan auf VW ID. Buzz Basis. Induktionskochfeld, Waermepumpe, 4 Sitz-/Schlafplaetze. Pop-Up-Dach optional.",
+      "ota_updates": true,
+      "reifen_serie": "235/55 R19",
+      "quellen": [
+        "tonke.eu (2026)",
+        "promobil.de"
+      ],
+      "datenerfassung": "2026-06-27",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "produktionsland": "Niederlande (Ausbau) / Deutschland (Basisfahrzeug)",
+      "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID._Buzz",
+      "lieferzeit_wochen": null
+    },
+    {
+      "id": "000087",
+      "modell": "Tonke EQV Touring",
+      "marke": "Tonke",
+      "modelljahr": "2024-2026",
+      "plattform": "Mercedes EQV",
+      "autotyp": "Campervan",
+      "user_wish": null,
+      "produkt_url": "https://www.tonke.eu/eqv",
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "ASM"
+      },
+      "leistung": {
+        "systemleistung_kw": 150,
+        "systemleistung_ps": 204,
+        "drehmoment_nm": 365,
+        "beschleunigung_0_100_s": 12.1,
+        "hoechstgeschwindigkeit_kmh": 140
+      },
+      "batterie": {
+        "brutto_kwh": 100.0,
+        "netto_kwh": 90.0,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "SK Innovation"
+        ],
+        "gewicht_kg": {
+          "min": 600,
+          "max": 650
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "dc_max_kw": 110,
+        "dc_10_80_min": 45,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": false,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null,
+        "plug_and_charge": false,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 26.4,
+          "max": 28.0
+        },
+        "wltp_reichweite_km": {
+          "min": 340,
+          "max": 363
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 28,
+          "max": 35
+        },
+        "realreichweite_sommer_stadt_km": 320,
+        "realreichweite_autobahn_130_km": 220,
+        "effizienz_wh_km": {
+          "min": 264,
+          "max": 280
+        },
+        "realreichweite_winter_km": 200
+      },
+      "abmessungen": {
+        "laenge_mm": 5140,
+        "breite_mm": 1928,
+        "hoehe_mm": 1910,
+        "breite_mit_spiegel_mm": 2200,
+        "radstand_mm": 3200,
+        "leergewicht_kg": 2780,
+        "zulaessiges_gesamtgewicht_kg": 3500,
+        "kofferraum_liter": null,
+        "kofferraum_umgeklappt_liter": null,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 12.5,
+        "bodenfreiheit_mm": null,
+        "cw_wert": null,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false,
+        "sitze": 4,
+        "felgen_zoll": 18,
+        "display": "MBUX 10,25\" Touchscreen",
+        "dachlast_kg": null,
+        "kofferraum_elektrisch": false,
+        "ahk_preis_eur": null,
+        "hud": null
+      },
+      "fahrwerk": {
+        "federung_vorne": "Einzelradaufhaengung",
+        "federung_hinten": "Blattfedern",
+        "rekuperation": "Segeln / D-",
+        "waermepumpe": false
+      },
+      "preis": {
+        "basispreis_eur": 91600,
+        "stromkosten_eur_100km": {
+          "min": 9.0,
+          "max": 12.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 1000,
+          "max": 1600
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 25,
+          "max": 35
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 30,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "25.000 km / 1 Jahr",
+        "wartungskosten_eur": {
+          "min": 300,
+          "max": 600
+        },
+        "anfaellige_punkte": [
+          "Hoher Verbrauch (schwerer Van)",
+          "Langsames DC-Laden (110 kW max)",
+          "Hoher Preis (ab 91.600 EUR)",
+          "Geringe Reichweite auf Autobahn"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Gasfreier Campervan auf Mercedes EQV Basis. Induktionskochfeld, Waermetauscher-Heizung, 100 kWh Batterie. Touring-Version ab 91.600 EUR.",
+      "ota_updates": false,
+      "reifen_serie": "225/55 R18",
+      "quellen": [
+        "tonke.eu (2026)",
+        "promobil.de"
+      ],
+      "datenerfassung": "2026-06-27",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "produktionsland": "Niederlande (Ausbau) / Spanien (Basisfahrzeug)",
+      "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQV",
+      "lieferzeit_wochen": null
+    },
+    {
+      "id": "000088",
+      "modell": "Iridium e-V25",
+      "marke": "Iridium",
+      "modelljahr": "2025-2026",
+      "plattform": "Ford E-Transit H3",
+      "autotyp": "Campervan",
+      "user_wish": null,
+      "produkt_url": "https://www.iridium-mobil.de/e-v25",
+      "antrieb": {
+        "konzept": "Heckantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 135,
+        "systemleistung_ps": 184,
+        "drehmoment_nm": 430,
+        "beschleunigung_0_100_s": null,
+        "hoechstgeschwindigkeit_kmh": 120
+      },
+      "batterie": {
+        "brutto_kwh": 77.0,
+        "netto_kwh": 68.0,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "SK Innovation"
+        ],
+        "gewicht_kg": {
+          "min": 500,
+          "max": 550
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11.3,
+        "ac_optional_kw": null,
+        "dc_max_kw": 115,
+        "dc_10_80_min": 34,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": false,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null,
+        "plug_and_charge": false,
+        "laderoutenplaner": false
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 21.5,
+          "max": 25.0
+        },
+        "wltp_reichweite_km": {
+          "min": 280,
+          "max": 317
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 25,
+          "max": 33
+        },
+        "realreichweite_sommer_stadt_km": 270,
+        "realreichweite_autobahn_130_km": 180,
+        "effizienz_wh_km": {
+          "min": 215,
+          "max": 250
+        },
+        "realreichweite_winter_km": 170
+      },
+      "abmessungen": {
+        "laenge_mm": 5990,
+        "breite_mm": 2050,
+        "hoehe_mm": 2890,
+        "breite_mit_spiegel_mm": 2400,
+        "radstand_mm": 3750,
+        "leergewicht_kg": 3300,
+        "zulaessiges_gesamtgewicht_kg": 3500,
+        "kofferraum_liter": null,
+        "kofferraum_umgeklappt_liter": null,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 13.5,
+        "bodenfreiheit_mm": null,
+        "cw_wert": null,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false,
+        "sitze": 2,
+        "felgen_zoll": 16,
+        "display": "Ford SYNC 4 12\" Touchscreen",
+        "dachlast_kg": null,
+        "kofferraum_elektrisch": false,
+        "ahk_preis_eur": null,
+        "hud": null
+      },
+      "fahrwerk": {
+        "federung_vorne": "Einzelradaufhaengung",
+        "federung_hinten": "Blattfedern",
+        "rekuperation": "einstufig",
+        "waermepumpe": false
+      },
+      "preis": {
+        "basispreis_eur": 129900,
+        "stromkosten_eur_100km": {
+          "min": 8.5,
+          "max": 11.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 1100,
+          "max": 1800
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 20,
+          "max": 30
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 300,
+          "max": 550
+        },
+        "anfaellige_punkte": [
+          "Nur 200 kg Zuladung (3300 kg Leergewicht bei 3500 kg zGG)",
+          "Hoher Preis (129.900 EUR)",
+          "Geringe Reichweite (68 kWh nutzbar)",
+          "Kein Allrad"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Gasfreier Campervan auf Ford E-Transit Basis. IR-Heizung, Induktionskochfeld, V2L. Nur 200 kg Zuladung! Leistungsupgrade auf 198 kW/269 PS moeglich.",
+      "ota_updates": false,
+      "reifen_serie": "215/75 R16",
+      "quellen": [
+        "iridium-mobil.de (2026)",
+        "promobil.de"
+      ],
+      "datenerfassung": "2026-06-27",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "produktionsland": "Deutschland (Ausbau) / Tuerkei (Basisfahrzeug)",
+      "bild_url": "https://en.wikipedia.org/wiki/Ford_E-Transit",
+      "lieferzeit_wochen": null
+    },
+    {
+      "id": "000089",
+      "modell": "Poessl E-Vanster",
+      "marke": "Poessl",
+      "modelljahr": "2025-2026",
+      "plattform": "Citroen e-Spacetourer / Opel Vivaro-e",
+      "autotyp": "Campervan",
+      "user_wish": null,
+      "produkt_url": "https://www.poessl-mobile.de/e-vanster",
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 100,
+        "systemleistung_ps": 134,
+        "drehmoment_nm": 260,
+        "beschleunigung_0_100_s": 13.3,
+        "hoechstgeschwindigkeit_kmh": 130
+      },
+      "batterie": {
+        "brutto_kwh": 75.0,
+        "netto_kwh": 68.0,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 400,
+          "max": 450
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 100,
+        "dc_10_80_min": 45,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": false,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null,
+        "plug_and_charge": false,
+        "laderoutenplaner": false
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 22.0,
+          "max": 25.0
+        },
+        "wltp_reichweite_km": {
+          "min": 298,
+          "max": 382
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 24,
+          "max": 30
+        },
+        "realreichweite_sommer_stadt_km": 300,
+        "realreichweite_autobahn_130_km": 200,
+        "effizienz_wh_km": {
+          "min": 220,
+          "max": 250
+        },
+        "realreichweite_winter_km": 180
+      },
+      "abmessungen": {
+        "laenge_mm": 4950,
+        "breite_mm": 1920,
+        "hoehe_mm": 1990,
+        "breite_mit_spiegel_mm": 2200,
+        "radstand_mm": 3275,
+        "leergewicht_kg": 2300,
+        "zulaessiges_gesamtgewicht_kg": 3100,
+        "kofferraum_liter": null,
+        "kofferraum_umgeklappt_liter": null,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": 11.3,
+        "bodenfreiheit_mm": null,
+        "cw_wert": null,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false,
+        "sitze": 4,
+        "felgen_zoll": 17,
+        "display": "10\" Touchscreen",
+        "dachlast_kg": null,
+        "kofferraum_elektrisch": false,
+        "ahk_preis_eur": null,
+        "hud": null
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Verbundlenker",
+        "rekuperation": "einstufig",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 60000,
+        "stromkosten_eur_100km": {
+          "min": 7.5,
+          "max": 10.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 800,
+          "max": 1400
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 20,
+          "max": 30
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 2,
+        "durchrostung_jahre": 8,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 400
+        },
+        "anfaellige_punkte": [
+          "Geringe Motorleistung (100 kW)",
+          "Langsames DC-Laden (100 kW max)",
+          "Begrenzte Reichweite auf Autobahn"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Gasfreier Campervan auf Citroen e-Spacetourer Basis. Kompaktestes Modell der 4 BEV-Camper. Waermepumpe serienmaeßig, 75 kWh Batterie.",
+      "ota_updates": false,
+      "reifen_serie": "215/60 R17",
+      "quellen": [
+        "poessl-mobile.de (2026)",
+        "promobil.de"
+      ],
+      "datenerfassung": "2026-06-27",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "produktionsland": "Deutschland (Ausbau) / Frankreich (Basisfahrzeug)",
+      "bild_url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_%C3%AB-SpaceTourer",
+      "lieferzeit_wochen": null
     }
   ]
 }
