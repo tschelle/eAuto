@@ -13575,6 +13575,167 @@
       "produktionsland": "Spanien (Martorell)",
       "bild_url": "https://en.wikipedia.org/wiki/Cupra_Raval",
       "lieferzeit_wochen": 8
+    },
+    {
+      "id": "000084",
+      "modell": "Kia EV5 81,4 kWh",
+      "marke": "Kia",
+      "modelljahr": "2025-2026",
+      "plattform": "E-GMP",
+      "autotyp": "Kompakt-SUV",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM"
+      },
+      "leistung": {
+        "systemleistung_kw": 160,
+        "systemleistung_ps": 218,
+        "drehmoment_nm": 310,
+        "beschleunigung_0_100_s": 8.3,
+        "hoechstgeschwindigkeit_kmh": 172
+      },
+      "batterie": {
+        "brutto_kwh": 81.4,
+        "netto_kwh": 78,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "pouch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 440,
+          "max": 460
+        },
+        "garantie_jahre": 7,
+        "garantie_km": 150000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "ac_optional_preis_eur": null,
+        "dc_max_kw": 150,
+        "dc_10_80_min": 30,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2g": false,
+        "v2h": false,
+        "plug_and_charge": true,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 16.9,
+          "max": 17.8
+        },
+        "wltp_reichweite_km": {
+          "min": 505,
+          "max": 530
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 19,
+          "max": 24
+        },
+        "realreichweite_sommer_stadt_km": 480,
+        "realreichweite_autobahn_130_km": 350,
+        "realreichweite_winter_km": 310,
+        "effizienz_wh_km": {
+          "min": 169,
+          "max": 178
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4615,
+        "breite_mm": 1875,
+        "breite_mit_spiegel_mm": 2135,
+        "hoehe_mm": 1715,
+        "radstand_mm": 2750,
+        "leergewicht_kg": 2069,
+        "zulaessiges_gesamtgewicht_kg": 2520,
+        "kofferraum_liter": 566,
+        "kofferraum_umgeklappt_liter": 1650,
+        "kofferraum_elektrisch": true,
+        "anhaengelast_gebremst_kg": 1200,
+        "anhaengelast_ungebremst_kg": 750,
+        "ahk_preis_eur": null,
+        "wendekreis_m": 11.7,
+        "bodenfreiheit_mm": 177,
+        "cw_wert": null,
+        "dachlast_kg": 80,
+        "frunk": true,
+        "frunk_liter": 44,
+        "ahk_verfuegbar": true,
+        "sitze": 5,
+        "felgen_zoll": 19,
+        "display": "12,3\" + 12,3\" Curved Display",
+        "hud": "Option"
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "i-Pedal (One-Pedal) + Paddel-Stufen",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 45990,
+        "stromkosten_eur_100km": {
+          "min": 5.7,
+          "max": 7.1
+        },
+        "versicherung_eur_jahr": {
+          "min": 600,
+          "max": 1100
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 7,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 7
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 15.000 km",
+        "wartungskosten_eur": {
+          "min": 150,
+          "max": 280
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": true
+      },
+      "bemerkung": null,
+      "reifen_serie": "235/55 R19",
+      "quellen": [
+        "kia.de (2026)",
+        "ADAC",
+        "ev-database.org",
+        "Euro NCAP"
+      ],
+      "datenerfassung": "2026-06-27",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 83,
+        "kinder": 85,
+        "fussgaenger": 74,
+        "assistenten": 80
+      },
+      "ota_updates": true,
+      "produkt_url": "https://www.kia.com/de/modelle/ev5/entdecken/",
+      "produktionsland": "China (Yancheng)",
+      "bild_url": "https://en.wikipedia.org/wiki/Kia_EV5",
+      "lieferzeit_wochen": 12
     }
   ]
 }
