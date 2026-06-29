@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>eAuto Vergleich</title>
 <style>
   :root {
@@ -381,14 +384,30 @@ function numVal(v) {
   return isNaN(n) ? null : n;
 }
 
+function escapeHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+function isSafeUrl(url) {
+  try { const u = new URL(url, location.href); return u.protocol === 'https:' || u.protocol === 'http:'; }
+  catch { return false; }
+}
+
 function displayVal(v, col) {
   if (v === null || v === undefined) return '<span class="no-data">-</span>';
-  if (col.type === 'link') { const icon = col.key === 'bild_url' ? '&#128247;' : '&#128279;'; return `<a href="${v}" target="_blank" rel="noopener" class="link-icon" title="${v}">${icon}</a>`; }
+  if (col.type === 'link') {
+    if (!isSafeUrl(v)) return '<span class="no-data">-</span>';
+    const safe = escapeHtml(v);
+    const icon = col.key === 'bild_url' ? '&#128247;' : '&#128279;';
+    return `<a href="${safe}" target="_blank" rel="noopener noreferrer" class="link-icon" title="${safe}">${icon}</a>`;
+  }
   if (col.type === 'bool') return v ? '<span class="bool-yes">Ja</span>' : '<span class="bool-no">Nein</span>';
-  if (isRange(v)) return `<span class="val-min">${v.min}</span> <span class="val-max">/ ${v.max}</span>`;
+  if (isRange(v)) return `<span class="val-min">${escapeHtml(String(v.min))}</span> <span class="val-max">/ ${escapeHtml(String(v.max))}</span>`;
   if (typeof v === 'number') return v.toLocaleString('de-DE');
-  if (Array.isArray(v)) return v.join(', ');
-  return String(v);
+  if (Array.isArray(v)) return escapeHtml(v.join(', '));
+  return escapeHtml(String(v));
 }
 
 function rangeHeaders(col) {
