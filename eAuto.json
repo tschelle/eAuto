@@ -50,6 +50,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 720,
@@ -112,7 +113,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 49400,
@@ -225,6 +230,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 720,
@@ -284,7 +290,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 56600,
@@ -395,6 +405,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -457,7 +468,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "One-Pedal-Driving serienmässig",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 64.5,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 46990,
@@ -565,6 +580,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -627,7 +643,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "One-Pedal-Driving serienmässig",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 51990,
@@ -736,6 +756,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -798,7 +819,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 44990,
@@ -906,6 +931,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 720,
@@ -968,7 +994,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 56995,
@@ -1075,6 +1105,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -1137,7 +1168,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "i-Pedal (One-Pedal) + Paddel-Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 67.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 47900,
@@ -1245,6 +1280,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -1307,7 +1343,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "i-Pedal (One-Pedal) + Paddel-Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 65.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 46900,
@@ -1415,6 +1455,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -1477,7 +1518,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "i-Pedal (One-Pedal) + Paddel-Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 67.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 46990,
@@ -1586,6 +1631,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 500,
@@ -1648,7 +1694,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3-stufig + D Auto",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 69.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 50780,
@@ -1756,6 +1806,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": true,
+        "v2l_leistung_kw": 3.3,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -1818,7 +1869,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "2 Stufen",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": 69.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 37990,
@@ -1927,6 +1982,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": true,
+        "v2l_leistung_kw": 3.3,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -1989,7 +2045,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "2 Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 44990,
@@ -2097,6 +2157,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -2159,7 +2220,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 48690,
@@ -2267,6 +2332,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -2329,7 +2395,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 44900,
@@ -2437,6 +2507,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -2499,7 +2570,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 40770,
@@ -2607,6 +2682,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 600,
@@ -2669,7 +2745,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 67.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 40600,
@@ -2777,6 +2857,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -2839,7 +2920,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 38590,
@@ -2947,6 +3032,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": true,
+        "v2l_leistung_kw": 2.3,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -3009,7 +3095,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3 Stufen + KERS",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 36990,
@@ -3118,6 +3208,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -3180,7 +3271,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus + Segeln",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 57900,
@@ -3289,6 +3384,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -3351,7 +3447,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 38400,
@@ -3461,6 +3561,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 500,
@@ -3523,7 +3624,11 @@
         "federung_vorne": "Vierlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3-stufig + D Auto",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 65.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 66402,
@@ -3632,6 +3737,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -3694,7 +3800,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "i-Pedal + Paddel-Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 40990,
@@ -3802,6 +3912,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 720,
@@ -3864,7 +3975,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Fuenflenker",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 65.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 58500,
@@ -3972,6 +4087,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -4034,7 +4150,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "3 Stufen",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": 70.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 34990,
@@ -4143,6 +4263,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -4205,7 +4326,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": 69.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 38490,
@@ -4312,6 +4437,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -4374,7 +4500,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "1 Stufe",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": 73.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 16900,
@@ -4484,6 +4614,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 500,
@@ -4546,7 +4677,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "2 Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 71.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 35200,
@@ -4653,6 +4788,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 720,
@@ -4715,7 +4851,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 70.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 48900,
@@ -4821,6 +4961,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -4883,7 +5024,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 38490,
@@ -4990,6 +5135,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -5052,7 +5198,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 40490,
@@ -5160,6 +5310,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 500,
@@ -5222,7 +5373,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3-stufig + D Auto",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 69.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 53686,
@@ -5331,6 +5486,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 500,
@@ -5393,7 +5549,11 @@
         "federung_vorne": "Vierlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3-stufig + D Auto",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 63.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 109551,
@@ -5501,6 +5661,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -5563,7 +5724,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 42600,
@@ -5671,6 +5836,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -5733,7 +5899,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 84100,
@@ -5841,6 +6011,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -5903,7 +6074,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 101500,
@@ -6011,6 +6186,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 720,
@@ -6073,7 +6249,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Fuenflenker (Luft)",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 65.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 93600,
@@ -6181,6 +6361,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 720,
@@ -6243,7 +6424,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Fuenflenker",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 65.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 70200,
@@ -6350,6 +6535,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -6412,7 +6598,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Doppelquerlenker",
         "rekuperation": "Paddel-Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 67550,
@@ -6519,6 +6709,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -6581,7 +6772,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 67.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 43990,
@@ -6689,6 +6884,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -6751,7 +6947,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 56900,
@@ -6859,6 +7059,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -6921,7 +7122,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 45900,
@@ -7029,6 +7234,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 400,
@@ -7091,7 +7297,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 67.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 50350,
@@ -7198,6 +7408,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -7260,7 +7471,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": 70.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 34950,
@@ -7368,6 +7583,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -7430,7 +7646,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "e-Pedal (One-Pedal)",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 47990,
@@ -7538,6 +7758,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -7600,7 +7821,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Doppelquerlenker",
         "rekuperation": "Paddel-Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 69.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 49990,
@@ -7709,6 +7934,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -7771,7 +7997,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 38500,
@@ -7879,6 +8109,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -7941,7 +8172,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Paddel-Stufen + One-Pedal",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 42900,
@@ -8050,6 +8285,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -8112,7 +8348,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 36800,
@@ -8222,6 +8462,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -8284,7 +8525,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "i-Pedal + Paddel-Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 55400,
@@ -8392,6 +8637,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -8454,7 +8700,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3 Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 49900,
@@ -8563,6 +8813,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -8625,7 +8876,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3 Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 56900,
@@ -8735,6 +8990,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -8797,7 +9053,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 47595,
@@ -8904,6 +9164,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -8966,7 +9227,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 82900,
@@ -9074,6 +9339,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -9136,7 +9402,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 139900,
@@ -9244,6 +9514,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -9306,7 +9577,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 94900,
@@ -9413,6 +9688,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -9475,7 +9751,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus + Segeln",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 59250,
@@ -9584,6 +9864,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -9646,7 +9927,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus + Segeln + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 74700,
@@ -9755,6 +10040,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -9817,7 +10103,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus + Segeln + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 77450,
@@ -9927,6 +10217,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 720,
@@ -9989,7 +10280,11 @@
         "federung_vorne": "Fuenflenker (Luft)",
         "federung_hinten": "Fuenflenker (Luft)",
         "rekuperation": "3 Stufen + Segeln",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 67.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 79900,
@@ -10100,6 +10395,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -10162,7 +10458,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 126900,
@@ -10269,6 +10569,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -10331,7 +10632,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus + Segeln + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 65.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 65400,
@@ -10437,6 +10742,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 720,
@@ -10499,7 +10805,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 61515,
@@ -10607,6 +10917,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -10669,7 +10980,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Blattfeder",
         "rekuperation": "Segeln + Rekuperation",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 77924,
@@ -10780,6 +11095,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": true,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -10842,7 +11158,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 25000,
@@ -10950,6 +11270,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": true,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -11012,7 +11333,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 67.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 43500,
@@ -11120,6 +11445,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -11182,7 +11508,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "One-Pedal-Driving serienmässig",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 64.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 89990,
@@ -11291,6 +11621,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -11353,7 +11684,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "One-Pedal-Driving serienmässig",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 67.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 93990,
@@ -11464,6 +11799,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 720,
@@ -11526,7 +11862,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus mit One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 56500,
@@ -11633,6 +11973,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -11695,7 +12036,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 89990,
@@ -11804,6 +12149,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -11866,7 +12212,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 96990,
@@ -11974,6 +12324,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -12036,7 +12387,11 @@
         "federung_vorne": "Doppelquerlenker (Rennstrecke)",
         "federung_hinten": "Mehrlenker (Rennstrecke)",
         "rekuperation": "mehrstufig",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 2100000,
@@ -12142,6 +12497,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -12204,7 +12560,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Mehrstufig einstellbar",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 535000,
@@ -12307,6 +12667,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -12369,7 +12730,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Mehrstufig einstellbar",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 33900,
@@ -12472,6 +12837,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -12534,7 +12900,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Mehrstufig einstellbar",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 72000,
@@ -12637,6 +13007,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -12699,7 +13070,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Mehrstufig einstellbar",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 55000,
@@ -12802,6 +13177,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -12864,7 +13240,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Mehrstufig einstellbar",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 85000,
@@ -12967,6 +13347,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13029,7 +13410,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Mehrstufig einstellbar",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 38600,
@@ -13132,6 +13517,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13194,7 +13580,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Mehrstufig einstellbar, One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 49900,
@@ -13297,6 +13687,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13359,7 +13750,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Mehrstufig einstellbar, One-Pedal-Driving",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 52000,
@@ -13462,6 +13857,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13524,7 +13920,11 @@
         "federung_vorne": "Doppelquerlenker, Luftfederung",
         "federung_hinten": "Mehrlenker, Luftfederung",
         "rekuperation": "Mehrstufig einstellbar",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 78000,
@@ -13627,6 +14027,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13689,7 +14090,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Mehrstufig einstellbar",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 42000,
@@ -13793,6 +14198,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13855,7 +14261,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "Mehrstufig einstellbar, i-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 25000,
@@ -13958,6 +14368,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -14020,7 +14431,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "Mehrstufig einstellbar",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 32000,
@@ -14124,6 +14539,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2g": false,
         "v2h": false,
         "plug_and_charge": true,
@@ -14185,7 +14601,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "i-Pedal (One-Pedal) + Paddel-Stufen",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 45990,
@@ -14291,6 +14711,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2g": false,
         "v2h": false,
         "plug_and_charge": false,
@@ -14352,7 +14773,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Paddel-Stufen",
-        "waermepumpe": "Option"
+        "waermepumpe": "Option",
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 42290,
@@ -14458,6 +14883,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -14520,7 +14946,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 74300,
@@ -14627,6 +15057,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -14689,7 +15120,11 @@
         "federung_vorne": "Einzelradaufhaengung",
         "federung_hinten": "Blattfedern",
         "rekuperation": "Segeln / D-",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 91600,
@@ -14797,6 +15232,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": true,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -14859,7 +15295,11 @@
         "federung_vorne": "Einzelradaufhaengung",
         "federung_hinten": "Blattfedern",
         "rekuperation": "einstufig",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 129900,
@@ -14967,6 +15407,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -15029,7 +15470,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "einstufig",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 60000,
@@ -15136,6 +15581,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -15198,7 +15644,11 @@
         "federung_vorne": "Parabolfedern",
         "federung_hinten": "Luftfederung",
         "rekuperation": "mehrstufig",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 400000,
@@ -15305,6 +15755,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -15367,7 +15818,11 @@
         "federung_vorne": "Parabolfedern",
         "federung_hinten": "Luftfederung",
         "rekuperation": "mehrstufig",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 320000,
@@ -15474,6 +15929,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -15536,7 +15992,11 @@
         "federung_vorne": "Parabolfedern",
         "federung_hinten": "Luftfederung",
         "rekuperation": "mehrstufig",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 400000,
@@ -15643,6 +16103,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": true,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -15705,7 +16166,11 @@
         "federung_vorne": "Luftfederung",
         "federung_hinten": "Luftfederung",
         "rekuperation": "mehrstufig (One-Pedal)",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 280000,
@@ -15811,6 +16276,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -15873,7 +16339,11 @@
         "federung_vorne": "Parabolfedern",
         "federung_hinten": "Luftfederung",
         "rekuperation": "mehrstufig",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 350000,
@@ -15980,6 +16450,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -16042,7 +16513,11 @@
         "federung_vorne": "Parabolfedern",
         "federung_hinten": "Luftfederung",
         "rekuperation": "mehrstufig",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 380000,
@@ -16148,6 +16623,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -16210,7 +16686,11 @@
         "federung_vorne": "Parabolfedern",
         "federung_hinten": "Luftfederung",
         "rekuperation": "mehrstufig",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 370000,
@@ -16317,6 +16797,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -16379,7 +16860,11 @@
         "federung_vorne": "Parabolfedern",
         "federung_hinten": "Luftfederung",
         "rekuperation": "mehrstufig",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 420000,
@@ -16486,6 +16971,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -16548,7 +17034,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Rekuperation einstellbar (3 Stufen + B-Modus)",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 43900,
@@ -16656,6 +17146,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -16718,7 +17209,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Rekuperation einstellbar (3 Stufen + B-Modus)",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 57910,
@@ -16826,6 +17321,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 500,
@@ -16888,7 +17384,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "Rekuperation einstellbar (3 Stufen + One-Pedal-Driving)",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 55728,
@@ -16996,6 +17496,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -17058,7 +17559,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "i-Pedal (One-Pedal-Driving) + 4 Stufen via Lenkradpaddel",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 40990,
@@ -17166,6 +17671,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 400,
@@ -17228,7 +17734,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": 70.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 38045,
@@ -17337,6 +17847,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -17399,7 +17910,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "i-Pedal + 4 Stufen via Lenkradpaddel",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 25900,
@@ -17507,6 +18022,7 @@
         ],
         "vorkonditionierung": false,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 300,
@@ -17569,7 +18085,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "B-Modus",
-        "waermepumpe": false
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 23300,
@@ -17679,6 +18199,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -17741,7 +18262,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 105200,
@@ -17850,6 +18375,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -17912,7 +18438,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 107300,
@@ -18021,6 +18551,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -18083,7 +18614,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 120510,
@@ -18191,6 +18726,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -18253,7 +18789,11 @@
         "federung_vorne": "Doppelquerlenker (Luft)",
         "federung_hinten": "Mehrlenker (Luft)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 130300,
@@ -18361,6 +18901,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": 590,
@@ -18423,7 +18964,11 @@
         "federung_vorne": "Doppelquerlenker (Sportluftfederung)",
         "federung_hinten": "Mehrlenker (Sportluftfederung)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 115500,
@@ -18534,6 +19079,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2h": true,
         "v2g": false
       },
@@ -18593,7 +19139,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 63400,
@@ -18698,6 +19248,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2h": false,
         "v2g": false
       },
@@ -18757,7 +19308,11 @@
         "federung_vorne": "Doppelquerlenker (Luftfederung)",
         "federung_hinten": "Mehrlenker (Luftfederung)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 65.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 139900,
@@ -18868,6 +19423,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2h": false,
         "v2g": false
       },
@@ -18927,7 +19483,11 @@
         "federung_vorne": "Doppelquerlenker (Luftfederung opt.)",
         "federung_hinten": "Mehrlenker (Luftfederung opt.)",
         "rekuperation": "4 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 87000,
@@ -19032,6 +19592,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2h": false,
         "v2g": false
       },
@@ -19091,7 +19652,11 @@
         "federung_vorne": "Doppelquerlenker (Luftfederung)",
         "federung_hinten": "Mehrlenker (Luftfederung)",
         "rekuperation": "4 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 65.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 110000,
@@ -19196,6 +19761,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2h": false,
         "v2g": false
       },
@@ -19255,7 +19821,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "4 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 84080,
@@ -19366,6 +19936,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2h": false,
         "v2g": false
       },
@@ -19425,7 +19996,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 68.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 48990,
@@ -19536,6 +20111,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.7,
         "v2h": true,
         "v2g": false
       },
@@ -19595,7 +20171,11 @@
         "federung_vorne": "Doppelquerlenker (Luftfederung)",
         "federung_hinten": "Mehrlenker (Luftfederung)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 67.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 95000,
@@ -19706,6 +20286,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2h": false,
         "v2g": false
       },
@@ -19765,7 +20346,11 @@
         "federung_vorne": "Doppelquerlenker (Luftfederung opt.)",
         "federung_hinten": "Mehrlenker (Luftfederung opt.)",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 67.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 74900,
@@ -19876,6 +20461,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2h": false,
         "v2g": false
       },
@@ -19935,7 +20521,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "3 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": 66.0,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 59990,
@@ -20040,6 +20630,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": false,
+        "v2l_leistung_kw": null,
         "v2h": false,
         "v2g": false
       },
@@ -20099,7 +20690,11 @@
         "federung_vorne": "MacPherson",
         "federung_hinten": "Verbundlenker",
         "rekuperation": "2 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 39500,
@@ -20204,6 +20799,7 @@
         "laderoutenplaner": true,
         "vorkonditionierung": true,
         "v2l": true,
+        "v2l_leistung_kw": 3.68,
         "v2h": false,
         "v2g": false
       },
@@ -20263,7 +20859,11 @@
         "federung_vorne": "Doppelquerlenker",
         "federung_hinten": "Mehrlenker",
         "rekuperation": "4 Stufen + One-Pedal",
-        "waermepumpe": true
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
       },
       "preis": {
         "basispreis_eur": 75500,
