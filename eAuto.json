@@ -115,7 +115,7 @@
         "rekuperation": "B-Modus mit One-Pedal-Driving",
         "waermepumpe": true,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 68.0,
           "kmh": 130
         }
       },
@@ -292,7 +292,7 @@
         "rekuperation": "B-Modus mit One-Pedal-Driving",
         "waermepumpe": true,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 68.0,
           "kmh": 130
         }
       },
@@ -2047,7 +2047,7 @@
         "rekuperation": "2 Stufen",
         "waermepumpe": true,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 67.0,
           "kmh": 130
         }
       },
@@ -2922,7 +2922,7 @@
         "rekuperation": "One-Pedal-Driving",
         "waermepumpe": true,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 68.0,
           "kmh": 130
         }
       },
@@ -3449,7 +3449,7 @@
         "rekuperation": "B-Modus",
         "waermepumpe": false,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 69.0,
           "kmh": 130
         }
       },
@@ -4961,7 +4961,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 3.7,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -5026,7 +5026,7 @@
         "rekuperation": "3 Stufen + One-Pedal",
         "waermepumpe": true,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 68.0,
           "kmh": 130
         }
       },
@@ -5135,7 +5135,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 3.6,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -5200,7 +5200,7 @@
         "rekuperation": "3 Stufen + One-Pedal",
         "waermepumpe": true,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 67.0,
           "kmh": 130
         }
       },
@@ -5661,7 +5661,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 3.3,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -6600,7 +6600,7 @@
         "rekuperation": "Paddel-Stufen",
         "waermepumpe": true,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 68.0,
           "kmh": 130
         }
       },
@@ -7124,7 +7124,7 @@
         "rekuperation": "B-Modus",
         "waermepumpe": true,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 67.0,
           "kmh": 130
         }
       },
@@ -7999,7 +7999,7 @@
         "rekuperation": "B-Modus",
         "waermepumpe": false,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 70.0,
           "kmh": 130
         }
       },
@@ -8174,7 +8174,7 @@
         "rekuperation": "Paddel-Stufen + One-Pedal",
         "waermepumpe": false,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 69.0,
           "kmh": 130
         }
       },
@@ -8350,7 +8350,7 @@
         "rekuperation": "B-Modus",
         "waermepumpe": false,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 70.0,
           "kmh": 130
         }
       },
@@ -9514,7 +9514,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 1.8,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -10982,7 +10982,7 @@
         "rekuperation": "Segeln + Rekuperation",
         "waermepumpe": false,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 69.0,
           "kmh": 130
         }
       },
@@ -11972,7 +11972,7 @@
           "Typ 2"
         ],
         "vorkonditionierung": true,
-        "v2l": true,
+        "v2l": false,
         "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
@@ -12148,7 +12148,7 @@
           "Typ 2"
         ],
         "vorkonditionierung": true,
-        "v2l": true,
+        "v2l": false,
         "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
@@ -12667,7 +12667,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 6.0,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -12837,7 +12837,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 6.6,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13007,7 +13007,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 6.0,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13177,7 +13177,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 6.0,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13347,7 +13347,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 3.3,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13517,7 +13517,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 3.3,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13687,7 +13687,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 3.3,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -13857,7 +13857,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 3.3,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -14027,7 +14027,7 @@
         ],
         "vorkonditionierung": true,
         "v2l": true,
-        "v2l_leistung_kw": null,
+        "v2l_leistung_kw": 3.3,
         "v2g": false,
         "v2h": false,
         "ac_optional_preis_eur": null,
@@ -15231,7 +15231,7 @@
           "Typ 2"
         ],
         "vorkonditionierung": false,
-        "v2l": true,
+        "v2l": false,
         "v2l_leistung_kw": null,
         "v2g": false,
         "v2h": false,
@@ -17036,7 +17036,7 @@
         "rekuperation": "Rekuperation einstellbar (3 Stufen + B-Modus)",
         "waermepumpe": true,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 67.0,
           "kmh": 130
         }
       },
@@ -17211,7 +17211,7 @@
         "rekuperation": "Rekuperation einstellbar (3 Stufen + B-Modus)",
         "waermepumpe": true,
         "fahrgeraeusch_db": {
-          "wert_db": null,
+          "wert_db": 68.0,
           "kmh": 130
         }
       },
