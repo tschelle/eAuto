@@ -17628,6 +17628,176 @@
       "produktionsland": "Slowakei (Trnava)",
       "bild_url": "https://de.wikipedia.org/wiki/Citro%C3%ABn_C3",
       "lieferzeit_wochen": 6
+    },
+    {
+      "id": "000105",
+      "modell": "Porsche Cayenne Electric",
+      "marke": "Porsche",
+      "modelljahr": "2026",
+      "plattform": "PPE (Cayenne)",
+      "autotyp": "SUV (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.porsche.com/de/models/cayenne/cayenne-electric-models/cayenne-electric/",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 325,
+        "systemleistung_ps": 442,
+        "drehmoment_nm": 700,
+        "beschleunigung_0_100_s": 4.8,
+        "hoechstgeschwindigkeit_kmh": 250
+      },
+      "batterie": {
+        "brutto_kwh": 113.0,
+        "netto_kwh": 107.0,
+        "chemie": "NMC",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI"
+        ],
+        "gewicht_kg": {
+          "min": 650,
+          "max": 700
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 400,
+        "dc_10_80_min": 16,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 590,
+        "plug_and_charge": true,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 19.7,
+          "max": 21.8
+        },
+        "wltp_reichweite_km": {
+          "min": 559,
+          "max": 643
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 22,
+          "max": 29
+        },
+        "realreichweite_sommer_stadt_km": 550,
+        "realreichweite_autobahn_130_km": 430,
+        "effizienz_wh_km": {
+          "min": 197,
+          "max": 218
+        },
+        "realreichweite_winter_km": 370,
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4985,
+        "breite_mm": 1980,
+        "hoehe_mm": 1674,
+        "radstand_mm": 3023,
+        "leergewicht_kg": 2640,
+        "zulaessiges_gesamtgewicht_kg": 3240,
+        "kofferraum_liter": 781,
+        "kofferraum_umgeklappt_liter": 1588,
+        "anhaengelast_gebremst_kg": 3500,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 12.8,
+        "bodenfreiheit_mm": 193,
+        "cw_wert": 0.30,
+        "frunk": true,
+        "frunk_liter": 90,
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": 2200,
+        "sitze": 5,
+        "felgen_zoll": 21,
+        "display": "12,6\" + 10,9\" Curved Display",
+        "dachlast_kg": 75,
+        "kofferraum_elektrisch": true,
+        "ahk_preis_eur": 1190,
+        "hud": "Option",
+        "nutzlast_kg": "n/a",
+        "anzahl_achsen": "n/a",
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 105200,
+        "stromkosten_eur_100km": {
+          "min": 7.5,
+          "max": 10.4
+        },
+        "versicherung_eur_jahr": {
+          "min": 1800,
+          "max": 3000
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 25,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Sehr hoher Preis (ab 105.200 EUR)",
+          "Hoher Verbrauch durch Fahrzeuggroesse",
+          "Neues Modell - wenig Langzeitdaten"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Erster vollelektrischer Cayenne. 400 kW DC-Laden (schnellstes Laden in seiner Klasse). Frunk 90 L. Anhaengelast 3.500 kg. Ab 03/2026.",
+      "ota_updates": true,
+      "reifen_serie": "275/45 R21",
+      "quellen": [
+        "porsche.com/de (2026)",
+        "ADAC (2026)",
+        "Porsche Newsroom (2025/2026)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "produktionsland": "Deutschland (Leipzig)",
+      "bild_url": "https://en.wikipedia.org/wiki/Porsche_Cayenne",
+      "lieferzeit_wochen": 16
     }
   ]
 }
