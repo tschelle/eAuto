@@ -17720,7 +17720,7 @@
         "anhaengelast_ungebremst_kg": 750,
         "wendekreis_m": 12.8,
         "bodenfreiheit_mm": 193,
-        "cw_wert": 0.30,
+        "cw_wert": 0.3,
         "frunk": true,
         "frunk_liter": 90,
         "ahk_verfuegbar": true,
@@ -18480,6 +18480,1840 @@
       "produktionsland": "Deutschland (Leipzig)",
       "bild_url": "https://en.wikipedia.org/wiki/Porsche_Macan_Electric",
       "lieferzeit_wochen": 12
+    },
+    {
+      "id": "000110",
+      "modell": "BMW iX3 (Neue Klasse)",
+      "marke": "BMW",
+      "modelljahr": "2026",
+      "plattform": "Neue Klasse",
+      "autotyp": "SUV (Mittelklasse)",
+      "user_wish": null,
+      "produkt_url": "https://www.bmw.de/de/neufahrzeuge/ix3.html",
+      "antrieb": {
+        "konzept": "Hinterrad (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 235,
+        "systemleistung_ps": 320,
+        "drehmoment_nm": 430,
+        "beschleunigung_0_100_s": 5.5,
+        "hoechstgeschwindigkeit_kmh": 200
+      },
+      "batterie": {
+        "brutto_kwh": 86.0,
+        "netto_kwh": 82.6,
+        "systemspannung_v": 800,
+        "chemie": "NMC",
+        "zelltyp": "zylindrisch (Gen6)",
+        "zelllieferant": [
+          "BMW (Gen6)"
+        ],
+        "gewicht_kg": {
+          "min": 450,
+          "max": 490
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "ac_optional_preis_eur": 500,
+        "dc_max_kw": 300,
+        "dc_10_80_min": 18,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": true,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2h": true,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 620,
+          "max": 635
+        },
+        "wltp_kwh_100km": {
+          "min": 13.5,
+          "max": 15.5
+        },
+        "realreichweite_sommer_stadt_km": 520,
+        "realreichweite_autobahn_130_km": 430,
+        "realreichweite_winter_km": 380,
+        "realverbrauch_kwh_100km": {
+          "min": 16.0,
+          "max": 22.0
+        },
+        "effizienz_wh_km": {
+          "min": 160,
+          "max": 220
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4750,
+        "breite_mm": 1920,
+        "breite_mit_spiegel_mm": 2120,
+        "hoehe_mm": 1660,
+        "radstand_mm": 2865,
+        "leergewicht_kg": 2005,
+        "zulaessiges_gesamtgewicht_kg": 2530,
+        "nutzlast_kg": "n/a",
+        "sitze": 5,
+        "kofferraum_liter": 570,
+        "kofferraum_umgeklappt_liter": 1600,
+        "frunk": false,
+        "frunk_liter": 0,
+        "ahk_verfuegbar": true,
+        "ahk_preis_eur": 900,
+        "anhaengelast_gebremst_kg": 2000,
+        "anhaengelast_ungebremst_kg": 750,
+        "dachlast_kg": 75,
+        "cw_wert": 0.25,
+        "bodenfreiheit_mm": 175,
+        "wendekreis_m": 12.3,
+        "felgen_zoll": 19,
+        "display": "14,9\" Curved Touchscreen",
+        "hud": "Option",
+        "kofferraum_elektrisch": false,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 63400,
+        "stromkosten_eur_100km": {
+          "min": 3.5,
+          "max": 6.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 900,
+          "max": 1600
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 25,
+          "max": 38
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 25.000 km",
+        "wartungskosten_eur": {
+          "min": 350,
+          "max": 600
+        },
+        "anfaellige_punkte": [
+          "Neues Modell – wenig Langzeitdaten",
+          "Neue Plattform (Neue Klasse) noch unbewaehrt"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Erstes BMW-SUV auf der Neue-Klasse-Plattform (800V, Gen6-Rundzellen). Bidirektionales Laden (V2H) serienmässig. Deutlicher Effizienzsprung ggü. Vorgänger.",
+      "ota_updates": true,
+      "reifen_serie": "235/50 R19",
+      "quellen": [
+        "bmw.com/de (2026)",
+        "ADAC (2026)",
+        "BMW Pressemitteilung (2025)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": null,
+      "produktionsland": "Ungarn (Debrecen)",
+      "bild_url": "https://en.wikipedia.org/wiki/BMW_iX3",
+      "lieferzeit_wochen": 16
+    },
+    {
+      "id": "000111",
+      "modell": "BMW i7 xDrive60",
+      "marke": "BMW",
+      "modelljahr": "2026",
+      "plattform": "CLAR",
+      "autotyp": "Limousine (Luxus)",
+      "user_wish": null,
+      "produkt_url": "https://www.bmw.de/de/neufahrzeuge/i7.html",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 400,
+        "systemleistung_ps": 544,
+        "drehmoment_nm": 745,
+        "beschleunigung_0_100_s": 4.7,
+        "hoechstgeschwindigkeit_kmh": 250
+      },
+      "batterie": {
+        "brutto_kwh": 105.7,
+        "netto_kwh": 101.7,
+        "systemspannung_v": 400,
+        "chemie": "NMC",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI",
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 700,
+          "max": 750
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "ac_optional_preis_eur": 500,
+        "dc_max_kw": 195,
+        "dc_10_80_min": 34,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": true,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2h": false,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 550,
+          "max": 625
+        },
+        "wltp_kwh_100km": {
+          "min": 17.6,
+          "max": 20.4
+        },
+        "realreichweite_sommer_stadt_km": 500,
+        "realreichweite_autobahn_130_km": 420,
+        "realreichweite_winter_km": 360,
+        "realverbrauch_kwh_100km": {
+          "min": 20.0,
+          "max": 28.0
+        },
+        "effizienz_wh_km": {
+          "min": 200,
+          "max": 280
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 5391,
+        "breite_mm": 1950,
+        "breite_mit_spiegel_mm": 2164,
+        "hoehe_mm": 1448,
+        "radstand_mm": 3215,
+        "leergewicht_kg": 2770,
+        "zulaessiges_gesamtgewicht_kg": 3245,
+        "nutzlast_kg": "n/a",
+        "sitze": 5,
+        "kofferraum_liter": 500,
+        "kofferraum_umgeklappt_liter": 500,
+        "frunk": false,
+        "frunk_liter": 0,
+        "ahk_verfuegbar": false,
+        "ahk_preis_eur": null,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "dachlast_kg": 0,
+        "cw_wert": 0.24,
+        "bodenfreiheit_mm": 132,
+        "wendekreis_m": 12.9,
+        "felgen_zoll": 20,
+        "display": "14,9\" Curved + 5\" Beifahrer",
+        "hud": "Option",
+        "kofferraum_elektrisch": true,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luftfederung)",
+        "federung_hinten": "Mehrlenker (Luftfederung)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 139900,
+        "stromkosten_eur_100km": {
+          "min": 4.5,
+          "max": 8.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 2000,
+          "max": 3500
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 45
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 600,
+          "max": 1200
+        },
+        "anfaellige_punkte": [
+          "Sehr hohes Leergewicht (2.770 kg)",
+          "DC-Ladeleistung nur 195 kW",
+          "Hoher Preis"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Elektro-Flaggschiff der BMW 7er-Reihe. AWD mit zwei PSM-Motoren, 400V-Architektur, optional Theatre Screen (31,3\" Kinobildschirm hinten). Luxusklasse.",
+      "ota_updates": true,
+      "reifen_serie": "255/45 R20",
+      "quellen": [
+        "bmw.com/de (2026)",
+        "ADAC (2026)",
+        "auto motor sport (2024)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 94,
+        "kinder": 85,
+        "fussgaenger": 77,
+        "assistenten": 87
+      },
+      "produktionsland": "Deutschland (Dingolfing)",
+      "bild_url": "https://en.wikipedia.org/wiki/BMW_7_Series_(G70)",
+      "lieferzeit_wochen": 12
+    },
+    {
+      "id": "000112",
+      "modell": "Mercedes EQE SUV 350+",
+      "marke": "Mercedes-Benz",
+      "modelljahr": "2025",
+      "plattform": "EVA2",
+      "autotyp": "SUV (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.mercedes-benz.de/passengercars/mercedes-benz-cars/models/eqe-suv",
+      "antrieb": {
+        "konzept": "Hinterrad (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 215,
+        "systemleistung_ps": 292,
+        "drehmoment_nm": 565,
+        "beschleunigung_0_100_s": 6.5,
+        "hoechstgeschwindigkeit_kmh": 210
+      },
+      "batterie": {
+        "brutto_kwh": 100.0,
+        "netto_kwh": 90.6,
+        "systemspannung_v": 400,
+        "chemie": "NMC",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 580,
+          "max": 630
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "ac_optional_preis_eur": 695,
+        "dc_max_kw": 170,
+        "dc_10_80_min": 32,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": true,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2h": false,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 540,
+          "max": 596
+        },
+        "wltp_kwh_100km": {
+          "min": 16.6,
+          "max": 19.2
+        },
+        "realreichweite_sommer_stadt_km": 490,
+        "realreichweite_autobahn_130_km": 400,
+        "realreichweite_winter_km": 340,
+        "realverbrauch_kwh_100km": {
+          "min": 19.0,
+          "max": 26.0
+        },
+        "effizienz_wh_km": {
+          "min": 190,
+          "max": 260
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4879,
+        "breite_mm": 1931,
+        "breite_mit_spiegel_mm": 2109,
+        "hoehe_mm": 1686,
+        "radstand_mm": 3030,
+        "leergewicht_kg": 2585,
+        "zulaessiges_gesamtgewicht_kg": 3115,
+        "nutzlast_kg": "n/a",
+        "sitze": 5,
+        "kofferraum_liter": 520,
+        "kofferraum_umgeklappt_liter": 1675,
+        "frunk": false,
+        "frunk_liter": 0,
+        "ahk_verfuegbar": true,
+        "ahk_preis_eur": 1095,
+        "anhaengelast_gebremst_kg": 1800,
+        "anhaengelast_ungebremst_kg": 750,
+        "dachlast_kg": 100,
+        "cw_wert": 0.26,
+        "bodenfreiheit_mm": 162,
+        "wendekreis_m": 12.8,
+        "felgen_zoll": 20,
+        "display": "12,8\" OLED + 12,3\" Kombi",
+        "hud": "Option",
+        "kofferraum_elektrisch": true,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luftfederung opt.)",
+        "federung_hinten": "Mehrlenker (Luftfederung opt.)",
+        "rekuperation": "4 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 87000,
+        "stromkosten_eur_100km": {
+          "min": 5.0,
+          "max": 8.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 1400,
+          "max": 2400
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 32,
+          "max": 45
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 30,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 20.000 km",
+        "wartungskosten_eur": {
+          "min": 500,
+          "max": 900
+        },
+        "anfaellige_punkte": [
+          "DC-Ladeleistung nur 170 kW für die Batteriegrösse",
+          "Sehr hohes Leergewicht (2.585 kg)",
+          "Hoher Wertverlust"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Groß-SUV auf EVA2-Plattform, optionaler 7-Sitzer. Extralanges Radstand (3.030 mm) sorgt für üppiges Platzangebot.",
+      "ota_updates": true,
+      "reifen_serie": "285/45 R20",
+      "quellen": [
+        "mercedes-benz.de (2025)",
+        "ADAC (2025)",
+        "auto motor sport (2024)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": null,
+      "produktionsland": "USA (Tuscaloosa, Alabama)",
+      "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQE_SUV",
+      "lieferzeit_wochen": 10
+    },
+    {
+      "id": "000113",
+      "modell": "Mercedes EQS SUV 450+",
+      "marke": "Mercedes-Benz",
+      "modelljahr": "2025",
+      "plattform": "EVA2",
+      "autotyp": "SUV (Luxus)",
+      "user_wish": null,
+      "produkt_url": "https://www.mercedes-benz.de/passengercars/mercedes-benz-cars/models/eqs-suv",
+      "antrieb": {
+        "konzept": "Hinterrad (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 265,
+        "systemleistung_ps": 360,
+        "drehmoment_nm": 800,
+        "beschleunigung_0_100_s": 6.7,
+        "hoechstgeschwindigkeit_kmh": 210
+      },
+      "batterie": {
+        "brutto_kwh": 120.0,
+        "netto_kwh": 107.8,
+        "systemspannung_v": 400,
+        "chemie": "NMC",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 700,
+          "max": 760
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "ac_optional_preis_eur": 695,
+        "dc_max_kw": 200,
+        "dc_10_80_min": 31,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": true,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2h": false,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 625,
+          "max": 698
+        },
+        "wltp_kwh_100km": {
+          "min": 17.0,
+          "max": 19.6
+        },
+        "realreichweite_sommer_stadt_km": 560,
+        "realreichweite_autobahn_130_km": 460,
+        "realreichweite_winter_km": 390,
+        "realverbrauch_kwh_100km": {
+          "min": 20.0,
+          "max": 28.0
+        },
+        "effizienz_wh_km": {
+          "min": 200,
+          "max": 280
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 5125,
+        "breite_mm": 1959,
+        "breite_mit_spiegel_mm": 2141,
+        "hoehe_mm": 1718,
+        "radstand_mm": 3210,
+        "leergewicht_kg": 2765,
+        "zulaessiges_gesamtgewicht_kg": 3310,
+        "nutzlast_kg": "n/a",
+        "sitze": 7,
+        "kofferraum_liter": 645,
+        "kofferraum_umgeklappt_liter": 2100,
+        "frunk": false,
+        "frunk_liter": 0,
+        "ahk_verfuegbar": true,
+        "ahk_preis_eur": 1195,
+        "anhaengelast_gebremst_kg": 2200,
+        "anhaengelast_ungebremst_kg": 750,
+        "dachlast_kg": 100,
+        "cw_wert": 0.26,
+        "bodenfreiheit_mm": 176,
+        "wendekreis_m": 13.1,
+        "felgen_zoll": 21,
+        "display": "12,8\" OLED + 12,3\" Kombi + 12,3\" Fond opt.",
+        "hud": "Option",
+        "kofferraum_elektrisch": true,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luftfederung)",
+        "federung_hinten": "Mehrlenker (Luftfederung)",
+        "rekuperation": "4 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 110000,
+        "stromkosten_eur_100km": {
+          "min": 5.5,
+          "max": 9.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 1800,
+          "max": 3000
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 44
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 30,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 20.000 km",
+        "wartungskosten_eur": {
+          "min": 600,
+          "max": 1100
+        },
+        "anfaellige_punkte": [
+          "Extremes Gewicht (2.765 kg)",
+          "Sehr hoher Basispreis",
+          "Hoher Verbrauch trotz aerodynamischer Form"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Grösstes Mercedes-BEV-SUV. 7 Sitze serienmässig, 120 kWh Bruttobatterie, 698 km WLTP. Konkurriert mit Rolls-Royce und Bentley im Luxus-BEV-Segment.",
+      "ota_updates": true,
+      "reifen_serie": "285/45 R21",
+      "quellen": [
+        "mercedes-benz.de (2025)",
+        "ADAC (2025)",
+        "auto motor sport (2024)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": null,
+      "produktionsland": "USA (Tuscaloosa, Alabama)",
+      "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQS_SUV",
+      "lieferzeit_wochen": 10
+    },
+    {
+      "id": "000114",
+      "modell": "Kia EV9 GT-Line AWD",
+      "marke": "Kia",
+      "modelljahr": "2025",
+      "plattform": "E-GMP",
+      "autotyp": "SUV (Gross)",
+      "user_wish": null,
+      "produkt_url": "https://www.kia.com/de/modelle/ev9",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 283,
+        "systemleistung_ps": 385,
+        "drehmoment_nm": 600,
+        "beschleunigung_0_100_s": 5.3,
+        "hoechstgeschwindigkeit_kmh": 200
+      },
+      "batterie": {
+        "brutto_kwh": 99.8,
+        "netto_kwh": 98.0,
+        "systemspannung_v": 800,
+        "chemie": "NCM",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "SK On"
+        ],
+        "gewicht_kg": {
+          "min": 580,
+          "max": 620
+        },
+        "garantie_jahre": 7,
+        "garantie_km": 150000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "ac_optional_preis_eur": null,
+        "dc_max_kw": 239,
+        "dc_10_80_min": 24,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": true,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2h": false,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 480,
+          "max": 505
+        },
+        "wltp_kwh_100km": {
+          "min": 20.4,
+          "max": 22.1
+        },
+        "realreichweite_sommer_stadt_km": 420,
+        "realreichweite_autobahn_130_km": 360,
+        "realreichweite_winter_km": 300,
+        "realverbrauch_kwh_100km": {
+          "min": 23.0,
+          "max": 30.0
+        },
+        "effizienz_wh_km": {
+          "min": 230,
+          "max": 300
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 5010,
+        "breite_mm": 1980,
+        "breite_mit_spiegel_mm": 2200,
+        "hoehe_mm": 1755,
+        "radstand_mm": 3100,
+        "leergewicht_kg": 2636,
+        "zulaessiges_gesamtgewicht_kg": 3195,
+        "nutzlast_kg": "n/a",
+        "sitze": 7,
+        "kofferraum_liter": 333,
+        "kofferraum_umgeklappt_liter": 2318,
+        "frunk": false,
+        "frunk_liter": 0,
+        "ahk_verfuegbar": true,
+        "ahk_preis_eur": 1090,
+        "anhaengelast_gebremst_kg": 2500,
+        "anhaengelast_ungebremst_kg": 750,
+        "dachlast_kg": 100,
+        "cw_wert": 0.28,
+        "bodenfreiheit_mm": 190,
+        "wendekreis_m": 12.3,
+        "felgen_zoll": 21,
+        "display": "12,3\" + 5\" Klimabedienung",
+        "hud": "Option",
+        "kofferraum_elektrisch": true,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "4 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 84080,
+        "stromkosten_eur_100km": {
+          "min": 6.0,
+          "max": 9.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 1200,
+          "max": 2200
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 42
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 7,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 7
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Hoher Verbrauch durch Grösse und Gewicht",
+          "AWD-Reichweite deutlich unter RWD-Version",
+          "Keine Ahnung-Langzeitzuverlässigkeit bei grossen koreanischen EVs"
+        ],
+        "garantie_relevant": false
+      },
+      "bemerkung": "7-Sitzer-SUV auf 800V E-GMP-Plattform. V2L (3,6 kW) serienmässig. AHK bis 2.500 kg. 239 kW DC-Spitzenladung in 24 min (10–80 %). Beste Garantie in der Klasse (7 Jahre).",
+      "ota_updates": true,
+      "reifen_serie": "285/45 R21",
+      "quellen": [
+        "kia.com/de (2025)",
+        "ADAC (2025)",
+        "auto motor sport (2024)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 91,
+        "kinder": 87,
+        "fussgaenger": 72,
+        "assistenten": 83
+      },
+      "produktionsland": "Südkorea (Hwaseong)",
+      "bild_url": "https://en.wikipedia.org/wiki/Kia_EV9",
+      "lieferzeit_wochen": 10
+    },
+    {
+      "id": "000115",
+      "modell": "Volvo EX40 Extended Range Single Motor",
+      "marke": "Volvo",
+      "modelljahr": "2025",
+      "plattform": "CMA",
+      "autotyp": "SUV (Kompakt)",
+      "user_wish": null,
+      "produkt_url": "https://www.volvocars.com/de/cars/ex40",
+      "antrieb": {
+        "konzept": "Hinterrad (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 185,
+        "systemleistung_ps": 252,
+        "drehmoment_nm": 420,
+        "beschleunigung_0_100_s": 7.4,
+        "hoechstgeschwindigkeit_kmh": 180
+      },
+      "batterie": {
+        "brutto_kwh": 72.0,
+        "netto_kwh": 69.0,
+        "systemspannung_v": 400,
+        "chemie": "NMC",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 380,
+          "max": 420
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "ac_optional_preis_eur": null,
+        "dc_max_kw": 150,
+        "dc_10_80_min": 26,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": false,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2h": false,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 540,
+          "max": 574
+        },
+        "wltp_kwh_100km": {
+          "min": 13.0,
+          "max": 15.0
+        },
+        "realreichweite_sommer_stadt_km": 470,
+        "realreichweite_autobahn_130_km": 390,
+        "realreichweite_winter_km": 310,
+        "realverbrauch_kwh_100km": {
+          "min": 15.5,
+          "max": 21.0
+        },
+        "effizienz_wh_km": {
+          "min": 155,
+          "max": 210
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4440,
+        "breite_mm": 1873,
+        "breite_mit_spiegel_mm": 2033,
+        "hoehe_mm": 1652,
+        "radstand_mm": 2702,
+        "leergewicht_kg": 1905,
+        "zulaessiges_gesamtgewicht_kg": 2425,
+        "nutzlast_kg": "n/a",
+        "sitze": 5,
+        "kofferraum_liter": 419,
+        "kofferraum_umgeklappt_liter": 1295,
+        "frunk": false,
+        "frunk_liter": 0,
+        "ahk_verfuegbar": true,
+        "ahk_preis_eur": 800,
+        "anhaengelast_gebremst_kg": 1800,
+        "anhaengelast_ungebremst_kg": 750,
+        "dachlast_kg": 75,
+        "cw_wert": 0.27,
+        "bodenfreiheit_mm": 175,
+        "wendekreis_m": 11.4,
+        "felgen_zoll": 19,
+        "display": "9\" Touchscreen (Google)",
+        "hud": "Option",
+        "kofferraum_elektrisch": false,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 48990,
+        "stromkosten_eur_100km": {
+          "min": 4.0,
+          "max": 6.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 900,
+          "max": 1600
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 28,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 40.000 km",
+        "wartungskosten_eur": {
+          "min": 300,
+          "max": 550
+        },
+        "anfaellige_punkte": [
+          "Kleineres Display als Konkurrenz",
+          "Kein Plug&Charge",
+          "Kein Frunk"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Kompakt-SUV mit preisgünstigem Einstieg und guter WLTP-Reichweite (574 km). Google-basiertes Infotainment (Android Automotive). Hergestellt in Gent, Belgien.",
+      "ota_updates": true,
+      "reifen_serie": "235/50 R19",
+      "quellen": [
+        "volvocars.com/de (2025)",
+        "ADAC (2025)",
+        "auto motor sport (2024)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 97,
+        "kinder": 89,
+        "fussgaenger": 73,
+        "assistenten": 83
+      },
+      "produktionsland": "Belgien (Gent)",
+      "bild_url": "https://en.wikipedia.org/wiki/Volvo_EX40",
+      "lieferzeit_wochen": 8
+    },
+    {
+      "id": "000116",
+      "modell": "Volvo EX90 Twin Motor Performance",
+      "marke": "Volvo",
+      "modelljahr": "2025",
+      "plattform": "SPA2",
+      "autotyp": "SUV (Gross)",
+      "user_wish": null,
+      "produkt_url": "https://www.volvocars.com/de/cars/ex90",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 380,
+        "systemleistung_ps": 517,
+        "drehmoment_nm": 910,
+        "beschleunigung_0_100_s": 4.9,
+        "hoechstgeschwindigkeit_kmh": 210
+      },
+      "batterie": {
+        "brutto_kwh": 111.0,
+        "netto_kwh": 107.0,
+        "systemspannung_v": 400,
+        "chemie": "NMC",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 630,
+          "max": 680
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "ac_optional_preis_eur": 600,
+        "dc_max_kw": 250,
+        "dc_10_80_min": 30,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": false,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2h": true,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 560,
+          "max": 616
+        },
+        "wltp_kwh_100km": {
+          "min": 18.8,
+          "max": 21.4
+        },
+        "realreichweite_sommer_stadt_km": 490,
+        "realreichweite_autobahn_130_km": 400,
+        "realreichweite_winter_km": 330,
+        "realverbrauch_kwh_100km": {
+          "min": 22.0,
+          "max": 30.0
+        },
+        "effizienz_wh_km": {
+          "min": 220,
+          "max": 300
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 5040,
+        "breite_mm": 1964,
+        "breite_mit_spiegel_mm": 2161,
+        "hoehe_mm": 1744,
+        "radstand_mm": 2985,
+        "leergewicht_kg": 2736,
+        "zulaessiges_gesamtgewicht_kg": 3230,
+        "nutzlast_kg": "n/a",
+        "sitze": 7,
+        "kofferraum_liter": 310,
+        "kofferraum_umgeklappt_liter": 1915,
+        "frunk": false,
+        "frunk_liter": 0,
+        "ahk_verfuegbar": true,
+        "ahk_preis_eur": 1100,
+        "anhaengelast_gebremst_kg": 2200,
+        "anhaengelast_ungebremst_kg": 750,
+        "dachlast_kg": 100,
+        "cw_wert": 0.29,
+        "bodenfreiheit_mm": 205,
+        "wendekreis_m": 12.2,
+        "felgen_zoll": 21,
+        "display": "14,5\" Touchscreen (Google)",
+        "hud": "Standard",
+        "kofferraum_elektrisch": true,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luftfederung)",
+        "federung_hinten": "Mehrlenker (Luftfederung)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 95000,
+        "stromkosten_eur_100km": {
+          "min": 6.0,
+          "max": 9.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 1500,
+          "max": 2600
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 42
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 40.000 km",
+        "wartungskosten_eur": {
+          "min": 500,
+          "max": 900
+        },
+        "anfaellige_punkte": [
+          "Sehr hohes Gewicht (2.736 kg)",
+          "Keine 800V-Architektur trotz hohem Preis",
+          "Hergestellt in USA"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "7-Sitzer-Flaggschiff von Volvo. V2L und V2H serienmässig. Umfangreiche Sensorik (5 Radare, 8 Kameras, 16 Ultraschall, 1 LiDAR). Sicherste Volvo aller Zeiten.",
+      "ota_updates": true,
+      "reifen_serie": "275/45 R21",
+      "quellen": [
+        "volvocars.com/de (2025)",
+        "ADAC (2025)",
+        "auto motor sport (2024)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 90,
+        "kinder": 89,
+        "fussgaenger": 70,
+        "assistenten": 92
+      },
+      "produktionsland": "USA (Ridgeville, South Carolina)",
+      "bild_url": "https://en.wikipedia.org/wiki/Volvo_EX90",
+      "lieferzeit_wochen": 12
+    },
+    {
+      "id": "000117",
+      "modell": "Polestar 3 Long Range Dual Motor",
+      "marke": "Polestar",
+      "modelljahr": "2025",
+      "plattform": "SPA2",
+      "autotyp": "SUV (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.polestar.com/de/polestar-3",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 360,
+        "systemleistung_ps": 489,
+        "drehmoment_nm": 840,
+        "beschleunigung_0_100_s": 4.7,
+        "hoechstgeschwindigkeit_kmh": 210
+      },
+      "batterie": {
+        "brutto_kwh": 111.0,
+        "netto_kwh": 107.0,
+        "systemspannung_v": 400,
+        "chemie": "NMC",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 620,
+          "max": 660
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "ac_optional_preis_eur": 600,
+        "dc_max_kw": 250,
+        "dc_10_80_min": 22,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": false,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2h": false,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 560,
+          "max": 631
+        },
+        "wltp_kwh_100km": {
+          "min": 18.0,
+          "max": 21.0
+        },
+        "realreichweite_sommer_stadt_km": 510,
+        "realreichweite_autobahn_130_km": 420,
+        "realreichweite_winter_km": 350,
+        "realverbrauch_kwh_100km": {
+          "min": 21.0,
+          "max": 28.0
+        },
+        "effizienz_wh_km": {
+          "min": 210,
+          "max": 280
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4900,
+        "breite_mm": 1968,
+        "breite_mit_spiegel_mm": 2185,
+        "hoehe_mm": 1614,
+        "radstand_mm": 2985,
+        "leergewicht_kg": 2584,
+        "zulaessiges_gesamtgewicht_kg": 3095,
+        "nutzlast_kg": "n/a",
+        "sitze": 5,
+        "kofferraum_liter": 484,
+        "kofferraum_umgeklappt_liter": 1411,
+        "frunk": true,
+        "frunk_liter": 15,
+        "ahk_verfuegbar": true,
+        "ahk_preis_eur": 900,
+        "anhaengelast_gebremst_kg": 2200,
+        "anhaengelast_ungebremst_kg": 750,
+        "dachlast_kg": 75,
+        "cw_wert": 0.29,
+        "bodenfreiheit_mm": 175,
+        "wendekreis_m": 12.1,
+        "felgen_zoll": 21,
+        "display": "14,5\" Android Automotive",
+        "hud": "Option",
+        "kofferraum_elektrisch": true,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luftfederung opt.)",
+        "federung_hinten": "Mehrlenker (Luftfederung opt.)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 74900,
+        "stromkosten_eur_100km": {
+          "min": 5.5,
+          "max": 8.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 1300,
+          "max": 2200
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 28,
+          "max": 42
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Hergestellt in China (Chengdu)",
+          "Keine 800V-Architektur",
+          "Kein Plug&Charge"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Sportliches SUV-Coupé auf Volvo-SPA2-Plattform. 400V-Architektur, 250 kW DC-Laden. Charakteristisches Design mit stark abfallendem Dach. Android Automotive OS.",
+      "ota_updates": true,
+      "reifen_serie": "265/40 R21",
+      "quellen": [
+        "polestar.com/de (2025)",
+        "ADAC (2025)",
+        "auto motor sport (2024)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 92,
+        "kinder": 83,
+        "fussgaenger": 71,
+        "assistenten": 84
+      },
+      "produktionsland": "China (Chengdu)",
+      "bild_url": "https://en.wikipedia.org/wiki/Polestar_3",
+      "lieferzeit_wochen": 10
+    },
+    {
+      "id": "000118",
+      "modell": "Polestar 4 Long Range Single Motor",
+      "marke": "Polestar",
+      "modelljahr": "2025",
+      "plattform": "SEA",
+      "autotyp": "SUV-Coupé",
+      "user_wish": null,
+      "produkt_url": "https://www.polestar.com/de/polestar-4",
+      "antrieb": {
+        "konzept": "Hinterrad (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 200,
+        "systemleistung_ps": 272,
+        "drehmoment_nm": 343,
+        "beschleunigung_0_100_s": 7.1,
+        "hoechstgeschwindigkeit_kmh": 200
+      },
+      "batterie": {
+        "brutto_kwh": 102.0,
+        "netto_kwh": 100.0,
+        "systemspannung_v": 400,
+        "chemie": "NMC",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 540,
+          "max": 580
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "ac_optional_preis_eur": 600,
+        "dc_max_kw": 200,
+        "dc_10_80_min": 27,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": false,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2h": false,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 580,
+          "max": 610
+        },
+        "wltp_kwh_100km": {
+          "min": 17.2,
+          "max": 19.5
+        },
+        "realreichweite_sommer_stadt_km": 510,
+        "realreichweite_autobahn_130_km": 420,
+        "realreichweite_winter_km": 340,
+        "realverbrauch_kwh_100km": {
+          "min": 19.5,
+          "max": 26.0
+        },
+        "effizienz_wh_km": {
+          "min": 195,
+          "max": 260
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4839,
+        "breite_mm": 1924,
+        "breite_mit_spiegel_mm": 2139,
+        "hoehe_mm": 1534,
+        "radstand_mm": 2999,
+        "leergewicht_kg": 2200,
+        "zulaessiges_gesamtgewicht_kg": 2695,
+        "nutzlast_kg": "n/a",
+        "sitze": 5,
+        "kofferraum_liter": 526,
+        "kofferraum_umgeklappt_liter": 1536,
+        "frunk": false,
+        "frunk_liter": 0,
+        "ahk_verfuegbar": true,
+        "ahk_preis_eur": 800,
+        "anhaengelast_gebremst_kg": 2000,
+        "anhaengelast_ungebremst_kg": 750,
+        "dachlast_kg": 75,
+        "cw_wert": 0.26,
+        "bodenfreiheit_mm": 152,
+        "wendekreis_m": 11.8,
+        "felgen_zoll": 20,
+        "display": "15,4\" Android Automotive",
+        "hud": "Option",
+        "kofferraum_elektrisch": false,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 59990,
+        "stromkosten_eur_100km": {
+          "min": 5.0,
+          "max": 8.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 1000,
+          "max": 1800
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 28,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 350,
+          "max": 600
+        },
+        "anfaellige_punkte": [
+          "Kein Heckfenster (Kameraspiegel – Strassenzulassung länderspezifisch)",
+          "Hergestellt in China",
+          "Kein Frunk"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Einzigartiges SUV-Coupé ohne Heckfenster – ersetzt durch Rückkamera-Spiegel. SEA-Plattform (Geely). Langer Radstand (2.999 mm) für viel Innenraum.",
+      "ota_updates": true,
+      "reifen_serie": "255/45 R20",
+      "quellen": [
+        "polestar.com/de (2025)",
+        "ADAC (2025)",
+        "auto motor sport (2024)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": null,
+      "produktionsland": "China (Zhenjiang)",
+      "bild_url": "https://en.wikipedia.org/wiki/Polestar_4",
+      "lieferzeit_wochen": 10
+    },
+    {
+      "id": "000119",
+      "modell": "Alfa Romeo Junior Elettrica",
+      "marke": "Alfa Romeo",
+      "modelljahr": "2025",
+      "plattform": "STLA Small",
+      "autotyp": "SUV (Kompakt)",
+      "user_wish": null,
+      "produkt_url": "https://www.alfaromeo.de/junior",
+      "antrieb": {
+        "konzept": "Hinterrad (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 156,
+        "systemleistung_ps": 212,
+        "drehmoment_nm": 345,
+        "beschleunigung_0_100_s": 5.9,
+        "hoechstgeschwindigkeit_kmh": 150
+      },
+      "batterie": {
+        "brutto_kwh": 54.0,
+        "netto_kwh": 51.0,
+        "systemspannung_v": 400,
+        "chemie": "NMC",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 280,
+          "max": 310
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "ac_optional_preis_eur": null,
+        "dc_max_kw": 100,
+        "dc_10_80_min": 27,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": false,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2h": false,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 380,
+          "max": 410
+        },
+        "wltp_kwh_100km": {
+          "min": 13.2,
+          "max": 15.1
+        },
+        "realreichweite_sommer_stadt_km": 330,
+        "realreichweite_autobahn_130_km": 270,
+        "realreichweite_winter_km": 220,
+        "realverbrauch_kwh_100km": {
+          "min": 15.5,
+          "max": 21.0
+        },
+        "effizienz_wh_km": {
+          "min": 155,
+          "max": 210
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4174,
+        "breite_mm": 1781,
+        "breite_mit_spiegel_mm": 1993,
+        "hoehe_mm": 1500,
+        "radstand_mm": 2558,
+        "leergewicht_kg": 1640,
+        "zulaessiges_gesamtgewicht_kg": 2095,
+        "nutzlast_kg": "n/a",
+        "sitze": 5,
+        "kofferraum_liter": 400,
+        "kofferraum_umgeklappt_liter": 1265,
+        "frunk": false,
+        "frunk_liter": 0,
+        "ahk_verfuegbar": false,
+        "ahk_preis_eur": null,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "dachlast_kg": 75,
+        "cw_wert": 0.29,
+        "bodenfreiheit_mm": 165,
+        "wendekreis_m": 10.5,
+        "felgen_zoll": 18,
+        "display": "10,25\" Touchscreen",
+        "hud": "Option",
+        "kofferraum_elektrisch": false,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Verbundlenker",
+        "rekuperation": "2 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 39500,
+        "stromkosten_eur_100km": {
+          "min": 4.0,
+          "max": 6.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 700,
+          "max": 1300
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 25,
+          "max": 38
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": 150000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 10,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "1 Jahr / 20.000 km",
+        "wartungskosten_eur": {
+          "min": 280,
+          "max": 500
+        },
+        "anfaellige_punkte": [
+          "Begrenzte Reichweite (410 km WLTP)",
+          "Nur 100 kW DC-Laden",
+          "Wenig Langzeiterfahrung mit Stellantis-BEV-Plattform"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Erstes Alfa Romeo BEV. Sportliches Design, Hecktrieb (RWD), STLA-Small-Plattform (Stellantis). Einstieg ins Alfa-EV-Portfolio. Auch als Veloce (240 PS) erhältlich.",
+      "ota_updates": true,
+      "reifen_serie": "215/55 R18",
+      "quellen": [
+        "alfaromeo.de (2025)",
+        "ADAC (2025)",
+        "auto motor sport (2024)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": null,
+      "produktionsland": "Polen (Tychy)",
+      "bild_url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Junior",
+      "lieferzeit_wochen": 8
+    },
+    {
+      "id": "000120",
+      "modell": "Hyundai IONIQ 9 Long Range AWD",
+      "marke": "Hyundai",
+      "modelljahr": "2026",
+      "plattform": "E-GMP3",
+      "autotyp": "SUV (Gross)",
+      "user_wish": null,
+      "produkt_url": "https://www.hyundai.de/modelle/ioniq9",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 226,
+        "systemleistung_ps": 307,
+        "drehmoment_nm": 605,
+        "beschleunigung_0_100_s": 5.3,
+        "hoechstgeschwindigkeit_kmh": 200
+      },
+      "batterie": {
+        "brutto_kwh": 110.3,
+        "netto_kwh": 107.0,
+        "systemspannung_v": 800,
+        "chemie": "NCM",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "SK On"
+        ],
+        "gewicht_kg": {
+          "min": 610,
+          "max": 650
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "ac_optional_preis_eur": null,
+        "dc_max_kw": 350,
+        "dc_10_80_min": 24,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": true,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2h": false,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 535,
+          "max": 570
+        },
+        "wltp_kwh_100km": {
+          "min": 20.0,
+          "max": 22.0
+        },
+        "realreichweite_sommer_stadt_km": 460,
+        "realreichweite_autobahn_130_km": 390,
+        "realreichweite_winter_km": 320,
+        "realverbrauch_kwh_100km": {
+          "min": 23.0,
+          "max": 30.0
+        },
+        "effizienz_wh_km": {
+          "min": 230,
+          "max": 300
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 5060,
+        "breite_mm": 1998,
+        "breite_mit_spiegel_mm": 2211,
+        "hoehe_mm": 1790,
+        "radstand_mm": 3130,
+        "leergewicht_kg": 2635,
+        "zulaessiges_gesamtgewicht_kg": 3170,
+        "nutzlast_kg": "n/a",
+        "sitze": 7,
+        "kofferraum_liter": 620,
+        "kofferraum_umgeklappt_liter": 2085,
+        "frunk": true,
+        "frunk_liter": 52,
+        "ahk_verfuegbar": true,
+        "ahk_preis_eur": 1100,
+        "anhaengelast_gebremst_kg": 2500,
+        "anhaengelast_ungebremst_kg": 750,
+        "dachlast_kg": 100,
+        "cw_wert": 0.27,
+        "bodenfreiheit_mm": 188,
+        "wendekreis_m": 12.6,
+        "felgen_zoll": 21,
+        "display": "12\" + 12\" + 5\" Klimabedienung",
+        "hud": "Standard",
+        "kofferraum_elektrisch": true,
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a",
+        "anzahl_achsen": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "4 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 75500,
+        "stromkosten_eur_100km": {
+          "min": 6.5,
+          "max": 10.0
+        },
+        "versicherung_eur_jahr": {
+          "min": 1200,
+          "max": 2100
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 42
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 5,
+        "fahrzeug_km": 100000,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 5
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Sehr grosses und schweres Fahrzeug (2.635 kg)",
+          "AWD-Reichweite unter 600 km",
+          "Neues Modell – wenig Langzeitdaten"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Flaggschiff-SUV von Hyundai. 800V E-GMP3-Plattform, 350 kW DC, Frunk (52 L), V2L (3,68 kW), 7 Sitze, AHK 2.500 kg. Konkurriert mit Kia EV9 und Mercedes EQS SUV.",
+      "ota_updates": true,
+      "reifen_serie": "285/45 R21",
+      "quellen": [
+        "hyundai.de (2026)",
+        "ADAC (2026)",
+        "auto motor sport (2025)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": null,
+      "produktionsland": "Südkorea (Ulsan)",
+      "bild_url": "https://en.wikipedia.org/wiki/Hyundai_IONIQ_9",
+      "lieferzeit_wochen": 14
     }
   ]
 }
