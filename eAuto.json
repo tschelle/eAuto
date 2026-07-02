@@ -17798,6 +17798,688 @@
       "produktionsland": "Deutschland (Leipzig)",
       "bild_url": "https://en.wikipedia.org/wiki/Porsche_Cayenne",
       "lieferzeit_wochen": 16
+    },
+    {
+      "id": "000106",
+      "modell": "Porsche Taycan Sport Turismo",
+      "marke": "Porsche",
+      "modelljahr": "2024-2026",
+      "plattform": "J1 / PPE",
+      "autotyp": "Kombi (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.porsche.com/de/models/taycan/taycan-sport-turismo-models/taycan-sport-turismo/",
+      "antrieb": {
+        "konzept": "Heckantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 300,
+        "systemleistung_ps": 408,
+        "drehmoment_nm": 410,
+        "beschleunigung_0_100_s": 4.8,
+        "hoechstgeschwindigkeit_kmh": 230
+      },
+      "batterie": {
+        "brutto_kwh": 105.0,
+        "netto_kwh": 97.0,
+        "chemie": "NMC811",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI",
+          "LG Energy Solution"
+        ],
+        "gewicht_kg": {
+          "min": 570,
+          "max": 600
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 320,
+        "dc_10_80_min": 18,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 590,
+        "plug_and_charge": true,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 17.6,
+          "max": 20.6
+        },
+        "wltp_reichweite_km": {
+          "min": 535,
+          "max": 651
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 20,
+          "max": 27
+        },
+        "realreichweite_sommer_stadt_km": 520,
+        "realreichweite_autobahn_130_km": 400,
+        "effizienz_wh_km": {
+          "min": 176,
+          "max": 206
+        },
+        "realreichweite_winter_km": 290,
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4963,
+        "breite_mm": 1966,
+        "hoehe_mm": 1422,
+        "radstand_mm": 2900,
+        "leergewicht_kg": 2230,
+        "zulaessiges_gesamtgewicht_kg": 2730,
+        "kofferraum_liter": 446,
+        "kofferraum_umgeklappt_liter": 1212,
+        "anhaengelast_gebremst_kg": 0,
+        "anhaengelast_ungebremst_kg": 0,
+        "wendekreis_m": 11.4,
+        "bodenfreiheit_mm": 128,
+        "cw_wert": 0.23,
+        "frunk": true,
+        "frunk_liter": 84,
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": 2114,
+        "sitze": 5,
+        "felgen_zoll": 19,
+        "display": "10,9\" + 10,9\" Curved Display",
+        "dachlast_kg": 75,
+        "kofferraum_elektrisch": true,
+        "ahk_preis_eur": null,
+        "hud": "Option",
+        "nutzlast_kg": "n/a",
+        "anzahl_achsen": "n/a",
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 107300,
+        "stromkosten_eur_100km": {
+          "min": 6.0,
+          "max": 7.9
+        },
+        "versicherung_eur_jahr": {
+          "min": 1400,
+          "max": 2200
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 28,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Hoher Verbrauch bei Autobahntempo",
+          "Hohe Servicekosten",
+          "Keine AHK moeglich"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Kombi-Variante des Taycan. 446 L Kofferraum (vs. 407 L Limousine), 1.212 L umgeklappt. Gleiches Antriebskonzept wie Taycan Performance.",
+      "ota_updates": true,
+      "reifen_serie": "225/55 R19 / 275/45 R19",
+      "quellen": [
+        "porsche.com/de (2026)",
+        "ADAC (2024)",
+        "Porsche Newsroom"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": 1.7,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 93,
+        "kinder": 83,
+        "fussgaenger": 70,
+        "assistenten": 78
+      },
+      "produktionsland": "Deutschland (Zuffenhausen)",
+      "bild_url": "https://en.wikipedia.org/wiki/Porsche_Taycan",
+      "lieferzeit_wochen": 10
+    },
+    {
+      "id": "000107",
+      "modell": "Porsche Taycan Cross Turismo",
+      "marke": "Porsche",
+      "modelljahr": "2024-2026",
+      "plattform": "J1 / PPE",
+      "autotyp": "Kombi / Offroad (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.porsche.com/de/models/taycan/taycan-cross-turismo-models/taycan-4-cross-turismo/",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 320,
+        "systemleistung_ps": 435,
+        "drehmoment_nm": 640,
+        "beschleunigung_0_100_s": 4.7,
+        "hoechstgeschwindigkeit_kmh": 220
+      },
+      "batterie": {
+        "brutto_kwh": 105.0,
+        "netto_kwh": 97.0,
+        "chemie": "NMC811",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI",
+          "LG Energy Solution"
+        ],
+        "gewicht_kg": {
+          "min": 570,
+          "max": 600
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 320,
+        "dc_10_80_min": 18,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 590,
+        "plug_and_charge": true,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 18.7,
+          "max": 22.0
+        },
+        "wltp_reichweite_km": {
+          "min": 517,
+          "max": 613
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 21,
+          "max": 28
+        },
+        "realreichweite_sommer_stadt_km": 490,
+        "realreichweite_autobahn_130_km": 370,
+        "effizienz_wh_km": {
+          "min": 187,
+          "max": 220
+        },
+        "realreichweite_winter_km": 270,
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4975,
+        "breite_mm": 1966,
+        "hoehe_mm": 1440,
+        "radstand_mm": 2900,
+        "leergewicht_kg": 2285,
+        "zulaessiges_gesamtgewicht_kg": 2785,
+        "kofferraum_liter": 446,
+        "kofferraum_umgeklappt_liter": 1212,
+        "anhaengelast_gebremst_kg": 1300,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 11.4,
+        "bodenfreiheit_mm": 155,
+        "cw_wert": 0.26,
+        "frunk": true,
+        "frunk_liter": 84,
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": 2114,
+        "sitze": 5,
+        "felgen_zoll": 20,
+        "display": "10,9\" + 10,9\" Curved Display",
+        "dachlast_kg": 75,
+        "kofferraum_elektrisch": true,
+        "ahk_preis_eur": 890,
+        "hud": "Option",
+        "nutzlast_kg": "n/a",
+        "anzahl_achsen": "n/a",
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 120510,
+        "stromkosten_eur_100km": {
+          "min": 7.2,
+          "max": 9.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 1500,
+          "max": 2400
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 28,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Hoher Verbrauch bei Autobahntempo",
+          "Hohe Servicekosten",
+          "AWD erhoehter Verbrauch gegenueber Sport Turismo"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Allrad-Kombi mit Gelaendepaket und erhoehter Bodenfreiheit. Immer AWD. AHK bis 1.300 kg. Gleicher Kofferraum wie Sport Turismo.",
+      "ota_updates": true,
+      "reifen_serie": "235/55 R20 / 275/50 R20",
+      "quellen": [
+        "porsche.com/de (2026)",
+        "ADAC (2024)",
+        "Porsche Newsroom"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 93,
+        "kinder": 83,
+        "fussgaenger": 70,
+        "assistenten": 78
+      },
+      "produktionsland": "Deutschland (Zuffenhausen)",
+      "bild_url": "https://en.wikipedia.org/wiki/Porsche_Taycan",
+      "lieferzeit_wochen": 12
+    },
+    {
+      "id": "000108",
+      "modell": "Porsche Cayenne Coupé Electric",
+      "marke": "Porsche",
+      "modelljahr": "2026",
+      "plattform": "PPE (Cayenne)",
+      "autotyp": "SUV-Coupé (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.porsche.com/de/models/cayenne/cayenne-coupe-electric-models/cayenne-coupe-electric/",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 325,
+        "systemleistung_ps": 442,
+        "drehmoment_nm": 700,
+        "beschleunigung_0_100_s": 4.8,
+        "hoechstgeschwindigkeit_kmh": 250
+      },
+      "batterie": {
+        "brutto_kwh": 113.0,
+        "netto_kwh": 107.0,
+        "chemie": "NMC",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI"
+        ],
+        "gewicht_kg": {
+          "min": 650,
+          "max": 700
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 400,
+        "dc_10_80_min": 16,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 590,
+        "plug_and_charge": true,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 19.1,
+          "max": 21.3
+        },
+        "wltp_reichweite_km": {
+          "min": 576,
+          "max": 661
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 21,
+          "max": 28
+        },
+        "realreichweite_sommer_stadt_km": 580,
+        "realreichweite_autobahn_130_km": 450,
+        "effizienz_wh_km": {
+          "min": 191,
+          "max": 213
+        },
+        "realreichweite_winter_km": 380,
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4985,
+        "breite_mm": 1980,
+        "hoehe_mm": 1643,
+        "radstand_mm": 3023,
+        "leergewicht_kg": 2600,
+        "zulaessiges_gesamtgewicht_kg": 3200,
+        "kofferraum_liter": 625,
+        "kofferraum_umgeklappt_liter": 1347,
+        "anhaengelast_gebremst_kg": 3500,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 12.8,
+        "bodenfreiheit_mm": 186,
+        "cw_wert": 0.23,
+        "frunk": true,
+        "frunk_liter": 90,
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": 2200,
+        "sitze": 5,
+        "felgen_zoll": 21,
+        "display": "12,6\" + 10,9\" Curved Display",
+        "dachlast_kg": 75,
+        "kofferraum_elektrisch": true,
+        "ahk_preis_eur": 1190,
+        "hud": "Option",
+        "nutzlast_kg": "n/a",
+        "anzahl_achsen": "n/a",
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Luft)",
+        "federung_hinten": "Mehrlenker (Luft)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 130300,
+        "stromkosten_eur_100km": {
+          "min": 7.3,
+          "max": 10.1
+        },
+        "versicherung_eur_jahr": {
+          "min": 2000,
+          "max": 3200
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 25,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Sehr hoher Preis (ab 130.300 EUR)",
+          "Weniger Kofferraum als SUV (625 vs. 781 L)",
+          "Neues Modell - wenig Langzeitdaten"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Coupé-Variante des Cayenne Electric. Bessere Aerodynamik (cw 0,23 vs. 0,30 SUV), dadurch mehr Reichweite (661 vs. 643 km WLTP). Ab 04/2026.",
+      "ota_updates": true,
+      "reifen_serie": "275/45 R21",
+      "quellen": [
+        "porsche.com/de (2026)",
+        "ADAC (2026)",
+        "Porsche Newsroom (2026)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "produktionsland": "Deutschland (Leipzig)",
+      "bild_url": "https://en.wikipedia.org/wiki/Porsche_Cayenne",
+      "lieferzeit_wochen": 18
+    },
+    {
+      "id": "000109",
+      "modell": "Porsche Macan GTS Electric",
+      "marke": "Porsche",
+      "modelljahr": "2026",
+      "plattform": "PPE",
+      "autotyp": "SUV (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.porsche.com/de/models/macan/macan-electric-models/macan-gts-electric/",
+      "antrieb": {
+        "konzept": "Allrad (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 380,
+        "systemleistung_ps": 516,
+        "drehmoment_nm": 955,
+        "beschleunigung_0_100_s": 3.8,
+        "hoechstgeschwindigkeit_kmh": 240
+      },
+      "batterie": {
+        "brutto_kwh": 100.0,
+        "netto_kwh": 95.0,
+        "chemie": "NMC811",
+        "systemspannung_v": 800,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "Samsung SDI"
+        ],
+        "gewicht_kg": {
+          "min": 580,
+          "max": 610
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 270,
+        "dc_10_80_min": 21,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": 590,
+        "plug_and_charge": true,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 18.5,
+          "max": 20.6
+        },
+        "wltp_reichweite_km": {
+          "min": 516,
+          "max": 586
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 21,
+          "max": 28
+        },
+        "realreichweite_sommer_stadt_km": 500,
+        "realreichweite_autobahn_130_km": 360,
+        "effizienz_wh_km": {
+          "min": 185,
+          "max": 206
+        },
+        "realreichweite_winter_km": 300,
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4784,
+        "breite_mm": 1938,
+        "hoehe_mm": 1612,
+        "radstand_mm": 2893,
+        "leergewicht_kg": 2460,
+        "zulaessiges_gesamtgewicht_kg": 2980,
+        "kofferraum_liter": 540,
+        "kofferraum_umgeklappt_liter": 1348,
+        "anhaengelast_gebremst_kg": 2000,
+        "anhaengelast_ungebremst_kg": 750,
+        "wendekreis_m": 12.2,
+        "bodenfreiheit_mm": 178,
+        "cw_wert": 0.25,
+        "frunk": true,
+        "frunk_liter": 84,
+        "ahk_verfuegbar": true,
+        "breite_mit_spiegel_mm": 2104,
+        "sitze": 5,
+        "felgen_zoll": 21,
+        "display": "12,6\" + 10,9\" Curved Display",
+        "dachlast_kg": 75,
+        "kofferraum_elektrisch": true,
+        "ahk_preis_eur": 1150,
+        "hud": "Option",
+        "nutzlast_kg": "n/a",
+        "anzahl_achsen": "n/a",
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "Doppelquerlenker (Sportluftfederung)",
+        "federung_hinten": "Mehrlenker (Sportluftfederung)",
+        "rekuperation": "3 Stufen + One-Pedal",
+        "waermepumpe": true
+      },
+      "preis": {
+        "basispreis_eur": 115500,
+        "stromkosten_eur_100km": {
+          "min": 7.1,
+          "max": 9.5
+        },
+        "versicherung_eur_jahr": {
+          "min": 1600,
+          "max": 2600
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 28,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 2,
+        "fahrzeug_km": "unbegrenzt",
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 2
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 400,
+          "max": 700
+        },
+        "anfaellige_punkte": [
+          "Sehr hoher Preis (ab 115.500 EUR)",
+          "Geringere Reichweite als Macan Electric trotz hoeherem Preis",
+          "Neues Modell - wenig Langzeitdaten"
+        ],
+        "garantie_relevant": true
+      },
+      "bemerkung": "Sportlichste Macan-Variante. 380 kW (516 PS) Systemleistung, 955 Nm, 3,8 s auf 100 km/h. Serienmässig Sportluftfederung (PASM), 10 mm tiefer gelegt.",
+      "ota_updates": true,
+      "reifen_serie": "265/40 R21",
+      "quellen": [
+        "porsche.com/de (2026)",
+        "ADAC (2026)",
+        "Porsche Newsroom (2025)"
+      ],
+      "datenerfassung": "2026-07-02",
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 93,
+        "kinder": 88,
+        "fussgaenger": 74,
+        "assistenten": 82
+      },
+      "produktionsland": "Deutschland (Leipzig)",
+      "bild_url": "https://en.wikipedia.org/wiki/Porsche_Macan_Electric",
+      "lieferzeit_wochen": 12
     }
   ]
 }
