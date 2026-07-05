@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>TV-Fernseher Vergleich 2025/2026</title>
+<style>
+  :root {
+    --bg: #f4f6f8;
+    --surface: #ffffff;
+    --border: #d1d8e0;
+    --text: #1a1a2e;
+    --text-muted: #5a6a7a;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --oled-clr: #7c3aed;
+    --oled-bg: #ede9fe;
+    --miniled-clr: #b45309;
+    --miniled-bg: #fef3c7;
+    --k8-clr: #0f766e;
+    --k8-bg: #ccfbf1;
+    --yes: #16a34a;
+    --no: #dc2626;
+    --sort-arrow: #94a3b8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: #334155;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #60a5fa;
+      --accent-hover: #93c5fd;
+      --oled-clr: #a78bfa;
+      --oled-bg: #2e1065;
+      --miniled-clr: #fbbf24;
+      --miniled-bg: #451a03;
+      --k8-clr: #2dd4bf;
+      --k8-bg: #042f2e;
+      --yes: #4ade80;
+      --no: #f87171;
+      --sort-arrow: #475569;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f4f6f8; --surface: #ffffff; --border: #d1d8e0; --text: #1a1a2e;
+    --text-muted: #5a6a7a; --accent: #2563eb; --oled-clr: #7c3aed;
+    --oled-bg: #ede9fe; --miniled-clr: #b45309; --miniled-bg: #fef3c7;
+    --k8-clr: #0f766e; --k8-bg: #ccfbf1; --yes: #16a34a; --no: #dc2626;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f172a; --surface: #1e293b; --border: #334155; --text: #e2e8f0;
+    --text-muted: #94a3b8; --accent: #60a5fa; --oled-clr: #a78bfa;
+    --oled-bg: #2e1065; --miniled-clr: #fbbf24; --miniled-bg: #451a03;
+    --k8-clr: #2dd4bf; --k8-bg: #042f2e; --yes: #4ade80; --no: #f87171;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; font-size: 14px; }
+
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  header h1 { font-size: 1.25rem; font-weight: 700; color: var(--accent); }
+  header a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; }
+  header a:hover { color: var(--accent); }
+
+  .controls { background: var(--surface); border-bottom: 1px solid var(--border); padding: 10px 20px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .controls label { color: var(--text-muted); font-size: 0.8rem; }
+
+  .filter-btn { padding: 5px 14px; border: 1px solid var(--border); border-radius: 20px; background: var(--bg); color: var(--text); cursor: pointer; font-size: 0.82rem; transition: all .15s; }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .search-box { padding: 5px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 0.85rem; width: 200px; }
+  .search-box:focus { outline: none; border-color: var(--accent); }
+
+  .status { margin-left: auto; color: var(--text-muted); font-size: 0.8rem; }
+
+  .table-wrap { overflow-x: auto; padding: 16px 20px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+  th { background: var(--bg); color: var(--text-muted); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; padding: 9px 12px; text-align: left; white-space: nowrap; cursor: pointer; user-select: none; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 1; }
+  th:hover { color: var(--accent); }
+  th.sorted-asc::after { content: ' ▲'; color: var(--accent); }
+  th.sorted-desc::after { content: ' ▼'; color: var(--accent); }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: color-mix(in srgb, var(--accent) 5%, transparent); }
+
+  .rang { font-weight: 700; color: var(--text-muted); text-align: center; width: 36px; }
+  .rang-1 { color: #f59e0b; }
+  .rang-2 { color: #9ca3af; }
+  .rang-3 { color: #92400e; }
+
+  .tech-badge {
+    display: inline-block; padding: 2px 9px; border-radius: 20px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: .03em;
+  }
+  .tech-WOLED { background: var(--oled-bg); color: var(--oled-clr); }
+  .tech-QD-OLED { background: var(--oled-bg); color: var(--oled-clr); }
+  .tech-Mini-LED { background: var(--miniled-bg); color: var(--miniled-clr); }
+
+  .res-8k { background: var(--k8-bg); color: var(--k8-clr); display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 700; }
+
+  .bool-yes { color: var(--yes); font-weight: 600; }
+  .bool-no  { color: var(--no); }
+
+  .year-2026 { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+
+  .preis { font-weight: 600; color: var(--text); }
+  .preis-null { color: var(--text-muted); }
+
+  .score { font-weight: 700; }
+  .score-high { color: var(--yes); }
+  .score-mid  { color: #f59e0b; }
+
+  .modell-link { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .modell-link:hover { text-decoration: underline; }
+
+  .besonderheit { max-width: 280px; white-space: normal; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+
+  .groessen { font-size: 0.8rem; color: var(--text-muted); }
+
+  footer { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.78rem; }
+
+  .export-btn { padding: 5px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); cursor: pointer; font-size: 0.82rem; }
+  .export-btn:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>&#x1F4FA; TV-Fernseher Vergleich 2025 / 2026</h1>
+  <a href="Start.html">&#8592; Startseite</a>
+  <a href="index.html">&#x1F697; Autoübersicht</a>
+</header>
+
+<div class="controls">
+  <label>Filter:</label>
+  <button class="filter-btn active" data-filter="alle">Alle</button>
+  <button class="filter-btn" data-filter="OLED">OLED</button>
+  <button class="filter-btn" data-filter="Mini-LED">Mini-LED</button>
+  <button class="filter-btn" data-filter="4K">4K</button>
+  <button class="filter-btn" data-filter="8K">8K</button>
+  <button class="filter-btn" data-filter="2025">Nur 2025</button>
+  <button class="filter-btn" data-filter="2026">Nur 2026</button>
+  <input class="search-box" type="search" id="searchBox" placeholder="Suche Modell, Marke...">
+  <button class="export-btn" id="btnCSV">CSV Export</button>
+  <span class="status" id="statusLine">Lade...</span>
+</div>
+
+<div class="table-wrap">
+  <table id="tvTable">
+    <thead>
+      <tr>
+        <th data-key="rang">#</th>
+        <th data-key="marke">Marke</th>
+        <th data-key="modell">Modell</th>
+        <th data-key="jahr">Jahr</th>
+        <th data-key="technologie">Technologie</th>
+        <th data-key="panel">Panel</th>
+        <th data-key="aufloesung">Auflösung</th>
+        <th data-key="helligkeit_hdr_nits">Peak nits</th>
+        <th data-key="helligkeit_sdr_nits">SDR nits</th>
+        <th data-key="refresh_rate_hz">Hz</th>
+        <th data-key="hdmi_2_1_ports">HDMI 2.1</th>
+        <th data-key="dolby_vision">Dolby V.</th>
+        <th data-key="hdr10_plus">HDR10+</th>
+        <th data-key="vrr">VRR</th>
+        <th data-key="g_sync">G-Sync</th>
+        <th data-key="betriebssystem">OS</th>
+        <th data-key="lautsprecher_watt">Watt</th>
+        <th data-key="earc">eARC</th>
+        <th data-key="preis_55_eur">55" €</th>
+        <th data-key="preis_65_eur">65" €</th>
+        <th data-key="preis_77_eur">77" €</th>
+        <th data-key="rtings_score">RTINGS</th>
+        <th data-key="groessen_zoll">Größen</th>
+        <th>Besonderheit</th>
+      </tr>
+    </thead>
+    <tbody id="tvBody"></tbody>
+  </table>
+</div>
+
+<footer>
+  Daten: Herstellerangaben, RTINGS.com, Stiftung Warentest – Stand 2026. 2026er Modelle: vorläufige Specs. Preise: UVP, können abweichen.
+</footer>
+
+<script>
+'use strict';
+
+let allData = [];
+let activeFilter = 'alle';
+let sortKey = 'rang';
+let sortDir = 1;
+
+function esc(s) {
+  if (s === null || s === undefined) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function boolCell(val) {
+  return val
+    ? '<span class="bool-yes">&#10003;</span>'
+    : '<span class="bool-no">&#8211;</span>';
+}
+
+function priceCell(val) {
+  if (val === null || val === undefined) return '<span class="preis-null">–</span>';
+  return '<span class="preis">' + val.toLocaleString('de-DE') + ' €</span>';
+}
+
+function techBadge(tech) {
+  const cls = tech === 'WOLED' ? 'WOLED' : tech === 'QD-OLED' ? 'QD-OLED' : 'Mini-LED';
+  return '<span class="tech-badge tech-' + cls + '">' + esc(tech) + '</span>';
+}
+
+function resCell(res) {
+  if (res === '8K') return '<span class="res-8k">8K</span>';
+  return esc(res);
+}
+
+function scoreCell(s) {
+  if (s === null || s === undefined) return '–';
+  const cls = s >= 9.0 ? 'score-high' : 'score-mid';
+  return '<span class="score ' + cls + '">' + s.toFixed(1) + '</span>';
+}
+
+function rangCell(rang) {
+  const cls = rang <= 3 ? 'rang rang-' + rang : 'rang';
+  return '<span class="' + cls + '">' + rang + '</span>';
+}
+
+function renderTable() {
+  const q = document.getElementById('searchBox').value.toLowerCase();
+  let rows = allData.filter(d => {
+    const matchFilter = activeFilter === 'alle' ? true
+      : activeFilter === 'OLED' ? (d.technologie === 'WOLED' || d.technologie === 'QD-OLED')
+      : activeFilter === 'Mini-LED' ? d.technologie === 'Mini-LED'
+      : activeFilter === '4K' ? d.aufloesung === '4K'
+      : activeFilter === '8K' ? d.aufloesung === '8K'
+      : activeFilter === '2025' ? d.jahr === 2025
+      : activeFilter === '2026' ? d.jahr === 2026
+      : true;
+    const matchSearch = !q || (d.marke + ' ' + d.modell + ' ' + d.vollname + ' ' + d.betriebssystem + ' ' + d.technologie).toLowerCase().includes(q);
+    return matchFilter && matchSearch;
+  });
+
+  rows = rows.slice().sort((a, b) => {
+    let av = a[sortKey], bv = b[sortKey];
+    if (av === null || av === undefined) av = sortDir > 0 ? Infinity : -Infinity;
+    if (bv === null || bv === undefined) bv = sortDir > 0 ? Infinity : -Infinity;
+    if (typeof av === 'boolean') av = av ? 1 : 0;
+    if (typeof bv === 'boolean') bv = bv ? 1 : 0;
+    if (typeof av === 'string') return sortDir * av.localeCompare(bv, 'de');
+    return sortDir * (av - bv);
+  });
+
+  const tbody = document.getElementById('tvBody');
+  tbody.innerHTML = rows.map(d => {
+    const rowCls = d.jahr === 2026 ? ' class="year-2026"' : '';
+    const groessen = Array.isArray(d.groessen_zoll) ? d.groessen_zoll.join(', ') + '"' : '–';
+    return `<tr${rowCls}>
+      <td>${rangCell(d.rang)}</td>
+      <td>${esc(d.marke)}</td>
+      <td><a class="modell-link" href="${esc(d.produkt_url)}" target="_blank" rel="noopener">${esc(d.modell)}</a></td>
+      <td>${esc(d.jahr)}</td>
+      <td>${techBadge(d.technologie)}</td>
+      <td>${esc(d.panel)}</td>
+      <td>${resCell(d.aufloesung)}</td>
+      <td>${d.helligkeit_hdr_nits ? d.helligkeit_hdr_nits.toLocaleString('de-DE') : '–'}</td>
+      <td>${d.helligkeit_sdr_nits ? d.helligkeit_sdr_nits.toLocaleString('de-DE') : '–'}</td>
+      <td>${esc(d.refresh_rate_hz)}</td>
+      <td>${esc(d.hdmi_2_1_ports)}</td>
+      <td>${boolCell(d.dolby_vision)}</td>
+      <td>${boolCell(d.hdr10_plus)}</td>
+      <td>${boolCell(d.vrr)}</td>
+      <td>${boolCell(d.g_sync)}</td>
+      <td>${esc(d.betriebssystem)}</td>
+      <td>${esc(d.lautsprecher_watt)}</td>
+      <td>${boolCell(d.earc)}</td>
+      <td>${priceCell(d.preis_55_eur)}</td>
+      <td>${priceCell(d.preis_65_eur)}</td>
+      <td>${priceCell(d.preis_77_eur)}</td>
+      <td>${scoreCell(d.rtings_score)}</td>
+      <td class="groessen">${esc(groessen)}</td>
+      <td class="besonderheit">${esc(d.besonderheit)}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('statusLine').textContent = rows.length + ' von ' + allData.length + ' Geräten';
+
+  document.querySelectorAll('th[data-key]').forEach(th => {
+    th.classList.remove('sorted-asc', 'sorted-desc');
+    if (th.dataset.key === sortKey) th.classList.add(sortDir > 0 ? 'sorted-asc' : 'sorted-desc');
+  });
+}
+
+function exportCSV() {
+  const headers = ['Rang','Marke','Modell','Jahr','Technologie','Panel','Auflösung',
+    'Peak nits','SDR nits','Hz','HDMI 2.1','Dolby Vision','HDR10+','VRR','G-Sync',
+    'Betriebssystem','Lautsprecher W','eARC','Preis 55"','Preis 65"','Preis 77"','RTINGS'];
+  const rows = [headers.join(';')];
+  allData.forEach(d => {
+    rows.push([d.rang, d.marke, d.modell, d.jahr, d.technologie, d.panel, d.aufloesung,
+      d.helligkeit_hdr_nits, d.helligkeit_sdr_nits, d.refresh_rate_hz, d.hdmi_2_1_ports,
+      d.dolby_vision ? 'Ja' : 'Nein', d.hdr10_plus ? 'Ja' : 'Nein',
+      d.vrr ? 'Ja' : 'Nein', d.g_sync ? 'Ja' : 'Nein',
+      d.betriebssystem, d.lautsprecher_watt, d.earc ? 'Ja' : 'Nein',
+      d.preis_55_eur ?? '', d.preis_65_eur ?? '', d.preis_77_eur ?? '', d.rtings_score ?? ''
+    ].join(';'));
+  });
+  const blob = new Blob(['﻿' + rows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'TV-Fernseher_2025-2026.csv';
+  a.click();
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    renderTable();
+  });
+});
+
+document.getElementById('searchBox').addEventListener('input', renderTable);
+document.getElementById('btnCSV').addEventListener('click', exportCSV);
+
+document.querySelectorAll('th[data-key]').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.key;
+    if (sortKey === key) sortDir *= -1;
+    else { sortKey = key; sortDir = 1; }
+    renderTable();
+  });
+});
+
+async function loadData() {
+  try {
+    const resp = await fetch('TV-Fernseher.json?t=' + Date.now());
+    if (!resp.ok) throw new Error();
+    const json = await resp.json();
+    allData = json.fernseher || [];
+  } catch {
+    document.getElementById('statusLine').textContent = 'Fehler beim Laden der JSON-Datei.';
+    return;
+  }
+  renderTable();
+}
+
+loadData();
+</script>
+</body>
+</html>
