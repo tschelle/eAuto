@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>eAuto Vergleich</title>
 <style>
   :root {
@@ -188,6 +191,7 @@ const COLUMNS = [
   { key: 'laden.ac_optional_kw', label: 'AC opt. kW', group: 'Laden' },
   { key: 'laden.ac_optional_preis_eur', label: 'AC opt. €', group: 'Laden' },
   { key: 'laden.v2l', label: 'V2L', type: 'bool', group: 'Laden' },
+  { key: 'laden.v2l_leistung_kw', label: 'V2L kW', group: 'Laden' },
   { key: 'laden.plug_and_charge', label: 'P&C', type: 'bool', group: 'Laden' },
   { key: 'laden.laderoutenplaner', label: 'Routenpl.', type: 'bool', group: 'Laden' },
   { key: 'verbrauch.wltp_kwh_100km', label: 'WLTP kWh', type: 'range', group: 'Reichweite' },
@@ -216,6 +220,8 @@ const COLUMNS = [
   { key: 'abmessungen.kofferraum_elektrisch', label: 'Koff. el.', type: 'bool', group: 'Specs' },
   { key: 'ota_updates', label: 'OTA', type: 'bool', group: 'Specs' },
   { key: 'fahrwerk.waermepumpe', label: 'WP', type: 'bool', group: 'Specs' },
+  { key: 'fahrwerk.fahrgeraeusch_db.wert_db', label: 'Fahrger. dB', group: 'Specs' },
+  { key: 'fahrwerk.fahrgeraeusch_db.kmh', label: 'Fahrger. @km/h', group: 'Specs' },
   { key: 'preis.basispreis_eur', label: 'Preis €', group: 'Kosten' },
   { key: 'preis.versicherung_eur_jahr', label: 'Vers. €/J', type: 'range', group: 'Kosten' },
   { key: 'service.garantie_relevant', label: 'Gar.rel.', type: 'bool', group: 'Kosten' },
@@ -381,14 +387,30 @@ function numVal(v) {
   return isNaN(n) ? null : n;
 }
 
+function escapeHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+function isSafeUrl(url) {
+  try { const u = new URL(url, location.href); return u.protocol === 'https:' || u.protocol === 'http:'; }
+  catch { return false; }
+}
+
 function displayVal(v, col) {
   if (v === null || v === undefined) return '<span class="no-data">-</span>';
-  if (col.type === 'link') { const icon = col.key === 'bild_url' ? '&#128247;' : '&#128279;'; return `<a href="${v}" target="_blank" rel="noopener" class="link-icon" title="${v}">${icon}</a>`; }
+  if (col.type === 'link') {
+    if (!isSafeUrl(v)) return '<span class="no-data">-</span>';
+    const safe = escapeHtml(v);
+    const icon = col.key === 'bild_url' ? '&#128247;' : '&#128279;';
+    return `<a href="${safe}" target="_blank" rel="noopener noreferrer" class="link-icon" title="${safe}">${icon}</a>`;
+  }
   if (col.type === 'bool') return v ? '<span class="bool-yes">Ja</span>' : '<span class="bool-no">Nein</span>';
-  if (isRange(v)) return `<span class="val-min">${v.min}</span> <span class="val-max">/ ${v.max}</span>`;
+  if (isRange(v)) return `<span class="val-min">${escapeHtml(String(v.min))}</span> <span class="val-max">/ ${escapeHtml(String(v.max))}</span>`;
   if (typeof v === 'number') return v.toLocaleString('de-DE');
-  if (Array.isArray(v)) return v.join(', ');
-  return String(v);
+  if (Array.isArray(v)) return escapeHtml(v.join(', '));
+  return escapeHtml(String(v));
 }
 
 function rangeHeaders(col) {
