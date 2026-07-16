@@ -79,6 +79,10 @@
   .no-data { color: var(--text-muted); font-style: italic; }
   tr.veraltet td { background: rgba(239, 68, 68, .06); }
   tr.veraltet .cell-modell { text-decoration: line-through; opacity: .7; }
+  .col-sticky { position: sticky; left: 0; z-index: 2; background: var(--surface); box-shadow: 2px 0 6px rgba(0,0,0,.12); }
+  thead .col-sticky { background: var(--header-bg); z-index: 52; box-shadow: 2px 0 6px rgba(0,0,0,.3); }
+  tr:hover td.col-sticky { background: var(--hover); }
+  tr.veraltet td.col-sticky { background: color-mix(in srgb, var(--surface) 94%, #ef4444 6%); }
 
   .preset-group { display: flex; gap: 6px; align-items: center; }
   .preset-group label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
@@ -466,6 +470,8 @@ function buildHeader() {
       const sortKey = col.type === 'range' ? col.key + (hi === 0 ? '.min' : '.max') : col.key;
       th.dataset.sortKey = sortKey;
       th.dataset.colIdx = ci;
+      th.dataset.colKey = col.key;
+      if (col.key === 'modell') th.classList.add('col-sticky');
       if (col.type === 'multiselect') {
         th.innerHTML = `${h}<span class="sort-icon">▲</span>`;
         th.addEventListener('click', (e) => {
@@ -587,6 +593,8 @@ function renderTable() {
       const cells = rangeCells(v, col);
       cells.forEach(html => {
         const td = document.createElement('td');
+        td.dataset.colKey = col.key;
+        if (col.key === 'modell') td.classList.add('col-sticky');
         if (col.editable === true) {
           if (dataSource === 'embedded') {
             const badge = document.createElement('span');
