@@ -123,7 +123,6 @@
 <div class="toolbar">
   <div class="preset-group">
     <label>Autofilter:</label>
-    <button class="btn btn-sm" data-preset="all">Alle</button>
     <button class="btn btn-sm" data-preset="pref">Pr&auml;ferenz</button>
     <button class="btn btn-sm" data-preset="range400">Reichweite &gt; 400 km</button>
     <button class="btn btn-sm" data-preset="price50k">Preis &lt; 50.000 &euro;</button>
@@ -132,6 +131,7 @@
     <button class="btn btn-sm" data-preset="ac22">AC 22 kW</button>
     <button class="btn btn-sm" data-preset="heatpump">W&auml;rmepumpe</button>
     <button class="btn btn-sm" data-preset="fast06">0-100 &lt; 6s</button>
+    <button class="btn btn-sm" data-preset="veraltet">Nur Veraltet</button>
     <button class="btn btn-sm" id="btnToggleVeraltet" title="Veraltete / eingestellte Modelle anzeigen">Veraltet ausgeblendet</button>
   </div>
   <div style="margin-left:auto; display:flex; gap:8px;">
@@ -375,7 +375,7 @@ let data = [];
 let dataSource = 'embedded';
 let sortCol = null;
 let sortDir = 'asc';
-let activePreset = 'all';
+let activePresets = new Set();
 let colFilters = {};
 
 function getVal(obj, path) {
@@ -542,18 +542,17 @@ function matchFilter(item, key, filter) {
   return String(v).toLowerCase().includes(filter);
 }
 
-function applyPreset(items) {
-  switch (activePreset) {
-    case 'pref': return items.filter(d => d.user_wish !== null && d.user_wish !== undefined && d.user_wish !== '');
-    case 'range400': return items.filter(d => { const v = getVal(d, 'verbrauch.wltp_reichweite_km'); return isRange(v) ? v.max > 400 : numVal(v) > 400; });
-    case 'price50k': return items.filter(d => getVal(d, 'preis.basispreis_eur') < 50000);
-    case 'awd': return items.filter(d => (getVal(d, 'antrieb.konzept') || '').includes('AWD') || (getVal(d, 'antrieb.konzept') || '').includes('Allrad'));
-    case 'dc150': return items.filter(d => getVal(d, 'laden.dc_max_kw') > 150);
-    case 'ac22': return items.filter(d => getVal(d, 'laden.ac_serie_kw') >= 22 || getVal(d, 'laden.ac_optional_kw') >= 22);
-    case 'heatpump': return items.filter(d => getVal(d, 'fahrwerk.waermepumpe') === true);
-    case 'fast06': return items.filter(d => getVal(d, 'leistung.beschleunigung_0_100_s') < 6);
-    default: return items;
-  }
+function applyPresets(items) {
+  if (activePresets.has('pref')) items = items.filter(d => d.user_wish !== null && d.user_wish !== undefined && d.user_wish !== '');
+  if (activePresets.has('range400')) items = items.filter(d => { const v = getVal(d, 'verbrauch.wltp_reichweite_km'); return isRange(v) ? v.max > 400 : numVal(v) > 400; });
+  if (activePresets.has('price50k')) items = items.filter(d => getVal(d, 'preis.basispreis_eur') < 50000);
+  if (activePresets.has('awd')) items = items.filter(d => (getVal(d, 'antrieb.konzept') || '').includes('AWD') || (getVal(d, 'antrieb.konzept') || '').includes('Allrad'));
+  if (activePresets.has('dc150')) items = items.filter(d => getVal(d, 'laden.dc_max_kw') > 150);
+  if (activePresets.has('ac22')) items = items.filter(d => getVal(d, 'laden.ac_serie_kw') >= 22 || getVal(d, 'laden.ac_optional_kw') >= 22);
+  if (activePresets.has('heatpump')) items = items.filter(d => getVal(d, 'fahrwerk.waermepumpe') === true);
+  if (activePresets.has('fast06')) items = items.filter(d => getVal(d, 'leistung.beschleunigung_0_100_s') < 6);
+  if (activePresets.has('veraltet')) items = items.filter(d => d.status === 'veraltet');
+  return items;
 }
 
 function renderTable() {
@@ -563,7 +562,7 @@ function renderTable() {
   if (search) {
     items = items.filter(d => JSON.stringify(d).toLowerCase().includes(search));
   }
-  items = applyPreset(items);
+  items = applyPresets(items);
   for (const [key, filter] of Object.entries(colFilters)) {
     if (filter) items = items.filter(d => matchFilter(d, key, filter));
   }
@@ -638,7 +637,7 @@ function renderTable() {
   const modelsShown = new Set(items.map(d => d.marke + ' ' + d.modell.replace(/ (eDrive|xDrive|AWD|RWD|FWD|Long Range|Standard).*/, ''))).size;
   const modelsTotal = new Set(data.map(d => d.marke + ' ' + d.modell.replace(/ (eDrive|xDrive|AWD|RWD|FWD|Long Range|Standard).*/, ''))).size;
   document.getElementById('statusCount').textContent = `${items.length} Varianten (${modelsShown} Modelle) von ${data.length} gesamt (${modelsTotal} Modelle)`;
-  document.querySelectorAll('[data-preset]').forEach(b => b.classList.toggle('active', b.dataset.preset === activePreset));
+  document.querySelectorAll('[data-preset]').forEach(b => b.classList.toggle('active', activePresets.has(b.dataset.preset)));
 }
 
 function saveUserData() {
@@ -669,7 +668,7 @@ function getFilteredItems() {
   if (!showVeraltet) items = items.filter(d => d.status !== 'veraltet');
   const search = document.getElementById('globalSearch').value.trim().toLowerCase();
   if (search) items = items.filter(d => JSON.stringify(d).toLowerCase().includes(search));
-  items = applyPreset(items);
+  items = applyPresets(items);
   for (const [key, filter] of Object.entries(colFilters)) {
     if (filter) items = items.filter(d => matchFilter(d, key, filter));
   }
@@ -729,13 +728,29 @@ async function loadData() {
 
 document.getElementById('globalSearch').addEventListener('input', renderTable);
 document.querySelectorAll('[data-preset]').forEach(btn => {
-  btn.addEventListener('click', () => { activePreset = btn.dataset.preset; renderTable(); });
+  btn.addEventListener('click', () => {
+    const p = btn.dataset.preset;
+    if (activePresets.has(p)) {
+      activePresets.delete(p);
+    } else {
+      activePresets.add(p);
+    }
+    if (activePresets.has('veraltet') && !showVeraltet) {
+      showVeraltet = true;
+      const vtBtn = document.getElementById('btnToggleVeraltet');
+      vtBtn.textContent = 'Veraltet eingeblendet';
+      vtBtn.classList.add('active');
+      buildHeader();
+    }
+    renderTable();
+  });
 });
 document.getElementById('btnToggleVeraltet').addEventListener('click', () => {
   showVeraltet = !showVeraltet;
   const btn = document.getElementById('btnToggleVeraltet');
   btn.textContent = showVeraltet ? 'Veraltet eingeblendet' : 'Veraltet ausgeblendet';
   btn.classList.toggle('active', showVeraltet);
+  if (!showVeraltet) activePresets.delete('veraltet');
   buildHeader();
   renderTable();
 });
@@ -769,7 +784,7 @@ document.getElementById('btnImportJSON').addEventListener('change', (e) => {
   e.target.value = '';
 });
 document.getElementById('btnReset').addEventListener('click', () => {
-  activePreset = 'all';
+  activePresets.clear();
   document.getElementById('globalSearch').value = '';
   colFilters = {};
   sortCol = null; sortDir = 'asc';
