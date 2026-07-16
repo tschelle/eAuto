@@ -70,7 +70,7 @@
   .src-badge { display: inline-block; font-size: 8px; background: var(--warn); color: #333; padding: 0 3px; border-radius: 3px; font-weight: 700; vertical-align: middle; margin-right: 2px; cursor: help; }
   .wish-input { width: 40px; padding: 2px 4px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); color: var(--text); text-align: center; font-size: 12px; }
   .wish-input:focus { outline: 2px solid var(--accent); border-color: transparent; }
-  .note-input { width: 120px; padding: 2px 4px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); color: var(--text); font-size: 11px; }
+  .note-input { min-width: 180px; max-width: 320px; width: 100%; padding: 2px 4px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); color: var(--text); font-size: 11px; font-family: inherit; resize: none; overflow: hidden; display: block; line-height: 1.4; }
   .note-input:focus { outline: 2px solid var(--accent); border-color: transparent; }
   .val-min { color: var(--text); }
   .val-max { color: var(--text-muted); }
@@ -79,10 +79,7 @@
   .no-data { color: var(--text-muted); font-style: italic; }
   tr.veraltet td { background: rgba(239, 68, 68, .06); }
   tr.veraltet .cell-modell { text-decoration: line-through; opacity: .7; }
-  .col-sticky { position: sticky; left: 0; z-index: 2; background: var(--surface); box-shadow: 2px 0 6px rgba(0,0,0,.12); }
-  thead .col-sticky { background: var(--header-bg); z-index: 52; box-shadow: 2px 0 6px rgba(0,0,0,.3); }
-  tr:hover td.col-sticky { background: var(--hover); }
-  tr.veraltet td.col-sticky { background: color-mix(in srgb, var(--surface) 94%, #ef4444 6%); }
+
 
   .preset-group { display: flex; gap: 6px; align-items: center; }
   .preset-group label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
@@ -471,7 +468,6 @@ function buildHeader() {
       th.dataset.sortKey = sortKey;
       th.dataset.colIdx = ci;
       th.dataset.colKey = col.key;
-      if (col.key === 'modell') th.classList.add('col-sticky');
       if (col.type === 'multiselect') {
         th.innerHTML = `${h}<span class="sort-icon">▲</span>`;
         th.addEventListener('click', (e) => {
@@ -594,7 +590,6 @@ function renderTable() {
       cells.forEach(html => {
         const td = document.createElement('td');
         td.dataset.colKey = col.key;
-        if (col.key === 'modell') td.classList.add('col-sticky');
         if (col.editable === true) {
           if (dataSource === 'embedded') {
             const badge = document.createElement('span');
@@ -611,20 +606,20 @@ function renderTable() {
             const newVal = inp.value === '' ? null : parseInt(inp.value);
             item.user_wish = newVal;
             saveUserData();
-            if (activePreset === 'pref') renderTable();
+            if (activePresets.has('pref')) renderTable();
           });
           td.appendChild(inp);
         } else if (col.editable === 'text') {
-          const inp = document.createElement('input');
-          inp.type = 'text';
-          inp.className = 'note-input';
-          inp.value = v || '';
-          inp.placeholder = 'Notiz...';
-          inp.addEventListener('change', () => {
-            item.bemerkung = inp.value || null;
-            saveUserData();
-          });
-          td.appendChild(inp);
+          const ta = document.createElement('textarea');
+          ta.className = 'note-input';
+          ta.value = v || '';
+          ta.placeholder = 'Notiz...';
+          ta.rows = 1;
+          const autoResize = () => { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; };
+          ta.addEventListener('input', autoResize);
+          ta.addEventListener('change', () => { item.bemerkung = ta.value || null; saveUserData(); });
+          setTimeout(autoResize, 0);
+          td.appendChild(ta);
         } else if (col.type === 'link_extern') {
           const url = getVal(item, col.linkKey);
           if (v && url && isSafeUrl(url)) {
