@@ -176,7 +176,9 @@
       "produkt_url": "https://www.bmw.de/de/models/bmw-ix1.html",
       "produktionsland": "Deutschland (Regensburg)",
       "bild_url": "https://en.wikipedia.org/wiki/BMW_X1_(U11)",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "hinweis": "Jan. 2026: SiC-Wechselrichter, +40 km Reichweite"
     },
     {
       "id": "000002",
@@ -244,7 +246,7 @@
         },
         "wltp_reichweite_km": {
           "min": 429,
-          "max": 466
+          "max": 467
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -353,7 +355,9 @@
       "produkt_url": "https://www.bmw.de/de/models/bmw-ix1.html",
       "produktionsland": "Deutschland (Regensburg)",
       "bild_url": "https://en.wikipedia.org/wiki/BMW_X1_(U11)",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "hinweis": "Jan. 2026: SiC-Wechselrichter wie eDrive20"
     },
     {
       "id": "000003",
@@ -418,7 +422,7 @@
           "max": 14.9
         },
         "wltp_reichweite_km": {
-          "min": 554,
+          "min": 610,
           "max": 629
         },
         "realverbrauch_kwh_100km": {
@@ -475,7 +479,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 46990,
+        "basispreis_eur": 44990,
         "stromkosten_eur_100km": {
           "min": 4.8,
           "max": 5.8
@@ -529,7 +533,8 @@
       "produkt_url": "https://www.tesla.com/de_de/model3",
       "produktionsland": "USA (Fremont)",
       "bild_url": "https://en.wikipedia.org/wiki/Tesla_Model_3",
-      "lieferzeit_wochen": 4
+      "lieferzeit_wochen": 4,
+      "status": "aktuell"
     },
     {
       "id": "000004",
@@ -593,8 +598,8 @@
           "max": 16.9
         },
         "wltp_reichweite_km": {
-          "min": 533,
-          "max": 568
+          "min": 590,
+          "max": 600
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -650,7 +655,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 51990,
+        "basispreis_eur": 49990,
         "stromkosten_eur_100km": {
           "min": 5.3,
           "max": 6.3
@@ -704,7 +709,9 @@
       "produkt_url": "https://www.tesla.com/de_de/modely",
       "produktionsland": "Deutschland (Grünheide)",
       "bild_url": "https://en.wikipedia.org/wiki/Tesla_Model_Y",
-      "lieferzeit_wochen": 4
+      "lieferzeit_wochen": 4,
+      "status": "aktuell",
+      "hinweis": "Juniper-Facelift 2025; LR RWD eingestellt, nur noch AWD verfügbar"
     },
     {
       "id": "000005",
@@ -748,7 +755,7 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 175,
+        "dc_max_kw": 185,
         "dc_10_80_min": 28,
         "ladestecker": [
           "CCS",
@@ -769,8 +776,8 @@
           "max": 17.5
         },
         "wltp_reichweite_km": {
-          "min": 467,
-          "max": 531
+          "min": 545,
+          "max": 570
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -826,7 +833,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 44990,
+        "basispreis_eur": 45950,
         "stromkosten_eur_100km": {
           "min": 5.5,
           "max": 6.8
@@ -880,7 +887,9 @@
       "produkt_url": "https://www.volkswagen.de/de/modelle/id4.html",
       "produktionsland": "Deutschland (Emden)",
       "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID.4",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell",
+      "hinweis": "MY26: neuer 79-kWh-Akku, +80-130 km mehr Reichweite als Vorgänger"
     },
     {
       "id": "000006",
@@ -923,7 +932,7 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": 22,
-        "dc_max_kw": 200,
+        "dc_max_kw": 199,
         "dc_10_80_min": 26,
         "ladestecker": [
           "CCS",
@@ -944,8 +953,8 @@
           "max": 15.2
         },
         "wltp_reichweite_km": {
-          "min": 595,
-          "max": 700
+          "min": 690,
+          "max": 709
         },
         "realverbrauch_kwh_100km": {
           "min": 16,
@@ -1001,7 +1010,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 56995,
+        "basispreis_eur": 58985,
         "stromkosten_eur_100km": {
           "min": 4.8,
           "max": 5.8
@@ -1054,7 +1063,8 @@
       "produkt_url": "https://www.volkswagen.de/de/modelle/id7.html",
       "produktionsland": "Deutschland (Emden)",
       "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID.7",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000007",
@@ -1229,7 +1239,12 @@
       "produkt_url": "https://www.hyundai.de/modelle/ioniq5/",
       "produktionsland": "Südkorea (Ulsan)",
       "bild_url": "https://en.wikipedia.org/wiki/Hyundai_Ioniq_5",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "Aug. 2024 durch 84-kWh-Variante (Facelift MY24) ersetzt; höhere Reichweite und Ladeleistung",
+      "nachfolger_modell": "Hyundai Ioniq 5 84 kWh RWD",
+      "nachfolger_url": "https://ev-database.org/de/pkw/2236/Hyundai-IONIQ-5-84-kWh"
     },
     {
       "id": "000008",
@@ -1404,7 +1419,12 @@
       "produkt_url": "https://www.hyundai.de/modelle/ioniq6/",
       "produktionsland": "Südkorea (Ulsan)",
       "bild_url": "https://en.wikipedia.org/wiki/Hyundai_Ioniq_6",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "Jan. 2026 durch Facelift 2026 mit 84-kWh-Akku, 680 km WLTP und 260 kW DC abgelöst",
+      "nachfolger_modell": "Hyundai Ioniq 6 84 kWh (Facelift 2026)",
+      "nachfolger_url": "https://insideevs.de/news/784219/hyundai-ioniq-6-daten-preise2026/"
     },
     {
       "id": "000009",
@@ -1579,7 +1599,12 @@
       "produkt_url": "https://www.kia.com/de/modelle/ev6/",
       "produktionsland": "Südkorea (Hwaseong)",
       "bild_url": "https://en.wikipedia.org/wiki/Kia_EV6",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "Okt. 2024 Facelift: 77-kWh-Akku durch 63-kWh (Basis) und 84-kWh (GT-Line/GT) ersetzt",
+      "nachfolger_modell": "Kia EV6 GT-Line 84 kWh (Facelift 2024)",
+      "nachfolger_url": "https://insideevs.de/features/739927/kia-ev6-%C3%BCbersicht-daten-preise/"
     },
     {
       "id": "000010",
@@ -1755,7 +1780,12 @@
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqa.html",
       "produktionsland": "Deutschland (Rastatt)",
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQA",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "Produktion Juni 2026 beendet; Bestellstopp seit März 2026",
+      "nachfolger_modell": "Mercedes GLA EQ (MMA-Plattform, ab H2 2026 erwartet)",
+      "nachfolger_url": "https://www.mercedes-benz.de/passengercars/mercedes-benz-cars/models/gla/"
     },
     {
       "id": "000011",
@@ -1782,7 +1812,7 @@
         "brutto_kwh": 60.5,
         "netto_kwh": 60,
         "chemie": "LFP (Blade)",
-        "systemspannung_v": 400,
+        "systemspannung_v": 800,
         "zelltyp": "prismatisch (Blade)",
         "zelllieferant": [
           "BYD (FinDreams)"
@@ -1798,8 +1828,8 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 88,
-        "dc_10_80_min": 37,
+        "dc_max_kw": 220,
+        "dc_10_80_min": 25,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -1819,8 +1849,8 @@
           "max": 17.3
         },
         "wltp_reichweite_km": {
-          "min": 370,
-          "max": 420
+          "min": 495,
+          "max": 510
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -1876,7 +1906,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 37990,
+        "basispreis_eur": 44900,
         "stromkosten_eur_100km": {
           "min": 5.4,
           "max": 6.8
@@ -1931,7 +1961,9 @@
       "produkt_url": "https://www.byd.com/de/car/atto-3",
       "produktionsland": "China (Changsha)",
       "bild_url": "https://en.wikipedia.org/wiki/BYD_Atto_3",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell",
+      "hinweis": "Feb. 2026 als 'Atto 3 Evo': 800V-Architektur, 220 kW DC, 74,8-kWh-Akku"
     },
     {
       "id": "000012",
@@ -1975,7 +2007,7 @@
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
         "dc_max_kw": 150,
-        "dc_10_80_min": 30,
+        "dc_10_80_min": 26,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -1995,7 +2027,7 @@
           "max": 17.1
         },
         "wltp_reichweite_km": {
-          "min": 500,
+          "min": 555,
           "max": 570
         },
         "realverbrauch_kwh_100km": {
@@ -2052,7 +2084,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 44990,
+        "basispreis_eur": 49990,
         "stromkosten_eur_100km": {
           "min": 5.5,
           "max": 6.7
@@ -2106,7 +2138,9 @@
       "produkt_url": "https://www.byd.com/de/car/seal",
       "produktionsland": "China (Changsha)",
       "bild_url": "https://en.wikipedia.org/wiki/BYD_Seal",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell",
+      "hinweis": "MY26-Facelift März 2026: 82,5-kWh-Akku, mehr Reichweite"
     },
     {
       "id": "000013",
@@ -2170,8 +2204,8 @@
           "max": 16.5
         },
         "wltp_reichweite_km": {
-          "min": 510,
-          "max": 592
+          "min": 635,
+          "max": 659
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -2227,7 +2261,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 48690,
+        "basispreis_eur": 52690,
         "stromkosten_eur_100km": {
           "min": 5.2,
           "max": 6.4
@@ -2281,7 +2315,9 @@
       "produkt_url": "https://www.polestar.com/de/polestar-2/",
       "produktionsland": "China (Luqiao)",
       "bild_url": "https://en.wikipedia.org/wiki/Polestar_2",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell",
+      "hinweis": "MY26: 82-kWh-Akku, 205 kW DC, 659 km WLTP"
     },
     {
       "id": "000014",
@@ -2324,17 +2360,17 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 175,
+        "dc_max_kw": 185,
         "dc_10_80_min": 28,
         "ladestecker": [
           "CCS",
           "Typ 2"
         ],
         "vorkonditionierung": true,
-        "v2l": false,
+        "v2l": true,
         "v2l_leistung_kw": null,
         "v2g": false,
-        "v2h": false,
+        "v2h": true,
         "ac_optional_preis_eur": null,
         "plug_and_charge": true,
         "laderoutenplaner": true
@@ -2345,8 +2381,8 @@
           "max": 17.4
         },
         "wltp_reichweite_km": {
-          "min": 467,
-          "max": 548
+          "min": 570,
+          "max": 588
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -2402,7 +2438,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 44900,
+        "basispreis_eur": 44180,
         "stromkosten_eur_100km": {
           "min": 5.4,
           "max": 6.8
@@ -2456,7 +2492,9 @@
       "produkt_url": "https://www.skoda.de/modelle/enyaq",
       "produktionsland": "Tschechien (Mladá Boleslav)",
       "bild_url": "https://en.wikipedia.org/wiki/%C5%A0koda_Enyaq_iV",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "hinweis": "Facelift MY27 ab Apr. 2026: günstigerer Preis (-4.720 €), V2L/V2H neu"
     },
     {
       "id": "000015",
@@ -2499,7 +2537,7 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 170,
+        "dc_max_kw": 183,
         "dc_10_80_min": 28,
         "ladestecker": [
           "CCS",
@@ -2520,8 +2558,8 @@
           "max": 16.8
         },
         "wltp_reichweite_km": {
-          "min": 472,
-          "max": 548
+          "min": 575,
+          "max": 600
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -2577,7 +2615,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 40770,
+        "basispreis_eur": 45990,
         "stromkosten_eur_100km": {
           "min": 5.3,
           "max": 6.5
@@ -2631,7 +2669,9 @@
       "produkt_url": "https://www.cupraofficial.de/modelle/born",
       "produktionsland": "Deutschland (Zwickau)",
       "bild_url": "https://en.wikipedia.org/wiki/Cupra_Born",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "hinweis": "Facelift 2026 'Born Endurance': +130 km Reichweite, +60 kW DC"
     },
     {
       "id": "000016",
@@ -2674,8 +2714,8 @@
       "laden": {
         "ac_serie_kw": 7,
         "ac_optional_kw": 22,
-        "dc_max_kw": 130,
-        "dc_10_80_min": 30,
+        "dc_max_kw": 165,
+        "dc_10_80_min": 24,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -2695,8 +2735,8 @@
           "max": 16.1
         },
         "wltp_reichweite_km": {
-          "min": 380,
-          "max": 450
+          "min": 475,
+          "max": 500
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -2752,7 +2792,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 40600,
+        "basispreis_eur": 43000,
         "stromkosten_eur_100km": {
           "min": 5.3,
           "max": 6.3
@@ -2806,7 +2846,9 @@
       "produkt_url": "https://www.renault.de/elektrofahrzeuge/megane-e-tech.html",
       "produktionsland": "Frankreich (Douai)",
       "bild_url": "https://en.wikipedia.org/wiki/Renault_Megane_E-Tech_Electric",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell",
+      "hinweis": "Facelift Mitte 2026: DC von 130 auf 165 kW, ~30 km mehr WLTP"
     },
     {
       "id": "000017",
@@ -2870,8 +2912,8 @@
           "max": 16.7
         },
         "wltp_reichweite_km": {
-          "min": 394,
-          "max": 476
+          "min": 465,
+          "max": 480
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -2927,7 +2969,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 38590,
+        "basispreis_eur": 44990,
         "stromkosten_eur_100km": {
           "min": 5.3,
           "max": 6.5
@@ -2981,7 +3023,8 @@
       "produkt_url": "https://www.volvocars.com/de/cars/ex30/",
       "produktionsland": "China (Chongqing)",
       "bild_url": "https://en.wikipedia.org/wiki/Volvo_EX30",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000018",
@@ -3025,7 +3068,7 @@
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
         "dc_max_kw": 144,
-        "dc_10_80_min": 30,
+        "dc_10_80_min": 40,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -3045,8 +3088,8 @@
           "max": 17
         },
         "wltp_reichweite_km": {
-          "min": 435,
-          "max": 520
+          "min": 530,
+          "max": 545
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -3102,7 +3145,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 36990,
+        "basispreis_eur": 44990,
         "stromkosten_eur_100km": {
           "min": 5.4,
           "max": 6.6
@@ -3157,7 +3200,9 @@
       "produkt_url": "https://www.mgmotor.de/model/mg4-electric",
       "produktionsland": "China (Shanghai)",
       "bild_url": "https://en.wikipedia.org/wiki/MG4",
-      "lieferzeit_wochen": 4
+      "lieferzeit_wochen": 4,
+      "status": "aktuell",
+      "hinweis": "Facelift 2026: neues Interieur, 12,8-Zoll-Display; gleiches Antriebssystem"
     },
     {
       "id": "000019",
@@ -3200,7 +3245,7 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": 22,
-        "dc_max_kw": 175,
+        "dc_max_kw": 165,
         "dc_10_80_min": 28,
         "ladestecker": [
           "CCS",
@@ -3221,8 +3266,8 @@
           "max": 19.3
         },
         "wltp_reichweite_km": {
-          "min": 412,
-          "max": 487
+          "min": 540,
+          "max": 558
         },
         "realverbrauch_kwh_100km": {
           "min": 19,
@@ -3278,7 +3323,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 57900,
+        "basispreis_eur": 55900,
         "stromkosten_eur_100km": {
           "min": 5.8,
           "max": 7.5
@@ -3332,7 +3377,9 @@
       "produkt_url": "https://www.audi.de/de/models/q4-e-tron.html",
       "produktionsland": "Deutschland (Zwickau)",
       "bild_url": "https://en.wikipedia.org/wiki/Audi_Q4_e-tron",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell",
+      "hinweis": "Facelift 2026: DC auf 165 kW; Bezeichnung '55' entfällt künftig"
     },
     {
       "id": "000020",
@@ -3397,8 +3444,8 @@
           "max": 16.5
         },
         "wltp_reichweite_km": {
-          "min": 322,
-          "max": 406
+          "min": 390,
+          "max": 403
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -3454,7 +3501,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 38400,
+        "basispreis_eur": 36740,
         "stromkosten_eur_100km": {
           "min": 5.2,
           "max": 6.4
@@ -3509,7 +3556,8 @@
       "produkt_url": "https://www.opel.de/fahrzeuge/mokka/uebersicht.html",
       "produktionsland": "Frankreich (Poissy)",
       "bild_url": "https://en.wikipedia.org/wiki/Opel_Mokka_(B)",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000021",
@@ -3686,7 +3734,12 @@
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqe.html",
       "produktionsland": "Deutschland (Bremen)",
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQE",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "2026 eingestellt; Nachfolger auf MB.EA-M-Plattform erst 2027",
+      "nachfolger_modell": "Mercedes C-Klasse EQ (2027, MB.EA-M-Plattform)",
+      "nachfolger_url": "https://www.mercedes-benz.de/"
     },
     {
       "id": "000022",
@@ -3750,8 +3803,8 @@
           "max": 15.6
         },
         "wltp_reichweite_km": {
-          "min": 505,
-          "max": 600
+          "min": 590,
+          "max": 605
         },
         "realverbrauch_kwh_100km": {
           "min": 16,
@@ -3807,7 +3860,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 40990,
+        "basispreis_eur": 41390,
         "stromkosten_eur_100km": {
           "min": 5,
           "max": 6.1
@@ -3861,7 +3914,8 @@
       "produkt_url": "https://www.kia.com/de/modelle/ev3/",
       "produktionsland": "Südkorea (Gwangmyeong)",
       "bild_url": "https://en.wikipedia.org/wiki/Kia_EV3",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000023",
@@ -3905,7 +3959,7 @@
         "ac_serie_kw": 11,
         "ac_optional_kw": 22,
         "dc_max_kw": 205,
-        "dc_10_80_min": 31,
+        "dc_10_80_min": 30,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -3925,8 +3979,8 @@
           "max": 18.4
         },
         "wltp_reichweite_km": {
-          "min": 480,
-          "max": 590
+          "min": 510,
+          "max": 613
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -3982,7 +4036,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 58500,
+        "basispreis_eur": 60600,
         "stromkosten_eur_100km": {
           "min": 5.5,
           "max": 7.1
@@ -4036,7 +4090,8 @@
       "produkt_url": "https://www.bmw.de/de/models/bmw-i4.html",
       "produktionsland": "Deutschland (München)",
       "bild_url": "https://en.wikipedia.org/wiki/BMW_i4",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000024",
@@ -4080,7 +4135,7 @@
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
         "dc_max_kw": 85,
-        "dc_10_80_min": 27,
+        "dc_10_80_min": 23,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -4100,8 +4155,8 @@
           "max": 14.7
         },
         "wltp_reichweite_km": {
-          "min": 265,
-          "max": 321
+          "min": 300,
+          "max": 320
         },
         "realverbrauch_kwh_100km": {
           "min": 15,
@@ -4211,7 +4266,8 @@
       "produkt_url": "https://www.fiat.de/500e",
       "produktionsland": "Italien (Turin)",
       "bild_url": "https://en.wikipedia.org/wiki/Fiat_500e",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000025",
@@ -4276,7 +4332,7 @@
           "max": 16.2
         },
         "wltp_reichweite_km": {
-          "min": 330,
+          "min": 400,
           "max": 409
         },
         "realverbrauch_kwh_100km": {
@@ -4333,7 +4389,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 38490,
+        "basispreis_eur": 43000,
         "stromkosten_eur_100km": {
           "min": 5.1,
           "max": 6.3
@@ -4386,7 +4442,8 @@
       "produkt_url": "https://www.fiat.de/600e",
       "produktionsland": "Polen (Tychy)",
       "bild_url": "https://en.wikipedia.org/wiki/Fiat_600e",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000026",
@@ -4563,7 +4620,12 @@
       "produkt_url": "https://www.dacia.de/modelle/spring.html",
       "produktionsland": "China (Shiyan)",
       "bild_url": "https://en.wikipedia.org/wiki/Dacia_Spring",
-      "lieferzeit_wochen": 4
+      "lieferzeit_wochen": 4,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "45-PS-Variante (33 kW) seit 2026 nicht mehr bestellbar; neue Motorvarianten 70 PS / 102 PS",
+      "nachfolger_modell": "Dacia Spring Electric 70 / 102 PS (ab 18.700 €, LFP 24,3 kWh)",
+      "nachfolger_url": "https://www.dacia.de/modelle/spring.html"
     },
     {
       "id": "000027",
@@ -4627,8 +4689,8 @@
           "max": 15.8
         },
         "wltp_reichweite_km": {
-          "min": 293,
-          "max": 371
+          "min": 390,
+          "max": 402
         },
         "realverbrauch_kwh_100km": {
           "min": 16,
@@ -4684,7 +4746,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 35200,
+        "basispreis_eur": 32900,
         "stromkosten_eur_100km": {
           "min": 4.9,
           "max": 6.1
@@ -4737,7 +4799,8 @@
       "produkt_url": "https://www.mini.de/de_DE/home/range/electric.html",
       "produktionsland": "China (Zhangjiagang)",
       "bild_url": "https://en.wikipedia.org/wiki/Mini_Electric",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000028",
@@ -4801,8 +4864,8 @@
           "max": 17.5
         },
         "wltp_reichweite_km": {
-          "min": 395,
-          "max": 432
+          "min": 450,
+          "max": 467
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -4858,7 +4921,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 48900,
+        "basispreis_eur": 43320,
         "stromkosten_eur_100km": {
           "min": 5.7,
           "max": 6.8
@@ -4910,7 +4973,8 @@
       "produkt_url": "https://www.mini.de/de_DE/home/range/countryman-electric.html",
       "produktionsland": "Deutschland (Leipzig)",
       "bild_url": "https://en.wikipedia.org/wiki/Mini_Countryman",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000029",
@@ -4974,8 +5038,8 @@
           "max": 17.4
         },
         "wltp_reichweite_km": {
-          "min": 380,
-          "max": 440
+          "min": 395,
+          "max": 410
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -5031,7 +5095,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 38490,
+        "basispreis_eur": 41490,
         "stromkosten_eur_100km": {
           "min": 5.5,
           "max": 6.8
@@ -5084,7 +5148,8 @@
       "produkt_url": "https://www.smart.com/de/de/models/smart-hash-1",
       "produktionsland": "China (Xi'an)",
       "bild_url": "https://en.wikipedia.org/wiki/Smart_%231",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000030",
@@ -5148,8 +5213,8 @@
           "max": 17.0
         },
         "wltp_reichweite_km": {
-          "min": 395,
-          "max": 455
+          "min": 420,
+          "max": 435
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -5205,7 +5270,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 40490,
+        "basispreis_eur": 45490,
         "stromkosten_eur_100km": {
           "min": 5.4,
           "max": 6.6
@@ -5258,7 +5323,8 @@
       "produkt_url": "https://www.smart.com/de/de/models/smart-hash-3",
       "produktionsland": "China (Xi'an)",
       "bild_url": "https://en.wikipedia.org/wiki/Smart_3",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000031",
@@ -5434,7 +5500,12 @@
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqb.html",
       "produktionsland": "Ungarn (Kecskemét)",
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQB",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "Auslauf Herbst 2025, nicht mehr konfigurierbar seit Sept. 2025",
+      "nachfolger_modell": "Mercedes GLB EQ (MMA-Plattform, Marktstart folgt)",
+      "nachfolger_url": "https://www.mercedes-benz.de/passengercars/mercedes-benz-cars/models/glb/"
     },
     {
       "id": "000032",
@@ -5461,7 +5532,7 @@
         "brutto_kwh": 118.0,
         "netto_kwh": 108.4,
         "chemie": "NMC811",
-        "systemspannung_v": 400,
+        "systemspannung_v": 800,
         "zelltyp": "pouch",
         "zelllieferant": [
           "CATL",
@@ -5478,8 +5549,8 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": 22,
-        "dc_max_kw": 200,
-        "dc_10_80_min": 31,
+        "dc_max_kw": 350,
+        "dc_10_80_min": 20,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -5499,8 +5570,8 @@
           "max": 19.8
         },
         "wltp_reichweite_km": {
-          "min": 575,
-          "max": 770
+          "min": 900,
+          "max": 926
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -5556,7 +5627,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 109551,
+        "basispreis_eur": 108635,
         "stromkosten_eur_100km": {
           "min": 5.3,
           "max": 7.7
@@ -5610,7 +5681,9 @@
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/eqs.html",
       "produktionsland": "Deutschland (Sindelfingen)",
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQS",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell",
+      "hinweis": "Facelift Apr. 2026: 800V-Architektur, 122-kWh-Akku, 350 kW DC, 926 km WLTP"
     },
     {
       "id": "000033",
@@ -5653,8 +5726,8 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 280,
-        "dc_10_80_min": 20,
+        "dc_max_kw": 382,
+        "dc_10_80_min": 12,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -5674,8 +5747,8 @@
           "max": 17.8
         },
         "wltp_reichweite_km": {
-          "min": 355,
-          "max": 435
+          "min": 465,
+          "max": 480
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -5731,7 +5804,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 42600,
+        "basispreis_eur": 43600,
         "stromkosten_eur_100km": {
           "min": 5.6,
           "max": 6.9
@@ -5784,7 +5857,9 @@
       "produkt_url": "https://www.xpeng.com/de/g6",
       "produktionsland": "China (Zhaoqing)",
       "bild_url": "https://en.wikipedia.org/wiki/Xpeng_G6",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell",
+      "hinweis": "800V-Architektur: 382 kW DC, 10-80% in 12 Min."
     },
     {
       "id": "000034",
@@ -5849,8 +5924,8 @@
           "max": 21.1
         },
         "wltp_reichweite_km": {
-          "min": 516,
-          "max": 591
+          "min": 615,
+          "max": 641
         },
         "realverbrauch_kwh_100km": {
           "min": 21,
@@ -5906,7 +5981,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 84100,
+        "basispreis_eur": 81200,
         "stromkosten_eur_100km": {
           "min": 6.4,
           "max": 8.2
@@ -5958,7 +6033,8 @@
       },
       "produktionsland": "Deutschland (Leipzig)",
       "bild_url": "https://en.wikipedia.org/wiki/Porsche_Macan_Electric",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000035",
@@ -6024,8 +6100,8 @@
           "max": 19.6
         },
         "wltp_reichweite_km": {
-          "min": 559,
-          "max": 678
+          "min": 680,
+          "max": 700
         },
         "realverbrauch_kwh_100km": {
           "min": 20,
@@ -6081,7 +6157,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 101500,
+        "basispreis_eur": 102600,
         "stromkosten_eur_100km": {
           "min": 5.8,
           "max": 7.6
@@ -6133,7 +6209,9 @@
       },
       "produktionsland": "Deutschland (Zuffenhausen)",
       "bild_url": "https://en.wikipedia.org/wiki/Porsche_Taycan",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell",
+      "hinweis": "Facelift: ~700 km WLTP, 320 kW DC"
     },
     {
       "id": "000036",
@@ -6199,8 +6277,8 @@
           "max": 21.3
         },
         "wltp_reichweite_km": {
-          "min": 530,
-          "max": 630
+          "min": 680,
+          "max": 700
         },
         "realverbrauch_kwh_100km": {
           "min": 22,
@@ -6256,7 +6334,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 93600,
+        "basispreis_eur": 99900,
         "stromkosten_eur_100km": {
           "min": 6.6,
           "max": 8.2
@@ -6309,7 +6387,9 @@
       },
       "produktionsland": "Deutschland (Dingolfing)",
       "bild_url": "https://en.wikipedia.org/wiki/BMW_iX",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell",
+      "hinweis": "Seit 2026 als iX xDrive60 (ab 99.900 €, ~700 km WLTP) weitergeführt"
     },
     {
       "id": "000037",
@@ -6374,8 +6454,8 @@
           "max": 18.2
         },
         "wltp_reichweite_km": {
-          "min": 477,
-          "max": 582
+          "min": 590,
+          "max": 601
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -6483,7 +6563,8 @@
       },
       "produktionsland": "Deutschland (Dingolfing)",
       "bild_url": "https://en.wikipedia.org/wiki/BMW_i5",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000038",
@@ -6525,7 +6606,7 @@
         "garantie_restkapazitaet_pct": 70
       },
       "laden": {
-        "ac_serie_kw": 11,
+        "ac_serie_kw": 22,
         "ac_optional_kw": null,
         "dc_max_kw": 150,
         "dc_10_80_min": 30,
@@ -6548,7 +6629,7 @@
           "max": 18.7
         },
         "wltp_reichweite_km": {
-          "min": 370,
+          "min": 425,
           "max": 440
         },
         "realverbrauch_kwh_100km": {
@@ -6605,7 +6686,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 67550,
+        "basispreis_eur": 57100,
         "stromkosten_eur_100km": {
           "min": 5.7,
           "max": 7.3
@@ -6657,7 +6738,9 @@
       },
       "produktionsland": "Japan (Toyota City)",
       "bild_url": "https://en.wikipedia.org/wiki/Lexus_RZ",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell",
+      "hinweis": "Facelift 2026: Akku auf 77 kWh, 22 kW AC neu (vorher 6,6 kW)"
     },
     {
       "id": "000039",
@@ -6701,7 +6784,7 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 170,
+        "dc_max_kw": 100,
         "dc_10_80_min": 28,
         "ladestecker": [
           "CCS",
@@ -6722,8 +6805,8 @@
           "max": 16.5
         },
         "wltp_reichweite_km": {
-          "min": 490,
-          "max": 560
+          "min": 535,
+          "max": 549
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -6779,7 +6862,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 43990,
+        "basispreis_eur": 41995,
         "stromkosten_eur_100km": {
           "min": 5.2,
           "max": 6.4
@@ -6831,7 +6914,9 @@
       },
       "produktionsland": "Deutschland (Zwickau)",
       "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID.3",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "hinweis": "ID.3 Neo Facelift ab Juli 2026: neues Design, Lieferstart Juli 2026"
     },
     {
       "id": "000040",
@@ -6897,8 +6982,8 @@
           "max": 19.8
         },
         "wltp_reichweite_km": {
-          "min": 490,
-          "max": 545
+          "min": 475,
+          "max": 490
         },
         "realverbrauch_kwh_100km": {
           "min": 20,
@@ -6954,7 +7039,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 56900,
+        "basispreis_eur": 66600,
         "stromkosten_eur_100km": {
           "min": 6.3,
           "max": 7.7
@@ -7007,7 +7092,8 @@
       },
       "produktionsland": "Mexiko (Cuautitlán)",
       "bild_url": "https://en.wikipedia.org/wiki/Ford_Mustang_Mach-E",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000041",
@@ -7051,8 +7137,8 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 185,
-        "dc_10_80_min": 26,
+        "dc_max_kw": 135,
+        "dc_10_80_min": 28,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -7072,7 +7158,7 @@
           "max": 17.5
         },
         "wltp_reichweite_km": {
-          "min": 470,
+          "min": 590,
           "max": 602
         },
         "realverbrauch_kwh_100km": {
@@ -7129,7 +7215,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 45900,
+        "basispreis_eur": 48900,
         "stromkosten_eur_100km": {
           "min": 5.5,
           "max": 6.8
@@ -7181,7 +7267,8 @@
       },
       "produktionsland": "Deutschland (Köln)",
       "bild_url": "https://en.wikipedia.org/wiki/Ford_Explorer_EV",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000042",
@@ -7227,7 +7314,7 @@
         "ac_serie_kw": 11,
         "ac_optional_kw": 22,
         "dc_max_kw": 160,
-        "dc_10_80_min": 30,
+        "dc_10_80_min": 28,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -7247,8 +7334,8 @@
           "max": 17.2
         },
         "wltp_reichweite_km": {
-          "min": 590,
-          "max": 700
+          "min": 680,
+          "max": 698
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -7304,7 +7391,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 50350,
+        "basispreis_eur": 52750,
         "stromkosten_eur_100km": {
           "min": 5.4,
           "max": 6.7
@@ -7355,7 +7442,9 @@
       },
       "produktionsland": "Frankreich (Sochaux)",
       "bild_url": "https://en.wikipedia.org/wiki/Peugeot_3008",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "hinweis": "97-kWh-Akku; Wärmepumpe seit 2025 serienmäßig"
     },
     {
       "id": "000043",
@@ -7401,7 +7490,7 @@
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
         "dc_max_kw": 100,
-        "dc_10_80_min": 30,
+        "dc_10_80_min": 35,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -7421,8 +7510,8 @@
           "max": 14.8
         },
         "wltp_reichweite_km": {
-          "min": 345,
-          "max": 410
+          "min": 363,
+          "max": 432
         },
         "realverbrauch_kwh_100km": {
           "min": 15,
@@ -7478,7 +7567,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 34950,
+        "basispreis_eur": 36675,
         "stromkosten_eur_100km": {
           "min": 4.5,
           "max": 5.8
@@ -7531,7 +7620,8 @@
       },
       "produktionsland": "Frankreich (Poissy)",
       "bild_url": "https://en.wikipedia.org/wiki/Peugeot_e-208",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000044",
@@ -7576,7 +7666,7 @@
         "ac_serie_kw": 22,
         "ac_optional_kw": null,
         "dc_max_kw": 130,
-        "dc_10_80_min": 32,
+        "dc_10_80_min": 40,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -7596,8 +7686,8 @@
           "max": 19.0
         },
         "wltp_reichweite_km": {
-          "min": 470,
-          "max": 533
+          "min": 510,
+          "max": 531
         },
         "realverbrauch_kwh_100km": {
           "min": 19,
@@ -7653,7 +7743,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 47990,
+        "basispreis_eur": 58840,
         "stromkosten_eur_100km": {
           "min": 5.8,
           "max": 7.4
@@ -7706,7 +7796,9 @@
       },
       "produktionsland": "Japan (Tochigi)",
       "bild_url": "https://en.wikipedia.org/wiki/Nissan_Ariya",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "hinweis": "Facelift 2026: Sortiment auf 2 Varianten reduziert"
     },
     {
       "id": "000045",
@@ -7751,7 +7843,7 @@
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
         "dc_max_kw": 150,
-        "dc_10_80_min": 30,
+        "dc_10_80_min": 28,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -7771,8 +7863,8 @@
           "max": 18.4
         },
         "wltp_reichweite_km": {
-          "min": 360,
-          "max": 416
+          "min": 500,
+          "max": 516
         },
         "realverbrauch_kwh_100km": {
           "min": 19,
@@ -7828,7 +7920,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 49990,
+        "basispreis_eur": 50990,
         "stromkosten_eur_100km": {
           "min": 5.9,
           "max": 7.2
@@ -7881,7 +7973,9 @@
       },
       "produktionsland": "Japan (Toyota City)",
       "bild_url": "https://en.wikipedia.org/wiki/Toyota_bZ4X",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell",
+      "hinweis": "2026 Update: 73,1-kWh-Akku, verbesserte Wärmepumpe, 1.500 kg Anhängelast"
     },
     {
       "id": "000046",
@@ -7947,7 +8041,7 @@
           "max": 16.5
         },
         "wltp_reichweite_km": {
-          "min": 330,
+          "min": 386,
           "max": 400
         },
         "realverbrauch_kwh_100km": {
@@ -8057,7 +8151,9 @@
       },
       "produktionsland": "Polen (Tychy)",
       "bild_url": "https://en.wikipedia.org/wiki/Jeep_Avenger",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell",
+      "hinweis": "Facelift 2026: 54-kWh-Akku"
     },
     {
       "id": "000047",
@@ -8232,7 +8328,11 @@
       },
       "produktionsland": "China (Wuhan)",
       "bild_url": "https://en.wikipedia.org/wiki/Honda_e:Ny1",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "Apr. 2026 aus dem EU-Markt zurückgezogen; Honda verkaufte 2025 nur 105 Stück in DE",
+      "nachfolger_url": "https://insideevs.de/news/793116/honda-e:ny1-elektrosuv-ausgelaufen/"
     },
     {
       "id": "000048",
@@ -8278,7 +8378,7 @@
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
         "dc_max_kw": 100,
-        "dc_10_80_min": 30,
+        "dc_10_80_min": 33,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -8298,8 +8398,8 @@
           "max": 16.3
         },
         "wltp_reichweite_km": {
-          "min": 335,
-          "max": 415
+          "min": 354,
+          "max": 416
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -8355,7 +8455,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 36800,
+        "basispreis_eur": 36040,
         "stromkosten_eur_100km": {
           "min": 5.1,
           "max": 6.3
@@ -8408,7 +8508,8 @@
       },
       "produktionsland": "Spanien (Zaragoza)",
       "bild_url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_C4",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000049",
@@ -8454,7 +8555,7 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 240,
+        "dc_max_kw": 350,
         "dc_10_80_min": 18,
         "ladestecker": [
           "CCS",
@@ -8475,8 +8576,8 @@
           "max": 19.2
         },
         "wltp_reichweite_km": {
-          "min": 414,
-          "max": 466
+          "min": 390,
+          "max": 400
         },
         "realverbrauch_kwh_100km": {
           "min": 20,
@@ -8532,7 +8633,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 55400,
+        "basispreis_eur": 74480,
         "stromkosten_eur_100km": {
           "min": 6.3,
           "max": 7.5
@@ -8585,7 +8686,9 @@
       },
       "produktionsland": "Südkorea (Ulsan)",
       "bild_url": "https://en.wikipedia.org/wiki/Genesis_GV60",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell",
+      "hinweis": "Facelift MY25: 84-kWh-Akku, 350 kW DC"
     },
     {
       "id": "000050",
@@ -8629,7 +8732,7 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 130,
+        "dc_max_kw": 140,
         "dc_10_80_min": 30,
         "ladestecker": [
           "CCS",
@@ -8650,7 +8753,7 @@
           "max": 19.5
         },
         "wltp_reichweite_km": {
-          "min": 510,
+          "min": 570,
           "max": 590
         },
         "realverbrauch_kwh_100km": {
@@ -8707,7 +8810,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 49900,
+        "basispreis_eur": 70900,
         "stromkosten_eur_100km": {
           "min": 6.1,
           "max": 7.6
@@ -8761,7 +8864,8 @@
       },
       "produktionsland": "China (Hefei)",
       "bild_url": "https://en.wikipedia.org/wiki/Nio_ET5",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000051",
@@ -8805,8 +8909,8 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 130,
-        "dc_10_80_min": 30,
+        "dc_max_kw": 187,
+        "dc_10_80_min": 26,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -8826,8 +8930,8 @@
           "max": 20.8
         },
         "wltp_reichweite_km": {
-          "min": 480,
-          "max": 540
+          "min": 510,
+          "max": 529
         },
         "realverbrauch_kwh_100km": {
           "min": 21,
@@ -8883,7 +8987,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 56900,
+        "basispreis_eur": 74500,
         "stromkosten_eur_100km": {
           "min": 6.5,
           "max": 8.1
@@ -8937,7 +9041,8 @@
       },
       "produktionsland": "China (Hefei)",
       "bild_url": "https://en.wikipedia.org/wiki/Nio_ES6",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000052",
@@ -8982,7 +9087,7 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 175,
+        "dc_max_kw": 165,
         "dc_10_80_min": 28,
         "ladestecker": [
           "CCS",
@@ -9003,8 +9108,8 @@
           "max": 17.0
         },
         "wltp_reichweite_km": {
-          "min": 479,
-          "max": 548
+          "min": 540,
+          "max": 556
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -9060,7 +9165,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 47595,
+        "basispreis_eur": 45695,
         "stromkosten_eur_100km": {
           "min": 5.4,
           "max": 6.6
@@ -9112,7 +9217,8 @@
       },
       "produktionsland": "Deutschland (Zwickau)",
       "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID.5",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000053",
@@ -9177,8 +9283,8 @@
           "max": 15.2
         },
         "wltp_reichweite_km": {
-          "min": 560,
-          "max": 660
+          "min": 751,
+          "max": 831
         },
         "realverbrauch_kwh_100km": {
           "min": 16,
@@ -9234,7 +9340,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 82900,
+        "basispreis_eur": 85900,
         "stromkosten_eur_100km": {
           "min": 4.7,
           "max": 5.9
@@ -9287,7 +9393,8 @@
       },
       "produktionsland": "USA (Casa Grande)",
       "bild_url": "https://en.wikipedia.org/wiki/Lucid_Air",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell"
     },
     {
       "id": "000054",
@@ -9331,7 +9438,7 @@
       "laden": {
         "ac_serie_kw": 19.2,
         "ac_optional_kw": null,
-        "dc_max_kw": 300,
+        "dc_max_kw": 350,
         "dc_10_80_min": 20,
         "ladestecker": [
           "CCS",
@@ -9352,8 +9459,8 @@
           "max": 18.8
         },
         "wltp_reichweite_km": {
-          "min": 620,
-          "max": 830
+          "min": 817,
+          "max": 960
         },
         "realverbrauch_kwh_100km": {
           "min": 19,
@@ -9409,7 +9516,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 139900,
+        "basispreis_eur": 129000,
         "stromkosten_eur_100km": {
           "min": 5.6,
           "max": 7.3
@@ -9462,7 +9569,8 @@
       },
       "produktionsland": "USA (Casa Grande)",
       "bild_url": "https://en.wikipedia.org/wiki/Lucid_Air",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell"
     },
     {
       "id": "000055",
@@ -9506,8 +9614,8 @@
       "laden": {
         "ac_serie_kw": 19.2,
         "ac_optional_kw": null,
-        "dc_max_kw": 300,
-        "dc_10_80_min": 20,
+        "dc_max_kw": 400,
+        "dc_10_80_min": 14,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -9527,8 +9635,8 @@
           "max": 21.0
         },
         "wltp_reichweite_km": {
-          "min": 530,
-          "max": 700
+          "min": 511,
+          "max": 748
         },
         "realverbrauch_kwh_100km": {
           "min": 21,
@@ -9584,7 +9692,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 94900,
+        "basispreis_eur": 116900,
         "stromkosten_eur_100km": {
           "min": 6.3,
           "max": 8.2
@@ -9636,7 +9744,9 @@
       },
       "produktionsland": "USA (Casa Grande)",
       "bild_url": "https://en.wikipedia.org/wiki/Lucid_Gravity",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell",
+      "hinweis": "Marktstart DE 2026: 123-kWh-Akku, 400 kW DC, 14 Min. 10-80%"
     },
     {
       "id": "000056",
@@ -9680,7 +9790,7 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": 22,
-        "dc_max_kw": 175,
+        "dc_max_kw": 165,
         "dc_10_80_min": 28,
         "ladestecker": [
           "CCS",
@@ -9701,8 +9811,8 @@
           "max": 18.5
         },
         "wltp_reichweite_km": {
-          "min": 432,
-          "max": 511
+          "min": 555,
+          "max": 570
         },
         "realverbrauch_kwh_100km": {
           "min": 19,
@@ -9758,7 +9868,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 59250,
+        "basispreis_eur": 57850,
         "stromkosten_eur_100km": {
           "min": 5.6,
           "max": 7.2
@@ -9810,7 +9920,9 @@
       },
       "produktionsland": "Deutschland (Zwickau)",
       "bild_url": "https://en.wikipedia.org/wiki/Audi_Q4_e-tron",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell",
+      "hinweis": "Facelift 2026 analog SUV-Variante"
     },
     {
       "id": "000057",
@@ -9877,8 +9989,8 @@
           "max": 19.4
         },
         "wltp_reichweite_km": {
-          "min": 533,
-          "max": 625
+          "min": 625,
+          "max": 641
         },
         "realverbrauch_kwh_100km": {
           "min": 19,
@@ -9986,7 +10098,8 @@
       },
       "produktionsland": "Deutschland (Ingolstadt)",
       "bild_url": "https://en.wikipedia.org/wiki/Audi_Q6_e-tron",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000058",
@@ -10053,7 +10166,7 @@
           "max": 18.5
         },
         "wltp_reichweite_km": {
-          "min": 545,
+          "min": 645,
           "max": 656
         },
         "realverbrauch_kwh_100km": {
@@ -10110,7 +10223,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 77450,
+        "basispreis_eur": 76600,
         "stromkosten_eur_100km": {
           "min": 5.5,
           "max": 7.2
@@ -10162,7 +10275,8 @@
       },
       "produktionsland": "Deutschland (Ingolstadt)",
       "bild_url": "https://en.wikipedia.org/wiki/Audi_Q6_e-tron",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000059",
@@ -10340,7 +10454,11 @@
       },
       "produktionsland": "Belgien (Brüssel)",
       "bild_url": "https://en.wikipedia.org/wiki/Audi_Q8_e-tron",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "Produktion Feb. 2025 beendet, Brüsseler Werk (Forest) geschlossen; kein direkter Nachfolger",
+      "nachfolger_url": "https://insideevs.de/news/741755/audi-q8-etron-produktionsende-februar2025/"
     },
     {
       "id": "000060",
@@ -10408,8 +10526,8 @@
           "max": 20.4
         },
         "wltp_reichweite_km": {
-          "min": 508,
-          "max": 609
+          "min": 600,
+          "max": 622
         },
         "realverbrauch_kwh_100km": {
           "min": 20,
@@ -10465,7 +10583,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 126900,
+        "basispreis_eur": 108900,
         "stromkosten_eur_100km": {
           "min": 6.1,
           "max": 7.9
@@ -10517,7 +10635,9 @@
       },
       "produktionsland": "Deutschland (Neckarsulm)",
       "bild_url": "https://en.wikipedia.org/wiki/Audi_e-tron_GT",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell",
+      "hinweis": "2025/26: 370 kW Systemleistung, 105-kWh-Akku, 320 kW DC"
     },
     {
       "id": "000061",
@@ -10582,7 +10702,7 @@
           "max": 16.5
         },
         "wltp_reichweite_km": {
-          "min": 610,
+          "min": 627,
           "max": 756
         },
         "realverbrauch_kwh_100km": {
@@ -10639,7 +10759,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 65400,
+        "basispreis_eur": 62800,
         "stromkosten_eur_100km": {
           "min": 4.8,
           "max": 6.4
@@ -10690,7 +10810,8 @@
       },
       "produktionsland": "Deutschland (Ingolstadt)",
       "bild_url": "https://en.wikipedia.org/wiki/Audi_A6_e-tron",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000062",
@@ -10734,8 +10855,8 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": 22,
-        "dc_max_kw": 185,
-        "dc_10_80_min": 28,
+        "dc_max_kw": 200,
+        "dc_10_80_min": 26,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -10755,7 +10876,7 @@
           "max": 21.7
         },
         "wltp_reichweite_km": {
-          "min": 411,
+          "min": 475,
           "max": 487
         },
         "realverbrauch_kwh_100km": {
@@ -10812,7 +10933,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 61515,
+        "basispreis_eur": 49998,
         "stromkosten_eur_100km": {
           "min": 6.4,
           "max": 8.4
@@ -10865,7 +10986,8 @@
       },
       "produktionsland": "Deutschland (Hannover)",
       "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID._Buzz",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell"
     },
     {
       "id": "000063",
@@ -10910,7 +11032,7 @@
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
         "dc_max_kw": 110,
-        "dc_10_80_min": 45,
+        "dc_10_80_min": 38,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -10930,8 +11052,8 @@
           "max": 28.9
         },
         "wltp_reichweite_km": {
-          "min": 297,
-          "max": 362
+          "min": 355,
+          "max": 364
         },
         "realverbrauch_kwh_100km": {
           "min": 28,
@@ -10987,7 +11109,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 77924,
+        "basispreis_eur": 71388,
         "stromkosten_eur_100km": {
           "min": 9.0,
           "max": 11.2
@@ -11043,7 +11165,8 @@
       },
       "produktionsland": "Spanien (Vitoria)",
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQV",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell"
     },
     {
       "id": "000064",
@@ -11108,7 +11231,7 @@
           "max": 15.5
         },
         "wltp_reichweite_km": {
-          "min": 312,
+          "min": 395,
           "max": 410
         },
         "realverbrauch_kwh_100km": {
@@ -11165,7 +11288,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 25000,
+        "basispreis_eur": 34500,
         "stromkosten_eur_100km": {
           "min": 4.9,
           "max": 6.0
@@ -11218,7 +11341,8 @@
       },
       "produktionsland": "Frankreich (Douai)",
       "bild_url": "https://en.wikipedia.org/wiki/Renault_5_E-Tech",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000065",
@@ -11263,7 +11387,7 @@
         "ac_serie_kw": 22,
         "ac_optional_kw": null,
         "dc_max_kw": 150,
-        "dc_10_80_min": 33,
+        "dc_10_80_min": 37,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -11283,7 +11407,7 @@
           "max": 16.8
         },
         "wltp_reichweite_km": {
-          "min": 530,
+          "min": 596,
           "max": 625
         },
         "realverbrauch_kwh_100km": {
@@ -11340,7 +11464,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 43500,
+        "basispreis_eur": 47900,
         "stromkosten_eur_100km": {
           "min": 5.2,
           "max": 6.5
@@ -11392,7 +11516,8 @@
       },
       "produktionsland": "Frankreich (Douai)",
       "bild_url": "https://en.wikipedia.org/wiki/Renault_Scenic_E-Tech",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000066",
@@ -11458,8 +11583,8 @@
           "max": 18.5
         },
         "wltp_reichweite_km": {
-          "min": 560,
-          "max": 634
+          "min": 720,
+          "max": 744
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -11515,7 +11640,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 89990,
+        "basispreis_eur": 98990,
         "stromkosten_eur_100km": {
           "min": 5.5,
           "max": 7.2
@@ -11568,7 +11693,8 @@
       },
       "produktionsland": "USA (Fremont)",
       "bild_url": "https://en.wikipedia.org/wiki/Tesla_Model_S",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000067",
@@ -11635,7 +11761,7 @@
         },
         "wltp_reichweite_km": {
           "min": 480,
-          "max": 576
+          "max": 490
         },
         "realverbrauch_kwh_100km": {
           "min": 20,
@@ -11691,7 +11817,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 93990,
+        "basispreis_eur": 115970,
         "stromkosten_eur_100km": {
           "min": 6.2,
           "max": 8.1
@@ -11744,7 +11870,9 @@
       },
       "produktionsland": "USA (Fremont)",
       "bild_url": "https://en.wikipedia.org/wiki/Tesla_Model_X",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell",
+      "hinweis": "Produktionsstatus unsicher Stand Juli 2026; evtl. nur noch Lagerware"
     },
     {
       "id": "000068",
@@ -11812,8 +11940,8 @@
           "max": 17.5
         },
         "wltp_reichweite_km": {
-          "min": 394,
-          "max": 449
+          "min": 460,
+          "max": 477
         },
         "realverbrauch_kwh_100km": {
           "min": 18,
@@ -11921,7 +12049,9 @@
       },
       "produktionsland": "Deutschland (Regensburg)",
       "bild_url": "https://en.wikipedia.org/wiki/BMW_X2",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "hinweis": "2026: SiC-Wechselrichter wie iX1"
     },
     {
       "id": "000069",
@@ -11986,8 +12116,8 @@
           "max": 23.5
         },
         "wltp_reichweite_km": {
-          "min": 490,
-          "max": 600
+          "min": 515,
+          "max": 535
         },
         "realverbrauch_kwh_100km": {
           "min": 23,
@@ -12043,7 +12173,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 89990,
+        "basispreis_eur": 120990,
         "stromkosten_eur_100km": {
           "min": 7.0,
           "max": 9.1
@@ -12097,7 +12227,9 @@
       },
       "produktionsland": "China (Wuhan)",
       "bild_url": "https://en.wikipedia.org/wiki/Lotus_Eletre",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell",
+      "hinweis": "Möglicherweise durch 'Eletre 900'-Serie ersetzt; Verfügbarkeit beim Händler prüfen"
     },
     {
       "id": "000070",
@@ -12162,8 +12294,8 @@
           "max": 21.5
         },
         "wltp_reichweite_km": {
-          "min": 485,
-          "max": 560
+          "min": 500,
+          "max": 610
         },
         "realverbrauch_kwh_100km": {
           "min": 21,
@@ -12219,7 +12351,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 96990,
+        "basispreis_eur": 126950,
         "stromkosten_eur_100km": {
           "min": 6.4,
           "max": 8.3
@@ -12272,7 +12404,8 @@
       },
       "produktionsland": "China (Wuhan)",
       "bild_url": "https://en.wikipedia.org/wiki/Lotus_Emeya",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000071",
@@ -12446,7 +12579,11 @@
       },
       "produktionsland": "UK (Hethel)",
       "bild_url": "https://en.wikipedia.org/wiki/Lotus_Evija",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "Alle 130 Exemplare weltweit verkauft; Serienfertigung abgeschlossen – nur Gebrauchtmarkt",
+      "nachfolger_url": "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/lotus/lotus-evija/"
     },
     {
       "id": "000072",
@@ -12510,8 +12647,8 @@
           "max": 24
         },
         "wltp_reichweite_km": {
-          "min": 400,
-          "max": 450
+          "min": 510,
+          "max": 530
         },
         "realverbrauch_kwh_100km": {
           "min": 24,
@@ -12567,7 +12704,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 535000,
+        "basispreis_eur": 550000,
         "stromkosten_eur_100km": {
           "min": 7.5,
           "max": 11
@@ -12616,7 +12753,9 @@
       "produkt_url": "https://www.ferrari.com/de-DE",
       "produktionsland": "Italien (Maranello)",
       "bild_url": "https://en.wikipedia.org/wiki/Ferrari_Luce",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell",
+      "hinweis": "Weltpremiere Mai 2026, Auslieferung Q4 2026; WLTP-Homologation noch ausstehend"
     },
     {
       "id": "000073",
@@ -12659,7 +12798,7 @@
       "laden": {
         "ac_serie_kw": 11,
         "ac_optional_kw": null,
-        "dc_max_kw": 230,
+        "dc_max_kw": 100,
         "dc_10_80_min": 18,
         "ladestecker": [
           "CCS",
@@ -12680,8 +12819,8 @@
           "max": 17.0
         },
         "wltp_reichweite_km": {
-          "min": 390,
-          "max": 430
+          "min": 445,
+          "max": 485
         },
         "realverbrauch_kwh_100km": {
           "min": 17,
@@ -12737,7 +12876,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 33900,
+        "basispreis_eur": 38990,
         "stromkosten_eur_100km": {
           "min": 5.3,
           "max": 5.8
@@ -12786,7 +12925,9 @@
       "produkt_url": "https://www.deepal-europe.com",
       "produktionsland": "China (Chongqing)",
       "bild_url": "https://en.wikipedia.org/wiki/Deepal_S05",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell",
+      "hinweis": "Herstellerangabe 200 kW DC; reale Peaks an CCS-Säulen ca. 100 kW laut Tests"
     },
     {
       "id": "000074",
@@ -12956,7 +13097,12 @@
       "produkt_url": "https://www.denza.com",
       "produktionsland": "China (Shenzhen)",
       "bild_url": "https://en.wikipedia.org/wiki/Denza_D9",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "veraltet",
+      "eingestellt": true,
+      "eingestellt_grund": "Rein elektrische D9-EV-Version wird NICHT in Deutschland/Europa angeboten; nur PHEV (DM-i)",
+      "nachfolger_modell": "Denza D9 DM-i (PHEV, ab ca. 80.000 €, ~950 km Gesamtreichweite)",
+      "nachfolger_url": "https://ecomento.de/2026/04/13/denza-d9-dm-i-super-hybrid-van-fuer-europa-vorgestellt/"
     },
     {
       "id": "000075",
@@ -13126,7 +13272,9 @@
       "produkt_url": "https://www.denza.com",
       "produktionsland": "China (Shenzhen)",
       "bild_url": "https://en.wikipedia.org/wiki/Denza_N7",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "hinweis": "Noch nicht offiziell in Deutschland verfügbar (Stand Juli 2026)"
     },
     {
       "id": "000076",
@@ -13169,8 +13317,8 @@
       "laden": {
         "ac_serie_kw": 22,
         "ac_optional_kw": null,
-        "dc_max_kw": 280,
-        "dc_10_80_min": 20,
+        "dc_max_kw": 270,
+        "dc_10_80_min": 19,
         "ladestecker": [
           "CCS",
           "Typ 2"
@@ -13190,8 +13338,8 @@
           "max": 22
         },
         "wltp_reichweite_km": {
-          "min": 450,
-          "max": 520
+          "min": 575,
+          "max": 600
         },
         "realverbrauch_kwh_100km": {
           "min": 22,
@@ -13247,7 +13395,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 85000,
+        "basispreis_eur": 115000,
         "stromkosten_eur_100km": {
           "min": 6.5,
           "max": 10.0
@@ -13296,7 +13444,9 @@
       "produkt_url": "https://www.denza.com",
       "produktionsland": "China (Shenzhen)",
       "bild_url": "https://en.wikipedia.org/wiki/Denza_Z9",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "hinweis": "Marktstart DE April 2026: 122,5-kWh-LFP, 800V, 270 kW DC"
     },
     {
       "id": "000077",
@@ -13466,7 +13616,8 @@
       "produkt_url": "https://www.zeekrlife.com",
       "produktionsland": "China (Ningbo)",
       "bild_url": "https://en.wikipedia.org/wiki/Zeekr_X",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000078",
@@ -13636,7 +13787,8 @@
       "produkt_url": "https://www.zeekrlife.com",
       "produktionsland": "China (Ningbo)",
       "bild_url": "https://en.wikipedia.org/wiki/Zeekr_001",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000079",
@@ -13806,7 +13958,8 @@
       "produkt_url": "https://www.zeekrlife.com",
       "produktionsland": "China (Ningbo)",
       "bild_url": "https://en.wikipedia.org/wiki/Zeekr_007",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000080",
@@ -13976,7 +14129,8 @@
       "produkt_url": "https://www.zeekrlife.com",
       "produktionsland": "China (Ningbo)",
       "bild_url": "https://en.wikipedia.org/wiki/Zeekr_009",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000081",
@@ -14146,7 +14300,8 @@
       "produkt_url": "https://www.zeekrlife.com",
       "produktionsland": "China (Ningbo)",
       "bild_url": "https://en.wikipedia.org/wiki/Zeekr_Mix",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000082",
@@ -14317,7 +14472,8 @@
       "produkt_url": "https://www.kia.com/de/modelle/ev2.html",
       "produktionsland": "Südkorea",
       "bild_url": "https://en.wikipedia.org/wiki/Kia_EV2",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000083",
@@ -14487,7 +14643,8 @@
       "produkt_url": "https://www.cupraofficial.de/modelle/raval.html",
       "produktionsland": "Spanien (Martorell)",
       "bild_url": "https://en.wikipedia.org/wiki/Cupra_Raval",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000084",
@@ -14659,7 +14816,8 @@
       "produkt_url": "https://www.kia.com/de/modelle/ev5/entdecken/",
       "produktionsland": "China (Yancheng)",
       "bild_url": "https://en.wikipedia.org/wiki/Kia_EV5",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell"
     },
     {
       "id": "000085",
@@ -14831,7 +14989,8 @@
       "produkt_url": "https://www.kia.com/de/modelle/pv5-passenger/entdecken/",
       "produktionsland": "Südkorea (Hwaseong)",
       "bild_url": "https://en.wikipedia.org/wiki/Kia_PV5",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000086",
@@ -15005,7 +15164,8 @@
       },
       "produktionsland": "Niederlande (Ausbau) / Deutschland (Basisfahrzeug)",
       "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID._Buzz",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000087",
@@ -15180,7 +15340,8 @@
       },
       "produktionsland": "Niederlande (Ausbau) / Spanien (Basisfahrzeug)",
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQV",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000088",
@@ -15355,7 +15516,8 @@
       },
       "produktionsland": "Deutschland (Ausbau) / Tuerkei (Basisfahrzeug)",
       "bild_url": "https://en.wikipedia.org/wiki/Ford_E-Transit",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000089",
@@ -15529,7 +15691,8 @@
       },
       "produktionsland": "Deutschland (Ausbau) / Frankreich (Basisfahrzeug)",
       "bild_url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_%C3%AB-SpaceTourer",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000090",
@@ -15703,7 +15866,8 @@
       },
       "produktionsland": "Deutschland (Woerth am Rhein)",
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_eActros",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000091",
@@ -15877,7 +16041,8 @@
       },
       "produktionsland": "Deutschland (Muenchen)",
       "bild_url": "https://en.wikipedia.org/wiki/MAN_TGX",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000092",
@@ -16051,7 +16216,8 @@
       },
       "produktionsland": "Schweden (Goeteborg)",
       "bild_url": "https://en.wikipedia.org/wiki/Volvo_FH",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000093",
@@ -16225,7 +16391,8 @@
       },
       "produktionsland": "USA (Nevada)",
       "bild_url": "https://en.wikipedia.org/wiki/Tesla_Semi",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000094",
@@ -16398,7 +16565,8 @@
       },
       "produktionsland": "Niederlande (Eindhoven)",
       "bild_url": "https://en.wikipedia.org/wiki/DAF_XF",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000095",
@@ -16572,7 +16740,8 @@
       },
       "produktionsland": "Schweden (Soedertaelje)",
       "bild_url": "https://en.wikipedia.org/wiki/Scania_R-series",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000096",
@@ -16745,7 +16914,8 @@
       },
       "produktionsland": "Spanien (Madrid)",
       "bild_url": "https://en.wikipedia.org/wiki/Iveco_S-Way",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000097",
@@ -16919,7 +17089,8 @@
       },
       "produktionsland": "Frankreich (Bourg-en-Bresse)",
       "bild_url": "https://en.wikipedia.org/wiki/Renault_Trucks_T",
-      "lieferzeit_wochen": null
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     },
     {
       "id": "000098",
@@ -17094,7 +17265,8 @@
       "produkt_url": "https://www.skoda-auto.de/modelle/elroq",
       "produktionsland": "Tschechien (Mladá Boleslav)",
       "bild_url": "https://de.wikipedia.org/wiki/%C5%A0koda_Elroq",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000099",
@@ -17270,7 +17442,8 @@
       "produkt_url": "https://www.cupraofficial.de/fahrzeuge/tavascan",
       "produktionsland": "China (Anhui)",
       "bild_url": "https://de.wikipedia.org/wiki/Cupra_Tavascan",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000100",
@@ -17445,7 +17618,8 @@
       "produkt_url": "https://www.mercedes-benz.de/passengercars/models/saloon/cla-electric/overview.html",
       "produktionsland": "Deutschland (Rastatt)",
       "bild_url": "https://de.wikipedia.org/wiki/Mercedes-Benz_CLA-Klasse",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000101",
@@ -17620,7 +17794,8 @@
       "produkt_url": "https://www.hyundai.com/de/de/modelle/kona-elektro.html",
       "produktionsland": "Tschechien (Nosovice)",
       "bild_url": "https://de.wikipedia.org/wiki/Hyundai_Kona",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000102",
@@ -17796,7 +17971,8 @@
       "produkt_url": "https://www.opel.de/fahrzeuge/corsa-electric.html",
       "produktionsland": "Spanien (Zaragoza)",
       "bild_url": "https://de.wikipedia.org/wiki/Opel_Corsa_F",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000103",
@@ -17971,7 +18147,8 @@
       "produkt_url": "https://www.hyundai.com/de/de/modelle/inster.html",
       "produktionsland": "Suedkorea (Gwangju)",
       "bild_url": "https://de.wikipedia.org/wiki/Hyundai_Inster",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000104",
@@ -18147,7 +18324,8 @@
       "produkt_url": "https://www.citroen.de/modelle/e-C3.html",
       "produktionsland": "Slowakei (Trnava)",
       "bild_url": "https://de.wikipedia.org/wiki/Citro%C3%ABn_C3",
-      "lieferzeit_wochen": 6
+      "lieferzeit_wochen": 6,
+      "status": "aktuell"
     },
     {
       "id": "000105",
@@ -18322,7 +18500,8 @@
       },
       "produktionsland": "Deutschland (Leipzig)",
       "bild_url": "https://en.wikipedia.org/wiki/Porsche_Cayenne",
-      "lieferzeit_wochen": 16
+      "lieferzeit_wochen": 16,
+      "status": "aktuell"
     },
     {
       "id": "000106",
@@ -18498,7 +18677,8 @@
       },
       "produktionsland": "Deutschland (Zuffenhausen)",
       "bild_url": "https://en.wikipedia.org/wiki/Porsche_Taycan",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000107",
@@ -18674,7 +18854,8 @@
       },
       "produktionsland": "Deutschland (Zuffenhausen)",
       "bild_url": "https://en.wikipedia.org/wiki/Porsche_Taycan",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell"
     },
     {
       "id": "000108",
@@ -18849,7 +19030,8 @@
       },
       "produktionsland": "Deutschland (Leipzig)",
       "bild_url": "https://en.wikipedia.org/wiki/Porsche_Cayenne",
-      "lieferzeit_wochen": 18
+      "lieferzeit_wochen": 18,
+      "status": "aktuell"
     },
     {
       "id": "000109",
@@ -19024,7 +19206,8 @@
       },
       "produktionsland": "Deutschland (Leipzig)",
       "bild_url": "https://en.wikipedia.org/wiki/Porsche_Macan_Electric",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell"
     },
     {
       "id": "000110",
@@ -19192,7 +19375,8 @@
       "euro_ncap": null,
       "produktionsland": "Ungarn (Debrecen)",
       "bild_url": "https://en.wikipedia.org/wiki/BMW_iX3",
-      "lieferzeit_wochen": 16
+      "lieferzeit_wochen": 16,
+      "status": "aktuell"
     },
     {
       "id": "000111",
@@ -19368,7 +19552,8 @@
       },
       "produktionsland": "Deutschland (Dingolfing)",
       "bild_url": "https://en.wikipedia.org/wiki/BMW_7_Series_(G70)",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell"
     },
     {
       "id": "000112",
@@ -19537,7 +19722,8 @@
       "euro_ncap": null,
       "produktionsland": "USA (Tuscaloosa, Alabama)",
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQE_SUV",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000113",
@@ -19706,7 +19892,8 @@
       "euro_ncap": null,
       "produktionsland": "USA (Tuscaloosa, Alabama)",
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQS_SUV",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000114",
@@ -19881,7 +20068,8 @@
       },
       "produktionsland": "Südkorea (Hwaseong)",
       "bild_url": "https://en.wikipedia.org/wiki/Kia_EV9",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000115",
@@ -20056,7 +20244,8 @@
       },
       "produktionsland": "Belgien (Gent)",
       "bild_url": "https://en.wikipedia.org/wiki/Volvo_EX40",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000116",
@@ -20231,7 +20420,8 @@
       },
       "produktionsland": "USA (Ridgeville, South Carolina)",
       "bild_url": "https://en.wikipedia.org/wiki/Volvo_EX90",
-      "lieferzeit_wochen": 12
+      "lieferzeit_wochen": 12,
+      "status": "aktuell"
     },
     {
       "id": "000117",
@@ -20406,7 +20596,8 @@
       },
       "produktionsland": "China (Chengdu)",
       "bild_url": "https://en.wikipedia.org/wiki/Polestar_3",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000118",
@@ -20575,7 +20766,8 @@
       "euro_ncap": null,
       "produktionsland": "China (Zhenjiang)",
       "bild_url": "https://en.wikipedia.org/wiki/Polestar_4",
-      "lieferzeit_wochen": 10
+      "lieferzeit_wochen": 10,
+      "status": "aktuell"
     },
     {
       "id": "000119",
@@ -20744,7 +20936,8 @@
       "euro_ncap": null,
       "produktionsland": "Polen (Tychy)",
       "bild_url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Junior",
-      "lieferzeit_wochen": 8
+      "lieferzeit_wochen": 8,
+      "status": "aktuell"
     },
     {
       "id": "000120",
@@ -20913,7 +21106,10 @@
       "euro_ncap": null,
       "produktionsland": "Südkorea (Ulsan)",
       "bild_url": "https://en.wikipedia.org/wiki/Hyundai_IONIQ_9",
-      "lieferzeit_wochen": 14
+      "lieferzeit_wochen": 14,
+      "status": "aktuell"
     }
-  ]
+  ],
+  "letzte_aktualisierung": "2026-07-16",
+  "daten_stand": "Juli 2026"
 }
