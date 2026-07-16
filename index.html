@@ -77,6 +77,8 @@
   .bool-yes { color: var(--success); font-weight: 600; }
   .bool-no { color: var(--text-muted); }
   .no-data { color: var(--text-muted); font-style: italic; }
+  tr.veraltet td { background: rgba(239, 68, 68, .06); }
+  tr.veraltet .cell-modell { text-decoration: line-through; opacity: .7; }
 
   .preset-group { display: flex; gap: 6px; align-items: center; }
   .preset-group label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
@@ -130,6 +132,7 @@
     <button class="btn btn-sm" data-preset="ac22">AC 22 kW</button>
     <button class="btn btn-sm" data-preset="heatpump">W&auml;rmepumpe</button>
     <button class="btn btn-sm" data-preset="fast06">0-100 &lt; 6s</button>
+    <button class="btn btn-sm" id="btnToggleVeraltet" title="Veraltete / eingestellte Modelle anzeigen">Veraltet ausgeblendet</button>
   </div>
   <div style="margin-left:auto; display:flex; gap:8px;">
     <button class="btn btn-sm" id="btnExportCSV">CSV Export</button>
@@ -169,6 +172,8 @@ const COLUMNS = [
   { key: 'autotyp', label: 'Segment', group: '', type: 'multiselect' },
   { key: 'produkt_url', label: 'Link', group: '', type: 'link' },
   { key: 'bild_url', label: 'Bild', group: '', type: 'link' },
+  { key: 'eingestellt_grund', label: 'Einstellgrund', group: '', veraltetOnly: true },
+  { key: 'nachfolger_modell', label: 'Nachfolgemodell', group: '', type: 'link_extern', linkKey: 'nachfolger_url', veraltetOnly: true },
   { key: 'adac_note', label: 'ADAC', group: 'Sicherheit' },
   { key: 'euro_ncap.sterne', label: 'NCAP', group: 'Sicherheit' },
   { key: 'euro_ncap.erwachsene', label: 'Erw.%', group: 'Sicherheit' },
@@ -243,6 +248,7 @@ const COLUMNS = [
 const GROUP_NAMES = [...new Set(COLUMNS.map(c => c.group).filter(g => g))];
 const EXCLUDED_FROM_ALLE = new Set(['LKW']);
 let hiddenGroups = new Set();
+let showVeraltet = false;
 
 function initGroupToggles() {
   try {
@@ -298,6 +304,7 @@ function initGroupToggles() {
 }
 
 function isColVisible(col) {
+  if (col.veraltetOnly && !showVeraltet) return false;
   return !col.group || !hiddenGroups.has(col.group);
 }
 
@@ -551,6 +558,7 @@ function applyPreset(items) {
 
 function renderTable() {
   let items = [...data];
+  if (!showVeraltet) items = items.filter(d => d.status !== 'veraltet');
   const search = document.getElementById('globalSearch').value.trim().toLowerCase();
   if (search) {
     items = items.filter(d => JSON.stringify(d).toLowerCase().includes(search));
@@ -573,6 +581,7 @@ function renderTable() {
   tbody.innerHTML = '';
   items.forEach((item, idx) => {
     const tr = document.createElement('tr');
+    if (item.status === 'veraltet') tr.classList.add('veraltet');
     COLUMNS.forEach(col => {
       if (!isColVisible(col)) return;
       const v = getVal(item, col.key);
@@ -609,6 +618,15 @@ function renderTable() {
             saveUserData();
           });
           td.appendChild(inp);
+        } else if (col.type === 'link_extern') {
+          const url = getVal(item, col.linkKey);
+          if (v && url && isSafeUrl(url)) {
+            td.innerHTML = `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(String(v))}</a>`;
+          } else if (v) {
+            td.textContent = String(v);
+          } else {
+            td.innerHTML = '<span class="no-data">-</span>';
+          }
         } else {
           td.innerHTML = html;
         }
@@ -648,6 +666,7 @@ function loadUserData() {
 
 function getFilteredItems() {
   let items = [...data];
+  if (!showVeraltet) items = items.filter(d => d.status !== 'veraltet');
   const search = document.getElementById('globalSearch').value.trim().toLowerCase();
   if (search) items = items.filter(d => JSON.stringify(d).toLowerCase().includes(search));
   items = applyPreset(items);
@@ -712,6 +731,14 @@ document.getElementById('globalSearch').addEventListener('input', renderTable);
 document.querySelectorAll('[data-preset]').forEach(btn => {
   btn.addEventListener('click', () => { activePreset = btn.dataset.preset; renderTable(); });
 });
+document.getElementById('btnToggleVeraltet').addEventListener('click', () => {
+  showVeraltet = !showVeraltet;
+  const btn = document.getElementById('btnToggleVeraltet');
+  btn.textContent = showVeraltet ? 'Veraltet eingeblendet' : 'Veraltet ausgeblendet';
+  btn.classList.toggle('active', showVeraltet);
+  buildHeader();
+  renderTable();
+});
 document.getElementById('btnExportCSV').addEventListener('click', exportCSV);
 document.getElementById('btnExportJSON').addEventListener('click', () => {
   const items = getFilteredItems();
@@ -746,9 +773,14 @@ document.getElementById('btnReset').addEventListener('click', () => {
   document.getElementById('globalSearch').value = '';
   colFilters = {};
   sortCol = null; sortDir = 'asc';
+  showVeraltet = false;
+  const vtBtn = document.getElementById('btnToggleVeraltet');
+  vtBtn.textContent = 'Veraltet ausgeblendet';
+  vtBtn.classList.remove('active');
   document.querySelectorAll('.col-filter').forEach(i => i.value = '');
   document.querySelectorAll('.ms-btn').forEach(b => { b.textContent = 'Filter...'; b.classList.remove('has-selection'); });
   document.querySelectorAll('.ms-drop.open').forEach(d => d.classList.remove('open'));
+  buildHeader();
   renderTable();
 });
 
