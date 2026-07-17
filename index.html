@@ -70,8 +70,10 @@
   .src-badge { display: inline-block; font-size: 8px; background: var(--warn); color: #333; padding: 0 3px; border-radius: 3px; font-weight: 700; vertical-align: middle; margin-right: 2px; cursor: help; }
   .wish-input { width: 40px; padding: 2px 4px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); color: var(--text); text-align: center; font-size: 12px; }
   .wish-input:focus { outline: 2px solid var(--accent); border-color: transparent; }
-  .note-input { min-width: 180px; max-width: 320px; width: 100%; padding: 2px 4px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); color: var(--text); font-size: 11px; font-family: inherit; resize: none; overflow: hidden; display: block; line-height: 1.4; }
-  .note-input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+  .note-input { min-width: 200px; width: 100%; padding: 2px 4px; border: 1px solid transparent; border-radius: 3px; background: transparent; color: var(--text); font-size: 11px; font-family: inherit; resize: none; overflow: hidden; display: block; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+  .note-input:hover { border-color: var(--border); background: var(--surface); }
+  .note-input:focus { outline: 2px solid var(--accent); border-color: transparent; background: var(--surface); }
+  td[data-col-key="bemerkung"] { white-space: normal; max-width: 320px; }
   .val-min { color: var(--text); }
   .val-max { color: var(--text-muted); }
   .bool-yes { color: var(--success); font-weight: 600; }
@@ -618,7 +620,7 @@ function renderTable() {
           const autoResize = () => { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; };
           ta.addEventListener('input', autoResize);
           ta.addEventListener('change', () => { item.bemerkung = ta.value || null; saveUserData(); });
-          setTimeout(autoResize, 0);
+          requestAnimationFrame(autoResize);
           td.appendChild(ta);
         } else if (col.type === 'link_extern') {
           const url = getVal(item, col.linkKey);
