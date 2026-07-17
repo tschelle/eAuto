@@ -21108,8 +21108,148 @@
       "bild_url": "https://en.wikipedia.org/wiki/Hyundai_IONIQ_9",
       "lieferzeit_wochen": 14,
       "status": "aktuell"
+    },
+    {
+      "id": "000121",
+      "modell": "Mona L03",
+      "marke": "Xpeng",
+      "modelljahr": "2026-",
+      "plattform": "SEPA",
+      "autotyp": "Kompakt-SUV",
+      "user_wish": null,
+      "antrieb": {
+        "konzept": "Hinterradantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "n/a"
+      },
+      "leistung": {
+        "systemleistung_kw": 183,
+        "systemleistung_ps": 249,
+        "drehmoment_nm": 280,
+        "beschleunigung_0_100_s": 6.6,
+        "hoechstgeschwindigkeit_kmh": 180
+      },
+      "batterie": {
+        "brutto_kwh": null,
+        "netto_kwh": 69,
+        "chemie": "LFP",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": ["CALB"],
+        "gewicht_kg": null,
+        "garantie_jahre": null,
+        "garantie_km": null,
+        "garantie_restkapazitaet_pct": null
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "dc_max_kw": 238,
+        "dc_10_80_min": 19,
+        "ladestecker": ["CCS", "Typ 2"],
+        "vorkonditionierung": null,
+        "v2l": true,
+        "v2l_leistung_kw": 6,
+        "v2g": false,
+        "v2h": false,
+        "ac_optional_preis_eur": null,
+        "plug_and_charge": null,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": null,
+        "wltp_reichweite_km": {
+          "min": 520,
+          "max": 520
+        },
+        "realverbrauch_kwh_100km": null,
+        "realreichweite_sommer_stadt_km": null,
+        "realreichweite_autobahn_130_km": null,
+        "effizienz_wh_km": null,
+        "realreichweite_winter_km": null,
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4650,
+        "breite_mm": 1920,
+        "hoehe_mm": 1600,
+        "radstand_mm": 2850,
+        "leergewicht_kg": 1865,
+        "zulaessiges_gesamtgewicht_kg": null,
+        "kofferraum_liter": 539,
+        "kofferraum_umgeklappt_liter": 1640,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "wendekreis_m": null,
+        "bodenfreiheit_mm": null,
+        "cw_wert": 0.228,
+        "frunk": true,
+        "frunk_liter": 102,
+        "ahk_verfuegbar": false,
+        "breite_mit_spiegel_mm": null,
+        "sitze": 5,
+        "felgen_zoll": 18,
+        "display": null,
+        "dachlast_kg": null,
+        "kofferraum_elektrisch": true,
+        "ahk_preis_eur": null,
+        "hud": null,
+        "nutzlast_kg": "n/a",
+        "anzahl_achsen": "n/a",
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": null,
+        "federung_hinten": null,
+        "rekuperation": null,
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": null
+        }
+      },
+      "preis": {
+        "basispreis_eur": 35600,
+        "stromkosten_eur_100km": null,
+        "versicherung_eur_jahr": null,
+        "wertverlust_3_jahre_pct": null
+      },
+      "garantien": {
+        "fahrzeug_jahre": null,
+        "fahrzeug_km": null,
+        "akku_jahre": null,
+        "akku_km": null,
+        "akku_restkapazitaet_pct": null,
+        "lack_jahre": null,
+        "durchrostung_jahre": null,
+        "mobilitaet_jahre": null
+      },
+      "service": {
+        "wartungsintervall": null,
+        "wartungskosten_eur": null,
+        "anfaellige_punkte": null,
+        "garantie_relevant": null
+      },
+      "bemerkung": null,
+      "reifen_serie": null,
+      "quellen": [
+        "Electrek (Jul. 2026)",
+        "ArenaEV (Jul. 2026)",
+        "smartdroid.de (Jul. 2026)"
+      ],
+      "datenerfassung": "2026-07-17",
+      "adac_note": null,
+      "euro_ncap": null,
+      "ota_updates": true,
+      "produkt_url": null,
+      "produktionsland": "China",
+      "bild_url": "https://en.wikipedia.org/wiki/XPeng_Mona_L03",
+      "lieferzeit_wochen": null,
+      "status": "aktuell"
     }
   ],
-  "letzte_aktualisierung": "2026-07-16",
+  "letzte_aktualisierung": "2026-07-17",
   "daten_stand": "Juli 2026"
 }
