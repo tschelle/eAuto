@@ -874,7 +874,7 @@
         "ADAC",
         "InsideEVs.de"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 2.1,
       "euro_ncap": {
         "sterne": 5,
@@ -889,7 +889,7 @@
       "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID.4",
       "lieferzeit_wochen": 10,
       "status": "aktuell",
-      "hinweis": "MY26: neuer 79-kWh-Akku, +80-130 km mehr Reichweite als Vorgänger"
+      "hinweis": "Facelift Oktober 2026: VW ID.4 wird zu „ID.Tiguan\" umbenannt; massives Redesign, möglicher Wechsel auf LFP-Akku, Einstiegspreis ~35.000 €."
     },
     {
       "id": "000006",
@@ -1226,7 +1226,7 @@
         "ADAC",
         "InsideEVs.de"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 1.9,
       "euro_ncap": {
         "sterne": 5,
@@ -1406,7 +1406,7 @@
         "ADAC",
         "InsideEVs.de"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 1.7,
       "euro_ncap": {
         "sterne": 5,
@@ -1586,7 +1586,7 @@
         "ADAC",
         "InsideEVs.de"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 1.9,
       "euro_ncap": {
         "sterne": 5,
@@ -1767,7 +1767,7 @@
         "ADAC",
         "InsideEVs.de"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 2.3,
       "euro_ncap": {
         "sterne": 5,
@@ -2792,7 +2792,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 43000,
+        "basispreis_eur": 36962,
         "stromkosten_eur_100km": {
           "min": 5.3,
           "max": 6.3
@@ -2833,7 +2833,7 @@
         "ADAC",
         "InsideEVs.de"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 2.2,
       "euro_ncap": {
         "sterne": 5,
@@ -2848,7 +2848,7 @@
       "bild_url": "https://en.wikipedia.org/wiki/Renault_Megane_E-Tech_Electric",
       "lieferzeit_wochen": 6,
       "status": "aktuell",
-      "hinweis": "Facelift Mitte 2026: DC von 130 auf 165 kW, ~30 km mehr WLTP"
+      "hinweis": "Facelift ab Herbst 2026 bestellbar: LFP-Akku 67 kWh, 500 km WLTP, neues Design. EV60-Variante wird dann veraltet."
     },
     {
       "id": "000017",
@@ -3721,7 +3721,7 @@
         "ADAC",
         "InsideEVs.de"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 1.9,
       "euro_ncap": {
         "sterne": 5,
@@ -4608,7 +4608,7 @@
         "dacia.de (2026)",
         "ADAC"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 3.1,
       "euro_ncap": {
         "sterne": 1,
@@ -5488,7 +5488,7 @@
         "mercedes-benz.de (2026)",
         "ADAC"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 2.3,
       "euro_ncap": {
         "sterne": 5,
@@ -5627,7 +5627,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 108635,
+        "basispreis_eur": 94403,
         "stromkosten_eur_100km": {
           "min": 5.3,
           "max": 7.7
@@ -5669,7 +5669,7 @@
         "mercedes-benz.de (2026)",
         "ADAC"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 1.7,
       "euro_ncap": {
         "sterne": 5,
@@ -5683,7 +5683,7 @@
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQS",
       "lieferzeit_wochen": 12,
       "status": "aktuell",
-      "hinweis": "Facelift Apr. 2026: 800V-Architektur, 122-kWh-Akku, 350 kW DC, 926 km WLTP"
+      "hinweis": "MY2027-Version (seit 2026): 800V-Architektur, 926 km WLTP, 350 kW DC. Listenpreis von 108.635 € auf 94.403 € gesenkt."
     },
     {
       "id": "000033",
@@ -7743,7 +7743,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 58840,
+        "basispreis_eur": 59840,
         "stromkosten_eur_100km": {
           "min": 5.8,
           "max": 7.4
@@ -7785,7 +7785,7 @@
         "nissan.de (2026)",
         "ADAC"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 2.2,
       "euro_ncap": {
         "sterne": 5,
@@ -7798,7 +7798,7 @@
       "bild_url": "https://en.wikipedia.org/wiki/Nissan_Ariya",
       "lieferzeit_wochen": 8,
       "status": "aktuell",
-      "hinweis": "Facelift 2026: Sortiment auf 2 Varianten reduziert"
+      "hinweis": "Facelift MY2026: 63-kWh-Basis und Nismo gestrichen; nur noch 87-kWh (RWD 59.840 €, AWD 63.840 €)."
     },
     {
       "id": "000045",
@@ -8317,7 +8317,7 @@
         "honda.de (2026)",
         "ADAC"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 2.4,
       "euro_ncap": {
         "sterne": 5,
@@ -8853,7 +8853,7 @@
         "nio.com/de (2026)",
         "ADAC"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 2.1,
       "euro_ncap": {
         "sterne": 5,
@@ -8865,7 +8865,8 @@
       "produktionsland": "China (Hefei)",
       "bild_url": "https://en.wikipedia.org/wiki/Nio_ET5",
       "lieferzeit_wochen": 6,
-      "status": "aktuell"
+      "status": "aktuell",
+      "hinweis": "NIO Deutschland: drastisch reduzierte Präsenz (H1/2026 nur 15 Neuzulassungen); NIO schließt NIO-House-Direktvertrieb und wechselt zu Händlermodell. Praktische Verfügbarkeit sehr gering."
     },
     {
       "id": "000051",
@@ -9030,7 +9031,7 @@
         "nio.com/de (2026)",
         "ADAC"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 2.1,
       "euro_ncap": {
         "sterne": 5,
@@ -9042,7 +9043,8 @@
       "produktionsland": "China (Hefei)",
       "bild_url": "https://en.wikipedia.org/wiki/Nio_ES6",
       "lieferzeit_wochen": 6,
-      "status": "aktuell"
+      "status": "aktuell",
+      "hinweis": "NIO Deutschland: drastisch reduzierte Präsenz (H1/2026 nur 15 Neuzulassungen); NIO schließt NIO-House-Direktvertrieb und wechselt zu Händlermodell. Praktische Verfügbarkeit sehr gering."
     },
     {
       "id": "000052",
@@ -9206,7 +9208,7 @@
         "volkswagen.de (2026)",
         "ADAC"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 2.0,
       "euro_ncap": {
         "sterne": 5,
@@ -9218,7 +9220,8 @@
       "produktionsland": "Deutschland (Zwickau)",
       "bild_url": "https://en.wikipedia.org/wiki/Volkswagen_ID.5",
       "lieferzeit_wochen": 10,
-      "status": "aktuell"
+      "status": "aktuell",
+      "hinweis": "Berichte (Jul. 2026): ID.5 könnte vor Ende des Jahrzehnts eingestellt werden, ohne noch ein Facelift zu erhalten."
     },
     {
       "id": "000053",
@@ -10443,7 +10446,7 @@
         "audi.de (2026)",
         "ADAC"
       ],
-      "datenerfassung": "2026-06-20",
+      "datenerfassung": "2026-07-18",
       "adac_note": 2.0,
       "euro_ncap": {
         "sterne": 5,
@@ -10458,7 +10461,8 @@
       "status": "veraltet",
       "eingestellt": true,
       "eingestellt_grund": "Produktion Feb. 2025 beendet, Brüsseler Werk (Forest) geschlossen; kein direkter Nachfolger",
-      "nachfolger_url": "https://insideevs.de/news/741755/audi-q8-etron-produktionsende-februar2025/"
+      "nachfolger_url": "https://insideevs.de/news/741755/audi-q8-etron-produktionsende-februar2025/",
+      "nachfolger_modell": "Audi Q6 e-tron quattro"
     },
     {
       "id": "000060",
@@ -13084,7 +13088,7 @@
         "denza.com (2026)",
         "ChinaAutoNews (2026)"
       ],
-      "datenerfassung": "2026-06-21",
+      "datenerfassung": "2026-07-18",
       "adac_note": null,
       "euro_ncap": {
         "sterne": null,
@@ -14423,7 +14427,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 25000,
+        "basispreis_eur": 26600,
         "stromkosten_eur_100km": {
           "min": 4.8,
           "max": 5.3
@@ -14459,7 +14463,7 @@
         "kia.com/de (2026)",
         "Auto Motor Sport (2026)"
       ],
-      "datenerfassung": "2026-06-22",
+      "datenerfassung": "2026-07-18",
       "adac_note": null,
       "euro_ncap": {
         "sterne": null,
@@ -14594,7 +14598,7 @@
         }
       },
       "preis": {
-        "basispreis_eur": 32000,
+        "basispreis_eur": 29850,
         "stromkosten_eur_100km": {
           "min": 4.8,
           "max": 5.3
@@ -14630,7 +14634,7 @@
         "cupraofficial.de (2026)",
         "Auto Motor Sport (2026)"
       ],
-      "datenerfassung": "2026-06-26",
+      "datenerfassung": "2026-07-18",
       "adac_note": null,
       "euro_ncap": {
         "sterne": null,
@@ -14643,8 +14647,9 @@
       "produkt_url": "https://www.cupraofficial.de/modelle/raval.html",
       "produktionsland": "Spanien (Martorell)",
       "bild_url": "https://en.wikipedia.org/wiki/Cupra_Raval",
-      "lieferzeit_wochen": 8,
-      "status": "aktuell"
+      "lieferzeit_wochen": 26,
+      "status": "aktuell",
+      "hinweis": "Raval Plus (99 kW/37 kWh) ab 29.850 € (seit 15.07.2026); Endurance ab 34.790 €; VZ ab 39.990 €. Auslieferung ab Q4 2026."
     },
     {
       "id": "000084",
@@ -19717,13 +19722,16 @@
         "ADAC (2025)",
         "auto motor sport (2024)"
       ],
-      "datenerfassung": "2026-07-02",
+      "datenerfassung": "2026-07-18",
       "adac_note": null,
       "euro_ncap": null,
       "produktionsland": "USA (Tuscaloosa, Alabama)",
       "bild_url": "https://en.wikipedia.org/wiki/Mercedes-Benz_EQE_SUV",
       "lieferzeit_wochen": 10,
-      "status": "aktuell"
+      "status": "veraltet",
+      "eingestellt_grund": "EQE-SUV-Produktion 2026 eingestellt; ersetzt durch GLC EQ auf MB.EA-M-Plattform (800V)",
+      "nachfolger_modell": "Mercedes GLC EQ",
+      "nachfolger_url": null
     },
     {
       "id": "000113",
@@ -21136,7 +21144,9 @@
         "chemie": "LFP",
         "systemspannung_v": 400,
         "zelltyp": "prismatisch",
-        "zelllieferant": ["CALB"],
+        "zelllieferant": [
+          "CALB"
+        ],
         "gewicht_kg": null,
         "garantie_jahre": null,
         "garantie_km": null,
@@ -21147,7 +21157,10 @@
         "ac_optional_kw": null,
         "dc_max_kw": 238,
         "dc_10_80_min": 19,
-        "ladestecker": ["CCS", "Typ 2"],
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
         "vorkonditionierung": null,
         "v2l": true,
         "v2l_leistung_kw": 6,
@@ -21250,6 +21263,6 @@
       "status": "aktuell"
     }
   ],
-  "letzte_aktualisierung": "2026-07-17",
+  "letzte_aktualisierung": "2026-07-18",
   "daten_stand": "Juli 2026"
 }
