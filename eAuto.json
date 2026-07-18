@@ -21350,6 +21350,94 @@
         "insideevs.de (2026)",
         "adac.de (2026)"
       ]
+    },
+    {
+      "id": "000123",
+      "modell": "Denza Z",
+      "marke": "Denza",
+      "modelljahr": "2026-",
+      "plattform": "BYD e-Platform 4.0",
+      "autotyp": "Supersportwagen",
+      "user_wish": null,
+      "produkt_url": "https://www.denza.com",
+      "antrieb": {
+        "konzept": "Allradantrieb (AWD)",
+        "anzahl_motoren": 4,
+        "motortyp": "PSM",
+        "achskonfiguration": "je ein Motor pro Rad"
+      },
+      "leistung": {
+        "systemleistung_kw": 1179,
+        "systemleistung_ps": 1604,
+        "drehmoment_nm": 1240,
+        "beschleunigung_0_100_s": 2.25,
+        "hoechstgeschwindigkeit_kmh": 300
+      },
+      "batterie": {
+        "netto_kwh": 76,
+        "systemspannung_v": 800,
+        "chemie": "LFP",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "BYD"
+        ],
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "dc_max_kw": 1500,
+        "dc_10_80_min": 6,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": null,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": null,
+        "v2l_leistung_kw": null,
+        "v2h": null,
+        "v2g": null
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 380,
+          "max": 410
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4780,
+        "breite_mm": 1990,
+        "hoehe_mm": 1350,
+        "radstand_mm": 2780,
+        "leergewicht_kg": 2300,
+        "sitze": 2,
+        "kofferraum_liter": 250,
+        "kofferraum_umgeklappt_liter": 550,
+        "frunk": null,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false,
+        "kofferraum_elektrisch": null
+      },
+      "fahrwerk": {
+        "waermepumpe": null,
+        "rekuperation": "mehrere Stufen"
+      },
+      "preis": {
+        "basispreis_eur": 167200
+      },
+      "ota_updates": true,
+      "produktionsland": "China",
+      "status": "aktuell",
+      "datenerfassung": "2026-07-18",
+      "bemerkung": "Supersportwagen in 3 Varianten: Coupé (410 km, ab 167.200 €), Spider (400 km, ab 187.100 €), Racing (380 km, ab 202.300 €). BYD Flash Charging: 10–70 % in 5 min, 10–97 % in 9 min (max. 1.500 kW). Blade Battery 2nd Gen (Cell-to-Body).",
+      "quellen": [
+        "insideevs.de (2026)",
+        "auto-motor-und-sport.de (2026)",
+        "ecomento.de (2026)"
+      ]
     }
   ],
   "letzte_aktualisierung": "2026-07-18",
