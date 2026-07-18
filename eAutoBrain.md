@@ -7,7 +7,7 @@ Strukturierte Erfassung und Vergleich vollelektrischer Fahrzeuge (BEV) anhand ei
 
 ## Status
 
-### Erfasste Fahrzeuge (120 Varianten, 52 Marken — Stand 2026-07-05)
+### Erfasste Fahrzeuge (122 Varianten, 52 Marken — Stand 2026-07-18)
 
 Eingebettete Daten im HTML (FIXIERT — 23 Varianten, 15 Marken):
 BMW (iX1 eDrive20, iX1 xDrive30, i4 eDrive40), Tesla (Model 3 LR, Model Y LR),
@@ -16,11 +16,11 @@ Mercedes (EQA 250+, EQE 350+), BYD (Atto 3, Seal), Polestar 2,
 Skoda Enyaq 85, Cupra Born, Renault Megane E-Tech, Volvo EX30,
 MG4 Electric, Audi Q4 e-tron 55, Opel Mokka Electric
 
-Nur in eAuto.json (97 weitere Varianten):
+Nur in eAuto.json (99 weitere Varianten):
 - Kleinwagen: Fiat (500e, 600e), Dacia Spring, Mini (Cooper SE, Countryman SE ALL4), Peugeot e-208, Kia EV2, Cupra Raval
 - Smart: #1, #3
-- Mercedes: EQB 250+, EQS 450+, EQE SUV 350+, EQS SUV 450+
-- XPENG: G6
+- Mercedes: EQB 250+, EQS 450+, EQE SUV 350+ (veraltet), EQS SUV 450+, GLC 400 EQ 4MATIC
+- XPENG: G6, Mona L03
 - Premium: Porsche (Macan Electric, Macan GTS, Taycan, Taycan Sport Turismo, Taycan Cross Turismo, Cayenne Electric, Cayenne Coupé Electric), BMW (iX xDrive50, i5 eDrive40, iX3 Neue Klasse, i7 xDrive60), Lexus RZ 450e, Genesis GV60
 - Volumen: VW (ID.3 Pro S, ID.5 Pro, ID. Buzz LWB), Ford (Mustang Mach-E, Explorer), Peugeot (e-3008, e-208), Nissan Ariya, Toyota bZ4X, Renault (5 E-Tech, Scenic E-Tech), Kia (EV5, EV9 GT-Line AWD, PV5 Passenger)
 - Nischen: Jeep Avenger, Honda e:Ny1, Citroen (e-C4, e-C3 44 kWh)
@@ -47,7 +47,7 @@ Quelle: eAuto_intern.json → uebertragen in eAuto.json am 2026-06-20.
 | Datei | Beschreibung |
 |---|---|
 | **eAutoBrain.md** | Projektdokumentation und Anleitung (diese Datei) |
-| **eAuto.json** | Zentrale Fahrzeugdaten (120 Fahrzeuge, alle Felder) |
+| **eAuto.json** | Zentrale Fahrzeugdaten (122 Fahrzeuge, alle Felder) |
 | **eAuto_intern.json** | Persoenliche Arbeitsdatei mit Bemerkungen/Probefahrt-Notizen (nicht im Repo) |
 | **BMW_iX1.md** | Lesbares Datenblatt BMW iX1 (Detailansicht) |
 | **index.html** | Elektroauto-Vergleichstabelle (laedt eAuto.json per fetch) |
@@ -102,11 +102,13 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 - **Sticky Header** — Ueberschriften bleiben beim vertikalen Scrollen sichtbar
 - **Horizontales Scrollen** — Scrollbar immer sichtbar
 - **Gruppen-Header** — farbige Zeile ueber den Spalten mit Gruppenname
+- **ⓘ Info-Icons** — jeder Spaltenheader hat ein klickbares ⓘ-Symbol; Klick zeigt deutschsprachige Beschreibung der Spalte als Floating-Popup
 - **Spaltenfilter** — Eingabefeld unter jeder Spalte:
   - Freitext: filtert auf Teilstring
   - `>Zahl`: groesser als (z.B. `>400`)
   - `<Zahl`: kleiner als (z.B. `<50000`)
   - `=Wert`: exakter Match
+  - **Multiselect** (Segment, Chemie, Zelltyp): Dropdown mit Mehrfachauswahl per Checkbox
 - **Sortierung** — Klick auf Spaltenheader (aufsteigend/absteigend)
 - **Praeferenz** — editierbares Zahlenfeld pro Zeile (LocalStorage)
 - **Bemerkung** — editierbares Textfeld pro Zeile (LocalStorage)
@@ -115,7 +117,7 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 
 ### Statusleiste (unten)
 - Links: Anzahl Varianten/Modelle (gefiltert / gesamt)
-- Rechts: Datenquelle (z.B. "eAuto.json geladen (120 Fahrzeuge)" oder "Eingebettete Daten (23 Fahrzeuge)")
+- Rechts: Datenquelle (z.B. "eAuto.json geladen (122 Fahrzeuge)" oder "Eingebettete Daten (23 Fahrzeuge)")
 
 ---
 
@@ -126,7 +128,7 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 | (ohne) | ID, Pref, Modell, Marke, Segment, Link, Bild | immer sichtbar |
 | Sicherheit | ADAC, NCAP Sterne, Erw.%, Kind%, Fuss%, Assi% | ja |
 | Motor | Antrieb, kW, PS, Nm, 0-100, Vmax | ja |
-| Batterie | kWh netto, Volt, Chemie, Zelltyp | ja |
+| Batterie | kWh netto, Volt, Chemie (Multiselect), Zelltyp (Multiselect) | ja |
 | Laden | DC kW, 10-80%, AC kW, AC opt., AC opt. EUR, V2L, V2L kW, P&C, Routenpl. | ja |
 | Reichweite | WLTP kWh (min/max), WLTP km (min/max), Real kWh (min/max), Winter km | ja |
 | Abmessungen | Laenge, Breite, Br. Spiegel, Hoehe, Radstand, Bodenfreiheit, Sitze, Felgen, Display, Wendekreis, cw, Dachlast, HUD | ja |
@@ -192,7 +194,7 @@ Dann im Browser: `http://localhost:9090/index.html`
 
 ### Lokal starten (ohne Server)
 `index.html` doppelklicken → zeigt 23 eingebettete Fahrzeuge (mit "int"-Badge).
-Alle 120: JSON-Import-Button nutzen und `eAuto.json` auswaehlen.
+Alle 122: JSON-Import-Button nutzen und `eAuto.json` auswaehlen.
 
 ### Neues Fahrzeug hinzufuegen (mit Claude Code)
 1. Claude Code oeffnen (App, Desktop oder claude.ai/code)
@@ -229,6 +231,19 @@ Wichtig fuer Claude Code:
 - **Live:** https://tschelle.github.io/eAuto/index.html
 - **Branch:** main
 - **Auto-Deploy:** GitHub Actions (pages.yml) — bei jedem Push auf main, ~1–2 Min
+
+---
+
+## Changelog
+
+| Datum | Aenderung |
+|---|---|
+| 2026-07-18 | Aktualitaetspruefung Juli 2026: 20 Eintraege aktualisiert (Status, Preise, Hinweise) |
+| 2026-07-18 | Mercedes GLC 400 EQ 4MATIC (000122) hinzugefuegt |
+| 2026-07-17 | Xpeng Mona L03 (000121) hinzugefuegt |
+| 2026-07-17 | Multiselect-Filter fuer Chemie und Zelltyp (wie Segment) |
+| 2026-07-17 | ⓘ Info-Icons fuer alle 70 Spaltenheader mit deutschen Beschreibungen |
+| 2026-07-05 | Erststand: 120 Fahrzeuge, alle Features |
 
 ---
 
