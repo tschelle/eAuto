@@ -21261,6 +21261,95 @@
       "bild_url": "https://en.wikipedia.org/wiki/XPeng_Mona_L03",
       "lieferzeit_wochen": null,
       "status": "aktuell"
+    },
+    {
+      "id": "000122",
+      "modell": "GLC 400 EQ 4MATIC",
+      "marke": "Mercedes-Benz",
+      "modelljahr": "2026-",
+      "plattform": "MB.EA-M",
+      "autotyp": "SUV (Premium)",
+      "user_wish": null,
+      "produkt_url": "https://www.mercedes-benz.de/passengercars/models/suv/glc-electric/overview.html",
+      "antrieb": {
+        "konzept": "Allradantrieb (AWD)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "Vorder- und Hinterachse"
+      },
+      "leistung": {
+        "systemleistung_kw": 360,
+        "systemleistung_ps": 490,
+        "drehmoment_nm": 800,
+        "beschleunigung_0_100_s": 4.3,
+        "hoechstgeschwindigkeit_kmh": 210
+      },
+      "batterie": {
+        "netto_kwh": 94,
+        "systemspannung_v": 800,
+        "chemie": "NMC",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "dc_max_kw": 330,
+        "dc_10_80_min": 22,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": true,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": true,
+        "v2l_leistung_kw": null,
+        "v2h": true,
+        "v2g": true
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 670,
+          "max": 713
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4845,
+        "breite_mm": 1910,
+        "hoehe_mm": 1640,
+        "radstand_mm": 2970,
+        "leergewicht_kg": 2535,
+        "sitze": 5,
+        "kofferraum_liter": 570,
+        "kofferraum_umgeklappt_liter": 1740,
+        "frunk": true,
+        "frunk_liter": 128,
+        "ahk_verfuegbar": true,
+        "kofferraum_elektrisch": true
+      },
+      "fahrwerk": {
+        "waermepumpe": true,
+        "rekuperation": "mehrere Stufen + One-Pedal"
+      },
+      "preis": {
+        "basispreis_eur": 71281
+      },
+      "ota_updates": true,
+      "produktionsland": "Deutschland (Bremen)",
+      "status": "aktuell",
+      "datenerfassung": "2026-07-18",
+      "bemerkung": "Nachfolger des EQE SUV. MB.EA-M-Plattform mit 800V-Architektur und bis zu 330 kW DC-Ladeleistung (10–80 % in ca. 22 min). V2H und V2G serienmäßig.",
+      "quellen": [
+        "mercedes-benz.de (2026)",
+        "insideevs.de (2026)",
+        "adac.de (2026)"
+      ]
     }
   ],
   "letzte_aktualisierung": "2026-07-18",
