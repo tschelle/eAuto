@@ -7,7 +7,7 @@ Strukturierte Erfassung und Vergleich vollelektrischer Fahrzeuge (BEV) anhand ei
 
 ## Status
 
-### Erfasste Fahrzeuge (122 Varianten, 52 Marken — Stand 2026-07-18)
+### Erfasste Fahrzeuge (123 Varianten, 52 Marken — Stand 2026-07-18)
 
 Eingebettete Daten im HTML (FIXIERT — 23 Varianten, 15 Marken):
 BMW (iX1 eDrive20, iX1 xDrive30, i4 eDrive40), Tesla (Model 3 LR, Model Y LR),
@@ -16,7 +16,7 @@ Mercedes (EQA 250+, EQE 350+), BYD (Atto 3, Seal), Polestar 2,
 Skoda Enyaq 85, Cupra Born, Renault Megane E-Tech, Volvo EX30,
 MG4 Electric, Audi Q4 e-tron 55, Opel Mokka Electric
 
-Nur in eAuto.json (99 weitere Varianten):
+Nur in eAuto.json (100 weitere Varianten):
 - Kleinwagen: Fiat (500e, 600e), Dacia Spring, Mini (Cooper SE, Countryman SE ALL4), Peugeot e-208, Kia EV2, Cupra Raval
 - Smart: #1, #3
 - Mercedes: EQB 250+, EQS 450+, EQE SUV 350+ (veraltet), EQS SUV 450+, GLC 400 EQ 4MATIC
@@ -25,7 +25,7 @@ Nur in eAuto.json (99 weitere Varianten):
 - Volumen: VW (ID.3 Pro S, ID.5 Pro, ID. Buzz LWB), Ford (Mustang Mach-E, Explorer), Peugeot (e-3008, e-208), Nissan Ariya, Toyota bZ4X, Renault (5 E-Tech, Scenic E-Tech), Kia (EV5, EV9 GT-Line AWD, PV5 Passenger)
 - Nischen: Jeep Avenger, Honda e:Ny1, Citroen (e-C4, e-C3 44 kWh)
 - Nachzügler: Skoda Elroq 85, Cupra Tavascan VZ, Mercedes CLA 250+ EQ, Hyundai (Kona 65 kWh, Inster LR, IONIQ 9 LR AWD), Opel Corsa Electric 51 kWh
-- China: NIO (ET5, EL6) — mit Batterietausch, Deepal S05, Denza (D9 EV, N7, Z9 GT), Zeekr (X, 001, 007, 009, Mix)
+- China: NIO (ET5, EL6) — mit Batterietausch, Deepal S05, Denza (D9 EV, N7, Z9 GT, Z), Zeekr (X, 001, 007, 009, Mix)
 - Oberklasse: Lucid (Air Pure, Air Grand Touring, Gravity), Tesla (Model S, Model X), Mercedes EQV 300, Ferrari Luce
 - Ergänzt: Audi (Q4 Sportback, Q6, Q6 Sportback, Q8, e-tron GT, A6 e-tron), BMW iX2, Volvo (EX40 ER, EX90 Twin), Polestar (3, 4), Alfa Romeo Junior
 - Campervan: Tonke (ID.Buzz Explorer, EQV Touring), Iridium e-V25, Poessl E-Vanster
@@ -47,7 +47,7 @@ Quelle: eAuto_intern.json → uebertragen in eAuto.json am 2026-06-20.
 | Datei | Beschreibung |
 |---|---|
 | **eAutoBrain.md** | Projektdokumentation und Anleitung (diese Datei) |
-| **eAuto.json** | Zentrale Fahrzeugdaten (122 Fahrzeuge, alle Felder) |
+| **eAuto.json** | Zentrale Fahrzeugdaten (123 Fahrzeuge, alle Felder) |
 | **eAuto_intern.json** | Persoenliche Arbeitsdatei mit Bemerkungen/Probefahrt-Notizen (nicht im Repo) |
 | **BMW_iX1.md** | Lesbares Datenblatt BMW iX1 (Detailansicht) |
 | **index.html** | Elektroauto-Vergleichstabelle (laedt eAuto.json per fetch) |
@@ -117,7 +117,7 @@ Toggle-Buttons zum Ein-/Ausblenden von Spaltengruppen. Zustand wird in LocalStor
 
 ### Statusleiste (unten)
 - Links: Anzahl Varianten/Modelle (gefiltert / gesamt)
-- Rechts: Datenquelle (z.B. "eAuto.json geladen (122 Fahrzeuge)" oder "Eingebettete Daten (23 Fahrzeuge)")
+- Rechts: Datenquelle (z.B. "eAuto.json geladen (123 Fahrzeuge)" oder "Eingebettete Daten (23 Fahrzeuge)")
 
 ---
 
@@ -194,7 +194,7 @@ Dann im Browser: `http://localhost:9090/index.html`
 
 ### Lokal starten (ohne Server)
 `index.html` doppelklicken → zeigt 23 eingebettete Fahrzeuge (mit "int"-Badge).
-Alle 122: JSON-Import-Button nutzen und `eAuto.json` auswaehlen.
+Alle 123: JSON-Import-Button nutzen und `eAuto.json` auswaehlen.
 
 ### Neues Fahrzeug hinzufuegen (mit Claude Code)
 1. Claude Code oeffnen (App, Desktop oder claude.ai/code)
@@ -238,6 +238,7 @@ Wichtig fuer Claude Code:
 
 | Datum | Aenderung |
 |---|---|
+| 2026-07-18 | Denza Z (000123) hinzugefuegt — Supersportwagen, 1.604 PS, 1.500 kW Laden |
 | 2026-07-18 | Aktualitaetspruefung Juli 2026: 20 Eintraege aktualisiert (Status, Preise, Hinweise) |
 | 2026-07-18 | Mercedes GLC 400 EQ 4MATIC (000122) hinzugefuegt |
 | 2026-07-17 | Xpeng Mona L03 (000121) hinzugefuegt |
