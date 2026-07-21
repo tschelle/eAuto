@@ -21438,6 +21438,100 @@
         "auto-motor-und-sport.de (2026)",
         "ecomento.de (2026)"
       ]
+    },
+    {
+      "id": "000124",
+      "modell": "EQC 400 4MATIC",
+      "marke": "Mercedes-Benz",
+      "modelljahr": "2019-2023",
+      "plattform": "EVA (MRA-basiert)",
+      "autotyp": "SUV (Mittelklasse)",
+      "user_wish": null,
+      "produkt_url": "https://www.mercedes-benz.de/passengercars/mercedes-benz-cars/models/eqc",
+      "antrieb": {
+        "konzept": "Allradantrieb (4MATIC)",
+        "anzahl_motoren": 2,
+        "motortyp": "PSM",
+        "achskonfiguration": "Vorder- und Hinterachse"
+      },
+      "leistung": {
+        "systemleistung_kw": 300,
+        "systemleistung_ps": 408,
+        "drehmoment_nm": 765,
+        "beschleunigung_0_100_s": 5.1,
+        "hoechstgeschwindigkeit_kmh": 180
+      },
+      "batterie": {
+        "brutto_kwh": 85,
+        "netto_kwh": 80,
+        "systemspannung_v": 400,
+        "chemie": "NMC",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "SK Innovation"
+        ],
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "dc_max_kw": 110,
+        "dc_10_80_min": 40,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": false,
+        "laderoutenplaner": true,
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2l_leistung_kw": null,
+        "v2h": false,
+        "v2g": false
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 408,
+          "max": 432
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 4762,
+        "breite_mm": 1884,
+        "hoehe_mm": 1624,
+        "radstand_mm": 2873,
+        "leergewicht_kg": 2495,
+        "sitze": 5,
+        "kofferraum_liter": 500,
+        "kofferraum_umgeklappt_liter": 1460,
+        "frunk": false,
+        "frunk_liter": 0,
+        "ahk_verfuegbar": true,
+        "ahk_preis_eur": 1095,
+        "anhaengelast_gebremst_kg": 1800,
+        "cw_wert": 0.28,
+        "kofferraum_elektrisch": true
+      },
+      "fahrwerk": {
+        "waermepumpe": false,
+        "rekuperation": "3 Stufen + One-Pedal (DAuto)"
+      },
+      "preis": {
+        "basispreis_eur": 69484
+      },
+      "ota_updates": true,
+      "produktionsland": "Deutschland (Bremen)",
+      "status": "eingestellt",
+      "eingestellt_grund": "Produktion 2023 eingestellt; ersetzt durch Mercedes GLC EQ auf MB.EA-M-Plattform (800V)",
+      "nachfolger_modell": "Mercedes GLC EQ",
+      "datenerfassung": "2026-07-18",
+      "bemerkung": "Erster vollelektrischer Mercedes-SUV (N293). Erste Generation auf Basis des GLC (Verbrenner). Nur 110 kW DC-Laden für die Batteriegröße — ein bekannter Schwachpunkt.",
+      "quellen": [
+        "mercedes-benz.de",
+        "adac.de",
+        "ev-database.org"
+      ]
     }
   ],
   "letzte_aktualisierung": "2026-07-18",
