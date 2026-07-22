@@ -756,7 +756,11 @@ async function loadData() {
     const json = await resp.json();
     data = json.fahrzeuge || [];
     dataSource = 'json';
-    document.getElementById('statusFile').textContent = `eAuto.json geladen (${data.length} Fahrzeuge)`;
+    const aktDate = json.letzte_aktualisierung
+      ? new Date(json.letzte_aktualisierung).toLocaleDateString('de-DE', {day:'2-digit',month:'2-digit',year:'numeric'})
+      : null;
+    document.getElementById('statusFile').textContent =
+      `eAuto.json geladen (${data.length} Fahrzeuge)` + (aktDate ? ` · Aktualisiert: ${aktDate}` : '');
   } catch(e) {
     data = JSON.parse(JSON.stringify(DEFAULT_DATA.fahrzeuge));
     dataSource = 'embedded';
