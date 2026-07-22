@@ -51,6 +51,7 @@ Quelle: eAuto_intern.json → uebertragen in eAuto.json am 2026-06-20.
 | **eAuto_intern.json** | Persoenliche Arbeitsdatei mit Bemerkungen/Probefahrt-Notizen (nicht im Repo) |
 | **BMW_iX1.md** | Lesbares Datenblatt BMW iX1 (Detailansicht) |
 | **index.html** | Elektroauto-Vergleichstabelle (laedt eAuto.json per fetch) |
+| **Start.html** | Startseite / Vergleichsportal-Landingpage (Fahrzeugzahl wird per fetch aus eAuto.json geladen) |
 
 ---
 
