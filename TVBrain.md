@@ -7,7 +7,7 @@ Vergleich der besten Fernseher der Jahrgaenge 2025 und 2026 anhand einheitlicher
 
 ## Status
 
-### Erfasste Geraete (21 Fernseher, 7 Marken — Stand 2026-07-23)
+### Erfasste Geraete (22 Fernseher, 8 Marken — Stand 2026-07-23)
 
 | Rang | Marke | Modell | Jahr | Technologie | Aufloesung |
 |------|-------|--------|------|-------------|------------|
@@ -32,6 +32,7 @@ Vergleich der besten Fernseher der Jahrgaenge 2025 und 2026 anhand einheitlicher
 | 19 | Sony | Bravia 9 II | 2026 | Mini-LED | 4K |
 | 20 | LG | G6 OLED | 2026 | WOLED | 4K |
 | 21 | Samsung | S95H QD-OLED | 2026 | QD-OLED | 4K |
+| 22 | Sharp | JP7265E Mini-LED | 2025 | Mini-LED | 4K |
 
 ---
 

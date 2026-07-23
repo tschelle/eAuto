@@ -650,6 +650,37 @@
       "kategorie": "OLED Premium",
       "besonderheit": "Neuestes Samsung-Flaggschiff (Juli 2026), Nachfolger des S95G. Neues Penta-Tandem-QD-OLED-Panel, ca. 30% heller als S95F (bis 2.750 nits). FloatLayer-Wanddesign, 165 Hz Gaming mit G-Sync und FreeSync Premium Pro. Bis 65\" reines QD-OLED-Panel; 83\" nutzt ein WOLED-Panel von LG Display. Kein Dolby Vision.",
       "produkt_url": "https://www.samsung.com/de/tvs/oled-tv/s95h-65-inch-4k-smart-tv-gq65s95hftxzg/"
+    },
+    {
+      "rang": 22,
+      "marke": "Sharp",
+      "modell": "JP7265E Mini-LED",
+      "vollname": "Sharp AQUOS JP7265E QLED Mini-LED",
+      "jahr": 2025,
+      "technologie": "Mini-LED",
+      "panel": "QLED Mini-LED (192 Zonen)",
+      "aufloesung": "4K",
+      "groessen_zoll": [50, 55, 65, 75],
+      "helligkeit_hdr_nits": 700,
+      "helligkeit_sdr_nits": 400,
+      "hdmi_2_1_ports": 4,
+      "refresh_rate_hz": 60,
+      "dolby_vision": true,
+      "hdr10_plus": false,
+      "hlg": true,
+      "vrr": true,
+      "g_sync": false,
+      "freesync": false,
+      "betriebssystem": "Google TV",
+      "lautsprecher_watt": 24,
+      "earc": true,
+      "preis_55_eur": 380,
+      "preis_65_eur": 699,
+      "preis_77_eur": null,
+      "rtings_score": 8.3,
+      "kategorie": "Mini-LED Einstieg",
+      "besonderheit": "Bestes Preis-Leistungs-2025-Modell bis 55 Zoll, guenstigster Fernseher im gesamten Vergleich (55\" ca. 380 EUR). Kein RTINGS-Test verfuegbar (Sharp wird dort nicht gelistet) – Bewertung basiert auf deutschen Testberichten (u.a. testberichte.de: Note 1,3 'sehr gut' fuer die 65\"-Version). 192-Zonen-Mini-LED mit Dolby Vision, Harman-Kardon-Sound, Google TV. Kompromisse: nur 60 Hz (kein High-Refresh-Gaming), kein HDR10+.",
+      "produkt_url": "https://www.sharpconsumer.de/tv/55jp7265e/"
     }
   ]
 }
