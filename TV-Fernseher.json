@@ -499,37 +499,6 @@
     {
       "rang": 17,
       "marke": "LG",
-      "modell": "Z3 OLED 8K",
-      "vollname": "LG Z3 OLED evo 8K",
-      "jahr": 2024,
-      "technologie": "WOLED",
-      "panel": "evo 8K",
-      "aufloesung": "8K",
-      "groessen_zoll": [77, 88],
-      "helligkeit_hdr_nits": 1800,
-      "helligkeit_sdr_nits": 650,
-      "hdmi_2_1_ports": 4,
-      "refresh_rate_hz": 120,
-      "dolby_vision": true,
-      "hdr10_plus": false,
-      "hlg": true,
-      "vrr": true,
-      "g_sync": true,
-      "freesync": true,
-      "betriebssystem": "webOS 24",
-      "lautsprecher_watt": 80,
-      "earc": true,
-      "preis_55_eur": null,
-      "preis_65_eur": null,
-      "preis_77_eur": 6999,
-      "rtings_score": 8.9,
-      "kategorie": "8K Premium",
-      "besonderheit": "KORRIGIERT: 'Z6' existiert nicht – LG hat die 8K-OLED-Entwicklung Ende 2025 komplett eingestellt (kein Nachfolger fuer 2026, Samsung ist der letzte verbliebene 8K-TV-Hersteller). Der Z3 (2024) ist das letzte reale LG-8K-OLED-Modell, noch als Restbestand erhaeltlich. Einzigartiges 8K-OLED, perfektes Schwarz. Nur sinnvoll ab 77\" in sehr großem Raum. Preis unbestaetigt/Richtwert, da kaum noch aktive Haendlerangebote.",
-      "produkt_url": "https://www.lg.com/de/tvs-und-soundbars/8k-tvs/oled77z39la/"
-    },
-    {
-      "rang": 18,
-      "marke": "LG",
       "modell": "G6 OLED",
       "vollname": "LG G6 OLED evo10",
       "jahr": 2026,
@@ -559,7 +528,7 @@
       "produkt_url": "https://www.lg.com/de/fernseher/oled-fernseher/"
     },
     {
-      "rang": 19,
+      "rang": 18,
       "marke": "Samsung",
       "modell": "S90H QD-OLED",
       "vollname": "Samsung S90H OLED",
@@ -590,7 +559,7 @@
       "produkt_url": "https://www.samsung.com/de/tvs/oled-tv/s90h-65-inch-4k-smart-tv-gq65s90haexzg/"
     },
     {
-      "rang": 20,
+      "rang": 19,
       "marke": "Sony",
       "modell": "Bravia 9 II",
       "vollname": "Sony Bravia 9 II Mini-LED",
@@ -621,7 +590,7 @@
       "produkt_url": "https://www.sony.de/de/televisions/"
     },
     {
-      "rang": 21,
+      "rang": 20,
       "marke": "Samsung",
       "modell": "S95H QD-OLED",
       "vollname": "Samsung S95H QD-OLED FloatLayer",
@@ -648,11 +617,11 @@
       "preis_77_eur": 4249,
       "rtings_score": 9.4,
       "kategorie": "OLED Premium",
-      "besonderheit": "Neuestes Samsung-Flaggschiff (Juli 2026), Nachfolger des S95G. Neues Penta-Tandem-QD-OLED-Panel, ca. 30% heller als S95F (bis 2.750 nits). FloatLayer-Wanddesign, 165 Hz Gaming mit G-Sync und FreeSync Premium Pro. Bis 65\" reines QD-OLED-Panel; 83\" nutzt ein WOLED-Panel von LG Display. Kein Dolby Vision.",
+      "besonderheit": "Neuestes Samsung-Flaggschiff (Juli 2026), Nachfolger des S95F. Neues Penta-Tandem-QD-OLED-Panel, ca. 30% heller als S95F (bis 2.750 nits). FloatLayer-Wanddesign, 165 Hz Gaming mit G-Sync und FreeSync Premium Pro. Bis 65\" reines QD-OLED-Panel; 83\" nutzt ein WOLED-Panel von LG Display. Kein Dolby Vision.",
       "produkt_url": "https://www.samsung.com/de/tvs/oled-tv/s95h-65-inch-4k-smart-tv-gq65s95hftxzg/"
     },
     {
-      "rang": 22,
+      "rang": 21,
       "marke": "Sharp",
       "modell": "JP7265E Mini-LED",
       "vollname": "Sharp AQUOS JP7265E QLED Mini-LED",
