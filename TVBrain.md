@@ -23,12 +23,12 @@ Vergleich der besten Fernseher der Jahrgaenge 2025 und 2026 anhand einheitlicher
 | 10 | Samsung | QN90F Neo QLED | 2025 | Mini-LED | 4K |
 | 11 | Hisense | U9N Mini-LED | 2025 | Mini-LED | 4K |
 | 12 | LG | QNED99 Mini-LED | 2025 | Mini-LED | 4K |
-| 13 | TCL | QM891G Mini-LED | 2025 | Mini-LED | 4K |
+| 13 | TCL | C855K QD-Mini-LED | 2025 | Mini-LED | 4K |
 | 14 | Samsung | QN85F Neo QLED | 2025 | Mini-LED | 4K |
 | 15 | Hisense | U8N Mini-LED | 2025 | Mini-LED | 4K |
 | 16 | Samsung | QN900F Neo QLED | 2025 | Mini-LED | 8K |
-| 17 | LG | Z6 OLED | 2025 | WOLED | 8K |
-| 18 | Samsung | S95G QD-OLED | 2026 | QD-OLED | 4K |
+| 17 | LG | Z3 OLED | 2024 | WOLED | 8K |
+| 18 | Samsung | S90H QD-OLED | 2026 | QD-OLED | 4K |
 | 19 | Sony | Bravia 9 II | 2026 | Mini-LED | 4K |
 | 20 | LG | G6 OLED | 2026 | WOLED | 4K |
 | 21 | Samsung | S95H QD-OLED | 2026 | QD-OLED | 4K |
