@@ -198,6 +198,29 @@ Dann im Browser: `http://localhost:9090/index.html`
 `index.html` doppelklicken → zeigt 23 eingebettete Fahrzeuge (mit "int"-Badge).
 Alle 125: JSON-Import-Button nutzen und `eAuto.json` auswaehlen.
 
+### Quartals-Review (Standard-Prompt)
+
+Einmal pro Quartal (Jan / Apr / Jul / Okt) folgenden Prompt verwenden:
+
+```
+Fuehre einen Quartals-Review der eAuto.json durch (Stand: [DATUM]).
+Pruefe fuer alle Fahrzeuge mit Status 'aktuell':
+1. Preisaenderungen gegenueber aktuellem Hersteller-Konfigurator
+2. Neue NCAP-Ergebnisse (euroncap.com) seit letztem Review
+3. Neue ADAC-Noten (adac.de)
+4. Einstellungen / Nachfolger angekuendigt?
+5. Neue relevante BEV-Modelle die noch fehlen?
+Aktualisiere betroffene Eintraege, setze datenerfassung auf heute,
+update letzte_aktualisierung im JSON-Header, dann commit und push.
+```
+
+Quellen: electrive.net, ev-database.org, euroncap.com, adac.de/infotestrat/autodatenbank
+
+**Hinweis:** In der Vergleichstabelle (index.html) erscheint automatisch ein ⏰-Badge
+neben dem Modellnamen, wenn `datenerfassung` aelter als 6 Monate ist.
+
+---
+
 ### Neues Fahrzeug hinzufuegen (mit Claude Code)
 1. Claude Code oeffnen (App, Desktop oder claude.ai/code)
 2. Diese Datei (`eAutoBrain.md`) als Kontext uebergeben
@@ -240,6 +263,8 @@ Wichtig fuer Claude Code:
 
 | Datum | Aenderung |
 |---|---|
+| 2026-07-23 | index.html: ⏰-Badge bei Fahrzeugen mit datenerfassung aelter als 6 Monate |
+| 2026-07-23 | eAutoBrain.md: Quartals-Review-Prompt und Aktualisierungsfahrplan ergaenzt |
 | 2026-07-23 | Farizon SV L2H2 (000125) hinzugefuegt — Elektro-Transporter von Geely CV, in Deutschland ab April 2026 |
 | 2026-07-23 | Farizon SV: produkt_url auf global-de.geelycv.com korrigiert |
 | 2026-07-23 | Farizon SV: bemerkung ergaenzt — Servicenetz in Deutschland noch im Aufbau |
