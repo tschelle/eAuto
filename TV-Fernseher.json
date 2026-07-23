@@ -619,6 +619,37 @@
       "kategorie": "Mini-LED Premium",
       "besonderheit": "Sony Mini-LED-Nachfolger 2026. Noch mehr Dimming-Zonen, noch höhere Helligkeit. Ideal für sehr helle Räume.",
       "produkt_url": "https://www.sony.de/de/televisions/"
+    },
+    {
+      "rang": 21,
+      "marke": "Samsung",
+      "modell": "S95H QD-OLED",
+      "vollname": "Samsung S95H QD-OLED FloatLayer",
+      "jahr": 2026,
+      "technologie": "QD-OLED",
+      "panel": "QD-OLED Penta Tandem",
+      "aufloesung": "4K",
+      "groessen_zoll": [55, 65, 77, 83],
+      "helligkeit_hdr_nits": 2750,
+      "helligkeit_sdr_nits": 440,
+      "hdmi_2_1_ports": 4,
+      "refresh_rate_hz": 165,
+      "dolby_vision": false,
+      "hdr10_plus": true,
+      "hlg": true,
+      "vrr": true,
+      "g_sync": true,
+      "freesync": true,
+      "betriebssystem": "Tizen 9",
+      "lautsprecher_watt": 70,
+      "earc": true,
+      "preis_55_eur": 2899,
+      "preis_65_eur": 3999,
+      "preis_77_eur": 5499,
+      "rtings_score": 9.4,
+      "kategorie": "OLED Premium",
+      "besonderheit": "Neuestes Samsung-Flaggschiff (Juli 2026), Nachfolger des S95G. Neues Penta-Tandem-QD-OLED-Panel, ca. 30% heller als S95F (bis 2.750 nits). FloatLayer-Wanddesign, 165 Hz Gaming mit G-Sync und FreeSync Premium Pro. Bis 65\" reines QD-OLED-Panel; 83\" nutzt ein WOLED-Panel von LG Display. Kein Dolby Vision.",
+      "produkt_url": "https://www.samsung.com/de/tvs/oled-tv/s95h-65-inch-4k-smart-tv-gq65s95hftxzg/"
     }
   ]
 }
