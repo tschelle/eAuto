@@ -21532,8 +21532,105 @@
         "adac.de",
         "ev-database.org"
       ]
+    },
+    {
+      "id": "000125",
+      "modell": "Farizon SV L2H2",
+      "marke": "Farizon",
+      "modelljahr": "2026-",
+      "plattform": "BEV-Exklusivplattform (Drive-by-Wire, CTP)",
+      "autotyp": "Elektro-Transporter",
+      "user_wish": null,
+      "produkt_url": "https://farizonauto.de/sv/",
+      "antrieb": {
+        "konzept": "Hinterradantrieb (RWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "4×2"
+      },
+      "leistung": {
+        "systemleistung_kw": 169,
+        "systemleistung_ps": 230,
+        "drehmoment_nm": 336,
+        "beschleunigung_0_100_s": null,
+        "hoechstgeschwindigkeit_kmh": 120
+      },
+      "batterie": {
+        "netto_kwh": 83,
+        "systemspannung_v": 400,
+        "chemie": "LFP",
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "dc_max_kw": 140,
+        "dc_10_80_min": 47,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "plug_and_charge": null,
+        "laderoutenplaner": true,
+        "vorkonditionierung": null,
+        "v2l": null,
+        "v2l_leistung_kw": null,
+        "v2h": null,
+        "v2g": null
+      },
+      "verbrauch": {
+        "wltp_reichweite_km": {
+          "min": 280,
+          "max": 376
+        }
+      },
+      "abmessungen": {
+        "laenge_mm": 5490,
+        "breite_mm": 1980,
+        "hoehe_mm": 2180,
+        "leergewicht_kg": 2150,
+        "zulaessiges_gesamtgewicht_kg": 3500,
+        "nutzlast_kg": 1350,
+        "sitze": 3,
+        "kofferraum_liter": null,
+        "laderaum_m3": 8.1,
+        "fuehrerhaus": "Einzelkabine",
+        "anzahl_achsen": 2,
+        "ahk_verfuegbar": null,
+        "frunk": false,
+        "frunk_liter": null
+      },
+      "fahrwerk": {
+        "waermepumpe": null,
+        "rekuperation": "mehrere Stufen"
+      },
+      "preis": {
+        "basispreis_eur": 44900
+      },
+      "ota_updates": true,
+      "produktionsland": "China",
+      "status": "aktuell",
+      "datenerfassung": "2026-07-23",
+      "bemerkung": "Elektro-Transporter der 3,5t-Klasse (Sprinter-Konkurrent) von Geely-Tochter Farizon. In Deutschland seit April 2026 erhältlich. 6 Aufbauvarianten (L1H1 bis L3H3), Laderaum bis 13 m³, Nutzlast bis 1.350 kg. Drive-by-Wire-Technologie. Auch mit 67 kWh (WLTP 210–280 km, DC 120 kW) und 106 kWh NMC erhältlich. Euro NCAP: 5 Sterne / 85 Punkte.",
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 85,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "quellen": [
+        "firmenauto.de (2026)",
+        "ecomento.de (2026)",
+        "logistra.de (2026)"
+      ]
     }
   ],
-  "letzte_aktualisierung": "2026-07-18",
+  "letzte_aktualisierung": "2026-07-23",
   "daten_stand": "Juli 2026"
 }
