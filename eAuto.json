@@ -21629,8 +21629,692 @@
         "ecomento.de (2026)",
         "logistra.de (2026)"
       ]
+    },
+    {
+      "id": "000126",
+      "modell": "Opel Astra Electric",
+      "marke": "Opel",
+      "modelljahr": "2023-2026",
+      "plattform": "eMp2",
+      "autotyp": "Kompaktwagen",
+      "produktionsland": "Deutschland",
+      "bild_url": "https://de.wikipedia.org/wiki/Opel_Astra_(L)",
+      "produkt_url": "https://www.opel.de/fahrzeuge/astra/electric/uebersicht.html",
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "user_wish": null,
+      "bemerkung": null,
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "FWD"
+      },
+      "leistung": {
+        "systemleistung_kw": 115,
+        "systemleistung_ps": 156,
+        "drehmoment_nm": 270,
+        "beschleunigung_0_100_s": 7.4,
+        "hoechstgeschwindigkeit_kmh": 170
+      },
+      "batterie": {
+        "brutto_kwh": 54.0,
+        "netto_kwh": 51.0,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 340,
+          "max": 360
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "ac_optional_preis_eur": 750,
+        "dc_max_kw": 100,
+        "dc_10_80_min": 26,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2l_leistung_kw": null,
+        "v2g": false,
+        "v2h": false,
+        "plug_and_charge": true,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 14.1,
+          "max": 14.5
+        },
+        "wltp_reichweite_km": {
+          "min": 413,
+          "max": 418
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 17,
+          "max": 21
+        },
+        "realreichweite_sommer_stadt_km": 370,
+        "realreichweite_autobahn_130_km": 270,
+        "realreichweite_winter_km": 250,
+        "effizienz_wh_km": {
+          "min": 141,
+          "max": 145
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4374,
+        "breite_mm": 1860,
+        "breite_mit_spiegel_mm": 2087,
+        "hoehe_mm": 1470,
+        "radstand_mm": 2675,
+        "leergewicht_kg": 1699,
+        "zulaessiges_gesamtgewicht_kg": 2175,
+        "kofferraum_liter": 352,
+        "kofferraum_umgeklappt_liter": 1268,
+        "kofferraum_elektrisch": false,
+        "anhaengelast_gebremst_kg": 1000,
+        "anhaengelast_ungebremst_kg": 750,
+        "ahk_preis_eur": null,
+        "wendekreis_m": 10.7,
+        "bodenfreiheit_mm": 140,
+        "cw_wert": 0.26,
+        "dachlast_kg": 75,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": true,
+        "sitze": 5,
+        "felgen_zoll": 17,
+        "display": "10 Zoll",
+        "hud": false,
+        "nutzlast_kg": "n/a",
+        "anzahl_achsen": "n/a",
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Verbundlenker",
+        "rekuperation": "einstufig + B-Modus",
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
+      },
+      "preis": {
+        "basispreis_eur": 38400,
+        "stromkosten_eur_100km": {
+          "min": 4.8,
+          "max": 6.3
+        },
+        "versicherung_eur_jahr": {
+          "min": 600,
+          "max": 1100
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 42
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 3,
+        "fahrzeug_km": null,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 3
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 350
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": null
+      },
+      "ota_updates": true,
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 89,
+        "kinder": 87,
+        "fussgaenger": 71,
+        "assistenten": 89
+      },
+      "reifen_serie": "215/60 R16",
+      "quellen": [
+        "https://www.opel.de/fahrzeuge/astra/electric/uebersicht.html",
+        "https://ev-database.org/car/1871/Opel-Astra-Electric"
+      ],
+      "datenerfassung": "2026-07-23"
+    },
+    {
+      "id": "000127",
+      "modell": "Opel Astra Sports Tourer Electric",
+      "marke": "Opel",
+      "modelljahr": "2023-2026",
+      "plattform": "eMp2",
+      "autotyp": "Kombi",
+      "produktionsland": "Deutschland",
+      "bild_url": "https://de.wikipedia.org/wiki/Opel_Astra_(L)",
+      "produkt_url": "https://www.opel.de/fahrzeuge/astra/sports-tourer-electric/uebersicht.html",
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "user_wish": null,
+      "bemerkung": null,
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "FWD"
+      },
+      "leistung": {
+        "systemleistung_kw": 115,
+        "systemleistung_ps": 156,
+        "drehmoment_nm": 270,
+        "beschleunigung_0_100_s": 7.9,
+        "hoechstgeschwindigkeit_kmh": 170
+      },
+      "batterie": {
+        "brutto_kwh": 54.0,
+        "netto_kwh": 51.0,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "CATL"
+        ],
+        "gewicht_kg": {
+          "min": 345,
+          "max": 365
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "ac_optional_preis_eur": 750,
+        "dc_max_kw": 100,
+        "dc_10_80_min": 26,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2l_leistung_kw": null,
+        "v2g": false,
+        "v2h": false,
+        "plug_and_charge": true,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 14.5,
+          "max": 15.2
+        },
+        "wltp_reichweite_km": {
+          "min": 390,
+          "max": 413
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 17,
+          "max": 22
+        },
+        "realreichweite_sommer_stadt_km": 360,
+        "realreichweite_autobahn_130_km": 260,
+        "realreichweite_winter_km": 240,
+        "effizienz_wh_km": {
+          "min": 145,
+          "max": 152
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4642,
+        "breite_mm": 1860,
+        "breite_mit_spiegel_mm": 2087,
+        "hoehe_mm": 1494,
+        "radstand_mm": 2675,
+        "leergewicht_kg": 1755,
+        "zulaessiges_gesamtgewicht_kg": 2235,
+        "kofferraum_liter": 516,
+        "kofferraum_umgeklappt_liter": 1553,
+        "kofferraum_elektrisch": false,
+        "anhaengelast_gebremst_kg": 1000,
+        "anhaengelast_ungebremst_kg": 750,
+        "ahk_preis_eur": null,
+        "wendekreis_m": 10.7,
+        "bodenfreiheit_mm": 140,
+        "cw_wert": 0.28,
+        "dachlast_kg": 75,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": true,
+        "sitze": 5,
+        "felgen_zoll": 17,
+        "display": "10 Zoll",
+        "hud": false,
+        "nutzlast_kg": "n/a",
+        "anzahl_achsen": "n/a",
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Verbundlenker",
+        "rekuperation": "einstufig + B-Modus",
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
+      },
+      "preis": {
+        "basispreis_eur": 42400,
+        "stromkosten_eur_100km": {
+          "min": 4.9,
+          "max": 6.6
+        },
+        "versicherung_eur_jahr": {
+          "min": 650,
+          "max": 1150
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 30,
+          "max": 42
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 3,
+        "fahrzeug_km": null,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 3
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 350
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": null
+      },
+      "ota_updates": true,
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 89,
+        "kinder": 87,
+        "fussgaenger": 71,
+        "assistenten": 89
+      },
+      "reifen_serie": "215/60 R16",
+      "quellen": [
+        "https://www.opel.de/fahrzeuge/astra/sports-tourer-electric/uebersicht.html",
+        "https://ev-database.org/car/1872/Opel-Astra-Sports-Tourer-Electric"
+      ],
+      "datenerfassung": "2026-07-23"
+    },
+    {
+      "id": "000128",
+      "modell": "Opel Grandland Electric",
+      "marke": "Opel",
+      "modelljahr": "2024-2026",
+      "plattform": "STLA Medium",
+      "autotyp": "SUV",
+      "produktionsland": "Deutschland",
+      "bild_url": "https://de.wikipedia.org/wiki/Opel_Grandland_(B)",
+      "produkt_url": "https://www.opel.de/fahrzeuge/grandland/electric/uebersicht.html",
+      "lieferzeit_wochen": 10,
+      "status": "aktuell",
+      "user_wish": null,
+      "bemerkung": null,
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "FWD"
+      },
+      "leistung": {
+        "systemleistung_kw": 157,
+        "systemleistung_ps": 213,
+        "drehmoment_nm": 345,
+        "beschleunigung_0_100_s": 8.7,
+        "hoechstgeschwindigkeit_kmh": 170
+      },
+      "batterie": {
+        "brutto_kwh": 82.0,
+        "netto_kwh": 73.0,
+        "chemie": "NMC",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "ACC"
+        ],
+        "gewicht_kg": {
+          "min": 430,
+          "max": 450
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": 22,
+        "ac_optional_preis_eur": 750,
+        "dc_max_kw": 160,
+        "dc_10_80_min": 32,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": true,
+        "v2l": false,
+        "v2l_leistung_kw": null,
+        "v2g": false,
+        "v2h": false,
+        "plug_and_charge": true,
+        "laderoutenplaner": true
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 14.4,
+          "max": 16.0
+        },
+        "wltp_reichweite_km": {
+          "min": 500,
+          "max": 525
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 17,
+          "max": 22
+        },
+        "realreichweite_sommer_stadt_km": 480,
+        "realreichweite_autobahn_130_km": 370,
+        "realreichweite_winter_km": 340,
+        "effizienz_wh_km": {
+          "min": 144,
+          "max": 160
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4650,
+        "breite_mm": 1905,
+        "breite_mit_spiegel_mm": 2120,
+        "hoehe_mm": 1665,
+        "radstand_mm": 2765,
+        "leergewicht_kg": 2040,
+        "zulaessiges_gesamtgewicht_kg": 2560,
+        "kofferraum_liter": 550,
+        "kofferraum_umgeklappt_liter": 1594,
+        "kofferraum_elektrisch": false,
+        "anhaengelast_gebremst_kg": 1300,
+        "anhaengelast_ungebremst_kg": 750,
+        "ahk_preis_eur": null,
+        "wendekreis_m": 11.4,
+        "bodenfreiheit_mm": 180,
+        "cw_wert": 0.26,
+        "dachlast_kg": 75,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": true,
+        "sitze": 5,
+        "felgen_zoll": 18,
+        "display": "16 Zoll",
+        "hud": true,
+        "nutzlast_kg": "n/a",
+        "anzahl_achsen": "n/a",
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Mehrlenker",
+        "rekuperation": "mehrstufig + One-Pedal",
+        "waermepumpe": true,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
+      },
+      "preis": {
+        "basispreis_eur": 47900,
+        "stromkosten_eur_100km": {
+          "min": 4.9,
+          "max": 6.6
+        },
+        "versicherung_eur_jahr": {
+          "min": 700,
+          "max": 1300
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 28,
+          "max": 40
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 3,
+        "fahrzeug_km": null,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 3
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 200,
+          "max": 380
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": null
+      },
+      "ota_updates": true,
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": 5,
+        "erwachsene": 89,
+        "kinder": 87,
+        "fussgaenger": 68,
+        "assistenten": 78
+      },
+      "reifen_serie": "235/55 R18",
+      "quellen": [
+        "https://www.opel.de/fahrzeuge/grandland/electric/uebersicht.html",
+        "https://ev-database.org/car/2053/Opel-Grandland-Electric"
+      ],
+      "datenerfassung": "2026-07-23"
+    },
+    {
+      "id": "000129",
+      "modell": "Opel Frontera Electric",
+      "marke": "Opel",
+      "modelljahr": "2024-2026",
+      "plattform": "STLA Small",
+      "autotyp": "Kompakt-SUV",
+      "produktionsland": "Spanien",
+      "bild_url": "https://de.wikipedia.org/wiki/Opel_Frontera_(B)",
+      "produkt_url": "https://www.opel.de/fahrzeuge/frontera/electric/uebersicht.html",
+      "lieferzeit_wochen": 8,
+      "status": "aktuell",
+      "user_wish": null,
+      "bemerkung": "Einstiegs-BEV von Opel. Baugleich mit Citroen e-C3 (2. Gen) und Fiat Grande Panda. Günstigster Einstiegspreis im Opel-BEV-Portfolio.",
+      "antrieb": {
+        "konzept": "Frontantrieb (FWD)",
+        "anzahl_motoren": 1,
+        "motortyp": "PSM",
+        "achskonfiguration": "FWD"
+      },
+      "leistung": {
+        "systemleistung_kw": 83,
+        "systemleistung_ps": 113,
+        "drehmoment_nm": 120,
+        "beschleunigung_0_100_s": 11.0,
+        "hoechstgeschwindigkeit_kmh": 150
+      },
+      "batterie": {
+        "brutto_kwh": 44.0,
+        "netto_kwh": 40.0,
+        "chemie": "LFP",
+        "systemspannung_v": 400,
+        "zelltyp": "prismatisch",
+        "zelllieferant": [
+          "SVOLT"
+        ],
+        "gewicht_kg": {
+          "min": 300,
+          "max": 320
+        },
+        "garantie_jahre": 8,
+        "garantie_km": 160000,
+        "garantie_restkapazitaet_pct": 70
+      },
+      "laden": {
+        "ac_serie_kw": 11,
+        "ac_optional_kw": null,
+        "ac_optional_preis_eur": null,
+        "dc_max_kw": 100,
+        "dc_10_80_min": 26,
+        "ladestecker": [
+          "CCS",
+          "Typ 2"
+        ],
+        "vorkonditionierung": false,
+        "v2l": false,
+        "v2l_leistung_kw": null,
+        "v2g": false,
+        "v2h": false,
+        "plug_and_charge": false,
+        "laderoutenplaner": false
+      },
+      "verbrauch": {
+        "wltp_kwh_100km": {
+          "min": 14.8,
+          "max": 16.5
+        },
+        "wltp_reichweite_km": {
+          "min": 300,
+          "max": 306
+        },
+        "realverbrauch_kwh_100km": {
+          "min": 17,
+          "max": 22
+        },
+        "realreichweite_sommer_stadt_km": 280,
+        "realreichweite_autobahn_130_km": 190,
+        "realreichweite_winter_km": 185,
+        "effizienz_wh_km": {
+          "min": 148,
+          "max": 165
+        },
+        "verbrauch_kwh_tkm": "n/a"
+      },
+      "abmessungen": {
+        "laenge_mm": 4385,
+        "breite_mm": 1795,
+        "breite_mit_spiegel_mm": 2010,
+        "hoehe_mm": 1635,
+        "radstand_mm": 2640,
+        "leergewicht_kg": 1450,
+        "zulaessiges_gesamtgewicht_kg": 1870,
+        "kofferraum_liter": 460,
+        "kofferraum_umgeklappt_liter": 1250,
+        "kofferraum_elektrisch": false,
+        "anhaengelast_gebremst_kg": null,
+        "anhaengelast_ungebremst_kg": null,
+        "ahk_preis_eur": null,
+        "wendekreis_m": 10.6,
+        "bodenfreiheit_mm": 163,
+        "cw_wert": 0.29,
+        "dachlast_kg": 75,
+        "frunk": false,
+        "frunk_liter": null,
+        "ahk_verfuegbar": false,
+        "sitze": 5,
+        "felgen_zoll": 17,
+        "display": "10 Zoll",
+        "hud": false,
+        "nutzlast_kg": "n/a",
+        "anzahl_achsen": "n/a",
+        "laderaum_m3": "n/a",
+        "fuehrerhaus": "n/a"
+      },
+      "fahrwerk": {
+        "federung_vorne": "MacPherson",
+        "federung_hinten": "Verbundlenker",
+        "rekuperation": "einstufig",
+        "waermepumpe": false,
+        "fahrgeraeusch_db": {
+          "wert_db": null,
+          "kmh": 130
+        }
+      },
+      "preis": {
+        "basispreis_eur": 24990,
+        "stromkosten_eur_100km": {
+          "min": 5.0,
+          "max": 6.6
+        },
+        "versicherung_eur_jahr": {
+          "min": 450,
+          "max": 800
+        },
+        "wertverlust_3_jahre_pct": {
+          "min": 25,
+          "max": 38
+        }
+      },
+      "garantien": {
+        "fahrzeug_jahre": 3,
+        "fahrzeug_km": null,
+        "lack_jahre": 3,
+        "durchrostung_jahre": 12,
+        "mobilitaet_jahre": 3
+      },
+      "service": {
+        "wartungsintervall": "2 Jahre / 30.000 km",
+        "wartungskosten_eur": {
+          "min": 150,
+          "max": 300
+        },
+        "anfaellige_punkte": [],
+        "garantie_relevant": null
+      },
+      "ota_updates": false,
+      "adac_note": null,
+      "euro_ncap": {
+        "sterne": null,
+        "erwachsene": null,
+        "kinder": null,
+        "fussgaenger": null,
+        "assistenten": null
+      },
+      "reifen_serie": "215/60 R17",
+      "quellen": [
+        "https://www.opel.de/fahrzeuge/frontera/electric/uebersicht.html",
+        "https://ev-database.org/car/2055/Opel-Frontera-Electric"
+      ],
+      "datenerfassung": "2026-07-23"
     }
   ],
-  "letzte_aktualisierung": "2026-07-23",
+  "letzte_aktualisierung": "2026-07-24",
   "daten_stand": "Juli 2026"
 }
