@@ -21638,8 +21638,8 @@
       "plattform": "eMp2",
       "autotyp": "Kompaktwagen",
       "produktionsland": "Deutschland",
-      "bild_url": "https://de.wikipedia.org/wiki/Opel_Astra_(L)",
-      "produkt_url": "https://www.opel.de/fahrzeuge/astra/electric/uebersicht.html",
+      "bild_url": "https://en.wikipedia.org/wiki/Opel_Astra",
+      "produkt_url": "https://www.opel.de/fahrzeuge/astra-modelle/astra-electric/uebersicht.html",
       "lieferzeit_wochen": 8,
       "status": "aktuell",
       "user_wish": null,
@@ -21796,7 +21796,7 @@
       },
       "reifen_serie": "215/60 R16",
       "quellen": [
-        "https://www.opel.de/fahrzeuge/astra/electric/uebersicht.html",
+        "https://www.opel.de/fahrzeuge/astra-modelle/astra-electric/uebersicht.html",
         "https://ev-database.org/car/1871/Opel-Astra-Electric"
       ],
       "datenerfassung": "2026-07-23"
@@ -21809,8 +21809,8 @@
       "plattform": "eMp2",
       "autotyp": "Kombi",
       "produktionsland": "Deutschland",
-      "bild_url": "https://de.wikipedia.org/wiki/Opel_Astra_(L)",
-      "produkt_url": "https://www.opel.de/fahrzeuge/astra/sports-tourer-electric/uebersicht.html",
+      "bild_url": "https://en.wikipedia.org/wiki/Opel_Astra",
+      "produkt_url": "https://www.opel.de/fahrzeuge/astra-modelle/astra-electric/sports-tourer/uebersicht.html",
       "lieferzeit_wochen": 8,
       "status": "aktuell",
       "user_wish": null,
@@ -21967,7 +21967,7 @@
       },
       "reifen_serie": "215/60 R16",
       "quellen": [
-        "https://www.opel.de/fahrzeuge/astra/sports-tourer-electric/uebersicht.html",
+        "https://www.opel.de/fahrzeuge/astra-modelle/astra-electric/sports-tourer/uebersicht.html",
         "https://ev-database.org/car/1872/Opel-Astra-Sports-Tourer-Electric"
       ],
       "datenerfassung": "2026-07-23"
@@ -21980,8 +21980,8 @@
       "plattform": "STLA Medium",
       "autotyp": "SUV",
       "produktionsland": "Deutschland",
-      "bild_url": "https://de.wikipedia.org/wiki/Opel_Grandland_(B)",
-      "produkt_url": "https://www.opel.de/fahrzeuge/grandland/electric/uebersicht.html",
+      "bild_url": "https://en.wikipedia.org/wiki/Opel_Grandland",
+      "produkt_url": "https://www.opel.de/fahrzeuge/grandland-modelle/grandland-electric/uebersicht.html",
       "lieferzeit_wochen": 10,
       "status": "aktuell",
       "user_wish": null,
@@ -22138,7 +22138,7 @@
       },
       "reifen_serie": "235/55 R18",
       "quellen": [
-        "https://www.opel.de/fahrzeuge/grandland/electric/uebersicht.html",
+        "https://www.opel.de/fahrzeuge/grandland-modelle/grandland-electric/uebersicht.html",
         "https://ev-database.org/car/2053/Opel-Grandland-Electric"
       ],
       "datenerfassung": "2026-07-23"
@@ -22151,8 +22151,8 @@
       "plattform": "STLA Small",
       "autotyp": "Kompakt-SUV",
       "produktionsland": "Spanien",
-      "bild_url": "https://de.wikipedia.org/wiki/Opel_Frontera_(B)",
-      "produkt_url": "https://www.opel.de/fahrzeuge/frontera/electric/uebersicht.html",
+      "bild_url": "https://en.wikipedia.org/wiki/Opel_Frontera_(2024)",
+      "produkt_url": "https://www.opel.de/fahrzeuge/frontera/frontera/uebersicht.html",
       "lieferzeit_wochen": 8,
       "status": "aktuell",
       "user_wish": null,
@@ -22309,7 +22309,7 @@
       },
       "reifen_serie": "215/60 R17",
       "quellen": [
-        "https://www.opel.de/fahrzeuge/frontera/electric/uebersicht.html",
+        "https://www.opel.de/fahrzeuge/frontera/frontera/uebersicht.html",
         "https://ev-database.org/car/2055/Opel-Frontera-Electric"
       ],
       "datenerfassung": "2026-07-23"
