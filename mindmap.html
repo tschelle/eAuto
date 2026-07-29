@@ -981,7 +981,7 @@
           '<span class="child-count"></span>' +
           '<span class="color-dot"></span>';
         if (node.width) el.style.width = node.width + "px";
-        if (node.height) el.style.height = node.height + "px";
+        if (node.height) el.style.minHeight = node.height + "px";
         $nodes.appendChild(el);
         bindNodeEvents(el);
       }
@@ -1244,15 +1244,16 @@
       startNodeDrag(id, e, onText);
     });
 
-    // Manuell per Größenänderungs-Griff gesetzte Größe im Datenmodell festhalten
+    // Größenänderungen im Datenmodell festhalten (manueller Resize-Griff oder Inhaltswachstum)
     new ResizeObserver(function(){
-      if (!el.style.width) return; // nur nach echtem manuellem Resize (setzt inline-Style)
+      if (!el.style.width) return; // nur wenn explizite Breite gesetzt (nach erstem Resize)
       var node = findNode(id);
       if (!node) return;
       var w = Math.round(el.getBoundingClientRect().width);
       var h = Math.round(el.getBoundingClientRect().height);
       if (node.width === w && node.height === h) return;
       node.width = w; node.height = h;
+      el.style.minHeight = h + "px"; // min-height mitführen damit Inhalt nie abgeschnitten wird
       clearTimeout(el._resizeLayoutTimer);
       el._resizeLayoutTimer = setTimeout(render, 120);
       autosave();
