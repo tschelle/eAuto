@@ -24,6 +24,24 @@ Verfügung.
   einer Mindmap existieren.
 - **Jederzeit bearbeitbar**: Klick in ein Item aktiviert direkte Inline-Bearbeitung
   (`contenteditable`).
+- **Klickbare Links**: `http(s)`- und `file`-URLs im Itemtext werden erkannt und —
+  solange das Item gerade **nicht** bearbeitet wird — als klickbarer Link dargestellt
+  (`linkifyText()`; Cmd/Ctrl+Klick öffnet, ein normaler Klick startet wie gewohnt die
+  Bearbeitung). Sobald das Item fokussiert wird, erscheint wieder der reine Klartext
+  (inkl. der rohen URL) — Links existieren bewusst nur im Anzeigemodus, um
+  contenteditable-Eigenheiten bei eingebetteten `<a>`-Tags (Cursor-Verhalten an
+  Link-Rändern, veraltendes `href` beim Editieren) zu vermeiden. Da Browser (z. B.
+  WebKit/Safari) das native Navigieren von Links *innerhalb* eines
+  contenteditable-Bereichs grundsätzlich unterdrücken, wird der Link bei Cmd/Ctrl+Klick
+  nicht über die Standardaktion des `<a>` geöffnet, sondern wie bei `downloadFile()`:
+  ein echtes, temporäres `<a>` außerhalb des contenteditable-Bereichs wird erzeugt und
+  per `.click()` ausgelöst — das trägt die vollen Rechte eines regulären Links-Klicks,
+  unabhängig vom URL-Schema (`window.open()` wird bewusst nicht verwendet, da manche
+  Browser das für `file://`-Ziele strenger behandeln als für `https://`). Das
+  Datenmodell speichert weiterhin nur den rohen Text — die Verlinkung ist reine
+  Anzeigelogik ohne Auswirkung auf Autosave/JSON-/Markdown-Export. Dieselbe Erkennung
+  ist auch im HTML-Export enthalten (dort immer aktiv, da rein lesend, mit ganz
+  normalem Link-Klick ohne Modifier-Taste).
 - **Größenveränderbar**: jeder Knoten lässt sich über den Griff an der unteren rechten
   Ecke (natives CSS-`resize`) individuell breiter/höher ziehen. Die manuell gesetzte
   Größe wird im Datenmodell gemerkt (Autosave sowie JSON-Export) und das Baum-Layout
@@ -290,6 +308,25 @@ Die Datei ist bewusst in drei Blöcke gegliedert:
      (`!el.isConnected`) — sonst würde ein durch den Farbfilter ausgeblendeter Knoten
      beim Entfernen ein letztes Mal mit 0×0 gemessen und `width`/`height` im
      Datenmodell überschreiben.
+   - **Link-Erkennung**: `linkifyText()` escaped den Text (`xmlEscape()`) und verpackt
+     erkannte `http(s)`- und `file`-URLs (`URL_RE`) in
+     `<a target="_blank" rel="noopener noreferrer">`, inkl. Abtrennen typischer
+     Satzzeichen am Ende (`.`, `)`, `,` …). `render()` setzt das Ergebnis nur als
+     `innerHTML`, wenn der Knoten nicht `editingId` entspricht; der `focus`-Handler in
+     `bindNodeEvents()` setzt beim Bearbeitungsstart explizit auf `textContent` zurück,
+     damit contenteditable nie gleichzeitig mit echten `<a>`-Kindknoten hantiert.
+     Da Browser das native Navigieren von Links *innerhalb* eines contenteditable-
+     Bereichs unterdrücken (unabhängig von `preventDefault()`), übernimmt ein eigener
+     `click`-Handler auf `contentEl` das Öffnen bei gehaltener Cmd/Ctrl-Taste selbst:
+     ein temporäres `<a>` wird außerhalb des contenteditable-Bereichs erzeugt, per
+     `.click()` ausgelöst und wieder entfernt — derselbe Trick wie in `downloadFile()`,
+     bewusst statt `window.open()` (das manche Browser für `file://`-Ziele restriktiver
+     behandeln). Der `mousedown`-Handler verhindert bei Cmd/Ctrl+Klick auf einen Link
+     zusätzlich den automatischen Browser-Fokus des contenteditable-Feldes
+     (`e.preventDefault()`), da dieser sonst über den `focus`-Handler den Link vor dem
+     `click`-Event auf Klartext zurücksetzen würde. Ein Klick ohne Modifier verhält
+     sich wie bisher (Bearbeitung starten, `preventDefault()` unterbindet nur die
+     Link-Navigation).
    - **Undo**: `snapshot()`/`pushUndo()`/`undo()` verwalten einen Stack aus
      JSON-Snapshots von `roots` (max. 50 Schritte); vor jeder strukturellen Änderung
      sowie vor abgeschlossenen Textbearbeitungen (Diff bei `blur`) wird ein Snapshot
@@ -318,7 +355,9 @@ versionieren.
 ## Nutzung
 
 1. `mindmap.html` im Browser öffnen.
-2. Über „＋ Neue Wurzel“ ein erstes Thema anlegen, Text eintippen.
+2. Über „＋ Neue Wurzel“ ein erstes Thema anlegen, Text eintippen. Enthält der Text
+   eine `http(s)`- oder `file`-URL, wird sie außerhalb der Bearbeitung automatisch
+   klickbar (Cmd/Ctrl+Klick öffnet).
 3. Mit der schwebenden Node-Toolbar oder Tastatur (`Tab`/`Enter`) den Baum ausbauen.
 4. Über „💾 Speichern (JSON)“ den vollständigen Zustand sichern (inkl. Größen und Tags)
    oder über „💾 Export (.md)“ die Hierarchie inkl. Tags (nicht aber Größen/Farben) als
@@ -360,3 +399,8 @@ versionieren.
 - Der Graphik-Export ist ein bewusst einfacher Nachbau (Boxen + Text + Kanten) und
   keine 1:1-Kopie des DOM; Knoten-Icons (Toggle-Dreieck, Kinderzahl-Badge) werden
   darin nicht mitgezeichnet.
+- Die Link-Erkennung ist reine Anzeigelogik: Markdown-, PNG- und Excel-Export zeigen
+  URLs weiterhin nur als Klartext (kein `[Text](URL)` bzw. keine echte Hyperlink-Zelle)
+  — nur der Editor und der HTML-Export rendern sie klickbar. Die Heuristik zum
+  Abtrennen von Satzzeichen am URL-Ende behandelt keine geklammerten URLs korrekt
+  (z. B. `(https://de.wikipedia.org/wiki/Beispiel_(Begriffsklärung))`).

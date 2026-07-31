@@ -221,6 +221,7 @@
     content:"Text\2026";
     color:var(--line);
   }
+  .node .content a{ color:var(--accent); text-decoration:underline; cursor:pointer; }
   .node .tags{
     display:flex;
     flex-wrap:wrap;
@@ -995,6 +996,27 @@
     return (text || "").replace(/\r?\n/g, " ").replace(/\s+/g," ").trim();
   }
 
+  // Erkennt http(s)-URLs im (bereits escapten) Text und verpackt sie in <a>-Tags.
+  // Wird nur für die nicht-editierende Anzeige verwendet (siehe render()) — beim
+  // Bearbeiten selbst bleibt der Knoten reiner Text, um Cursor-/contenteditable-
+  // Eigenheiten bei eingebetteten Links zu vermeiden.
+  var URL_RE = /((?:https?|file):\/\/[^\s<>"]+)/g;
+  var URL_TRAILING_PUNCT_RE = /[).,;:!?\]]+$/;
+
+  function linkifyText(text){
+    var escaped = xmlEscape(text || "");
+    return escaped.replace(URL_RE, function(match){
+      var trail = "";
+      var m = match.match(URL_TRAILING_PUNCT_RE);
+      if (m){
+        trail = m[0];
+        match = match.slice(0, match.length - trail.length);
+      }
+      if (!match) return trail;
+      return '<a href="' + match + '" target="_blank" rel="noopener noreferrer">' + match + '</a>' + trail;
+    });
+  }
+
   // Wandelt einen Display-Tree-Eintrag (kompaktierte Filter-Sicht) in einen
   // einfachen {text, children}-Baum, wie ihn die Markdown-Walker unten erwarten.
   function displayEntryToPlainNode(entry){
@@ -1366,8 +1388,11 @@
       el.classList.toggle("collapsed", node.collapsed && node.children.length > 0);
       el.classList.toggle("size-fixed", !!node.fixed);
       var contentEl = el.querySelector(".content");
-      if (node.id !== editingId && contentEl.textContent !== node.text){
-        contentEl.textContent = node.text;
+      if (node.id !== editingId){
+        var linkified = linkifyText(node.text);
+        if (contentEl.innerHTML !== linkified){
+          contentEl.innerHTML = linkified;
+        }
       }
       var toggleEl = el.querySelector(".toggle");
       toggleEl.textContent = node.children.length ? (node.collapsed ? "▸" : "▾") : "";
@@ -1577,6 +1602,12 @@
       editingId = id;
       selectNode(id);
       editStartSnapshot = JSON.stringify(roots);
+      // Anzeige (ggf. mit <a>-Links) auf reinen Klartext zurücksetzen, bevor die
+      // nachfolgende Caret-Positionierung (siehe startNodeDrag) greift — sonst
+      // würden verlinkte URLs während des Bearbeitens contenteditable-Eigenheiten
+      // (Cursor an Link-Rändern, stehenbleibendes href bei Textänderung) zeigen.
+      var node = findNode(id);
+      if (node) contentEl.textContent = node.text;
     });
     contentEl.addEventListener("blur", function(){
       var node = findNode(id);
@@ -1615,9 +1646,42 @@
       }
     });
 
+    // Browser unterdrücken das native Navigieren von Links innerhalb eines
+    // contenteditable-Bereichs (WebKit/Safari z.B. grundsätzlich, unabhängig von
+    // preventDefault()) — deshalb lösen wir den Link bei Cmd/Ctrl+Klick selbst aus,
+    // statt uns auf die Standardaktion des <a> zu verlassen. window.open() wird von
+    // manchen Browsern für file://-Ziele strenger behandelt als für https://, daher
+    // derselbe Trick wie in downloadFile(): ein echtes <a> außerhalb des
+    // contenteditable-Bereichs erzeugen und per .click() auslösen — das trägt die
+    // vollen Rechte eines regulären Links-Klicks, unabhängig vom URL-Schema.
+    // Ohne Modifier wird nur preventDefault() aufgerufen, die Bearbeitung startet
+    // wie gewohnt über den mousedown-Handler unten.
+    contentEl.addEventListener("click", function(e){
+      var linkEl = e.target.closest("a");
+      if (!linkEl) return;
+      e.preventDefault();
+      if (e.metaKey || e.ctrlKey){
+        var a = document.createElement("a");
+        a.href = linkEl.href;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    });
+
     // Klicken selektiert/bearbeitet, Ziehen (auch mit Start auf dem Text) hängt den Knoten um
     el.addEventListener("mousedown", function(e){
       if (e.target.closest(".actions") || e.target.closest(".toggle")) return;
+      var linkEl = e.target.closest("a");
+      if (linkEl && (e.metaKey || e.ctrlKey)){
+        // Trotzdem preventDefault(): verhindert den automatischen Browser-Fokus des
+        // contenteditable-Feldes bei mousedown — sonst würde der focus-Handler den
+        // Link sofort auf Klartext zurücksetzen, bevor das click-Event ihn öffnen kann.
+        e.preventDefault();
+        return;
+      }
       var rect = el.getBoundingClientRect();
       var onResizeHandle = (rect.right - e.clientX) < 16 && (rect.bottom - e.clientY) < 16;
       if (onResizeHandle) return; // nativen Größenänderungs-Griff bedienen lassen
@@ -2317,6 +2381,7 @@
     '.node .body{ flex:1; min-width:0; display:flex; flex-direction:column; gap:4px; }',
     '.node .content{ white-space:pre-wrap; word-break:break-word; font-size:13.5px; line-height:1.35; }',
     '.node .content:empty:before{ content:"(leer)"; color:var(--line); }',
+    '.node .content a{ color:var(--accent); text-decoration:underline; cursor:pointer; }',
     '.node .tags{ display:flex; flex-wrap:wrap; gap:4px; }',
     '.node .tags:empty{ display:none; }',
     '.tag-chip{ font-size:10.5px; padding:1px 6px; border-radius:9px; background:var(--btn-bg-hover); color:var(--line); white-space:nowrap; }',
@@ -2379,6 +2444,22 @@
     '    });',
     '  }',
     '',
+    '  function escapeHtml(str){',
+    '    return String(str == null ? "" : str)',
+    '      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")',
+    '      .replace(/"/g, "&quot;").replace(/\'/g, "&apos;");',
+    '  }',
+    '  var URL_RE = /((?:https?|file):\\/\\/[^\\s<>"]+)/g;',
+    '  var URL_TRAILING_PUNCT_RE = /[).,;:!?\\]]+$/;',
+    '  function linkifyText(text){',
+    '    var escaped = escapeHtml(text || "");',
+    '    return escaped.replace(URL_RE, function(match){',
+    '      var trail = ""; var m = match.match(URL_TRAILING_PUNCT_RE);',
+    '      if (m){ trail = m[0]; match = match.slice(0, match.length - trail.length); }',
+    '      if (!match) return trail;',
+    '      return \'<a href="\'+match+\'" target="_blank" rel="noopener noreferrer">\'+match+\'</a>\'+trail;',
+    '    });',
+    '  }',
     '  var LAYOUT = { hGap:60, vGap:14, rootGap:34, padding:60 };',
     '  var $nodes = document.getElementById("nodes");',
     '  var $edges = document.getElementById("edges");',
@@ -2471,7 +2552,7 @@
     '      }',
     '      el.classList.toggle("root-node", depth === 0);',
     '      el.classList.toggle("collapsed", node.collapsed && node.children.length > 0);',
-    '      el.querySelector(".content").textContent = node.text;',
+    '      el.querySelector(".content").innerHTML = linkifyText(node.text);',
     '      var tagsEl = el.querySelector(".tags");',
     '      tagsEl.innerHTML = (node.tags||[]).map(function(t){ return \'<span class="tag-chip">#\'+t+\'</span>\'; }).join("");',
     '      var toggleEl = el.querySelector(".toggle");',
