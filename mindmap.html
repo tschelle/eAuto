@@ -202,9 +202,14 @@
     user-select:none;
   }
   .node .toggle:hover{ color:var(--accent); }
-  .node .content{
+  .node .body{
     flex:1;
     min-width:0;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .node .content{
     outline:none;
     white-space:pre-wrap;
     word-break:break-word;
@@ -215,6 +220,21 @@
   .node .content:empty:before{
     content:"Text\2026";
     color:var(--line);
+  }
+  .node .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:4px;
+  }
+  .node .tags:empty{ display:none; }
+  .tag-chip{
+    font-size:10.5px;
+    line-height:1.4;
+    padding:1px 6px;
+    border-radius:9px;
+    background:var(--btn-bg);
+    color:var(--line);
+    white-space:nowrap;
   }
   .node-toolbar{
     position:absolute;
@@ -295,6 +315,43 @@
   #zoom-controls button{ border:none; background:transparent; width:28px; height:28px; padding:0; justify-content:center; font-size:15px; }
   #zoom-controls button:hover{ background:var(--btn-bg-hover); }
   #zoom-level{ font-size:10px; text-align:center; color:var(--line); padding:2px 0; }
+  #storage-indicator{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:3px;
+    font-size:9.5px;
+    color:var(--line);
+    padding:4px 2px 2px;
+    margin-top:2px;
+    border-top:1px solid var(--toolbar-border);
+    cursor:default;
+    white-space:nowrap;
+  }
+  #storage-indicator .storage-icon{ flex-shrink:0; display:block; }
+  #storage-indicator.warn{ color:#e2924a; }
+  #storage-indicator.danger{ color:var(--danger); }
+
+  #minimap{
+    position:absolute;
+    bottom:14px; left:14px;
+    width:180px; height:130px;
+    background:var(--toolbar-bg);
+    border:1px solid var(--toolbar-border);
+    border-radius:8px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    cursor:pointer;
+  }
+  #minimap.empty{ display:none; }
+  #minimap canvas{ position:absolute; top:0; left:0; width:100%; height:100%; display:block; }
+  #minimap-viewport-rect{
+    position:absolute;
+    border:1.5px solid var(--accent);
+    background:rgba(74,125,252,0.15);
+    pointer-events:none;
+    display:none;
+  }
 
   #file-input{ display:none; }
 
@@ -329,9 +386,9 @@
   .format-choice .format-example{ font-weight:400; font-size:12px; color:var(--line); }
   .modal-actions{ margin-top:16px; text-align:right; }
 
-  /* Farbfilter (Toolbar) + Node-Farbmenü (Kontextmenü) */
-  #color-filter-wrap{ position:relative; }
-  #btn-color-filter.active{ border-color:var(--accent); color:var(--accent); }
+  /* Farb- und Tag-Filter (Toolbar) + Node-Farbmenü (Kontextmenü) */
+  #color-filter-wrap, #tag-filter-wrap{ position:relative; }
+  #btn-color-filter.active, #btn-tag-filter.active, #btn-minimap-toggle.active{ border-color:var(--accent); color:var(--accent); }
   .dropdown-menu{
     display:none;
     position:absolute;
@@ -344,19 +401,19 @@
     z-index:60;
   }
   .dropdown-menu.visible{ display:block; }
-  #color-filter-menu{ top:calc(100% + 6px); left:0; }
-  .color-filter-item{
+  #color-filter-menu, #tag-filter-menu{ top:calc(100% + 6px); left:0; }
+  .filter-item{
     display:flex; align-items:center; gap:8px;
     padding:5px 4px;
     border-radius:5px;
     cursor:pointer;
     font-size:13px;
   }
-  .color-filter-item:hover{ background:var(--btn-bg-hover); }
-  .color-filter-item .swatch{ width:12px; height:12px; border-radius:50%; flex-shrink:0; }
-  .color-filter-item .swatch.none{ background:transparent; border:1.5px dashed var(--line); box-sizing:border-box; }
-  .color-filter-item .count{ margin-left:auto; font-size:11px; color:var(--line); }
-  .color-filter-item input{ margin:0; }
+  .filter-item:hover{ background:var(--btn-bg-hover); }
+  .filter-item .swatch{ width:12px; height:12px; border-radius:50%; flex-shrink:0; }
+  .filter-item .swatch.none{ background:transparent; border:1.5px dashed var(--line); box-sizing:border-box; }
+  .filter-item .count{ margin-left:auto; font-size:11px; color:var(--line); }
+  .filter-item input{ margin:0; }
   .dropdown-empty{ font-size:12px; color:var(--line); padding:4px; max-width:190px; }
   .dropdown-actions{ margin-top:6px; border-top:1px solid var(--toolbar-border); padding-top:6px; text-align:right; }
   .dropdown-actions button{ font-size:12px; padding:5px 9px; }
@@ -381,6 +438,20 @@
   }
   .color-swatches button.selected{ border-color:var(--node-text); }
   .node-color-clear-btn{ width:100%; font-size:12px; justify-content:center; }
+
+  .node-tag-menu{ position:fixed; top:0; left:0; min-width:200px; max-width:260px; }
+  .node-tag-menu .tag-chip-list{ display:flex; flex-wrap:wrap; gap:5px; margin-bottom:8px; }
+  .node-tag-menu .tag-chip-list:empty{ margin-bottom:0; }
+  .node-tag-menu .tag-chip{ display:inline-flex; align-items:center; gap:4px; }
+  .node-tag-menu .tag-chip-remove{
+    border:none; background:none; padding:0; margin:0;
+    font-size:11px; line-height:1; cursor:pointer; color:inherit;
+  }
+  .node-tag-menu .tag-input{
+    width:100%; font-family:inherit; font-size:13px;
+    border:1px solid var(--toolbar-border); background:var(--bg); color:var(--node-text);
+    padding:6px 8px; border-radius:6px;
+  }
 </style>
 </head>
 <body>
@@ -389,8 +460,8 @@
     <span class="title">BrainDump</span>
     <button id="btn-new-root">＋ Neue Wurzel</button>
     <div class="sep"></div>
-    <button id="btn-save-json">💾 Speichern (JSON)</button>
     <button id="btn-import">📂 Import</button>
+    <button id="btn-save-json">💾 Speichern (JSON)</button>
     <button id="btn-save-image">🖼 Graphik speichern</button>
     <button id="btn-export" class="primary">💾 Export (.md)</button>
     <button id="btn-html-export">🌐 HTML-Export</button>
@@ -409,8 +480,18 @@
         </div>
       </div>
     </div>
+    <div id="tag-filter-wrap">
+      <button id="btn-tag-filter" title="Nach Tags filtern">🏷 Tags</button>
+      <div id="tag-filter-menu" class="dropdown-menu">
+        <div id="tag-filter-list"></div>
+        <div class="dropdown-actions">
+          <button id="tag-filter-reset">Alle anzeigen</button>
+        </div>
+      </div>
+    </div>
     <div class="spacer"></div>
     <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Strg/Cmd+Z = rückgängig</span>
+    <button id="btn-minimap-toggle" title="Mini-Karte ausblenden">🗺</button>
     <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">
       <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="16" cy="16" r="14" fill="#fff" stroke="#000" stroke-width="1.6"/>
@@ -427,6 +508,7 @@
       <div id="node-toolbar" class="node-toolbar">
         <button class="tb-child" title="Kind hinzufügen">＋</button>
         <button class="tb-sibling" title="Geschwister hinzufügen">⏎</button>
+        <button class="tb-tags" title="Tags verwalten">#</button>
         <button class="tb-fix" title="Breite/Höhe fixieren">⤢</button>
         <button class="tb-delete" title="Löschen (Kinder bleiben erhalten)">×</button>
       </div>
@@ -436,7 +518,19 @@
       <button id="zoom-in" title="Vergrößern">＋</button>
       <div id="zoom-level">100%</div>
       <button id="zoom-out" title="Verkleinern">－</button>
+      <button id="zoom-fit" title="Alles einpassen">⛶</button>
       <button id="zoom-reset" title="Zurücksetzen">⤾</button>
+      <div id="storage-indicator" title="Geschätzte Auslastung des Browser-Speichers (Autosave)">
+        <svg class="storage-icon" viewBox="0 0 24 24" width="11" height="11" aria-hidden="true">
+          <path d="M12 3v10.5M12 13.5l-4-4M12 13.5l4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="4" y="18" width="16" height="3" rx="1" fill="currentColor"/>
+        </svg>
+        <span class="storage-text">…</span>
+      </div>
+    </div>
+    <div id="minimap">
+      <canvas id="minimap-canvas"></canvas>
+      <div id="minimap-viewport-rect"></div>
     </div>
   </div>
 </div>
@@ -470,6 +564,10 @@
 <div id="node-color-menu" class="dropdown-menu node-color-menu">
   <div class="color-swatches"></div>
   <button id="node-color-clear" class="node-color-clear-btn">Keine Farbe</button>
+</div>
+<div id="node-tag-menu" class="dropdown-menu node-tag-menu">
+  <div class="tag-chip-list"></div>
+  <input type="text" class="tag-input" placeholder="#tag hinzufügen und Enter">
 </div>
 
 <script>
@@ -560,7 +658,34 @@
   }
 
   function createNode(text){
-    return { id: nextId(), text: text || "", collapsed: false, width: null, height: null, color: null, fixed: false, isLegend: false, children: [] };
+    return { id: nextId(), text: text || "", collapsed: false, width: null, height: null, color: null, fixed: false, isLegend: false, tags: [], children: [] };
+  }
+
+  // Ein Tag ist "ein Wort" ohne führende(s) #: Buchstaben/Ziffern/Unterstrich/Bindestrich.
+  // Führende(s) # wird beim Eintippen toleriert und entfernt; alles andere wird ausgefiltert.
+  function normalizeTagWord(raw){
+    var s = String(raw == null ? "" : raw).trim();
+    s = s.replace(/^#+/, "");
+    s = s.replace(/[^\p{L}\p{N}_-]+/gu, "");
+    return s;
+  }
+
+  // Bereinigt eine rohe Tag-Liste (z.B. aus Import): normalisieren, Leere und Duplikate entfernen.
+  function sanitizeTagsArray(arr){
+    var out = [];
+    var seen = {};
+    (Array.isArray(arr) ? arr : []).forEach(function(raw){
+      var word = normalizeTagWord(raw);
+      if (word && !seen[word]){ seen[word] = true; out.push(word); }
+    });
+    return out;
+  }
+
+  function ensureTagsDefaults(list){
+    list.forEach(function(n){
+      n.tags = sanitizeTagsArray(n.tags);
+      ensureTagsDefaults(n.children);
+    });
   }
 
   function findNode(id, list){
@@ -597,9 +722,13 @@
   }
 
   /* ---------------------------------------------------------------
-   * Farbfilter + kompaktierte Baum-Sicht ("Display-Tree")
+   * Farb- und Tag-Filter + kompaktierte Baum-Sicht ("Display-Tree")
    *
-   * Ist ein Filter aktiv, werden nicht-passende Knoten übersprungen.
+   * Zwei unabhängige Filter-Dimensionen (Farbe, Tags). Sind beide aktiv,
+   * muss ein Knoten BEIDE erfüllen (UND), innerhalb einer Dimension reicht
+   * eine der ausgewählten Optionen (ODER) — z.B. sichtbar, wenn die Farbe
+   * eine der angehakten ist UND mindestens einer der angehakten Tags trägt.
+   * Ist irgendein Filter aktiv, werden nicht-passende Knoten übersprungen.
    * getDisplayRoots() liefert dafür eine kompaktierte Sicht auf den Baum:
    * Einträge {id, node, children, viaHidden} statt echter Node-Objekte.
    * children enthält wieder solche Einträge; viaHidden ist true, wenn
@@ -609,15 +738,35 @@
    * Ohne aktiven Filter entspricht der Display-Tree 1:1 dem echten Baum.
    * -------------------------------------------------------------*/
   var activeColorFilter = {}; // Set-artig: colorKey -> true
+  var activeTagFilter = {}; // Set-artig: tagWort -> true
   var NO_COLOR_KEY = "__none__"; // Sentinel für den "Keine Farbe"-Filtereintrag
+  var NO_TAG_KEY = "__no_tags__"; // Sentinel für den "Ohne Tags"-Filtereintrag
 
-  function isFilterActive(){
+  function isColorFilterActive(){
     return Object.keys(activeColorFilter).length > 0;
   }
 
+  function isTagFilterActive(){
+    return Object.keys(activeTagFilter).length > 0;
+  }
+
+  function isFilterActive(){
+    return isColorFilterActive() || isTagFilterActive();
+  }
+
   function nodeMatchesFilter(node){
-    if (!isFilterActive()) return true;
-    return node.color ? !!activeColorFilter[node.color] : !!activeColorFilter[NO_COLOR_KEY];
+    if (isColorFilterActive()){
+      var colorOk = node.color ? !!activeColorFilter[node.color] : !!activeColorFilter[NO_COLOR_KEY];
+      if (!colorOk) return false;
+    }
+    if (isTagFilterActive()){
+      var tags = node.tags || [];
+      var tagOk = tags.length
+        ? tags.some(function(t){ return !!activeTagFilter[t]; })
+        : !!activeTagFilter[NO_TAG_KEY];
+      if (!tagOk) return false;
+    }
+    return true;
   }
 
   function getUsedColors(){
@@ -636,6 +785,29 @@
     });
     if (noColorCount > 0){
       result.push({ key: NO_COLOR_KEY, hex: null, label: "Keine Farbe", count: noColorCount });
+    }
+    return result;
+  }
+
+  function getUsedTags(){
+    var used = {};
+    var noTagCount = 0;
+    function walk(list){
+      list.forEach(function(n){
+        if (n.tags && n.tags.length){
+          n.tags.forEach(function(t){ used[t] = (used[t] || 0) + 1; });
+        } else {
+          noTagCount++;
+        }
+        walk(n.children);
+      });
+    }
+    walk(roots);
+    var result = Object.keys(used).sort().map(function(t){
+      return { key: t, label: "#" + t, count: used[t] };
+    });
+    if (noTagCount > 0){
+      result.push({ key: NO_TAG_KEY, label: "Ohne Tags", count: noTagCount });
     }
     return result;
   }
@@ -696,12 +868,102 @@
   }
 
   /* ---------------------------------------------------------------
+   * Speicher-Auslastungsanzeige (Näherungswert)
+   *
+   * Es gibt keine verlässliche Browser-API, die das tatsächliche localStorage-
+   * Kontingent direkt verrät (navigator.storage.estimate() bezieht sich auf einen
+   * gemeinsamen Storage-Topf, nicht auf das separate, feste localStorage-Limit).
+   * Deshalb wird das Kontingent einmalig empirisch ermittelt: ein Testschlüssel
+   * wird mit wachsenden Dummy-Strings beschrieben, bis QuotaExceededError auftritt
+   * (binäre Suche). Das Ergebnis ist eine Annäherung für den aktuellen Browser/Tab
+   * in diesem Moment — kein exakter, dauerhaft gültiger Wert (siehe PROJEKT.md).
+   * -------------------------------------------------------------*/
+  var $storageIndicator = document.getElementById("storage-indicator");
+  var $storageText = $storageIndicator ? $storageIndicator.querySelector(".storage-text") : null;
+  var QUOTA_PROBE_KEY = "__braindump_quota_probe__";
+  var estimatedQuotaBytes = null; // null = noch nicht ermittelt
+  var lastAutosaveFailed = false;
+
+  // Grobe Näherung des aktuell belegten Speichers dieser Origin (2 Bytes/Zeichen, UTF-16).
+  function currentLocalStorageUsageBytes(){
+    var total = 0;
+    try{
+      for (var i = 0; i < localStorage.length; i++){
+        var key = localStorage.key(i);
+        var value = localStorage.getItem(key) || "";
+        total += (key.length + value.length) * 2;
+      }
+    }catch(e){ return 0; }
+    return total;
+  }
+
+  function probeLocalStorageQuota(){
+    var usedBefore = currentLocalStorageUsageBytes();
+    function canWrite(bytes){
+      try{
+        localStorage.setItem(QUOTA_PROBE_KEY, new Array(Math.ceil(bytes/2) + 1).join("x"));
+        localStorage.removeItem(QUOTA_PROBE_KEY);
+        return true;
+      }catch(e){
+        try{ localStorage.removeItem(QUOTA_PROBE_KEY); }catch(e2){}
+        return false;
+      }
+    }
+    if (!canWrite(1)){
+      estimatedQuotaBytes = usedBefore; // gesperrt bzw. praktisch voll
+      updateStorageIndicator();
+      return;
+    }
+    var lo = 0, hi = 1024*1024; // 1 MB Startwert
+    while (hi < 20*1024*1024 && canWrite(hi)) hi *= 2;
+    for (var i = 0; i < 20 && hi - lo > 2048; i++){
+      var mid = Math.floor((lo + hi) / 2);
+      if (canWrite(mid)) lo = mid; else hi = mid;
+    }
+    estimatedQuotaBytes = usedBefore + lo;
+    updateStorageIndicator();
+  }
+
+  function updateStorageIndicator(){
+    if (!$storageIndicator) return;
+    if (lastAutosaveFailed){
+      $storageText.textContent = "⚠";
+      $storageIndicator.classList.add("danger");
+      $storageIndicator.classList.remove("warn");
+      $storageIndicator.title = "Autosave ist zuletzt fehlgeschlagen (vermutlich Speicher voll) — bitte über „💾 Speichern (JSON)“ sichern.";
+      return;
+    }
+    if (estimatedQuotaBytes === null){
+      $storageText.textContent = "…";
+      $storageIndicator.title = "Speicherauslastung wird ermittelt…";
+      return;
+    }
+    if (estimatedQuotaBytes <= 0){
+      $storageText.textContent = "n/v";
+      $storageIndicator.classList.remove("warn", "danger");
+      $storageIndicator.title = "Lokaler Speicher nicht verfügbar (z.B. privater Modus) — Autosave wirkungslos, bitte regelmäßig über „💾 Speichern (JSON)“ sichern.";
+      return;
+    }
+    var used = currentLocalStorageUsageBytes();
+    var pct = Math.min(100, Math.round((used / estimatedQuotaBytes) * 100));
+    $storageText.textContent = pct + "%";
+    $storageIndicator.classList.toggle("warn", pct >= 70 && pct < 90);
+    $storageIndicator.classList.toggle("danger", pct >= 90);
+    $storageIndicator.title = "Geschätzte Auslastung des Browser-Speichers (Autosave): ~" +
+      Math.round(used/1024) + " KB von ~" + Math.round(estimatedQuotaBytes/1024) + " KB (Näherungswert, siehe PROJEKT.md)";
+  }
+
+  /* ---------------------------------------------------------------
    * Persistenz (Autosave in localStorage) + Markdown Import/Export
    * -------------------------------------------------------------*/
   function autosave(){
     try{
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ roots: roots, uidCounter: uidCounter }));
-    }catch(e){ /* ignorieren, z.B. privater Modus */ }
+      lastAutosaveFailed = false;
+    }catch(e){
+      lastAutosaveFailed = true; // z.B. privater Modus oder Kontingent überschritten
+    }
+    updateStorageIndicator();
   }
 
   function restore(){
@@ -711,6 +973,7 @@
       var data = JSON.parse(raw);
       if (data && Array.isArray(data.roots)){
         roots = data.roots;
+        ensureTagsDefaults(roots);
         uidCounter = data.uidCounter || (countAll(roots)+1);
         return true;
       }
@@ -735,31 +998,38 @@
   // Wandelt einen Display-Tree-Eintrag (kompaktierte Filter-Sicht) in einen
   // einfachen {text, children}-Baum, wie ihn die Markdown-Walker unten erwarten.
   function displayEntryToPlainNode(entry){
-    return { text: entry.node.text, children: entry.children.map(displayEntryToPlainNode) };
+    return { text: entry.node.text, tags: entry.node.tags, children: entry.children.map(displayEntryToPlainNode) };
+  }
+
+  // Hängt eine "[#tag1 #tag2]"-Gruppe an, falls das Item Tags hat, sonst leerer String.
+  function tagSuffixForExport(node){
+    var tags = node.tags || [];
+    if (!tags.length) return "";
+    return " [" + tags.map(function(t){ return "#" + t; }).join(" ") + "]";
   }
 
   // format: "dash" (- / -- / ---), "hash" (# / ## / ###), "numbered" (1. / 1.1. / 1.1.1.), "plain" (nur Einrückung)
-  // Ist ein Farbfilter aktiv, wird nur die aktuell sichtbare (kompaktierte) Sicht exportiert.
+  // Ist ein Farb- oder Tag-Filter aktiv, wird nur die aktuell sichtbare (kompaktierte) Sicht exportiert.
   function exportToMarkdown(format){
     var sourceRoots = isFilterActive() ? getDisplayRoots().map(displayEntryToPlainNode) : roots;
     var lines = [];
 
     function walkDash(node, depth){
-      lines.push("-".repeat(depth+1) + " " + textToMdLine(node.text));
+      lines.push("-".repeat(depth+1) + " " + textToMdLine(node.text) + tagSuffixForExport(node));
       node.children.forEach(function(c){ walkDash(c, depth+1); });
     }
     function walkHash(node, depth){
-      lines.push("#".repeat(depth+1) + " " + textToMdLine(node.text));
+      lines.push("#".repeat(depth+1) + " " + textToMdLine(node.text) + tagSuffixForExport(node));
       node.children.forEach(function(c){ walkHash(c, depth+1); });
     }
     function walkPlain(node, depth){
-      lines.push("  ".repeat(depth) + textToMdLine(node.text));
+      lines.push("  ".repeat(depth) + textToMdLine(node.text) + tagSuffixForExport(node));
       node.children.forEach(function(c){ walkPlain(c, depth+1); });
     }
     function walkNumbered(list, path){
       list.forEach(function(node, i){
         var num = path.concat([i+1]);
-        lines.push(num.join(".") + ". " + textToMdLine(node.text));
+        lines.push(num.join(".") + ". " + textToMdLine(node.text) + tagSuffixForExport(node));
         walkNumbered(node.children, num);
       });
     }
@@ -795,8 +1065,22 @@
     var newRoots = [];
     var stack = []; // { level, node }
 
-    function pushNode(level, text){
-      var node = createNode(text);
+    // Eine abschließende "[#tag1 #tag2]"-Gruppe (nur Tokens, die alle mit # beginnen)
+    // wird immer als Tag-Liste interpretiert und vom Itemtext abgetrennt.
+    var TAG_SUFFIX_RE = /\s*\[(#[^\s\]]+(?:\s+#[^\s\]]+)*)\]\s*$/;
+    function extractTagsSuffix(text){
+      var m = TAG_SUFFIX_RE.exec(text);
+      if (!m) return { text: text, tags: [] };
+      return {
+        text: text.slice(0, m.index).replace(/\s+$/, ""),
+        tags: sanitizeTagsArray(m[1].split(/\s+/))
+      };
+    }
+
+    function pushNode(level, rawText){
+      var parsed = extractTagsSuffix(rawText);
+      var node = createNode(parsed.text);
+      node.tags = parsed.tags;
       while (stack.length && stack[stack.length-1].level >= level){
         stack.pop();
       }
@@ -870,6 +1154,7 @@
         color: node.color,
         fixed: node.fixed,
         isLegend: node.isLegend,
+        tags: node.tags,
         children: node.children.map(toPlain)
       };
     }
@@ -887,6 +1172,7 @@
       node.color = (raw && typeof raw.color === "string" && colorHex(raw.color)) ? raw.color : null;
       node.fixed = !!(raw && raw.fixed);
       node.isLegend = !!(raw && raw.isLegend);
+      node.tags = sanitizeTagsArray(raw && raw.tags);
       node.children = nodesFromJSON(raw && raw.children);
       return node;
     });
@@ -1042,7 +1328,7 @@
       $emptyHint.textContent = "Noch keine Items. Klicke „＋ Neue Wurzel“ oder importiere eine .md- oder .json-Datei.";
     } else if (!displayRoots.length){
       $emptyHint.style.display = "block";
-      $emptyHint.textContent = "Der aktive Farbfilter zeigt keine Items. Passe die Farbauswahl an oder klicke „Alle anzeigen“.";
+      $emptyHint.textContent = "Der aktive Filter zeigt keine Items. Passe Farb-/Tag-Auswahl an oder klicke „Alle anzeigen“.";
     } else {
       $emptyHint.style.display = "none";
     }
@@ -1063,7 +1349,10 @@
         el.dataset.id = node.id;
         el.innerHTML =
           '<span class="toggle"></span>' +
-          '<div class="content" contenteditable="true" spellcheck="false"></div>' +
+          '<div class="body">' +
+            '<div class="content" contenteditable="true" spellcheck="false"></div>' +
+            '<div class="tags"></div>' +
+          '</div>' +
           '<span class="child-count"></span>' +
           '<span class="color-dot"></span>';
         if (node.width) el.style.width = node.width + "px";
@@ -1090,6 +1379,10 @@
       } else {
         dotEl.classList.remove("visible");
       }
+      var tagsEl = el.querySelector(".tags");
+      tagsEl.innerHTML = (node.tags || []).map(function(t){
+        return '<span class="tag-chip">#' + xmlEscape(t) + '</span>';
+      }).join("");
 
       if (!node.collapsed){
         entry.children.forEach(function(c){ buildEl(c, depth+1); });
@@ -1138,6 +1431,7 @@
     drawEdges(positions, displayRoots);
     lastPositions = positions;
     lastDisplayRoots = displayRoots;
+    renderMinimap();
     if (toolbarTargetId && findNode(toolbarTargetId)){
       positionToolbar(toolbarTargetId);
     } else if (toolbarTargetId){
@@ -1336,7 +1630,7 @@
     // Größenänderungen im Datenmodell festhalten (manueller Resize-Griff oder Inhaltswachstum)
     new ResizeObserver(function(){
       if (!el.style.width) return; // nur wenn explizite Breite gesetzt (nach erstem Resize)
-      // Wird der Knoten aus dem DOM entfernt (z.B. durch den Farbfilter ausgeblendet),
+      // Wird der Knoten aus dem DOM entfernt (z.B. durch einen aktiven Filter ausgeblendet),
       // feuert der ResizeObserver noch einmal mit einer 0x0-Messung des jetzt
       // getrennten Elements — das würde width/height im Datenmodell mit 0
       // überschreiben. Solche Messungen an nicht mehr verbundenen Elementen ignorieren.
@@ -1478,6 +1772,7 @@
   function applyView(){
     $canvas.style.transform = "translate(" + view.x + "px," + view.y + "px) scale(" + view.scale + ")";
     $zoomLevel.textContent = Math.round(view.scale * 100) + "%";
+    updateMinimapViewportRect();
   }
   function setZoom(newScale, cx, cy){
     newScale = Math.min(2, Math.max(0.25, newScale));
@@ -1492,8 +1787,35 @@
     applyView();
   }
 
+  // Zoomt/verschiebt so, dass alle aktuell sichtbaren (gefilterten) Knoten ins
+  // Viewport passen — nutzt die zuletzt berechneten Layout-Positionen, respektiert
+  // also automatisch einen aktiven Farb-/Tag-Filter.
+  function fitToView(){
+    var ids = Object.keys(lastPositions);
+    if (!ids.length) return;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    ids.forEach(function(id){
+      var p = lastPositions[id];
+      minX = Math.min(minX, p.x);
+      minY = Math.min(minY, p.y);
+      maxX = Math.max(maxX, p.x + p.w);
+      maxY = Math.max(maxY, p.y + p.h);
+    });
+    var contentW = maxX - minX, contentH = maxY - minY;
+    if (contentW <= 0 || contentH <= 0) return;
+    var rect = $viewport.getBoundingClientRect();
+    var pad = 40;
+    var scale = Math.min((rect.width - pad*2) / contentW, (rect.height - pad*2) / contentH, 2);
+    scale = Math.max(scale, 0.05);
+    view.scale = scale;
+    view.x = (rect.width - contentW*scale) / 2 - minX*scale;
+    view.y = (rect.height - contentH*scale) / 2 - minY*scale;
+    applyView();
+  }
+
   document.getElementById("zoom-in").addEventListener("click", function(){ setZoom(view.scale + 0.1); });
   document.getElementById("zoom-out").addEventListener("click", function(){ setZoom(view.scale - 0.1); });
+  document.getElementById("zoom-fit").addEventListener("click", fitToView);
   document.getElementById("zoom-reset").addEventListener("click", function(){ view = {scale:1,x:0,y:0}; applyView(); });
 
   $viewport.addEventListener("wheel", function(e){
@@ -1521,6 +1843,116 @@
     panning = null;
     $viewport.classList.remove("panning");
   });
+
+  /* ---------------------------------------------------------------
+   * Mini-Karte (Orientierungshilfe auf der Arbeitsfläche)
+   *
+   * Zeigt die zuletzt berechneten Layout-Positionen (lastPositions) verkleinert
+   * an, dazu ein Rechteck für den aktuell sichtbaren Ausschnitt. Ein Klick auf
+   * die Mini-Karte verschiebt die Ansicht dorthin (Zoomstufe bleibt erhalten).
+   * minimapTransform (Skalierung + Versatz Canvas-Welt -> Mini-Karten-Pixel)
+   * wird bei jedem renderMinimap() neu berechnet; updateMinimapViewportRect()
+   * nutzt diesen zwischengespeicherten Wert, um bei reinem Zoomen/Verschieben
+   * nur das Rechteck neu zu positionieren, ohne die Knotenpunkte neu zu zeichnen.
+   * -------------------------------------------------------------*/
+  var $minimap = document.getElementById("minimap");
+  var $minimapCanvas = document.getElementById("minimap-canvas");
+  var $minimapViewportRect = document.getElementById("minimap-viewport-rect");
+  var minimapCtx = $minimapCanvas.getContext("2d");
+  var minimapTransform = null; // {scale, offsetX, offsetY} oder null, wenn nichts zu zeigen ist
+
+  function renderMinimap(){
+    var canvasW = parseInt($canvas.style.width) || 0;
+    var canvasH = parseInt($canvas.style.height) || 0;
+    if (!canvasW || !canvasH || !Object.keys(lastPositions).length){
+      $minimap.classList.add("empty");
+      minimapTransform = null;
+      return;
+    }
+    $minimap.classList.remove("empty");
+
+    var mapW = $minimap.clientWidth, mapH = $minimap.clientHeight;
+    var pad = 6;
+    var scale = Math.min((mapW - pad*2) / canvasW, (mapH - pad*2) / canvasH);
+    var offsetX = (mapW - canvasW*scale) / 2;
+    var offsetY = (mapH - canvasH*scale) / 2;
+    minimapTransform = { scale: scale, offsetX: offsetX, offsetY: offsetY };
+
+    var dpr = window.devicePixelRatio || 1;
+    $minimapCanvas.width = mapW * dpr;
+    $minimapCanvas.height = mapH * dpr;
+    minimapCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    minimapCtx.clearRect(0, 0, mapW, mapH);
+
+    var lineColor = getComputedStyle(document.documentElement).getPropertyValue("--line").trim();
+
+    function walk(entry){
+      var p = lastPositions[entry.id];
+      if (p){
+        minimapCtx.fillStyle = entry.node.color ? colorHex(entry.node.color) : lineColor;
+        minimapCtx.fillRect(
+          offsetX + p.x*scale, offsetY + p.y*scale,
+          Math.max(2, p.w*scale), Math.max(2, p.h*scale)
+        );
+      }
+      entry.children.forEach(walk);
+    }
+    lastDisplayRoots.forEach(walk);
+
+    updateMinimapViewportRect();
+  }
+
+  function updateMinimapViewportRect(){
+    if (!minimapTransform){ $minimapViewportRect.style.display = "none"; return; }
+    var rect = $viewport.getBoundingClientRect();
+    var worldX1 = -view.x / view.scale;
+    var worldY1 = -view.y / view.scale;
+    var worldX2 = (rect.width - view.x) / view.scale;
+    var worldY2 = (rect.height - view.y) / view.scale;
+
+    var s = minimapTransform.scale, offX = minimapTransform.offsetX, offY = minimapTransform.offsetY;
+    var x1 = offX + worldX1*s, y1 = offY + worldY1*s;
+    var x2 = offX + worldX2*s, y2 = offY + worldY2*s;
+
+    $minimapViewportRect.style.display = "block";
+    $minimapViewportRect.style.left = x1 + "px";
+    $minimapViewportRect.style.top = y1 + "px";
+    $minimapViewportRect.style.width = Math.max(0, x2 - x1) + "px";
+    $minimapViewportRect.style.height = Math.max(0, y2 - y1) + "px";
+  }
+
+  $minimap.addEventListener("click", function(e){
+    if (!minimapTransform) return;
+    var mmRect = $minimap.getBoundingClientRect();
+    var mx = e.clientX - mmRect.left, my = e.clientY - mmRect.top;
+    var worldX = (mx - minimapTransform.offsetX) / minimapTransform.scale;
+    var worldY = (my - minimapTransform.offsetY) / minimapTransform.scale;
+    var vpRect = $viewport.getBoundingClientRect();
+    view.x = vpRect.width/2 - worldX * view.scale;
+    view.y = vpRect.height/2 - worldY * view.scale;
+    applyView();
+  });
+
+  // Ein-/Ausblenden der Mini-Karte (nur im Editor, nicht Teil des HTML-Exports).
+  // minimapVisible steuert per Inline-Style unabhängig von der "empty"-Klasse
+  // (die die Mini-Karte ohnehin ausblendet, solange keine Items vorhanden sind).
+  var MINIMAP_VISIBLE_KEY = "braindump_minimap_visible";
+  var $btnMinimapToggle = document.getElementById("btn-minimap-toggle");
+  var minimapVisible = localStorage.getItem(MINIMAP_VISIBLE_KEY) !== "0";
+
+  function applyMinimapVisibility(){
+    $minimap.style.display = minimapVisible ? "" : "none";
+    $btnMinimapToggle.classList.toggle("active", minimapVisible);
+    $btnMinimapToggle.title = minimapVisible ? "Mini-Karte ausblenden" : "Mini-Karte einblenden";
+  }
+
+  $btnMinimapToggle.addEventListener("click", function(){
+    minimapVisible = !minimapVisible;
+    localStorage.setItem(MINIMAP_VISIBLE_KEY, minimapVisible ? "1" : "0");
+    applyMinimapVisibility();
+  });
+
+  applyMinimapVisibility();
 
   /* ---------------------------------------------------------------
    * Toolbar-Aktionen
@@ -1562,7 +1994,7 @@
       return;
     }
     if (isFilterActive() && !getDisplayRoots().length){
-      alert("Der aktive Farbfilter zeigt keine Items zum Exportieren.");
+      alert("Der aktive Filter zeigt keine Items zum Exportieren.");
       return;
     }
     openExportModal();
@@ -1691,7 +2123,7 @@
       return;
     }
     if (!lastDisplayRoots.length){
-      alert("Der aktive Farbfilter zeigt keine Items zum Exportieren.");
+      alert("Der aktive Filter zeigt keine Items zum Exportieren.");
       return;
     }
     var style = getComputedStyle(document.documentElement);
@@ -1781,7 +2213,7 @@
       ctx.fillStyle = colors.nodeText;
       ctx.font = (depth === 0 ? "600 " : "400 ") + fontSize + "px " + fontStack;
       ctx.textBaseline = "top";
-      var lines = wrapCanvasText(ctx, textToMdLine(node.text) || "Text…", p.w - padH*2);
+      var lines = wrapCanvasText(ctx, (textToMdLine(node.text) || "Text…") + tagSuffixForExport(node), p.w - padH*2);
       var ty = p.y + padV;
       lines.forEach(function(line){
         ctx.fillText(line, p.x + padH, ty);
@@ -1818,6 +2250,7 @@
       id: entry.id,
       text: entry.node.text,
       color: entry.node.color ? colorHex(entry.node.color) : null,
+      tags: entry.node.tags || [],
       collapsed: entry.node.collapsed,
       viaHidden: entry.viaHidden,
       width: entry.node.fixed ? entry.node.width : null,
@@ -1881,8 +2314,12 @@
     '  align-items:center; justify-content:center; font-size:10px; color:var(--line); cursor:pointer;',
     '  margin-top:2px; user-select:none; }',
     '.node .toggle:hover{ color:var(--accent); }',
-    '.node .content{ flex:1; min-width:0; white-space:pre-wrap; word-break:break-word; font-size:13.5px; line-height:1.35; }',
+    '.node .body{ flex:1; min-width:0; display:flex; flex-direction:column; gap:4px; }',
+    '.node .content{ white-space:pre-wrap; word-break:break-word; font-size:13.5px; line-height:1.35; }',
     '.node .content:empty:before{ content:"(leer)"; color:var(--line); }',
+    '.node .tags{ display:flex; flex-wrap:wrap; gap:4px; }',
+    '.node .tags:empty{ display:none; }',
+    '.tag-chip{ font-size:10.5px; padding:1px 6px; border-radius:9px; background:var(--btn-bg-hover); color:var(--line); white-space:nowrap; }',
     '.node .child-count{ position:absolute; bottom:4px; right:4px; font-size:9.5px; color:var(--line);',
     '  background:var(--node-bg); border:1px solid var(--node-border); border-radius:8px; padding:0 5px; display:none; }',
     '.node.collapsed .child-count{ display:block; }',
@@ -1899,7 +2336,14 @@
     '#zoom-controls button{ border:none; background:transparent; width:28px; height:28px; padding:0; cursor:pointer;',
     '  font-size:15px; border-radius:4px; color:var(--node-text); }',
     '#zoom-controls button:hover{ background:var(--btn-bg-hover); }',
-    '#zoom-level{ font-size:10px; text-align:center; color:var(--line); padding:2px 0; }'
+    '#zoom-level{ font-size:10px; text-align:center; color:var(--line); padding:2px 0; }',
+    '#minimap{ position:absolute; bottom:14px; left:14px; width:180px; height:130px;',
+    '  background:var(--toolbar-bg); border:1px solid var(--toolbar-border); border-radius:8px;',
+    '  box-shadow:var(--shadow); overflow:hidden; cursor:pointer; }',
+    '#minimap.empty{ display:none; }',
+    '#minimap canvas{ position:absolute; top:0; left:0; width:100%; height:100%; display:block; }',
+    '#minimap-viewport-rect{ position:absolute; border:1.5px solid var(--accent);',
+    '  background:rgba(74,125,252,0.15); pointer-events:none; display:none; }'
   ].join("\n");
 
   var STANDALONE_JS = [
@@ -1940,6 +2384,7 @@
     '  var $edges = document.getElementById("edges");',
     '  var $canvas = document.getElementById("canvas");',
     '  var $emptyHint = document.getElementById("empty-hint");',
+    '  var lastPositions = {};',
     '  $emptyHint.style.display = DATA.length ? "none" : "block";',
     '',
     '  function computeLayout(nodeEls){',
@@ -2012,7 +2457,7 @@
     '        el = document.createElement("div");',
     '        el.className = "node";',
     '        el.dataset.id = node.id;',
-    '        el.innerHTML = \'<span class="toggle"></span><div class="content"></div><span class="child-count"></span><span class="color-dot"></span>\';',
+    '        el.innerHTML = \'<span class="toggle"></span><div class="body"><div class="content"></div><div class="tags"></div></div><span class="child-count"></span><span class="color-dot"></span>\';',
     '        if (node.width) el.style.width = node.width + "px";',
     '        if (node.height) el.style.height = node.height + "px";',
     '        $nodes.appendChild(el);',
@@ -2027,6 +2472,8 @@
     '      el.classList.toggle("root-node", depth === 0);',
     '      el.classList.toggle("collapsed", node.collapsed && node.children.length > 0);',
     '      el.querySelector(".content").textContent = node.text;',
+    '      var tagsEl = el.querySelector(".tags");',
+    '      tagsEl.innerHTML = (node.tags||[]).map(function(t){ return \'<span class="tag-chip">#\'+t+\'</span>\'; }).join("");',
     '      var toggleEl = el.querySelector(".toggle");',
     '      toggleEl.textContent = node.children.length ? (node.collapsed ? "▸" : "▾") : "";',
     '      el.querySelector(".child-count").textContent = node.children.length;',
@@ -2059,8 +2506,9 @@
     '    $canvas.style.width = (maxX + LAYOUT.padding) + "px";',
     '    $canvas.style.height = (maxY + LAYOUT.padding) + "px";',
     '    drawEdges(positions);',
+    '    lastPositions = positions;',
+    '    renderMinimap();',
     '  }',
-    '  render();',
     '',
     '  var view = { scale:1, x:0, y:0 };',
     '  var $viewport = document.getElementById("viewport");',
@@ -2068,6 +2516,7 @@
     '  function applyView(){',
     '    $canvas.style.transform = "translate(" + view.x + "px," + view.y + "px) scale(" + view.scale + ")";',
     '    $zoomLevel.textContent = Math.round(view.scale * 100) + "%";',
+    '    updateMinimapViewportRect();',
     '  }',
     '  function setZoom(newScale, cx, cy){',
     '    newScale = Math.min(2, Math.max(0.25, newScale));',
@@ -2077,8 +2526,87 @@
     '    view.scale = newScale; view.x = cx - wx * view.scale; view.y = cy - wy * view.scale;',
     '    applyView();',
     '  }',
+    '  function fitToView(){',
+    '    var ids = Object.keys(lastPositions);',
+    '    if (!ids.length) return;',
+    '    var minX=Infinity, minY=Infinity, maxX=-Infinity, maxY=-Infinity;',
+    '    ids.forEach(function(id){',
+    '      var p = lastPositions[id];',
+    '      minX=Math.min(minX,p.x); minY=Math.min(minY,p.y);',
+    '      maxX=Math.max(maxX,p.x+p.w); maxY=Math.max(maxY,p.y+p.h);',
+    '    });',
+    '    var contentW = maxX-minX, contentH = maxY-minY;',
+    '    if (contentW <= 0 || contentH <= 0) return;',
+    '    var rect = $viewport.getBoundingClientRect();',
+    '    var pad = 40;',
+    '    var scale = Math.min((rect.width-pad*2)/contentW, (rect.height-pad*2)/contentH, 2);',
+    '    scale = Math.max(scale, 0.05);',
+    '    view.scale = scale;',
+    '    view.x = (rect.width - contentW*scale)/2 - minX*scale;',
+    '    view.y = (rect.height - contentH*scale)/2 - minY*scale;',
+    '    applyView();',
+    '  }',
+    '',
+    '  var $minimap = document.getElementById("minimap");',
+    '  var $minimapCanvas = document.getElementById("minimap-canvas");',
+    '  var $minimapViewportRect = document.getElementById("minimap-viewport-rect");',
+    '  var minimapCtx = $minimapCanvas.getContext("2d");',
+    '  var minimapTransform = null;',
+    '  function renderMinimap(){',
+    '    var canvasW = parseInt($canvas.style.width) || 0;',
+    '    var canvasH = parseInt($canvas.style.height) || 0;',
+    '    if (!canvasW || !canvasH || !Object.keys(lastPositions).length){',
+    '      $minimap.classList.add("empty"); minimapTransform = null; return;',
+    '    }',
+    '    $minimap.classList.remove("empty");',
+    '    var mapW = $minimap.clientWidth, mapH = $minimap.clientHeight;',
+    '    var pad = 6;',
+    '    var scale = Math.min((mapW-pad*2)/canvasW, (mapH-pad*2)/canvasH);',
+    '    var offsetX = (mapW - canvasW*scale)/2, offsetY = (mapH - canvasH*scale)/2;',
+    '    minimapTransform = { scale: scale, offsetX: offsetX, offsetY: offsetY };',
+    '    var dpr = window.devicePixelRatio || 1;',
+    '    $minimapCanvas.width = mapW * dpr; $minimapCanvas.height = mapH * dpr;',
+    '    minimapCtx.setTransform(dpr, 0, 0, dpr, 0, 0);',
+    '    minimapCtx.clearRect(0, 0, mapW, mapH);',
+    '    var lineColor = getComputedStyle(document.documentElement).getPropertyValue("--line").trim();',
+    '    function walk(node){',
+    '      var p = lastPositions[node.id];',
+    '      if (p){',
+    '        minimapCtx.fillStyle = node.color || lineColor;',
+    '        minimapCtx.fillRect(offsetX+p.x*scale, offsetY+p.y*scale, Math.max(2,p.w*scale), Math.max(2,p.h*scale));',
+    '      }',
+    '      node.children.forEach(walk);',
+    '    }',
+    '    DATA.forEach(walk);',
+    '    updateMinimapViewportRect();',
+    '  }',
+    '  function updateMinimapViewportRect(){',
+    '    if (!minimapTransform){ $minimapViewportRect.style.display = "none"; return; }',
+    '    var rect = $viewport.getBoundingClientRect();',
+    '    var worldX1 = -view.x/view.scale, worldY1 = -view.y/view.scale;',
+    '    var worldX2 = (rect.width-view.x)/view.scale, worldY2 = (rect.height-view.y)/view.scale;',
+    '    var s = minimapTransform.scale, offX = minimapTransform.offsetX, offY = minimapTransform.offsetY;',
+    '    var x1 = offX+worldX1*s, y1 = offY+worldY1*s, x2 = offX+worldX2*s, y2 = offY+worldY2*s;',
+    '    $minimapViewportRect.style.display = "block";',
+    '    $minimapViewportRect.style.left = x1 + "px"; $minimapViewportRect.style.top = y1 + "px";',
+    '    $minimapViewportRect.style.width = Math.max(0, x2-x1) + "px";',
+    '    $minimapViewportRect.style.height = Math.max(0, y2-y1) + "px";',
+    '  }',
+    '  $minimap.addEventListener("click", function(e){',
+    '    if (!minimapTransform) return;',
+    '    var mmRect = $minimap.getBoundingClientRect();',
+    '    var mx = e.clientX - mmRect.left, my = e.clientY - mmRect.top;',
+    '    var worldX = (mx - minimapTransform.offsetX) / minimapTransform.scale;',
+    '    var worldY = (my - minimapTransform.offsetY) / minimapTransform.scale;',
+    '    var vpRect = $viewport.getBoundingClientRect();',
+    '    view.x = vpRect.width/2 - worldX*view.scale; view.y = vpRect.height/2 - worldY*view.scale;',
+    '    applyView();',
+    '  });',
+    '  render();',
+    '',
     '  document.getElementById("zoom-in").addEventListener("click", function(){ setZoom(view.scale + 0.1); });',
     '  document.getElementById("zoom-out").addEventListener("click", function(){ setZoom(view.scale - 0.1); });',
+    '  document.getElementById("zoom-fit").addEventListener("click", fitToView);',
     '  document.getElementById("zoom-reset").addEventListener("click", function(){ view = {scale:1,x:0,y:0}; applyView(); });',
     '  $viewport.addEventListener("wheel", function(e){',
     '    if (e.ctrlKey || e.metaKey){',
@@ -2142,7 +2670,12 @@
       '      <button id="zoom-in" title="Vergrößern">＋</button>',
       '      <div id="zoom-level">100%</div>',
       '      <button id="zoom-out" title="Verkleinern">－</button>',
+      '      <button id="zoom-fit" title="Alles einpassen">⛶</button>',
       '      <button id="zoom-reset" title="Zurücksetzen">⤾</button>',
+      '    </div>',
+      '    <div id="minimap">',
+      '      <canvas id="minimap-canvas"></canvas>',
+      '      <div id="minimap-viewport-rect"></div>',
       '    </div>',
       '  </div>',
       '</div>',
@@ -2161,7 +2694,7 @@
       return;
     }
     if (isFilterActive() && !getDisplayRoots().length){
-      alert("Der aktive Farbfilter zeigt keine Items zum Exportieren.");
+      alert("Der aktive Filter zeigt keine Items zum Exportieren.");
       return;
     }
     var html = generateStandaloneHtml();
@@ -2290,12 +2823,12 @@
   // Wandelt einen Display-Tree-Eintrag (kompaktierte Filter-Sicht) in einen
   // {text, color, children}-Baum, wie ihn der Excel-Walker unten erwartet.
   function displayEntryToPlainNodeWithColor(entry){
-    return { text: entry.node.text, color: entry.node.color, children: entry.children.map(displayEntryToPlainNodeWithColor) };
+    return { text: entry.node.text, color: entry.node.color, tags: entry.node.tags, children: entry.children.map(displayEntryToPlainNodeWithColor) };
   }
 
-  // Sammelt {outline, text, color} je Item in Dokumentreihenfolge. Gliederungs-
-  // nummerierung wie beim "1."-Markdown-Format; ist ein Farbfilter aktiv, wird
-  // wie bei den anderen Exporten nur die aktuell sichtbare (kompaktierte) Sicht
+  // Sammelt {outline, text, color, tags} je Item in Dokumentreihenfolge. Gliederungs-
+  // nummerierung wie beim "1."-Markdown-Format; ist ein Farb- oder Tag-Filter aktiv,
+  // wird wie bei den anderen Exporten nur die aktuell sichtbare (kompaktierte) Sicht
   // exportiert.
   function collectExcelRows(){
     var sourceRoots = isFilterActive() ? getDisplayRoots().map(displayEntryToPlainNodeWithColor) : roots;
@@ -2303,7 +2836,7 @@
     function walk(list, path){
       list.forEach(function(node, i){
         var num = path.concat([i+1]);
-        rows.push({ outline: num.join("."), text: textToMdLine(node.text), color: node.color || null });
+        rows.push({ outline: num.join("."), text: textToMdLine(node.text), color: node.color || null, tags: node.tags || [] });
         walk(node.children, num);
       });
     }
@@ -2328,6 +2861,7 @@
         '<c r="A1" t="inlineStr" s="1"><is><t>' + xmlEscape("Gliederung") + '</t></is></c>' +
         '<c r="B1" t="inlineStr" s="1"><is><t>' + xmlEscape("Item") + '</t></is></c>' +
         '<c r="C1" t="inlineStr" s="1"><is><t>' + xmlEscape("Farbe") + '</t></is></c>' +
+        '<c r="D1" t="inlineStr" s="1"><is><t>' + xmlEscape("Tags") + '</t></is></c>' +
       '</row>'
     );
     rows.forEach(function(row, i){
@@ -2335,11 +2869,13 @@
       var paletteEntry = COLOR_PALETTE[colorIndex(row.color)] || null;
       var colorLabel = paletteEntry ? paletteEntry.label : "";
       var s = styleForColor(row.color);
+      var tagsText = (row.tags || []).map(function(t){ return "#" + t; }).join(", ");
       sheetRows.push(
         '<row r="' + r + '">' +
           '<c r="A' + r + '" t="inlineStr"><is><t>' + xmlEscape(row.outline) + '</t></is></c>' +
           '<c r="B' + r + '" t="inlineStr"><is><t>' + xmlEscape(row.text) + '</t></is></c>' +
           '<c r="C' + r + '" t="inlineStr" s="' + s + '"><is><t>' + xmlEscape(colorLabel) + '</t></is></c>' +
+          '<c r="D' + r + '" t="inlineStr"><is><t>' + xmlEscape(tagsText) + '</t></is></c>' +
         '</row>'
       );
     });
@@ -2351,6 +2887,7 @@
           '<col min="1" max="1" width="14" customWidth="1"/>' +
           '<col min="2" max="2" width="60" customWidth="1"/>' +
           '<col min="3" max="3" width="14" customWidth="1"/>' +
+          '<col min="4" max="4" width="24" customWidth="1"/>' +
         '</cols>' +
         '<sheetData>' + sheetRows.join("") + '</sheetData>' +
       '</worksheet>';
@@ -2433,7 +2970,7 @@
       return;
     }
     if (isFilterActive() && !getDisplayRoots().length){
-      alert("Der aktive Farbfilter zeigt keine Items zum Exportieren.");
+      alert("Der aktive Filter zeigt keine Items zum Exportieren.");
       return;
     }
     var xlsx = generateXlsx();
@@ -2471,6 +3008,12 @@
     e.stopPropagation();
     if (toolbarTargetId) addSibling(toolbarTargetId);
   });
+  $nodeToolbar.querySelector(".tb-tags").addEventListener("click", function(e){
+    e.stopPropagation();
+    if (!toolbarTargetId) return;
+    var rect = e.currentTarget.getBoundingClientRect();
+    openNodeTagMenu(toolbarTargetId, rect.left, rect.bottom + 4);
+  });
   $nodeToolbar.querySelector(".tb-fix").addEventListener("click", function(e){
     e.stopPropagation();
     if (toolbarTargetId) toggleFixedSize(toolbarTargetId);
@@ -2492,6 +3035,7 @@
   }).join("");
 
   function openNodeColorMenu(id, x, y){
+    closeNodeTagMenu();
     colorMenuTargetId = id;
     var node = findNode(id);
     Array.prototype.forEach.call($colorSwatches.querySelectorAll("button"), function(btn){
@@ -2545,6 +3089,82 @@
   });
 
   /* ---------------------------------------------------------------
+   * Node-Tag-Menü (über den #-Button in der schwebenden Node-Toolbar)
+   * -------------------------------------------------------------*/
+  var $nodeTagMenu = document.getElementById("node-tag-menu");
+  var $tagChipList = $nodeTagMenu.querySelector(".tag-chip-list");
+  var $tagInput = $nodeTagMenu.querySelector(".tag-input");
+  var tagMenuTargetId = null;
+
+  function renderTagMenuChips(){
+    var node = findNode(tagMenuTargetId);
+    var tags = (node && node.tags) || [];
+    $tagChipList.innerHTML = tags.map(function(t){
+      return '<span class="tag-chip">#' + xmlEscape(t) +
+        '<button type="button" class="tag-chip-remove" data-tag="' + xmlEscape(t) + '" aria-label="Tag entfernen">×</button></span>';
+    }).join("");
+  }
+
+  function openNodeTagMenu(id, x, y){
+    closeNodeColorMenu();
+    tagMenuTargetId = id;
+    renderTagMenuChips();
+    $tagInput.value = "";
+    $nodeTagMenu.classList.add("visible");
+    var menuW = $nodeTagMenu.offsetWidth, menuH = $nodeTagMenu.offsetHeight;
+    var left = Math.min(x, window.innerWidth - menuW - 8);
+    var top = Math.min(y, window.innerHeight - menuH - 8);
+    $nodeTagMenu.style.left = Math.max(4, left) + "px";
+    $nodeTagMenu.style.top = Math.max(4, top) + "px";
+    requestAnimationFrame(function(){ $tagInput.focus(); });
+  }
+
+  function closeNodeTagMenu(){
+    tagMenuTargetId = null;
+    $nodeTagMenu.classList.remove("visible");
+  }
+
+  function addTagFromInput(){
+    var node = findNode(tagMenuTargetId);
+    if (!node) return;
+    var word = normalizeTagWord($tagInput.value);
+    $tagInput.value = "";
+    if (!word || node.tags.indexOf(word) !== -1) return;
+    snapshot();
+    node.tags.push(word);
+    render();
+    renderTagMenuChips();
+  }
+
+  $tagInput.addEventListener("keydown", function(e){
+    e.stopPropagation();
+    if (e.key === "Enter"){ e.preventDefault(); addTagFromInput(); }
+    else if (e.key === "Escape"){ e.preventDefault(); closeNodeTagMenu(); }
+  });
+
+  $tagChipList.addEventListener("click", function(e){
+    var btn = e.target.closest(".tag-chip-remove");
+    if (!btn) return;
+    e.stopPropagation();
+    var node = findNode(tagMenuTargetId);
+    if (!node) return;
+    snapshot();
+    var tag = btn.dataset.tag;
+    node.tags = node.tags.filter(function(t){ return t !== tag; });
+    render();
+    renderTagMenuChips();
+  });
+
+  document.addEventListener("click", function(e){
+    if (!$nodeTagMenu.classList.contains("visible")) return;
+    if (e.target.closest("#node-tag-menu") || e.target.closest(".tb-tags")) return;
+    closeNodeTagMenu();
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") closeNodeTagMenu();
+  });
+
+  /* ---------------------------------------------------------------
    * Toolbar-Farbfilter (Mehrfachauswahl über verwendete Farben)
    * -------------------------------------------------------------*/
   var $btnColorFilter = document.getElementById("btn-color-filter");
@@ -2562,7 +3182,7 @@
       var swatch = c.hex
         ? '<span class="swatch" style="background:' + c.hex + '"></span>'
         : '<span class="swatch none"></span>';
-      return '<label class="color-filter-item">' +
+      return '<label class="filter-item">' +
         '<input type="checkbox" data-color="' + c.key + '" ' + checked + '>' +
         swatch +
         '<span>' + c.label + '</span>' +
@@ -2584,6 +3204,7 @@
     if ($colorFilterMenu.classList.contains("visible")){
       closeColorFilterMenu();
     } else {
+      closeTagFilterMenu();
       renderColorFilterMenu();
       $colorFilterMenu.classList.add("visible");
     }
@@ -2612,6 +3233,73 @@
   });
   document.addEventListener("keydown", function(e){
     if (e.key === "Escape") closeColorFilterMenu();
+  });
+
+  /* ---------------------------------------------------------------
+   * Toolbar-Tag-Filter (Mehrfachauswahl über verwendete Tags)
+   * -------------------------------------------------------------*/
+  var $btnTagFilter = document.getElementById("btn-tag-filter");
+  var $tagFilterMenu = document.getElementById("tag-filter-menu");
+  var $tagFilterList = document.getElementById("tag-filter-list");
+
+  function renderTagFilterMenu(){
+    var used = getUsedTags();
+    if (!used.length){
+      $tagFilterList.innerHTML = '<div class="dropdown-empty">Noch keine Tags vergeben.<br>Über den #-Schalter in der Node-Toolbar Tags hinzufügen.</div>';
+      return;
+    }
+    $tagFilterList.innerHTML = used.map(function(t){
+      var checked = activeTagFilter[t.key] ? "checked" : "";
+      return '<label class="filter-item">' +
+        '<input type="checkbox" data-tag="' + xmlEscape(t.key) + '" ' + checked + '>' +
+        '<span>' + xmlEscape(t.label) + '</span>' +
+        '<span class="count">' + t.count + '</span>' +
+      '</label>';
+    }).join("");
+  }
+
+  function updateTagFilterButton(){
+    var n = Object.keys(activeTagFilter).length;
+    $btnTagFilter.classList.toggle("active", n > 0);
+    $btnTagFilter.textContent = n > 0 ? ("🏷 Tags (" + n + ")") : "🏷 Tags";
+  }
+
+  function closeTagFilterMenu(){ $tagFilterMenu.classList.remove("visible"); }
+
+  $btnTagFilter.addEventListener("click", function(e){
+    e.stopPropagation();
+    if ($tagFilterMenu.classList.contains("visible")){
+      closeTagFilterMenu();
+    } else {
+      closeColorFilterMenu();
+      renderTagFilterMenu();
+      $tagFilterMenu.classList.add("visible");
+    }
+  });
+
+  $tagFilterList.addEventListener("change", function(e){
+    var cb = e.target.closest('input[type="checkbox"]');
+    if (!cb) return;
+    var key = cb.dataset.tag;
+    if (cb.checked){ activeTagFilter[key] = true; } else { delete activeTagFilter[key]; }
+    updateTagFilterButton();
+    render();
+  });
+
+  document.getElementById("tag-filter-reset").addEventListener("click", function(){
+    activeTagFilter = {};
+    updateTagFilterButton();
+    renderTagFilterMenu();
+    render();
+  });
+
+  document.addEventListener("click", function(e){
+    if (!$tagFilterMenu.classList.contains("visible")) return;
+    if (e.target.closest("#tag-filter-wrap")) return;
+    closeTagFilterMenu();
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") closeTagFilterMenu();
   });
 
   /* ---------------------------------------------------------------
@@ -2719,6 +3407,8 @@
   if (!hadSavedState){
     // kleines Startbeispiel, nur beim allerersten Aufruf ohne gespeicherten Zustand
   }
+  // Kontingent-Sondierung verzögert nachreichen, damit der erste Render nicht blockiert
+  setTimeout(probeLocalStorageQuota, 300);
 })();
 </script>
 </body>
