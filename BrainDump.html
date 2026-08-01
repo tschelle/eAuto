@@ -959,7 +959,7 @@
    * Deshalb wird das Kontingent einmalig empirisch ermittelt: ein Testschlüssel
    * wird mit wachsenden Dummy-Strings beschrieben, bis QuotaExceededError auftritt
    * (binäre Suche). Das Ergebnis ist eine Annäherung für den aktuellen Browser/Tab
-   * in diesem Moment — kein exakter, dauerhaft gültiger Wert (siehe PROJEKT.md).
+   * in diesem Moment — kein exakter, dauerhaft gültiger Wert (siehe BrainDump.md).
    * -------------------------------------------------------------*/
   var $storageIndicator = document.getElementById("storage-indicator");
   var $storageText = $storageIndicator ? $storageIndicator.querySelector(".storage-text") : null;
@@ -1033,7 +1033,7 @@
     $storageIndicator.classList.toggle("warn", pct >= 70 && pct < 90);
     $storageIndicator.classList.toggle("danger", pct >= 90);
     $storageIndicator.title = "Geschätzte Auslastung des Browser-Speichers (Autosave): ~" +
-      Math.round(used/1024) + " KB von ~" + Math.round(estimatedQuotaBytes/1024) + " KB (Näherungswert, siehe PROJEKT.md)";
+      Math.round(used/1024) + " KB von ~" + Math.round(estimatedQuotaBytes/1024) + " KB (Näherungswert, siehe BrainDump.md)";
   }
 
   /* ---------------------------------------------------------------

@@ -3,7 +3,7 @@
 Eine vollständig eigenständige (standalone) HTML-Anwendung zum Erstellen, Bearbeiten und
 Speichern hierarchischer Mindmaps — ohne Server, ohne Build-Prozess, ohne externe
 Abhängigkeiten. Die gesamte Anwendung (HTML, CSS, JavaScript) lebt in einer einzigen Datei:
-[`mindmap.html`](mindmap.html). Sie lässt sich direkt per Doppelklick im Browser öffnen.
+[`BrainDump.html`](BrainDump.html). Sie lässt sich direkt per Doppelklick im Browser öffnen.
 
 ## Ziel
 
@@ -282,7 +282,7 @@ erkennbare Struktur werden ignoriert (außer im `(ohne)`-Format, wo jede nicht-l
 Zeile als Item gilt). Beim Import wird gefragt, ob die importierten Wurzeln zur
 bestehenden Mindmap hinzugefügt oder die aktuelle Mindmap komplett ersetzt werden soll.
 
-## Architektur (in `mindmap.html`)
+## Architektur (in `BrainDump.html`)
 
 Die Datei ist bewusst in drei Blöcke gegliedert:
 
@@ -435,7 +435,7 @@ versionieren.
 
 ## Nutzung
 
-1. `mindmap.html` im Browser öffnen.
+1. `BrainDump.html` im Browser öffnen.
 2. Über „＋ Neue Wurzel“ ein erstes Thema anlegen, Text eintippen. Enthält der Text
    eine `http(s)`- oder `file`-URL, wird sie außerhalb der Bearbeitung automatisch
    klickbar (Cmd/Ctrl+Klick öffnet).
