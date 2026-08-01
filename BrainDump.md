@@ -54,12 +54,45 @@ Verfügung.
   Untergrenze zurückbleibt, damit sich das Item danach wieder beliebig verkleinern lässt.
   Der Zustand wird im JSON-Export mitgesichert und bleibt auch im HTML-Export sowie über
   Ein-/Ausklappen von Vorfahren hinweg erhalten.
-- **JSON-Speichern/-Import**: „💾 Speichern (JSON)“ sichert den kompletten Zustand
+- **JSON-Speichern/-Import**: „Speichern (JSON)“ sichert den kompletten Zustand
   verlustfrei (Text, Hierarchie, Knotengröße, Ein-/Ausklapp-Status) als `.json`. Der
-  „📂 Import“-Button akzeptiert sowohl `.md`- als auch `.json`-Dateien und erkennt beim
+  „Import“-Button akzeptiert `.md`-, `.json`- und `.mmap`-Dateien und erkennt beim
   Öffnen automatisch, um welches Format es sich handelt (Dateiendung + Inhaltscheck) —
   eine manuelle Auswahl entfällt.
-- **Graphik-Export**: „🖼 Graphik speichern“ zeichnet die aktuelle Mindmap (Boxen,
+- **MindManager-Import (`.mmap`)**: importiert Mindmaps aus Mindjet/Corel MindManager
+  (getestet mit dem ZIP-basierten Format ab MindManager 2013). Da keine externe
+  Bibliothek eingebunden werden darf, liest ein selbstgeschriebener, minimaler
+  ZIP-Reader die `Document.xml` aus dem Archiv, ein ebenfalls selbstgeschriebener
+  DEFLATE-Dekompressor (RFC 1951) entpackt sie, und `DOMParser` liest daraus den
+  Themen-Baum (`ap:Map`/`OneTopic`/`Topic`/`SubTopics`) aus. Übernommen werden Text,
+  Hierarchie und Ein-/Ausklapp-Status (`Collapsed`) — das entspricht 1:1 unserem
+  Knotenmodell und war im getesteten Beispiel vollständig verlustfrei. Ein
+  vorhandener Hyperlink wird best-effort an den Knotentext angehängt (bleibt dank
+  automatischer Link-Erkennung klickbar). Farben, Icons, Notizen, Callouts,
+  Boundaries und Querverknüpfungen (Relationships) haben keine Entsprechung in
+  BrainDump und gehen beim Import verloren. Ältere `.mmap`-Dateien (vor ca.
+  MindManager 2013) sind reines, unkomprimiertes XML ohne ZIP-Hülle — dafür würde
+  der ZIP-Reader nicht greifen, das wurde nicht getestet.
+- **MindManager-Export (`.mmap`, Beta)**: „MindManager (Beta)“ (im Export-Dropdown)
+  erzeugt die Gegenrichtung zum Import — ein `Document.xml`
+  (`ap:Map`/`OneTopic`/`Topic`/`SubTopics`/`Text`/`Collapsed`, Element-Reihenfolge
+  anhand einer echten `.mmap`-Datei verifiziert) verpackt in einem unkomprimierten
+  (STORED) ZIP-Container über denselben `buildZip()`/`strToBytes()`-Code wie beim
+  Excel-Export — STORED ist ein regulärer, gültiger ZIP-Modus, es war also kein
+  neuer Kompressor nötig. Hat BrainDump mehrere Wurzeln, werden sie unter einem
+  synthetischen Hauptthema „BrainDump“ gebündelt, da MindManager nur ein einzelnes
+  Hauptthema kennt. Ein erster Versuch mit nur `OneTopic` scheiterte beim echten
+  Öffnen in MindManager („Speicherfehler: Globales Element hat einen nicht
+  unterstützten Typ“) — MindManager validiert gegen sein Schema und erwartet
+  unter `ap:Map` zusätzlich `cor:Custom`, `ap:StyleGroup`, `ap:MapViewGroup`,
+  `ap:DocumentGroup` und `ap:MarkersSetGroup` sowie `xsi:schemaLocation` am
+  Root-Element. Die drei erstgenannten Gruppen (Formatierungs-Defaults,
+  Standard-Icon-Sets) sind wörtlich aus einer echten MindManager-Datei
+  übernommene Werksvoreinstellungen (keine Nutzerinhalte), `DocumentGroup` wird
+  dynamisch mit Themen-/Wortstatistik und aktuellem Zeitstempel gefüllt. Mit
+  dieser Erweiterung wurde das Öffnen in echtem MindManager erfolgreich
+  verifiziert (durch den Nutzer, mit einer eigenen, umfangreichen Mindmap).
+- **Graphik-Export**: „Graphik“ (im Export-Dropdown) zeichnet die aktuelle Mindmap (Boxen,
   Text, Verbindungslinien, im aktuell aktiven Theme) direkt aus den Layout-Daten auf
   ein `<canvas>` und speichert sie als `.png` — ohne externe Bibliotheken, ohne
   Screenshot des DOM.
@@ -90,7 +123,19 @@ Verfügung.
   sie sich zusätzlich über den 🗺-Schalter links neben dem Dark-/Hellmodus-Umschalter
   komplett ein-/ausblenden (Zustand wird im `localStorage` gemerkt). Dieselbe
   Mini-Karte (ohne den Ein-/Ausblenden-Schalter) ist auch in der über
-  „🌐 HTML-Export“ erzeugten eigenständigen Ansicht enthalten.
+  „HTML“ (im Export-Dropdown) erzeugten eigenständigen Ansicht enthalten.
+- **Suche**: der Toolbar-Button „Suche“ (oder `Strg`/`Cmd`+`F`, ersetzt die native
+  Browser-Suche) öffnet eine Suchleiste oben im Viewport. Durchsucht wird der
+  komplette Baum — Itemtext per Teilstring, oder bei einer Eingabe mit führendem `#`
+  gezielt nur die Tags — unabhängig vom aktuellen Ein-/Ausklapp-Zustand und einem
+  aktiven Farb-/Tag-Filter. Treffer werden am Knoten hervorgehoben (aktueller Treffer
+  stärker als die übrigen), `Enter`/`Umschalt+Enter` bzw. die Pfeil-Buttons springen
+  vor/zurück durch die Treffer. Beim Sprung zu einem Treffer werden eingeklappte
+  Vorfahren automatisch aufgeklappt und ein aktiver Farb-/Tag-Filter, der den Treffer
+  sonst ausblenden würde, automatisch zurückgesetzt — Suche findet also immer alles,
+  unabhängig vom aktuellen Anzeigezustand. `Esc` bzw. der ×-Button schließen die
+  Suche wieder und entfernen die Hervorhebung. Nur in der Haupt-App enthalten, nicht
+  im HTML-Export.
 - **Ein-/Ausklappen**: Teilbäume lassen sich über das Dreieck-Symbol am Knoten
   kollabieren.
 - **Rückgängig**: die letzte Aktion (Anlegen, Löschen, Verschieben, Ein-/Ausrücken,
@@ -160,7 +205,7 @@ Verfügung.
   ist über `node.isLegend` markiert (Teil von Autosave/JSON-Export); solange irgendwo
   im Baum ein solcher Legende-Knoten existiert, ist der Button deaktiviert — wird der
   Knoten gelöscht, reaktiviert er sich automatisch beim nächsten Rendern.
-- **HTML-Export**: „🌐 HTML-Export“ erzeugt eine separate, eigenständige `.html`-Datei
+- **HTML-Export**: „HTML“ (im Export-Dropdown) erzeugt eine separate, eigenständige `.html`-Datei
   mit nur Titel, Dark/Light-Umschalter und dem Baum gemäß aktuell aktivem Farb-/
   Tag-Filter. Die Ansicht ist rein lesend (kein Editieren, kein Umhängen), bietet aber
   Zoom, Pan, „Alles einpassen“, Mini-Karte und klickbare Ein-/Ausklapp-Dreiecke —
@@ -169,11 +214,13 @@ Verfügung.
   Breite/Höhe (🔒) behalten ihre exakte Größe auch in dieser Ansicht bei, insbesondere
   über Ein-/Ausklappen von Vorfahren hinweg (Kinder werden dabei aus dem DOM entfernt
   und beim Ausklappen neu erzeugt — die gespeicherte Größe wird dabei erneut angewendet).
-- **Excel-Export**: „📊 Excel Export“ erzeugt eine echte `.xlsx`-Datei mit den Spalten
-  „Gliederung“ (verschachtelte Nummerierung wie beim `1.`-Markdown-Format, z. B. `1.2.1`),
-  „Item“ (Knotentext), „Farbe“ (Farbname als Text sowie als Zellhintergrund in der
-  jeweiligen Palette-Farbe) und „Tags“ (kommagetrennt mit `#`-Präfix, z. B.
-  `#einkauf, #dringend`). Die Zeilenreihenfolge und ein aktiver Farbfilter folgen
+- **Excel-Export**: „Excel“ (im Export-Dropdown) erzeugt eine echte `.xlsx`-Datei mit den Spalten
+  „Gliederungsebene“ (die Verschachtelungstiefe als echte Zahl, beginnend bei 1 —
+  z. B. Ebene 3 bei Gliederung `1.1.1`), „Gliederung“ (verschachtelte Nummerierung
+  wie beim `1.`-Markdown-Format, z. B. `1.2.1`), „Item“ (Knotentext), „Farbe“
+  (Farbname als Text sowie als Zellhintergrund in der jeweiligen Palette-Farbe) und
+  „Tags“ (kommagetrennt mit `#`-Präfix, z. B. `#einkauf, #dringend`). Die
+  Zeilenreihenfolge und ein aktiver Farbfilter folgen
   derselben Display-Tree-Logik wie beim Markdown- und HTML-Export. Da keine externe
   Bibliothek eingebunden werden darf, schreibt `generateXlsx()` das OOXML-Paket
   (`[Content_Types].xml`, `_rels`, `workbook.xml`, `styles.xml`, `sheet1.xml`) sowie
@@ -188,7 +235,7 @@ verlustfreien Sicherung inkl. Größen, Fixierung, Farben und Tags, unabhängig 
 Farbfilter, ist aber kein für Menschen gedachtes Austauschformat.
 
 Der Markdown-Export bleibt das portable, lesbare Format für die reine Hierarchie (ohne
-Größen). Beim Export („💾 Export (.md)“) fragt ein Auswahlfenster, in welchem von vier Formaten
+Größen). Beim Export („MD“ im Export-Dropdown) fragt ein Auswahlfenster, in welchem von vier Formaten
 die Hierarchie dargestellt werden soll:
 
 | Format | Beispiel | Bezeichnung |
@@ -241,10 +288,14 @@ Die Datei ist bewusst in drei Blöcke gegliedert:
 
 1. **`<style>`** — Layout/Optik, inkl. automatischer Hell-/Dunkel-Darstellung über
    `prefers-color-scheme`.
-2. **HTML-Grundgerüst** — Toolbar, Viewport/Canvas-Container, SVG-Layer für
-   Verbindungslinien, Node-Container, Export-Format-Auswahlfenster (`#export-modal`),
-   Farbfilter-Dropdown (`#color-filter-menu`) und Node-Farbmenü (`#node-color-menu`),
-   verstecktes `<input type="file">` für den Import.
+2. **HTML-Grundgerüst** — Toolbar (u. a. das Export-Sammel-Dropdown
+   `#export-menu-wrap`/`#export-dropdown`, das die vier Export-Buttons
+   Graphik/MD/HTML/Excel unter einem einzelnen „Export“-Button bündelt — die
+   jeweiligen Button-IDs und ihre Click-Handler sind dabei unverändert geblieben,
+   nur die Anordnung im Toolbar-Markup hat sich geändert), Viewport/Canvas-Container,
+   SVG-Layer für Verbindungslinien, Node-Container, Export-Format-Auswahlfenster
+   (`#export-modal`), Farbfilter-Dropdown (`#color-filter-menu`) und Node-Farbmenü
+   (`#node-color-menu`), verstecktes `<input type="file">` für den Import.
 3. **`<script>`** — reines, abhängigkeitsfreies JavaScript (IIFE), gegliedert in:
    - **Datenmodell**: Knoten als `{id, text, collapsed, width, height, color, fixed,
      isLegend, tags[], children[]}` (`color` = `null` oder ein Key aus `COLOR_PALETTE`;
@@ -269,8 +320,26 @@ Die Datei ist bewusst in drei Blöcke gegliedert:
    - **Persistenz**: `autosave()`/`restore()` (localStorage), `exportToMarkdown(format)`/
      `parseMarkdown()` (vier Markdown-Formate, Auto-Erkennung beim Import) sowie
      `serializeToJSON()`/`parseJSON()` (vollständiger, verlustfreier Zustand inkl.
-     Größe, Fixierung und Tags). Der Import-Handler unterscheidet JSON vs. Markdown anhand
-     Dateiendung/Inhalt und übergibt beides an dieselbe `applyImportedRoots()`-Merge-Logik.
+     Größe, Fixierung und Tags). Der Import-Handler unterscheidet `.mmap` (Datei wird
+     als `ArrayBuffer` statt als Text gelesen) von JSON/Markdown anhand Dateiendung,
+     JSON/Markdown weiterhin per Dateiendung/Inhalt; alle drei Pfade übergeben ihr
+     Ergebnis an dieselbe `applyImportedRoots()`-Merge-Logik.
+   - **MindManager-Import**: `readZipEntry()` liest die Central-Directory eines
+     `.mmap`-ZIP-Archivs (EOCD rückwärts suchen, Einträge auflisten) und liefert die
+     Rohbytes von `Document.xml` plus Kompressionsmethode; `inflateRaw()` ist ein
+     selbstgeschriebener DEFLATE-Dekompressor (Bit-Reader LSB-first, Stored-/Fixed-/
+     Dynamic-Huffman-Blöcke, kanonische Huffman-Tabellen über `buildHuffman()`,
+     LZ77-Rückreferenzen byteweise wegen möglicher Overlaps); `parseMindManagerXml()`
+     läuft mit `DOMParser` über den `ap:Map`/`OneTopic`/`Topic`/`SubTopics`-Baum und
+     baut daraus über `createNode()` dieselben Knotenobjekte wie jeder andere Import.
+   - **MindManager-Export**: `nodeToMmapTopic()` baut die Gegenrichtung — pro Knoten
+     ein `<ap:Topic>` mit zufälliger `OId` (`randomOId()`: 16 Zufallsbytes über
+     `crypto.getRandomValues()`, base64-kodiert) in der beim Import verifizierten
+     Kindelement-Reihenfolge (`SubTopics` vor `TopicViewGroup` vor `Text`;
+     `ap:Collapsed` nur bei Knoten mit Kindern, analog zum realen Format).
+     `generateMmap()` bündelt mehrere BrainDump-Wurzeln unter einem synthetischen
+     Hauptthema und übergibt das fertige `Document.xml` an den bestehenden
+     `buildZip()` (unkomprimiert/STORED, kein neuer Kompressor nötig).
    - **Graphik-Export**: `exportImage()` zeichnet Knoten (`roundRectPath()`, manueller
      Textumbruch via `wrapCanvasText()`, Farbmarkierung, Tags als `[#tag1 #tag2]` an den
      Text angehängt über `tagSuffixForExport()`) und Bézier-Kanten (gestrichelt
@@ -347,6 +416,18 @@ Die Datei ist bewusst in drei Blöcke gegliedert:
      unabhängig von der `"empty"`-Klasse, die sie bei fehlenden Items ohnehin
      ausblendet. Dieser Ein-/Ausblenden-Schalter existiert nur in der Haupt-App,
      nicht im HTML-Export-Template.
+   - **Suche**: `collectSearchMatches(query)` durchläuft `roots` vollständig (nicht
+     nur den Display-Tree) und vergleicht je nach führendem `#` entweder `node.tags`
+     oder `node.text` (Teilstring, case-insensitive); `searchMatchOrder` hält die
+     Treffer-IDs in Baum-Reihenfolge, `searchMatchIds` dieselben als Set fürs
+     Rendering (`.search-match`/`.search-current`-Klassen in `render()`).
+     `revealNode()` klappt beim Sprung zu einem Treffer alle Vorfahren auf
+     (`findParentAndIndex()` rückwärts bis zur Wurzel) und setzt
+     `activeColorFilter`/`activeTagFilter` zurück, falls `nodeMatchesFilter()` den
+     Treffer sonst ausblenden würde; `centerViewOn()` zentriert `view.x`/`view.y` auf
+     die zuletzt gerenderte Position (`lastPositions`) bei unveränderter Zoomstufe.
+     `Strg`/`Cmd`+`F` (globaler `keydown`-Handler) ruft `openSearchBar()` auf und
+     ersetzt damit die native Browser-Suche (`e.preventDefault()`).
 
 Es gibt bewusst keine externen Bibliotheken (kein D3, kein React) und keinen
 Build-Schritt — die Datei funktioniert offline und lässt sich 1:1 kopieren oder
@@ -359,12 +440,16 @@ versionieren.
    eine `http(s)`- oder `file`-URL, wird sie außerhalb der Bearbeitung automatisch
    klickbar (Cmd/Ctrl+Klick öffnet).
 3. Mit der schwebenden Node-Toolbar oder Tastatur (`Tab`/`Enter`) den Baum ausbauen.
-4. Über „💾 Speichern (JSON)“ den vollständigen Zustand sichern (inkl. Größen und Tags)
-   oder über „💾 Export (.md)“ die Hierarchie inkl. Tags (nicht aber Größen/Farben) als
-   portables Markdown exportieren.
-5. Über „📂 Import“ eine zuvor gesicherte `.json`- oder `.md`-Datei laden (Format wird
-   automatisch erkannt).
-6. Über „🖼 Graphik speichern“ die aktuelle Ansicht als `.png` sichern.
+4. Über „Speichern (JSON)“ den vollständigen Zustand sichern (inkl. Größen und Tags)
+   oder über „MD“ im Export-Dropdown die Hierarchie inkl. Tags (nicht aber
+   Größen/Farben) als portables Markdown exportieren.
+5. Über „Import“ eine zuvor gesicherte `.json`- oder `.md`-Datei laden (Format wird
+   automatisch erkannt), oder eine bestehende MindManager-Mindmap (`.mmap`)
+   übernehmen (Text, Hierarchie und Ein-/Ausklapp-Status; Farben/Icons/Notizen/
+   Querverknüpfungen gehen dabei verloren).
+6. Über „Graphik“ im Export-Dropdown die aktuelle Ansicht als `.png` sichern, oder
+   über „MindManager (Beta)“ die aktuelle (gefilterte) Ansicht als `.mmap`-Datei
+   exportieren (unverifiziert, ob MindManager sie klaglos öffnet).
 7. Rechtsklick auf ein Item weist eine Farbe zu; über „🎨 Farbfilter“ nach einer oder
    mehreren Farben (oder „Keine Farbe“) filtern. Über „📋 Legende einfügen“ einen
    Legende-Knoten mit einer Beschreibung je verwendeter Farbe erzeugen.
@@ -373,15 +458,20 @@ versionieren.
 9. Über den `#`-Schalter in der schwebenden Node-Toolbar beliebig viele Tags an ein
    Item vergeben bzw. wieder entfernen. Über „🏷 Tags“ in der Toolbar nach einem oder
    mehreren Tags (oder „Ohne Tags“) filtern — kombinierbar mit dem Farbfilter.
-10. Über „🌐 HTML-Export“ die aktuelle (gefilterte) Ansicht als eigenständige,
+10. Über „HTML“ im Export-Dropdown die aktuelle (gefilterte) Ansicht als eigenständige,
     rein lesende `.html`-Datei zum Weitergeben exportieren.
-11. Über „📊 Excel Export“ die aktuelle (gefilterte) Ansicht als `.xlsx`-Datei mit
-    Gliederung, Item-Text, Farbe (Text + Zellhintergrund) und Tags exportieren.
+11. Über „Excel“ im Export-Dropdown die aktuelle (gefilterte) Ansicht als `.xlsx`-Datei mit
+    Gliederungsebene, Gliederung, Item-Text, Farbe (Text + Zellhintergrund) und Tags
+    exportieren.
 12. Zur Orientierung auf großen Flächen: über den ⛶-Button in den Zoom-Controls den
     kompletten Baum ins Fenster einpassen, oder über die Mini-Karte unten links
     (Klick springt an die gewählte Stelle) navigieren. Über den 🗺-Schalter links
     neben dem Dark-/Hellmodus-Umschalter lässt sich die Mini-Karte bei Bedarf
     komplett ausblenden.
+13. Über „Suche“ (oder `Strg`/`Cmd`+`F`) ein bestimmtes Item finden — Texteingabe
+    durchsucht den Itemtext, eine Eingabe mit führendem `#` nur die Tags. Eingeklappte
+    Vorfahren und ein aktiver Farb-/Tag-Filter, die einen Treffer verdecken würden,
+    werden beim Sprung zum Treffer automatisch aufgeklappt bzw. zurückgesetzt.
 
 ## Bekannte Grenzen
 
@@ -404,3 +494,21 @@ versionieren.
   — nur der Editor und der HTML-Export rendern sie klickbar. Die Heuristik zum
   Abtrennen von Satzzeichen am URL-Ende behandelt keine geklammerten URLs korrekt
   (z. B. `(https://de.wikipedia.org/wiki/Beispiel_(Begriffsklärung))`).
+- Die Suche aktualisiert ihre Trefferliste nur beim Tippen im Suchfeld bzw. beim
+  Sprung zum nächsten/vorherigen Treffer, nicht automatisch bei Textänderungen an
+  anderer Stelle, während die Suchleiste geöffnet bleibt.
+- Der `.mmap`-Import wurde nur mit dem ZIP-basierten MindManager-Format (ab ca.
+  2013) getestet. Farben, Icons, Notizen, Callouts, Boundaries und
+  Querverknüpfungen (Relationships) einzelner Themen gehen dabei verloren — nur
+  Text, Hierarchie und Ein-/Ausklapp-Status werden übernommen. Ältere, unkomprimierte
+  Einzeldatei-`.mmap`-Formate (vor MindManager 2013) werden vom ZIP-Reader nicht
+  erkannt.
+- Der `.mmap`-Export (Beta) wurde vom Nutzer erfolgreich in einer echten
+  MindManager-Installation geöffnet (verifiziert mit einer eigenen,
+  umfangreichen Mindmap, nach Nachbesserung um die von MindManager
+  vorausgesetzten Formatierungs-/Metadaten-Blöcke — siehe Eigenschaften-Abschnitt
+  oben). Mehrere Wurzelknoten werden beim Export zu einem synthetischen
+  zentralen Thema zusammengefasst; Farben, Icons und Tags werden nicht ins
+  MindManager-Format übertragen (nur Text, Hierarchie und Ein-/Ausklapp-Status).
+  Da nur mit einer MindManager-Version getestet wurde, bleibt die
+  Kennzeichnung „Beta“ vorerst bestehen.

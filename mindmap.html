@@ -525,6 +525,7 @@
           <button id="btn-export">MD</button>
           <button id="btn-html-export">HTML</button>
           <button id="btn-excel-export">Excel</button>
+          <button id="btn-mmap-export" title="Beta: Öffnen in MindManager nicht verifiziert">MindManager (Beta)</button>
         </div>
       </div>
       <div class="sep"></div>
@@ -642,7 +643,7 @@
     </div>
   </div>
 </div>
-<input type="file" id="file-input" accept=".md,.markdown,text/markdown,text/plain,.json,application/json">
+<input type="file" id="file-input" accept=".md,.markdown,text/markdown,text/plain,.json,application/json,.mmap">
 <div id="node-color-menu" class="dropdown-menu node-color-menu">
   <div class="color-swatches"></div>
   <button id="node-color-clear" class="node-color-clear-btn">Keine Farbe</button>
@@ -1285,6 +1286,246 @@
     var data = JSON.parse(text);
     var list = Array.isArray(data) ? data : data.roots;
     return nodesFromJSON(list);
+  }
+
+  /* ---------------------------------------------------------------
+   * MindManager-Import (.mmap)
+   *
+   * Neuere .mmap-Dateien (ca. ab MindManager 2013) sind ZIP-Archive mit einer
+   * "Document.xml" darin, deren Einträge in aller Regel DEFLATE-komprimiert sind.
+   * Da keine externe Bibliothek eingebunden werden darf, folgen hier ein minimaler
+   * ZIP-Reader (nur lesen) sowie ein selbstgeschriebener DEFLATE-Dekompressor
+   * (RFC 1951) — analog zum selbstgeschriebenen ZIP-/CRC32-Code beim Excel-Export,
+   * nur in die andere Richtung. Abgebildet werden Text, Hierarchie (SubTopics) und
+   * Ein-/Ausklapp-Zustand (Collapsed) — das entspricht 1:1 unserem Knotenmodell.
+   * Farben, Icons, Notizen, Callouts, Boundaries und Querverknüpfungen
+   * (Relationships) haben keine Entsprechung in BrainDump und gehen beim Import
+   * verloren; ein vorhandener Hyperlink wird nach Möglichkeit an den Knotentext
+   * angehängt, damit er über die automatische Link-Erkennung klickbar bleibt.
+   * -------------------------------------------------------------*/
+
+  // Sucht die End-of-Central-Directory-Signatur vom Dateiende her rückwärts
+  // (ein ZIP-Kommentar am Ende kann bis zu 65535 Byte lang sein), liest darüber
+  // die Central-Directory-Einträge und liefert für einen gesuchten Dateinamen die
+  // rohen (ggf. komprimierten) Bytes plus Kompressionsmethode (0=STORED, 8=DEFLATE).
+  function readZipEntry(buffer, entryName){
+    var view = new DataView(buffer);
+    var bytes = new Uint8Array(buffer);
+    var len = bytes.length;
+    var eocdOffset = -1;
+    var searchStart = Math.max(0, len - 22 - 65535);
+    for (var i = len - 22; i >= searchStart; i--){
+      if (view.getUint32(i, true) === 0x06054b50){ eocdOffset = i; break; }
+    }
+    if (eocdOffset === -1) throw new Error("kein gültiges ZIP-Archiv (EOCD nicht gefunden)");
+
+    var cdEntryCount = view.getUint16(eocdOffset + 10, true);
+    var offset = view.getUint32(eocdOffset + 16, true);
+
+    for (var n = 0; n < cdEntryCount; n++){
+      if (view.getUint32(offset, true) !== 0x02014b50) break;
+      var compMethod = view.getUint16(offset + 10, true);
+      var compSize = view.getUint32(offset + 20, true);
+      var nameLen = view.getUint16(offset + 28, true);
+      var extraLen = view.getUint16(offset + 30, true);
+      var commentLen = view.getUint16(offset + 32, true);
+      var localHeaderOffset = view.getUint32(offset + 42, true);
+      var name = new TextDecoder("utf-8").decode(bytes.subarray(offset + 46, offset + 46 + nameLen));
+      if (name === entryName){
+        var lhNameLen = view.getUint16(localHeaderOffset + 26, true);
+        var lhExtraLen = view.getUint16(localHeaderOffset + 28, true);
+        var dataStart = localHeaderOffset + 30 + lhNameLen + lhExtraLen;
+        return { method: compMethod, data: bytes.subarray(dataStart, dataStart + compSize) };
+      }
+      offset += 46 + nameLen + extraLen + commentLen;
+    }
+    return null;
+  }
+
+  // Minimaler DEFLATE-Dekompressor (RFC 1951): Bit-Reader (LSB-first je Byte),
+  // Stored-/Fixed-Huffman-/Dynamic-Huffman-Blöcke, Längen-/Distanz-Codes inkl.
+  // Extra-Bits, LZ77-Rückreferenz-Kopie byteweise (wegen möglicher Überlappung).
+  function inflateRaw(data){
+    var pos = 0, bitBuf = 0, bitCount = 0;
+    function readBits(n){
+      while (bitCount < n){ bitBuf |= (data[pos++] << bitCount); bitCount += 8; }
+      var val = bitBuf & ((1 << n) - 1);
+      bitBuf >>>= n; bitCount -= n;
+      return val;
+    }
+    function align(){ bitBuf = 0; bitCount = 0; }
+
+    function buildHuffman(codeLengths){
+      var maxBits = 0;
+      for (var i = 0; i < codeLengths.length; i++) if (codeLengths[i] > maxBits) maxBits = codeLengths[i];
+      var blCount = new Array(maxBits + 1).fill(0);
+      for (var i = 0; i < codeLengths.length; i++) if (codeLengths[i] > 0) blCount[codeLengths[i]]++;
+      var nextCode = new Array(maxBits + 1).fill(0);
+      var code = 0;
+      for (var bits = 1; bits <= maxBits; bits++){
+        code = (code + blCount[bits - 1]) << 1;
+        nextCode[bits] = code;
+      }
+      var table = {};
+      for (var sym = 0; sym < codeLengths.length; sym++){
+        var l = codeLengths[sym];
+        if (l > 0){
+          table[(l << 16) | nextCode[l]] = sym;
+          nextCode[l]++;
+        }
+      }
+      return table;
+    }
+    function decodeSymbol(table){
+      var code = 0, len = 0;
+      while (len < 21){
+        code = (code << 1) | readBits(1);
+        len++;
+        var hit = table[(len << 16) | code];
+        if (hit !== undefined) return hit;
+      }
+      throw new Error("ungültiger Huffman-Code im DEFLATE-Stream");
+    }
+
+    var LENGTH_BASE = [3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258];
+    var LENGTH_EXTRA = [0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0];
+    var DIST_BASE = [1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577];
+    var DIST_EXTRA = [0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13];
+    var CL_ORDER = [16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15];
+
+    var fixedLitLengths = new Array(288);
+    for (var i=0;i<144;i++) fixedLitLengths[i]=8;
+    for (var i=144;i<256;i++) fixedLitLengths[i]=9;
+    for (var i=256;i<280;i++) fixedLitLengths[i]=7;
+    for (var i=280;i<288;i++) fixedLitLengths[i]=8;
+    var fixedDistLengths = new Array(30).fill(5);
+    var fixedLit = buildHuffman(fixedLitLengths);
+    var fixedDist = buildHuffman(fixedDistLengths);
+
+    var out = [];
+    var final = false;
+    while (!final){
+      final = readBits(1) === 1;
+      var type = readBits(2);
+      if (type === 0){
+        align();
+        var len = data[pos] | (data[pos+1] << 8);
+        pos += 4; // LEN(2) + NLEN(2), NLEN wird nicht geprüft
+        for (var k=0;k<len;k++) out.push(data[pos+k]);
+        pos += len;
+      } else if (type === 1 || type === 2){
+        var litTable, distTable;
+        if (type === 1){
+          litTable = fixedLit; distTable = fixedDist;
+        } else {
+          var hlit = readBits(5) + 257;
+          var hdist = readBits(5) + 1;
+          var hclen = readBits(4) + 4;
+          var clLengths = new Array(19).fill(0);
+          for (var i=0;i<hclen;i++) clLengths[CL_ORDER[i]] = readBits(3);
+          var clTable = buildHuffman(clLengths);
+          var allLengths = [];
+          while (allLengths.length < hlit + hdist){
+            var sym = decodeSymbol(clTable);
+            if (sym < 16){
+              allLengths.push(sym);
+            } else if (sym === 16){
+              var rep = readBits(2) + 3;
+              var prev = allLengths[allLengths.length - 1];
+              for (var r=0;r<rep;r++) allLengths.push(prev);
+            } else if (sym === 17){
+              var rep = readBits(3) + 3;
+              for (var r=0;r<rep;r++) allLengths.push(0);
+            } else {
+              var rep = readBits(7) + 11;
+              for (var r=0;r<rep;r++) allLengths.push(0);
+            }
+          }
+          litTable = buildHuffman(allLengths.slice(0, hlit));
+          distTable = buildHuffman(allLengths.slice(hlit, hlit + hdist));
+        }
+        for (;;){
+          var sym = decodeSymbol(litTable);
+          if (sym < 256){
+            out.push(sym);
+          } else if (sym === 256){
+            break;
+          } else {
+            var lenIdx = sym - 257;
+            var length = LENGTH_BASE[lenIdx] + readBits(LENGTH_EXTRA[lenIdx]);
+            var distSym = decodeSymbol(distTable);
+            var distance = DIST_BASE[distSym] + readBits(DIST_EXTRA[distSym]);
+            var start = out.length - distance;
+            for (var k=0;k<length;k++) out.push(out[start + k]);
+          }
+        }
+      } else {
+        throw new Error("ungültiger DEFLATE-Blocktyp");
+      }
+    }
+    return new Uint8Array(out);
+  }
+
+  // Baut aus dem entpackten MindManager-Document.xml einen BrainDump-Knotenbaum
+  // (ein einzelnes Wurzelelement: das zentrale Hauptthema). Bildet Text, Hierarchie
+  // und Ein-/Ausklapp-Zustand ab; ein Hyperlink wird best-effort an den Text
+  // angehängt (Attributname im Schema nicht mit einer echten Beispieldatei
+  // verifiziert, daher mehrere plausible Varianten).
+  function parseMindManagerXml(xmlText){
+    var doc = new DOMParser().parseFromString(xmlText, "text/xml");
+    if (doc.querySelector("parsererror")) throw new Error("ungültiges MindManager-XML");
+
+    function localChild(el, name){
+      for (var i=0;i<el.children.length;i++){
+        if (el.children[i].localName === name) return el.children[i];
+      }
+      return null;
+    }
+    function localChildren(el, name){
+      var out = [];
+      for (var i=0;i<el.children.length;i++){
+        if (el.children[i].localName === name) out.push(el.children[i]);
+      }
+      return out;
+    }
+
+    function convertTopic(topicEl){
+      var textEl = localChild(topicEl, "Text");
+      var text = textEl ? (textEl.getAttribute("PlainText") || "") : "";
+      var hyperlinkEl = localChild(topicEl, "Hyperlink");
+      if (hyperlinkEl){
+        var url = hyperlinkEl.getAttribute("Address") || hyperlinkEl.getAttribute("URL") ||
+          hyperlinkEl.getAttribute("Url") || hyperlinkEl.getAttribute("href") || "";
+        if (url) text = text ? (text + " " + url) : url;
+      }
+      var node = createNode(text);
+      var viewGroup = localChild(topicEl, "TopicViewGroup");
+      if (viewGroup){
+        var collapsedEl = localChild(viewGroup, "Collapsed");
+        if (collapsedEl) node.collapsed = collapsedEl.getAttribute("Collapsed") === "true";
+      }
+      var subTopics = localChild(topicEl, "SubTopics");
+      if (subTopics){
+        node.children = localChildren(subTopics, "Topic").map(convertTopic);
+      }
+      return node;
+    }
+
+    var oneTopic = localChild(doc.documentElement, "OneTopic");
+    var centralTopicEl = oneTopic ? localChild(oneTopic, "Topic") : null;
+    if (!centralTopicEl) throw new Error("kein MindManager-Hauptthema gefunden");
+    return [convertTopic(centralTopicEl)];
+  }
+
+  // Einstiegspunkt: ArrayBuffer der .mmap-Datei -> Array von Wurzelknoten.
+  function parseMindManagerFile(arrayBuffer){
+    var entry = readZipEntry(arrayBuffer, "Document.xml");
+    if (!entry) throw new Error("Document.xml nicht im .mmap-Archiv gefunden");
+    var bytes;
+    if (entry.method === 0) bytes = entry.data;
+    else if (entry.method === 8) bytes = inflateRaw(entry.data);
+    else throw new Error("nicht unterstützte Kompressionsmethode im .mmap-Archiv");
+    return parseMindManagerXml(new TextDecoder("utf-8").decode(bytes));
   }
 
   /* ---------------------------------------------------------------
@@ -2378,20 +2619,30 @@
   $fileInput.addEventListener("change", function(){
     var file = $fileInput.files[0];
     if (!file) return;
+    var isMmap = /\.mmap$/i.test(file.name);
     var reader = new FileReader();
     reader.onload = function(){
-      var text = String(reader.result);
-      var looksLikeJson = /\.json$/i.test(file.name) || /^\s*[{\[]/.test(text);
       var imported;
-      if (looksLikeJson){
+      if (isMmap){
         try{
-          imported = parseJSON(text);
+          imported = parseMindManagerFile(reader.result);
         }catch(e){
-          alert("Die JSON-Datei konnte nicht gelesen werden (ungültiges Format).");
+          alert("Die MindManager-Datei konnte nicht gelesen werden (" + e.message + ").");
           return;
         }
       } else {
-        imported = parseMarkdown(text);
+        var text = String(reader.result);
+        var looksLikeJson = /\.json$/i.test(file.name) || /^\s*[{\[]/.test(text);
+        if (looksLikeJson){
+          try{
+            imported = parseJSON(text);
+          }catch(e){
+            alert("Die JSON-Datei konnte nicht gelesen werden (ungültiges Format).");
+            return;
+          }
+        } else {
+          imported = parseMarkdown(text);
+        }
       }
       if (!imported.length){
         alert("In der Datei wurde keine gültige Struktur gefunden.");
@@ -2399,7 +2650,8 @@
       }
       applyImportedRoots(imported);
     };
-    reader.readAsText(file, "utf-8");
+    if (isMmap) reader.readAsArrayBuffer(file);
+    else reader.readAsText(file, "utf-8");
   });
 
   /* ---------------------------------------------------------------
@@ -3313,6 +3565,148 @@
     var xlsx = generateXlsx();
     var ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,"-");
     downloadFile(xlsx, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "braindump-" + ts + ".xlsx");
+  });
+
+  /* ---------------------------------------------------------------
+   * MindManager-Export (.mmap, Beta)
+   *
+   * Umgekehrte Richtung zum .mmap-Import: baut ein Document.xml und verpackt
+   * es mit dem bereits vorhandenen ZIP-Writer (buildZip/strToBytes vom Excel-
+   * Export) als unkomprimierten (STORED) ZIP-Container — STORED ist ein
+   * regulärer, gültiger ZIP-Modus, es ist also kein neuer Kompressor nötig.
+   *
+   * Ein erster Versuch mit nur <ap:OneTopic> scheiterte beim echten Öffnen in
+   * MindManager ("Speicherfehler: Globales Element hat einen nicht
+   * unterstützten Typ") — MindManager validiert das Dokument gegen sein
+   * Schema und erwartet unter <ap:Map> zusätzlich zu <ap:OneTopic> noch
+   * <cor:Custom>, <ap:StyleGroup>, <ap:MapViewGroup>, <ap:DocumentGroup> und
+   * <ap:MarkersSetGroup>. Die MMAP_STYLE_GROUP_XML/MMAP_MARKERS_SET_GROUP_XML/
+   * MMAP_CUSTOM_COMPAT_XML-Konstanten unten sind deshalb 1:1 aus der
+   * Beispieldatei übernommene Standard-Vorlagen (MindManagers eigene
+   * Werksvoreinstellungen für Formatierung und Icon-Sets, keine Inhalte des
+   * Nutzers) — nur Themenbaum, Statistik und Zeitstempel bleiben dynamisch.
+   * Ob MindManager die exportierte Datei klaglos öffnet, war auch nach dieser
+   * Erweiterung nicht durch eine eigene MindManager-Instanz verifizierbar
+   * (daher weiterhin "Beta") — im Gegensatz zum Import, der gegen eine echte
+   * Datei geprüft wurde.
+   * -------------------------------------------------------------*/
+  function randomOId(){
+    var bytes = new Uint8Array(16);
+    crypto.getRandomValues(bytes);
+    var bin = "";
+    for (var i=0;i<16;i++) bin += String.fromCharCode(bytes[i]);
+    return btoa(bin);
+  }
+
+  // Wandelt einen Display-Tree-Eintrag in einen {text, collapsed, children}-Baum,
+  // wie ihn der MindManager-Export unten erwartet (analog zu den Plain-Node-
+  // Konvertern der anderen Export-Formate).
+  function displayEntryToPlainNodeForMmap(entry){
+    return { text: entry.node.text, collapsed: entry.node.collapsed, children: entry.children.map(displayEntryToPlainNodeForMmap) };
+  }
+
+  function nodeToMmapTopic(node){
+    var oid = randomOId();
+    var hasChildren = node.children && node.children.length > 0;
+    var subTopicsXml = hasChildren
+      ? "<ap:SubTopics>" + node.children.map(nodeToMmapTopic).join("") + "</ap:SubTopics>"
+      : "";
+    // Ein Collapsed-Element wird (wie im realen Format beobachtet) nur bei
+    // Themen mit Kindern geschrieben — bei Blättern gibt es nichts einzuklappen.
+    var viewGroupXml = hasChildren
+      ? '<ap:TopicViewGroup ViewIndex="0"><ap:Collapsed Collapsed="' + (node.collapsed ? "true" : "false") + '" Dirty="0000000000000001"/></ap:TopicViewGroup>'
+      : '<ap:TopicViewGroup ViewIndex="0"/>';
+    var textXml = '<ap:Text Dirty="0000000000000001" PlainText="' + xmlEscape(textToMdLine(node.text)) + '" ReadOnly="false"><ap:Font/></ap:Text>';
+    return '<ap:Topic Dirty="0000000000000001" OId="' + oid + '" Gen="0000000000000000">' +
+      subTopicsXml + viewGroupXml + textXml +
+      '</ap:Topic>';
+  }
+
+  function countMmapStats(node){
+    var topics = 1;
+    var words = (textToMdLine(node.text) || "").split(/\s+/).filter(Boolean).length;
+    (node.children || []).forEach(function(child){
+      var sub = countMmapStats(child);
+      topics += sub.topics;
+      words += sub.words;
+    });
+    return { topics: topics, words: words };
+  }
+
+  // Wörtlich aus einer echten MindManager-Datei übernommene Werksvoreinstellung
+  // für Formatierung (Farben/Schriften/Layout je Themen-Ebene) — enthält keine
+  // Inhalte des Nutzers, ist bei jedem MindManager-Dokument gleich.
+  var MMAP_STYLE_GROUP_XML = `<ap:StyleGroup><ap:RootTopicDefaultsGroup><ap:DefaultColor Dirty="0000000000000000" FillColor="ffaec5e7" LineColor="ffc6c6c6"/><ap:DefaultText TextAlignment="urn:mindjet:Center" TextCapitalization="urn:mindjet:SentenceStyle" VerticalTextAlignment="urn:mindjet:Top" Dirty="0000000000000000" PlainText="Hauptthema" ReadOnly="false"><ap:Font Color="ff3c3c3c" Size="14." Name="Arial Baltic" Bold="true" Italic="false" Underline="false" Strikethrough="false"/></ap:DefaultText><ap:DefaultSubTopicShape SubTopicShape="urn:mindjet:RoundedRectangle" Dirty="0000000000000000" LeftMargin="3." RightMargin="3." TopMargin="3." BottomMargin="3." VerticalLeftMargin="2.5" VerticalRightMargin="2.5" VerticalTopMargin="2.5" VerticalBottomMargin="2.5" VerticalSubTopicShape="urn:mindjet:Rectangle"/><ap:DefaultLabelFloatingTopicShape LabelFloatingTopicShape="urn:mindjet:None" Dirty="0000000000000000" LeftMargin="0." RightMargin="0." TopMargin="0." BottomMargin="0." VerticalLeftMargin="2.5" VerticalRightMargin="2.5" VerticalTopMargin="2.5" VerticalBottomMargin="2.5" VerticalLabelFloatingTopicShape="urn:mindjet:None"/><ap:DefaultCalloutFloatingTopicShape CalloutFloatingTopicShape="urn:mindjet:None" Dirty="0000000000000000" VerticalCalloutFloatingTopicShape="urn:mindjet:None" LeftMargin="0." RightMargin="0." TopMargin="0." BottomMargin="0." VerticalLeftMargin="2.5" VerticalRightMargin="2.5" VerticalTopMargin="2.5" VerticalBottomMargin="2.5"/><ap:DefaultTopicLayout TopicLayoutHorizontalAlignment="urn:mindjet:Center" TopicLayoutVerticalAlignment="urn:mindjet:Center" TopicTextAndImagePosition="urn:mindjet:TextRightImageLeft" TopicWidthControl="urn:mindjet:AutoWidth" Dirty="0000000000000000" Width="50." MinimumHeight="5." Padding="1."/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Center" SubTopicsConnectionPoint="urn:mindjet:Center" SubTopicsConnectionStyle="urn:mindjet:Arc" SubTopicsGrowth="urn:mindjet:Horizontal" SubTopicsGrowthDirection="urn:mindjet:LeftAndRight" SubTopicsShape="urn:mindjet:Vertical" SubTopicsShapeWidthFactor="1." SubTopicsVerticalAlignment="urn:mindjet:Middle" SubTopicsVerticalGrowthDirection="urn:mindjet:Down" Dirty="0000000000000000" DistanceFromParent="30." VerticalDistanceFromParent="10." DistanceBetweenSiblings="7." VerticalDistanceBetweenSiblings="1." SubTopicsDepth="1" SubTopicsAlignmentDualVertical="urn:mindjet:Center" SubTopicsTreeConnectionPoint="urn:mindjet:Inside" VerticalSubTopicsConnectionStyle="urn:mindjet:Elbow" VerticalSubTopicsConnectionPoint="urn:mindjet:Outside" VerticalSubTopicsTreeConnectionPoint="urn:mindjet:Inside"/><ap:DefaultSubTopicsVisibility Dirty="0000000000000000" Hidden="false"/></ap:RootTopicDefaultsGroup><ap:RootSubTopicDefaultsGroup Level="0"><ap:DefaultColor Dirty="0000000000000000" FillColor="ffeeeff6"/><ap:DefaultText TextAlignment="urn:mindjet:Left" TextCapitalization="urn:mindjet:None" Dirty="0000000000000000" PlainText="Hauptzweig" ReadOnly="false"><ap:Font Color="ff323232" Size="12." Name="Arial Baltic" Bold="true" Italic="false" Underline="false" Strikethrough="false"/></ap:DefaultText><ap:DefaultSubTopicShape SubTopicShape="urn:mindjet:RoundedRectangle" Dirty="0000000000000000" LeftMargin="1." RightMargin="1." TopMargin="1." BottomMargin="1." VerticalLeftMargin="2." VerticalRightMargin="2." VerticalTopMargin="2." VerticalBottomMargin="2." VerticalSubTopicShape="urn:mindjet:Rectangle"/><ap:DefaultTopicLayout Dirty="0000000000000000" Width="66.800003051757813"/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Center" SubTopicsConnectionPoint="urn:mindjet:Outside" SubTopicsConnectionStyle="urn:mindjet:RoundedElbow" SubTopicsGrowth="urn:mindjet:Horizontal" SubTopicsGrowthDirection="urn:mindjet:AutomaticHorizontal" SubTopicsShape="urn:mindjet:Vertical" SubTopicsVerticalAlignment="urn:mindjet:Middle" SubTopicsVerticalGrowthDirection="urn:mindjet:AutomaticVertical" Dirty="0000000000000000" DistanceFromParent="2." VerticalDistanceFromParent="10." DistanceBetweenSiblings="1.3999999761581421" VerticalDistanceBetweenSiblings="1." SubTopicsAlignmentDualVertical="urn:mindjet:Bottom" VerticalSubTopicsConnectionStyle="urn:mindjet:Elbow" VerticalSubTopicsConnectionPoint="urn:mindjet:Outside"/><ap:DefaultSubTopicsVisibility Dirty="0000000000000000" Hidden="false"/></ap:RootSubTopicDefaultsGroup><ap:RootSubTopicDefaultsGroup Level="1"><ap:DefaultColor Dirty="0000000000000000" FillColor="ffffffff" LineColor="ffc6c6c6"/><ap:DefaultText TextAlignment="urn:mindjet:Left" TextCapitalization="urn:mindjet:None" Dirty="0000000000000000" PlainText="Unterzweig" ReadOnly="false"><ap:Font Color="ff000000" Size="10." Name="Arial" Bold="false" Italic="false" Underline="false" Strikethrough="false"/></ap:DefaultText><ap:DefaultSubTopicShape SubTopicShape="urn:mindjet:RoundedRectangle" Dirty="0000000000000000" LeftMargin="0.20000000298023224" RightMargin="0.20000000298023224" TopMargin="0.20000000298023224" BottomMargin="0.20000000298023224" VerticalLeftMargin="1." VerticalRightMargin="1." VerticalTopMargin="1." VerticalBottomMargin="1." VerticalSubTopicShape="urn:mindjet:Rectangle"/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Center" SubTopicsConnectionPoint="urn:mindjet:Outside" SubTopicsGrowth="urn:mindjet:Horizontal" SubTopicsGrowthDirection="urn:mindjet:AutomaticHorizontal" SubTopicsShape="urn:mindjet:Vertical" Dirty="0000000000000000" VerticalDistanceFromParent="10." DistanceBetweenSiblings="1.3999999761581421" VerticalDistanceBetweenSiblings="1." SubTopicsAlignmentDualVertical="urn:mindjet:Center" VerticalSubTopicsConnectionStyle="urn:mindjet:Elbow" VerticalSubTopicsConnectionPoint="urn:mindjet:Outside"/><ap:DefaultSubTopicsVisibility Dirty="0000000000000000" Hidden="false"/></ap:RootSubTopicDefaultsGroup><ap:RootSubTopicDefaultsGroup Level="2"><ap:DefaultColor Dirty="0000000000000000" FillColor="00000000"/><ap:DefaultText TextAlignment="urn:mindjet:Left" TextCapitalization="urn:mindjet:None" Dirty="0000000000000000" PlainText="Unterzweig" ReadOnly="false"><ap:Font Color="ff000000" Size="10." Name="Arial" Bold="false" Italic="false" Underline="false" Strikethrough="false"/></ap:DefaultText><ap:DefaultSubTopicShape SubTopicShape="urn:mindjet:Line" Dirty="0000000000000000" LeftMargin="0.20000000298023224" RightMargin="0.20000000298023224" TopMargin="0.20000000298023224" BottomMargin="0.20000000298023224" VerticalLeftMargin="1." VerticalRightMargin="1." VerticalTopMargin="1." VerticalBottomMargin="1." VerticalSubTopicShape="urn:mindjet:Rectangle"/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Center" SubTopicsConnectionPoint="urn:mindjet:Outside" SubTopicsGrowth="urn:mindjet:Horizontal" SubTopicsGrowthDirection="urn:mindjet:AutomaticHorizontal" SubTopicsShape="urn:mindjet:Vertical" Dirty="0000000000000000" VerticalDistanceFromParent="10." DistanceBetweenSiblings="1.3999999761581421" VerticalDistanceBetweenSiblings="1." SubTopicsAlignmentDualVertical="urn:mindjet:Center" VerticalSubTopicsConnectionStyle="urn:mindjet:Elbow" VerticalSubTopicsConnectionPoint="urn:mindjet:Outside"/></ap:RootSubTopicDefaultsGroup><ap:CalloutTopicDefaultsGroup><ap:DefaultColor Dirty="0000000000000000" FillColor="ffffe178" LineColor="ffe0c35a"/><ap:DefaultText TextAlignment="urn:mindjet:Left" TextCapitalization="urn:mindjet:None" Dirty="0000000000000000" PlainText="Anmerkung" ReadOnly="false"><ap:Font Color="ff282828" Size="9." Name="Arial Baltic" Bold="true" Italic="false" Underline="false" Strikethrough="false"/></ap:DefaultText><ap:DefaultCalloutFloatingTopicShape CalloutFloatingTopicShape="urn:mindjet:OvalBalloon" Dirty="0000000000000000" LeftMargin="0.80000001192092896" RightMargin="0.80000001192092896" TopMargin="0.80000001192092896" BottomMargin="0.80000001192092896"/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Center" SubTopicsConnectionPoint="urn:mindjet:Outside" SubTopicsConnectionStyle="urn:mindjet:RoundedElbow" SubTopicsGrowth="urn:mindjet:Horizontal" SubTopicsGrowthDirection="urn:mindjet:AutomaticHorizontal" SubTopicsShape="urn:mindjet:Vertical" SubTopicsVerticalAlignment="urn:mindjet:Middle" SubTopicsVerticalGrowthDirection="urn:mindjet:AutomaticVertical" Dirty="0000000000000000" DistanceFromParent="2." VerticalDistanceFromParent="10." DistanceBetweenSiblings="1.3999999761581421" VerticalDistanceBetweenSiblings="1." SubTopicsAlignmentDualVertical="urn:mindjet:Center"/><ap:DefaultSubTopicsVisibility Dirty="0000000000000000" Hidden="false"/></ap:CalloutTopicDefaultsGroup><ap:CalloutSubTopicDefaultsGroup Level="0"><ap:DefaultColor Dirty="0000000000000000" FillColor="00000000" LineColor="ffc6c6c6"/><ap:DefaultText TextAlignment="urn:mindjet:Left" TextCapitalization="urn:mindjet:None" Dirty="0000000000000000" PlainText="Unterzweig" ReadOnly="false"><ap:Font Color="ff000000" Size="9." Name="Arial Baltic" Bold="false"/></ap:DefaultText><ap:DefaultSubTopicShape SubTopicShape="urn:mindjet:Line" Dirty="0000000000000000" LeftMargin="0.20000000298023224" RightMargin="0.20000000298023224" TopMargin="0.20000000298023224" BottomMargin="0.20000000298023224"/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Center" SubTopicsConnectionPoint="urn:mindjet:Outside" SubTopicsGrowth="urn:mindjet:Horizontal" SubTopicsGrowthDirection="urn:mindjet:AutomaticHorizontal" SubTopicsShape="urn:mindjet:Vertical" SubTopicsVerticalAlignment="urn:mindjet:Middle" SubTopicsVerticalGrowthDirection="urn:mindjet:AutomaticVertical" Dirty="0000000000000000" VerticalDistanceFromParent="10." DistanceBetweenSiblings="1.3999999761581421" VerticalDistanceBetweenSiblings="1." SubTopicsAlignmentDualVertical="urn:mindjet:Center"/><ap:DefaultSubTopicsVisibility Dirty="0000000000000000" Hidden="false"/></ap:CalloutSubTopicDefaultsGroup><ap:LabelTopicDefaultsGroup><ap:DefaultColor Dirty="0000000000000000" FillColor="ffeeeff6" LineColor="ffc6c6c6"/><ap:DefaultText TextAlignment="urn:mindjet:Left" TextCapitalization="urn:mindjet:None" Dirty="0000000000000000" PlainText="Freie Anmerkung" ReadOnly="false"><ap:Font Color="ff323232" Size="12." Name="Arial Baltic" Bold="true"/></ap:DefaultText><ap:DefaultLabelFloatingTopicShape LabelFloatingTopicShape="urn:mindjet:RoundedRectangle" Dirty="0000000000000000" LeftMargin="1." RightMargin="1." TopMargin="1." BottomMargin="1." VerticalLeftMargin="2.5" VerticalRightMargin="2.5" VerticalTopMargin="2.5" VerticalBottomMargin="2.5" VerticalLabelFloatingTopicShape="urn:mindjet:RoundedRectangle"/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Center" SubTopicsConnectionPoint="urn:mindjet:Outside" SubTopicsConnectionStyle="urn:mindjet:RoundedElbow" SubTopicsGrowth="urn:mindjet:Horizontal" SubTopicsGrowthDirection="urn:mindjet:AutomaticHorizontal" SubTopicsShape="urn:mindjet:Vertical" SubTopicsVerticalAlignment="urn:mindjet:Middle" SubTopicsVerticalGrowthDirection="urn:mindjet:AutomaticVertical" Dirty="0000000000000000" DistanceFromParent="2." VerticalDistanceFromParent="10." DistanceBetweenSiblings="1.3999999761581421" VerticalDistanceBetweenSiblings="1.3999999761581421" SubTopicsDepth="1" SubTopicsAlignmentDualVertical="urn:mindjet:Center" VerticalSubTopicsConnectionStyle="urn:mindjet:Elbow" VerticalSubTopicsConnectionPoint="urn:mindjet:Outside"/><ap:DefaultSubTopicsVisibility Dirty="0000000000000000" Hidden="false"/></ap:LabelTopicDefaultsGroup><ap:LabelSubTopicDefaultsGroup Level="0"><ap:DefaultColor Dirty="0000000000000000" FillColor="00000000" LineColor="ffc6c6c6"/><ap:DefaultText TextAlignment="urn:mindjet:Left" TextCapitalization="urn:mindjet:None" Dirty="0000000000000000" PlainText="Unterzweig" ReadOnly="false"><ap:Font Color="ff000000" Size="10." Name="Arial Baltic" Bold="false"/></ap:DefaultText><ap:DefaultSubTopicShape SubTopicShape="urn:mindjet:Line" Dirty="0000000000000000" LeftMargin="0.20000000298023224" RightMargin="0.20000000298023224" TopMargin="0.20000000298023224" BottomMargin="0.20000000298023224" VerticalLeftMargin="2." VerticalRightMargin="2." VerticalTopMargin="2." VerticalBottomMargin="2." VerticalSubTopicShape="urn:mindjet:Rectangle"/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Center" SubTopicsConnectionPoint="urn:mindjet:Outside" SubTopicsGrowth="urn:mindjet:Horizontal" SubTopicsGrowthDirection="urn:mindjet:AutomaticHorizontal" SubTopicsShape="urn:mindjet:Vertical" SubTopicsVerticalAlignment="urn:mindjet:Middle" SubTopicsVerticalGrowthDirection="urn:mindjet:AutomaticVertical" Dirty="0000000000000000" VerticalDistanceFromParent="10." DistanceBetweenSiblings="1.3999999761581421" VerticalDistanceBetweenSiblings="1.3999999761581421" SubTopicsAlignmentDualVertical="urn:mindjet:Bottom" VerticalSubTopicsConnectionStyle="urn:mindjet:Elbow"/><ap:DefaultSubTopicsVisibility Dirty="0000000000000000" Hidden="false"/></ap:LabelSubTopicDefaultsGroup><ap:OrgChartTopicDefaultsGroup><ap:DefaultColor Dirty="0000000000000000" FillColor="ffeeeff6"/><ap:DefaultText TextAlignment="urn:mindjet:Center" TextCapitalization="urn:mindjet:None" VerticalTextAlignment="urn:mindjet:Top" Dirty="0000000000000000" PlainText="Organigramm" ReadOnly="false"><ap:Font Color="ff323232" Size="12." Name="Arial Baltic" Bold="true" Italic="false" Underline="false" Strikethrough="false"/></ap:DefaultText><ap:DefaultSubTopicShape Dirty="0000000000000000" VerticalLeftMargin="1." VerticalRightMargin="1." VerticalTopMargin="1." VerticalBottomMargin="1." VerticalSubTopicShape="urn:mindjet:RoundedRectangle"/><ap:DefaultLabelFloatingTopicShape Dirty="0000000000000000" VerticalLeftMargin="1." VerticalRightMargin="1." VerticalTopMargin="1." VerticalBottomMargin="1." VerticalLabelFloatingTopicShape="urn:mindjet:RoundedRectangle"/><ap:DefaultCalloutFloatingTopicShape Dirty="0000000000000000" VerticalCalloutFloatingTopicShape="urn:mindjet:RoundedRectangleBalloon" VerticalLeftMargin="1." VerticalRightMargin="1." VerticalTopMargin="1." VerticalBottomMargin="1."/><ap:DefaultTopicLayout TopicLayoutHorizontalAlignment="urn:mindjet:Center" TopicLayoutVerticalAlignment="urn:mindjet:Center" TopicTextAndImagePosition="urn:mindjet:TextRightImageLeft" TopicWidthControl="urn:mindjet:AutoWidth" Dirty="0000000000000000" Width="50." MinimumHeight="5." Padding="1."/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Center" SubTopicsGrowth="urn:mindjet:Vertical" SubTopicsGrowthDirection="urn:mindjet:AutomaticHorizontal" SubTopicsShape="urn:mindjet:Vertical" SubTopicsShapeWidthFactor="1." SubTopicsVerticalAlignment="urn:mindjet:Middle" SubTopicsVerticalGrowthDirection="urn:mindjet:AutomaticVertical" Dirty="0000000000000000" DistanceFromParent="5." VerticalDistanceFromParent="3." DistanceBetweenSiblings="1." VerticalDistanceBetweenSiblings="1.3999999761581421" SubTopicsDepth="1" SubTopicsAlignmentDualVertical="urn:mindjet:Center" VerticalSubTopicsConnectionStyle="urn:mindjet:Elbow" VerticalSubTopicsConnectionPoint="urn:mindjet:Outside"/><ap:DefaultSubTopicsVisibility Dirty="0000000000000000" Hidden="false"/></ap:OrgChartTopicDefaultsGroup><ap:OrgChartSubTopicDefaultsGroup Level="0"><ap:DefaultColor Dirty="0000000000000000" FillColor="00000000"/><ap:DefaultText TextAlignment="urn:mindjet:Center" TextCapitalization="urn:mindjet:None" VerticalTextAlignment="urn:mindjet:Top" Dirty="0000000000000000" PlainText="Unterzweig" ReadOnly="false"><ap:Font Color="ff000000" Size="10." Name="Arial Baltic" Bold="false" Italic="false" Underline="false" Strikethrough="false"/></ap:DefaultText><ap:DefaultSubTopicShape Dirty="0000000000000000" VerticalLeftMargin="1." VerticalRightMargin="1." VerticalTopMargin="1." VerticalBottomMargin="1." VerticalSubTopicShape="urn:mindjet:RoundedRectangle"/><ap:DefaultCalloutFloatingTopicShape Dirty="0000000000000000" VerticalCalloutFloatingTopicShape="urn:mindjet:RectangleBalloon" VerticalLeftMargin="2." VerticalRightMargin="2." VerticalTopMargin="2." VerticalBottomMargin="2."/><ap:DefaultTopicLayout TopicLayoutHorizontalAlignment="urn:mindjet:Center" TopicLayoutVerticalAlignment="urn:mindjet:Center" TopicTextAndImagePosition="urn:mindjet:TextRightImageLeft" TopicWidthControl="urn:mindjet:AutoWidth" Dirty="0000000000000000" Width="50." MinimumHeight="5." Padding="1."/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Bottom" SubTopicsConnectionPoint="urn:mindjet:Outside" SubTopicsConnectionStyle="urn:mindjet:Elbow" SubTopicsGrowth="urn:mindjet:Horizontal" SubTopicsGrowthDirection="urn:mindjet:AutomaticHorizontal" SubTopicsShape="urn:mindjet:Vertical" SubTopicsShapeWidthFactor="1." SubTopicsVerticalAlignment="urn:mindjet:Middle" SubTopicsVerticalGrowthDirection="urn:mindjet:AutomaticVertical" Dirty="0000000000000000" DistanceFromParent="3." VerticalDistanceFromParent="10." DistanceBetweenSiblings="1.3999999761581421" VerticalDistanceBetweenSiblings="1." SubTopicsDepth="1" SubTopicsAlignmentDualVertical="urn:mindjet:Center" VerticalSubTopicsConnectionStyle="urn:mindjet:Elbow" VerticalSubTopicsConnectionPoint="urn:mindjet:Outside"/><ap:DefaultSubTopicsVisibility Dirty="0000000000000000" Hidden="false"/></ap:OrgChartSubTopicDefaultsGroup><ap:OrgChartSubTopicDefaultsGroup Level="1"><ap:DefaultColor Dirty="0000000000000000" FillColor="00000000"/><ap:DefaultText TextAlignment="urn:mindjet:Center" TextCapitalization="urn:mindjet:None" VerticalTextAlignment="urn:mindjet:Top" Dirty="0000000000000000" PlainText="Unterzweig" ReadOnly="false"><ap:Font Color="ff000000" Size="10." Name="Arial Baltic" Bold="false" Italic="false" Underline="false" Strikethrough="false"/></ap:DefaultText><ap:DefaultSubTopicShape SubTopicShape="urn:mindjet:RoundedRectangle" Dirty="0000000000000000" LeftMargin="1." RightMargin="1." TopMargin="1." BottomMargin="1." VerticalLeftMargin="2." VerticalRightMargin="2." VerticalTopMargin="2." VerticalBottomMargin="2." VerticalSubTopicShape="urn:mindjet:Rectangle"/><ap:DefaultCalloutFloatingTopicShape Dirty="0000000000000000" VerticalCalloutFloatingTopicShape="urn:mindjet:RectangleBalloon" VerticalLeftMargin="2." VerticalRightMargin="2." VerticalTopMargin="2." VerticalBottomMargin="2."/><ap:DefaultTopicLayout TopicLayoutHorizontalAlignment="urn:mindjet:Center" TopicLayoutVerticalAlignment="urn:mindjet:Center" TopicTextAndImagePosition="urn:mindjet:TextRightImageLeft" TopicWidthControl="urn:mindjet:AutoWidth" Dirty="0000000000000000" Width="50." MinimumHeight="5." Padding="1."/><ap:DefaultSubTopicsShape SubTopicsAlignment="urn:mindjet:Bottom" SubTopicsConnectionPoint="urn:mindjet:Outside" SubTopicsConnectionStyle="urn:mindjet:Elbow" SubTopicsGrowth="urn:mindjet:Horizontal" SubTopicsGrowthDirection="urn:mindjet:AutomaticHorizontal" SubTopicsShape="urn:mindjet:Vertical" SubTopicsShapeWidthFactor="1." SubTopicsVerticalAlignment="urn:mindjet:Middle" SubTopicsVerticalGrowthDirection="urn:mindjet:AutomaticVertical" Dirty="0000000000000000" DistanceFromParent="3." VerticalDistanceFromParent="10." DistanceBetweenSiblings="1.3999999761581421" VerticalDistanceBetweenSiblings="1." SubTopicsDepth="1" SubTopicsAlignmentDualVertical="urn:mindjet:Center" VerticalSubTopicsConnectionStyle="urn:mindjet:Elbow" VerticalSubTopicsConnectionPoint="urn:mindjet:Outside"/></ap:OrgChartSubTopicDefaultsGroup><ap:RelationshipDefaultsGroup><ap:DefaultColor Dirty="0000000000000000" FillColor="00000000" LineColor="ffe0666e"/><ap:DefaultLineStyle LineDashStyle="urn:mindjet:Solid" Dirty="0000000000000000" LineWidth="1.5"/><ap:DefaultConnectionStyle ConnectionShape="urn:mindjet:NoArrow" Index="0" Dirty="0000000000000000"/><ap:DefaultConnectionStyle ConnectionShape="urn:mindjet:Arrow" Index="1" Dirty="0000000000000000"/><ap:DefaultRelationshipLineShape LineShape="urn:mindjet:Bezier" Dirty="0000000000000000"/></ap:RelationshipDefaultsGroup><ap:BoundaryDefaultsGroup><ap:DefaultLineStyle LineDashStyle="urn:mindjet:LongDash" Dirty="0000000000000000" LineWidth="0.5"/><ap:DefaultBoundaryShape BoundaryShape="urn:mindjet:CurvedLine" Dirty="0000000000000000" Margin="0."/></ap:BoundaryDefaultsGroup><ap:ImageDefaultsGroup/><ap:Structure StructureGrowthDirection="urn:mindjet:Automatic" Dirty="0000000000000000" UseAutoLayout="true" MinimumMainTopicsHeight="40." FadeNotSelectedObjects="true" UseCurveAntialiasing="true" UseTextAntialiasing="true" MainTopicLineWidth="0.10000000149011612" VerticalMainTopicLineWidth="0.10000000149011612" SiblingSpacing="0." ParentChildSpacing="0." UseOrganicLines="false" HideCollapseSign="false"/><ap:NotesDefaultFont Color="ff000000" Size="10." Dirty="0000000000000000" Name="Arial"/></ap:StyleGroup>`;
+
+  // Wörtlich aus einer echten MindManager-Datei übernommene Werksvoreinstellung
+  // für die Standard-Icon-Sets (Smileys/Pfeile/Flaggen/...) — keine Inhalte
+  // des Nutzers, ist bei jedem MindManager-Dokument gleich.
+  var MMAP_MARKERS_SET_GROUP_XML = `<ap:MarkersSetGroup><ap:IconMarkersSets><ap:IconMarkersSet Dirty="0000000000000000" OId="sB2YvD1STkSv7KVcqd4Mtw==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Smileys"/><ap:IconMarkers><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="5PDLeflQ60OgZ+ySrVOxoA==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Glücklich"/><ap:OneStockIcon IconType="urn:mindjet:SmileyHappy" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="49fz+kKxiUOaUI9Hh4TVyg==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Neutral"/><ap:OneStockIcon IconType="urn:mindjet:SmileyNeutral" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="0S8wHLybh0OjRDdIDPVnDg==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Verärgert"/><ap:OneStockIcon IconType="urn:mindjet:SmileyAngry" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="gAQnBGXUP0+e+Ke92Nq1Sg==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Traurig"/><ap:OneStockIcon IconType="urn:mindjet:SmileySad" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="QAwAbCHJt0KptgFw3ODCsA==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Wütend"/><ap:OneStockIcon IconType="urn:mindjet:SmileyScreaming" Dirty="0000000000000000"/></ap:IconMarker></ap:IconMarkers></ap:IconMarkersSet><ap:IconMarkersSet Dirty="0000000000000000" OId="t0mA4BM3g0eVutVhaC4pQg==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Pfeile"/><ap:IconMarkers><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="xAZFgZRZRUi87L12Yo433w==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Auf"/><ap:OneStockIcon IconType="urn:mindjet:ArrowUp" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="Z8WES4Ptn06nrIOMTDYaPQ==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Ab"/><ap:OneStockIcon IconType="urn:mindjet:ArrowDown" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="FOotqauAdU+o7l6bETYgrg==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Links"/><ap:OneStockIcon IconType="urn:mindjet:ArrowLeft" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="DeaeoX2ORUGgorCfgauV2g==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Rechts"/><ap:OneStockIcon IconType="urn:mindjet:ArrowRight" Dirty="0000000000000000"/></ap:IconMarker></ap:IconMarkers></ap:IconMarkersSet><ap:IconMarkersSet Dirty="0000000000000000" OId="wUhYi3UPvEKFGlN5rEVo8w==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Flaggen"/><ap:IconMarkers><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="KOfqfLSeYEuxjrtq/eON0A==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Ja"/><ap:OneStockIcon IconType="urn:mindjet:FlagGreen" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="VcvWzpJTdEOXAeCZh8biEw==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Vielleicht"/><ap:OneStockIcon IconType="urn:mindjet:FlagYellow" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="lKtZ4VNVHE287EzhMoDOYQ==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Diskussion"/><ap:OneStockIcon IconType="urn:mindjet:FlagOrange" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="L+8VLc/YwUaveqP62BTxRw==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Risiko"/><ap:OneStockIcon IconType="urn:mindjet:FlagRed" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="bmcaIBqAUU2xvc1Ru6S69A==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Verschieben"/><ap:OneStockIcon IconType="urn:mindjet:FlagPurple" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="lcGSrEPDOkq2DhdAvYlb+w==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Rückstellen"/><ap:OneStockIcon IconType="urn:mindjet:FlagBlue" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="1E/widEaJ0KiRJkqvKyUKg==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Nein"/><ap:OneStockIcon IconType="urn:mindjet:FlagBlack" Dirty="0000000000000000"/></ap:IconMarker></ap:IconMarkers></ap:IconMarkersSet></ap:IconMarkersSets><ap:IconMarkersName Dirty="0000000000000000" Name="Einzelne Icons"/><ap:IconMarkers><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="lvhNQ3Rht0K400VTvsm+ZQ==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Pro"/><ap:OneStockIcon IconType="urn:mindjet:ThumbsUp" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="N3+Oyp9vvkGv3rrAsdK+OQ==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Contra"/><ap:OneStockIcon IconType="urn:mindjet:ThumbsDown" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="bWhdQFcf2kmip6nME6d9Vg==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Frage"/><ap:OneStockIcon IconType="urn:mindjet:QuestionMark" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="m8aP3R8eTEOFRonvTx0j8A==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Achtung"/><ap:OneStockIcon IconType="urn:mindjet:ExclamationMark" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="/YmfJaQXWU+mhEqf6NtgJw==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Entscheidung"/><ap:OneStockIcon IconType="urn:mindjet:JudgeHammer" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="sgi7h72VNUqai1BFIlXU3A==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Datum"/><ap:OneStockIcon IconType="urn:mindjet:Calendar" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="LmCOnOtk20ijc+lk3+LYHQ==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Kosten"/><ap:OneStockIcon IconType="urn:mindjet:Dollar" Dirty="0000000000000000"/></ap:IconMarker><ap:IconMarker xsi:type="ap:StockIconMarker" Dirty="0000000000000000" OId="FASh/e+jaU+gCFtXcNBDug==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Alarm"/><ap:OneStockIcon IconType="urn:mindjet:Emergency" Dirty="0000000000000000"/></ap:IconMarker></ap:IconMarkers><ap:FillColorMarkersName Dirty="0000000000000000" Name="Füllfarben"/><ap:TextColorMarkersName Dirty="0000000000000000" Name="Textfarben"/><ap:TaskPercentageMarkersName Dirty="0000000000000000" Name="Aufgabe Fertig (%)"/><ap:TaskPercentageMarkers><ap:TaskPercentageMarker Dirty="0000000000000000" OId="FuOXrPjgSEiG9+NJDCrqKg==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Aufgabe begonnen"/><ap:TaskPercentage TaskPercentage="0" Dirty="0000000000000000"/></ap:TaskPercentageMarker><ap:TaskPercentageMarker Dirty="0000000000000000" OId="6NDpAtXzP0u9c7TMMVSqOQ==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Zu einem Viertel fertig"/><ap:TaskPercentage TaskPercentage="25" Dirty="0000000000000000"/></ap:TaskPercentageMarker><ap:TaskPercentageMarker Dirty="0000000000000000" OId="OaihlIVpZkSt88m/m0FG0A==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Zur Hälfte fertig"/><ap:TaskPercentage TaskPercentage="50" Dirty="0000000000000000"/></ap:TaskPercentageMarker><ap:TaskPercentageMarker Dirty="0000000000000000" OId="FbhRizRKmEu+G5Ml4roVKQ==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Zu drei Vierteln fertig"/><ap:TaskPercentage TaskPercentage="75" Dirty="0000000000000000"/></ap:TaskPercentageMarker><ap:TaskPercentageMarker Dirty="0000000000000000" OId="DFQIJbrub0qTS6EwTt/gvg==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Aufgabe fertig"/><ap:TaskPercentage TaskPercentage="100" Dirty="0000000000000000"/></ap:TaskPercentageMarker></ap:TaskPercentageMarkers><ap:TaskPriorityMarkersName Dirty="0000000000000000" Name="Aufgabenprioritäten"/><ap:TaskPriorityMarkers><ap:TaskPriorityMarker Dirty="0000000000000000" OId="3DceoyaWS0aa1KmmWqPy3Q==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Priorität 1"/><ap:TaskPriority TaskPriority="urn:mindjet:Prio1" Dirty="0000000000000000"/></ap:TaskPriorityMarker><ap:TaskPriorityMarker Dirty="0000000000000000" OId="dO4Z4y4LG0aNWkNnnImLAw==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Priorität 2"/><ap:TaskPriority TaskPriority="urn:mindjet:Prio2" Dirty="0000000000000000"/></ap:TaskPriorityMarker><ap:TaskPriorityMarker Dirty="0000000000000000" OId="YfElVBbdzkGW48yP/K3tbA==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Priorität 3"/><ap:TaskPriority TaskPriority="urn:mindjet:Prio3" Dirty="0000000000000000"/></ap:TaskPriorityMarker><ap:TaskPriorityMarker Dirty="0000000000000000" OId="ShG7Gqp0sU6gx27zWHQZkA==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Priorität 4"/><ap:TaskPriority TaskPriority="urn:mindjet:Prio4" Dirty="0000000000000000"/></ap:TaskPriorityMarker><ap:TaskPriorityMarker Dirty="0000000000000000" OId="01EgwR2j4Uu4mien8unbQQ==" Gen="0000000000000000"><ap:Name Dirty="0000000000000000" Name="Priorität 5"/><ap:TaskPriority TaskPriority="urn:mindjet:Prio5" Dirty="0000000000000000"/></ap:TaskPriorityMarker></ap:TaskPriorityMarkers><ap:TaskResourceMarkersName Dirty="0000000000000000" Name="Ressourcen"/></ap:MarkersSetGroup>`;
+
+  // Kompatibilitäts-Marker, den echte MindManager-Dateien direkt nach <ap:Map>
+  // schreiben — statisch, unabhängig vom Inhalt.
+  var MMAP_CUSTOM_COMPAT_XML = '<cor:Custom Index="0" Uri="http://schemas.mindjet.com/MindManager/UpdateCompatibility/2004" Dirty="0000000000000000" cst0:UpdatedCategories="true" cst0:UpdatedVisibilityStyle="true" xmlns:cst0="http://schemas.mindjet.com/MindManager/UpdateCompatibility/2004"/>';
+
+  function generateMmapDocumentXml(centralNode){
+    var stats = countMmapStats(centralNode);
+    var nowIso = new Date().toISOString().slice(0, 19);
+    var mapViewGroupXml = '<ap:MapViewGroup ViewIndex="0" RowIndex="0" ColumnIndex="0"><ap:ZoomFactor ZoomFactor="1." Dirty="0000000000000000"/></ap:MapViewGroup>';
+    var documentGroupXml = '<ap:DocumentGroup>' +
+      '<ap:Language Dirty="0000000000000000" Language="de-de"/>' +
+      '<ap:Creator Dirty="0000000000000000" UserName="" UserEmail=""/>' +
+      '<ap:LastModificator Dirty="0000000000000001" UserName="" UserEmail=""/>' +
+      '<ap:Author Dirty="0000000000000000" UserName="BrainDump" UserEmail=""/>' +
+      '<ap:Manager Dirty="0000000000000000" UserName=""/>' +
+      '<ap:Version Dirty="0000000000000001" Major="1"/>' +
+      '<ap:Statistics Dirty="0000000000000001" NumberOfTopics="' + stats.topics + '" NumberOfWords="' + stats.words + '" NumberOfHyperlinks="0" NumberOfRelationships="0" NumberOfPictures="0" NumberOfBoundaries="0" NumberOfNotes="0"/>' +
+      '<ap:DateTimeStamps Dirty="0000000000000001" Created="' + nowIso + '" LastModified="' + nowIso + '"/>' +
+      '<ap:Description Comments="Exportiert aus BrainDump." Dirty="0000000000000000" Subject=""/>' +
+      '<ap:Keywords Dirty="0000000000000000" Keywords=""/>' +
+      '<ap:CreatorCompany Dirty="0000000000000000" Name=""/>' +
+      '<ap:Category Dirty="0000000000000000" Name=""/>' +
+      '<ap:ModifiedProtected Dirty="0000000000000000" Password=""/>' +
+      '<ap:DocumentPath Dirty="0000000000000001" DocumentPath=""/>' +
+      '</ap:DocumentGroup>';
+    return '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
+      '<ap:Map Dirty="0000000000000001" OId="' + randomOId() + '" Gen="0000000000000000" ' +
+      'xmlns:ap="http://schemas.mindjet.com/MindManager/Application/2003" ' +
+      'xmlns:cor="http://schemas.mindjet.com/MindManager/Core/2003" ' +
+      'xmlns:pri="http://schemas.mindjet.com/MindManager/Primitive/2003" ' +
+      'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
+      'xsi:schemaLocation="http://schemas.mindjet.com/MindManager/Application/2003 http://schemas.mindjet.com/MindManager/Application/2003 http://schemas.mindjet.com/MindManager/Core/2003 http://schemas.mindjet.com/MindManager/Core/2003 http://schemas.mindjet.com/MindManager/Delta/2003 http://schemas.mindjet.com/MindManager/Delta/2003 http://schemas.mindjet.com/MindManager/Primitive/2003 http://schemas.mindjet.com/MindManager/Primitive/2003">' +
+      MMAP_CUSTOM_COMPAT_XML +
+      '<ap:OneTopic>' + nodeToMmapTopic(centralNode) + '</ap:OneTopic>' +
+      MMAP_STYLE_GROUP_XML +
+      mapViewGroupXml +
+      documentGroupXml +
+      MMAP_MARKERS_SET_GROUP_XML +
+      '</ap:Map>';
+  }
+
+  function generateMmap(){
+    var sourceRoots = isFilterActive() ? getDisplayRoots().map(displayEntryToPlainNodeForMmap) : roots;
+    // MindManager kennt nur ein einzelnes Hauptthema — bei mehreren BrainDump-
+    // Wurzeln werden sie darunter gebündelt, bei genau einer wird sie direkt
+    // zum Hauptthema.
+    var central = sourceRoots.length === 1
+      ? sourceRoots[0]
+      : { text: "BrainDump", collapsed: false, children: sourceRoots };
+    var xml = generateMmapDocumentXml(central);
+    return buildZip([{ name: "Document.xml", data: strToBytes(xml) }]);
+  }
+
+  document.getElementById("btn-mmap-export").addEventListener("click", function(){
+    if (!roots.length){
+      alert("Es gibt noch nichts zu exportieren.");
+      return;
+    }
+    if (isFilterActive() && !getDisplayRoots().length){
+      alert("Der aktive Filter zeigt keine Items zum Exportieren.");
+      return;
+    }
+    var mmap = generateMmap();
+    var ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,"-");
+    downloadFile(mmap, "application/octet-stream", "braindump-" + ts + ".mmap");
   });
 
   /* ---------------------------------------------------------------
