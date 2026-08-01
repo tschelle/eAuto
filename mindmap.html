@@ -89,14 +89,18 @@
 
   /* Toolbar */
   #toolbar{
-    display:flex; align-items:center; gap:8px;
-    padding:8px 12px;
+    display:flex; flex-direction:column;
     background:var(--toolbar-bg);
     border-bottom:1px solid var(--toolbar-border);
     flex-shrink:0;
     z-index:10;
+  }
+  #toolbar-row{
+    display:flex; align-items:center; gap:8px;
+    padding:8px 12px;
     flex-wrap:wrap;
   }
+  #toolbar-hint{ padding:0 12px 8px; }
   #toolbar .title{ font-weight:600; font-size:14px; margin-right:8px; white-space:nowrap; }
   #toolbar .sep{ width:1px; height:22px; background:var(--toolbar-border); margin:0 4px; }
   #btn-theme{
@@ -115,6 +119,7 @@
     transition:transform 0.35s ease;
   }
   #btn-theme.is-dark svg{ transform:rotate(180deg); }
+  #btn-minimap-toggle svg{ width:16px; height:16px; display:block; }
   button{
     font-family:inherit;
     font-size:13px;
@@ -354,6 +359,33 @@
     display:none;
   }
 
+  #search-bar{
+    display:none;
+    position:absolute;
+    top:14px; left:50%;
+    transform:translateX(-50%);
+    align-items:center;
+    gap:6px;
+    background:var(--toolbar-bg);
+    border:1px solid var(--toolbar-border);
+    border-radius:8px;
+    padding:6px 8px;
+    box-shadow:var(--shadow);
+    z-index:30;
+  }
+  #search-bar.visible{ display:flex; }
+  #search-input{
+    font-family:inherit; font-size:13px;
+    border:1px solid var(--toolbar-border); background:var(--bg); color:var(--node-text);
+    padding:5px 8px; border-radius:6px;
+    width:220px;
+  }
+  #search-count{ font-size:11.5px; color:var(--line); white-space:nowrap; min-width:38px; text-align:center; }
+  #search-bar button{ width:24px; height:24px; padding:0; justify-content:center; font-size:13px; }
+
+  .node.search-match{ box-shadow:0 0 0 2px rgba(74,125,252,0.45), var(--shadow); }
+  .node.search-current{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(74,125,252,0.7), var(--shadow); }
+
   #file-input{ display:none; }
 
   /* Export-Format-Auswahl */
@@ -386,6 +418,28 @@
   }
   .format-choice .format-example{ font-weight:400; font-size:12px; color:var(--line); }
   .modal-actions{ margin-top:16px; text-align:right; }
+
+  /* Export-Sammel-Dropdown (Graphik/MD/HTML/Excel) */
+  #export-menu-wrap{ position:relative; }
+  #btn-export-toggle.active{ border-color:var(--accent); color:var(--accent); }
+  #export-dropdown{
+    top:calc(100% + 6px); left:0;
+    display:none;
+    flex-direction:column;
+    gap:2px;
+    min-width:130px;
+    padding:4px;
+  }
+  #export-dropdown.visible{ display:flex; }
+  #export-dropdown button{
+    width:100%;
+    justify-content:flex-start;
+    border:none;
+    background:transparent;
+    padding:7px 10px;
+    border-radius:5px;
+  }
+  #export-dropdown button:hover{ background:var(--btn-bg-hover); }
 
   /* Farb- und Tag-Filter (Toolbar) + Node-Farbmenü (Kontextmenü) */
   #color-filter-wrap, #tag-filter-wrap{ position:relative; }
@@ -458,49 +512,69 @@
 <body>
 <div id="app">
   <div id="toolbar">
-    <span class="title">BrainDump</span>
-    <button id="btn-new-root">＋ Neue Wurzel</button>
-    <div class="sep"></div>
-    <button id="btn-import">Import</button>
-    <button id="btn-save-json">Speichern (JSON)</button>
-    <button id="btn-save-image">Graphik speichern</button>
-    <button id="btn-export" class="primary">Export (.md)</button>
-    <button id="btn-html-export">HTML-Export</button>
-    <button id="btn-excel-export">Excel Export</button>
-    <div class="sep"></div>
-    <button id="btn-undo">Rückgängig</button>
-    <button id="btn-clear" class="danger">Alles löschen</button>
-    <div class="sep"></div>
-    <button id="btn-insert-legend" title="Legende einfügen">Legende einfügen</button>
-    <div id="color-filter-wrap">
-      <button id="btn-color-filter" title="Nach Farbe filtern">Farbfilter</button>
-      <div id="color-filter-menu" class="dropdown-menu">
-        <div id="color-filter-list"></div>
-        <div class="dropdown-actions">
-          <button id="color-filter-reset">Alle anzeigen</button>
+    <div id="toolbar-row">
+      <span class="title">BrainDump</span>
+      <button id="btn-new-root">＋ Neue Wurzel</button>
+      <div class="sep"></div>
+      <button id="btn-import">Import</button>
+      <button id="btn-save-json">Speichern (JSON)</button>
+      <div id="export-menu-wrap">
+        <button id="btn-export-toggle">Export</button>
+        <div id="export-dropdown" class="dropdown-menu">
+          <button id="btn-save-image">Graphik</button>
+          <button id="btn-export">MD</button>
+          <button id="btn-html-export">HTML</button>
+          <button id="btn-excel-export">Excel</button>
         </div>
       </div>
-    </div>
-    <div id="tag-filter-wrap">
-      <button id="btn-tag-filter" title="Nach Tags filtern">Tags</button>
-      <div id="tag-filter-menu" class="dropdown-menu">
-        <div id="tag-filter-list"></div>
-        <div class="dropdown-actions">
-          <button id="tag-filter-reset">Alle anzeigen</button>
+      <div class="sep"></div>
+      <button id="btn-undo">Rückgängig</button>
+      <button id="btn-clear" class="danger">Alles löschen</button>
+      <div class="sep"></div>
+      <button id="btn-insert-legend" title="Legende einfügen">Legende einfügen</button>
+      <div id="color-filter-wrap">
+        <button id="btn-color-filter" title="Nach Farbe filtern">Farbfilter</button>
+        <div id="color-filter-menu" class="dropdown-menu">
+          <div id="color-filter-list"></div>
+          <div class="dropdown-actions">
+            <button id="color-filter-reset">Alle anzeigen</button>
+          </div>
         </div>
       </div>
+      <div id="tag-filter-wrap">
+        <button id="btn-tag-filter" title="Nach Tags filtern">Tags</button>
+        <div id="tag-filter-menu" class="dropdown-menu">
+          <div id="tag-filter-list"></div>
+          <div class="dropdown-actions">
+            <button id="tag-filter-reset">Alle anzeigen</button>
+          </div>
+        </div>
+      </div>
+      <div class="sep"></div>
+      <button id="btn-search-toggle" title="Suchen (Strg/Cmd+F)">Suche</button>
+      <div class="spacer"></div>
+      <button id="btn-minimap-toggle" title="Mini-Karte ausblenden">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="1" y="2" width="6" height="6" fill="none" stroke="#4a7dfc" stroke-width="1.4"/>
+          <rect x="9" y="1.5" width="6" height="1.6" fill="#e0554f"/>
+          <rect x="9" y="3.8" width="4.5" height="1.6" fill="#4a7dfc"/>
+          <rect x="9" y="7.5" width="6" height="1.6" fill="#9166d6"/>
+          <rect x="9" y="9.8" width="5" height="1.6" fill="#d7b740"/>
+          <rect x="2" y="10.5" width="3.5" height="1.6" fill="#de6aa8"/>
+        </svg>
+      </button>
+      <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="#fff" stroke="#000" stroke-width="1.6"/>
+          <path d="M16 2 A14 14 0 0 0 16 30 Z" fill="#000"/>
+          <circle cx="16" cy="16" r="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
+          <path d="M16 10 A6 6 0 0 0 16 22 Z" fill="#000"/>
+        </svg>
+      </button>
     </div>
-    <div class="spacer"></div>
-    <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Strg/Cmd+Z = rückgängig</span>
-    <button id="btn-minimap-toggle" title="Mini-Karte ausblenden">🗺</button>
-    <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">
-      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="16" cy="16" r="14" fill="#fff" stroke="#000" stroke-width="1.6"/>
-        <path d="M16 2 A14 14 0 0 0 16 30 Z" fill="#000"/>
-        <circle cx="16" cy="16" r="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
-        <path d="M16 10 A6 6 0 0 0 16 22 Z" fill="#000"/>
-      </svg>
-    </button>
+    <div id="toolbar-hint">
+      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Strg/Cmd+Z = rückgängig</span>
+    </div>
   </div>
   <div id="viewport">
     <div id="canvas">
@@ -515,6 +589,13 @@
       </div>
     </div>
     <div id="empty-hint">Noch keine Items. Klicke „＋ Neue Wurzel“ oder importiere eine .md- oder .json-Datei.</div>
+    <div id="search-bar">
+      <input type="text" id="search-input" placeholder="Suchen (Text oder #Tag)...">
+      <span id="search-count">0/0</span>
+      <button id="search-prev" title="Vorheriger Treffer (Umschalt+Enter)">↑</button>
+      <button id="search-next" title="Nächster Treffer (Enter)">↓</button>
+      <button id="search-close" title="Suche schließen (Esc)">×</button>
+    </div>
     <div id="zoom-controls">
       <button id="zoom-in" title="Vergrößern">＋</button>
       <div id="zoom-level">100%</div>
@@ -1387,6 +1468,8 @@
       el.classList.toggle("selected", node.id === selectedId);
       el.classList.toggle("collapsed", node.collapsed && node.children.length > 0);
       el.classList.toggle("size-fixed", !!node.fixed);
+      el.classList.toggle("search-match", !!searchMatchIds[node.id]);
+      el.classList.toggle("search-current", node.id === searchCurrentId);
       var contentEl = el.querySelector(".content");
       if (node.id !== editingId){
         var linkified = linkifyText(node.text);
@@ -2017,6 +2100,176 @@
   });
 
   applyMinimapVisibility();
+
+  /* ---------------------------------------------------------------
+   * Suche (Text und Tags über den kompletten Baum — unabhängig von
+   * Ein-/Ausklapp-Zustand und einem aktiven Farb-/Tag-Filter; beim Sprung zu
+   * einem Treffer werden eingeklappte Vorfahren aufgeklappt und ein Filter,
+   * der den Treffer sonst ausblenden würde, automatisch zurückgesetzt.)
+   * -------------------------------------------------------------*/
+  var $searchBar = document.getElementById("search-bar");
+  var $searchInput = document.getElementById("search-input");
+  var $searchCount = document.getElementById("search-count");
+  var searchMatchIds = {}; // Set-artig: nodeId -> true (schnelles Lookup beim Rendern)
+  var searchMatchOrder = []; // dieselben IDs in Baum-Reihenfolge, für Vor/Zurück
+  var searchCurrentId = null;
+
+  // "#wort" durchsucht nur Tags, alles andere den Itemtext (case-insensitive, Teilstring).
+  function collectSearchMatches(query){
+    var order = [];
+    var byTag = query.charAt(0) === "#";
+    var needle = (byTag ? query.slice(1) : query).trim().toLowerCase();
+    if (!needle) return order;
+    function walk(list){
+      list.forEach(function(n){
+        var hit = byTag
+          ? (n.tags || []).some(function(t){ return t.toLowerCase().indexOf(needle) !== -1; })
+          : (n.text || "").toLowerCase().indexOf(needle) !== -1;
+        if (hit) order.push(n.id);
+        walk(n.children);
+      });
+    }
+    walk(roots);
+    return order;
+  }
+
+  function updateSearchCount(){
+    var total = searchMatchOrder.length;
+    var pos = total ? (searchMatchOrder.indexOf(searchCurrentId) + 1) : 0;
+    $searchCount.textContent = pos + "/" + total;
+  }
+
+  // Klappt alle Vorfahren eines Knotens auf und setzt einen aktiven Farb-/Tag-Filter
+  // zurück, falls dieser den Treffer sonst ausblenden würde.
+  function revealNode(id){
+    var ref = findParentAndIndex(id);
+    var p = ref ? ref.parent : null;
+    while (p){
+      p.collapsed = false;
+      var pref = findParentAndIndex(p.id);
+      p = pref ? pref.parent : null;
+    }
+    var node = findNode(id);
+    if (node && isFilterActive() && !nodeMatchesFilter(node)){
+      activeColorFilter = {};
+      activeTagFilter = {};
+      updateColorFilterButton();
+      updateTagFilterButton();
+    }
+  }
+
+  function centerViewOn(id){
+    var p = lastPositions[id];
+    if (!p) return;
+    var rect = $viewport.getBoundingClientRect();
+    view.x = rect.width/2 - (p.x + p.w/2) * view.scale;
+    view.y = rect.height/2 - (p.y + p.h/2) * view.scale;
+    applyView();
+  }
+
+  function jumpToSearchMatch(id){
+    searchCurrentId = id;
+    revealNode(id);
+    render();
+    centerViewOn(id);
+    selectNode(id);
+    updateSearchCount();
+  }
+
+  function runSearch(){
+    searchMatchOrder = collectSearchMatches($searchInput.value);
+    searchMatchIds = {};
+    searchMatchOrder.forEach(function(id){ searchMatchIds[id] = true; });
+    if (!searchMatchOrder.length){
+      searchCurrentId = null;
+      render();
+      updateSearchCount();
+      return;
+    }
+    if (searchMatchOrder.indexOf(searchCurrentId) === -1){
+      jumpToSearchMatch(searchMatchOrder[0]);
+    } else {
+      render();
+      updateSearchCount();
+    }
+  }
+
+  function searchStep(delta){
+    if (!searchMatchOrder.length) return;
+    var idx = searchMatchOrder.indexOf(searchCurrentId);
+    idx = (idx === -1 ? 0 : idx + delta + searchMatchOrder.length) % searchMatchOrder.length;
+    jumpToSearchMatch(searchMatchOrder[idx]);
+  }
+
+  function openSearchBar(){
+    $searchBar.classList.add("visible");
+    $searchInput.focus();
+    $searchInput.select();
+  }
+
+  function closeSearchBar(){
+    $searchBar.classList.remove("visible");
+    $searchInput.value = "";
+    searchMatchIds = {};
+    searchMatchOrder = [];
+    searchCurrentId = null;
+    render();
+  }
+
+  document.getElementById("btn-search-toggle").addEventListener("click", function(){
+    if ($searchBar.classList.contains("visible")) closeSearchBar(); else openSearchBar();
+  });
+  $searchInput.addEventListener("input", runSearch);
+  $searchInput.addEventListener("keydown", function(e){
+    if (e.key === "Enter"){
+      e.preventDefault();
+      searchStep(e.shiftKey ? -1 : 1);
+    } else if (e.key === "Escape"){
+      e.preventDefault();
+      closeSearchBar();
+    }
+  });
+  document.getElementById("search-next").addEventListener("click", function(){ searchStep(1); });
+  document.getElementById("search-prev").addEventListener("click", function(){ searchStep(-1); });
+  document.getElementById("search-close").addEventListener("click", closeSearchBar);
+
+  /* ---------------------------------------------------------------
+   * Export-Sammel-Dropdown (Graphik/MD/HTML/Excel unter einem "Export"-Button)
+   * Die eigentlichen Export-Funktionen hängen unverändert an den bestehenden
+   * Button-IDs (btn-save-image/btn-export/btn-html-export/btn-excel-export)
+   * weiter unten — hier wird nur das Auf-/Zuklappen des Dropdowns verwaltet.
+   * -------------------------------------------------------------*/
+  var $btnExportToggle = document.getElementById("btn-export-toggle");
+  var $exportDropdown = document.getElementById("export-dropdown");
+
+  function closeExportDropdown(){
+    $exportDropdown.classList.remove("visible");
+    $btnExportToggle.classList.remove("active");
+  }
+
+  $btnExportToggle.addEventListener("click", function(e){
+    e.stopPropagation();
+    var willOpen = !$exportDropdown.classList.contains("visible");
+    closeColorFilterMenu();
+    closeTagFilterMenu();
+    $exportDropdown.classList.toggle("visible", willOpen);
+    $btnExportToggle.classList.toggle("active", willOpen);
+  });
+
+  // Dropdown nach Auswahl einer Export-Option wieder schließen (die eigentliche
+  // Aktion läuft über die eigenen click-Handler der jeweiligen Buttons weiter).
+  Array.prototype.forEach.call($exportDropdown.querySelectorAll("button"), function(btn){
+    btn.addEventListener("click", closeExportDropdown);
+  });
+
+  document.addEventListener("click", function(e){
+    if (!$exportDropdown.classList.contains("visible")) return;
+    if (e.target.closest("#export-menu-wrap")) return;
+    closeExportDropdown();
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") closeExportDropdown();
+  });
 
   /* ---------------------------------------------------------------
    * Toolbar-Aktionen
@@ -2917,7 +3170,7 @@
     function walk(list, path){
       list.forEach(function(node, i){
         var num = path.concat([i+1]);
-        rows.push({ outline: num.join("."), text: textToMdLine(node.text), color: node.color || null, tags: node.tags || [] });
+        rows.push({ level: num.length, outline: num.join("."), text: textToMdLine(node.text), color: node.color || null, tags: node.tags || [] });
         walk(node.children, num);
       });
     }
@@ -2939,10 +3192,11 @@
     var sheetRows = [];
     sheetRows.push(
       '<row r="1">' +
-        '<c r="A1" t="inlineStr" s="1"><is><t>' + xmlEscape("Gliederung") + '</t></is></c>' +
-        '<c r="B1" t="inlineStr" s="1"><is><t>' + xmlEscape("Item") + '</t></is></c>' +
-        '<c r="C1" t="inlineStr" s="1"><is><t>' + xmlEscape("Farbe") + '</t></is></c>' +
-        '<c r="D1" t="inlineStr" s="1"><is><t>' + xmlEscape("Tags") + '</t></is></c>' +
+        '<c r="A1" t="inlineStr" s="1"><is><t>' + xmlEscape("Gliederungsebene") + '</t></is></c>' +
+        '<c r="B1" t="inlineStr" s="1"><is><t>' + xmlEscape("Gliederung") + '</t></is></c>' +
+        '<c r="C1" t="inlineStr" s="1"><is><t>' + xmlEscape("Item") + '</t></is></c>' +
+        '<c r="D1" t="inlineStr" s="1"><is><t>' + xmlEscape("Farbe") + '</t></is></c>' +
+        '<c r="E1" t="inlineStr" s="1"><is><t>' + xmlEscape("Tags") + '</t></is></c>' +
       '</row>'
     );
     rows.forEach(function(row, i){
@@ -2953,10 +3207,11 @@
       var tagsText = (row.tags || []).map(function(t){ return "#" + t; }).join(", ");
       sheetRows.push(
         '<row r="' + r + '">' +
-          '<c r="A' + r + '" t="inlineStr"><is><t>' + xmlEscape(row.outline) + '</t></is></c>' +
-          '<c r="B' + r + '" t="inlineStr"><is><t>' + xmlEscape(row.text) + '</t></is></c>' +
-          '<c r="C' + r + '" t="inlineStr" s="' + s + '"><is><t>' + xmlEscape(colorLabel) + '</t></is></c>' +
-          '<c r="D' + r + '" t="inlineStr"><is><t>' + xmlEscape(tagsText) + '</t></is></c>' +
+          '<c r="A' + r + '"><v>' + row.level + '</v></c>' +
+          '<c r="B' + r + '" t="inlineStr"><is><t>' + xmlEscape(row.outline) + '</t></is></c>' +
+          '<c r="C' + r + '" t="inlineStr"><is><t>' + xmlEscape(row.text) + '</t></is></c>' +
+          '<c r="D' + r + '" t="inlineStr" s="' + s + '"><is><t>' + xmlEscape(colorLabel) + '</t></is></c>' +
+          '<c r="E' + r + '" t="inlineStr"><is><t>' + xmlEscape(tagsText) + '</t></is></c>' +
         '</row>'
       );
     });
@@ -2965,10 +3220,11 @@
       '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
       '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">' +
         '<cols>' +
-          '<col min="1" max="1" width="14" customWidth="1"/>' +
-          '<col min="2" max="2" width="60" customWidth="1"/>' +
-          '<col min="3" max="3" width="14" customWidth="1"/>' +
-          '<col min="4" max="4" width="24" customWidth="1"/>' +
+          '<col min="1" max="1" width="12" customWidth="1"/>' +
+          '<col min="2" max="2" width="14" customWidth="1"/>' +
+          '<col min="3" max="3" width="60" customWidth="1"/>' +
+          '<col min="4" max="4" width="14" customWidth="1"/>' +
+          '<col min="5" max="5" width="24" customWidth="1"/>' +
         '</cols>' +
         '<sheetData>' + sheetRows.join("") + '</sheetData>' +
       '</worksheet>';
@@ -3286,6 +3542,7 @@
       closeColorFilterMenu();
     } else {
       closeTagFilterMenu();
+      closeExportDropdown();
       renderColorFilterMenu();
       $colorFilterMenu.classList.add("visible");
     }
@@ -3353,6 +3610,7 @@
       closeTagFilterMenu();
     } else {
       closeColorFilterMenu();
+      closeExportDropdown();
       renderTagFilterMenu();
       $tagFilterMenu.classList.add("visible");
     }
@@ -3462,6 +3720,11 @@
         activeForUndo.blur();
       }
       undo();
+      return;
+    }
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "f"){
+      e.preventDefault(); // ersetzt die native Browser-Suche durch die eigene Suchleiste
+      openSearchBar();
       return;
     }
     var active = document.activeElement;
