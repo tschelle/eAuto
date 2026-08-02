@@ -9,28 +9,19 @@
 <title>Vergleichsportal</title>
 <style>
   :root {
-    --bg: #f4f6f8;
-    --surface: #ffffff;
-    --surface2: #eef1f5;
-    --border: #d1d8e0;
-    --text: #1a1a2e;
-    --text-muted: #5a6a7a;
-    --accent: #2563eb;
-    --accent-hover: #1d4ed8;
-    --accent-subtle: #eff6ff;
-    --green: #16a34a;
-    --green-bg: #f0fdf4;
-    --purple: #7c3aed;
-    --purple-bg: #ede9fe;
+    --bg: #f4f6f8; --surface: #ffffff; --surface2: #eef1f5; --border: #d1d8e0;
+    --text: #1a1a2e; --text-muted: #5a6a7a; --accent: #2563eb; --accent-hover: #1d4ed8;
+    --accent-subtle: #eff6ff; --green: #16a34a; --green-bg: #f0fdf4;
+    --purple: #7c3aed; --purple-bg: #ede9fe;
     --card-shadow: 0 2px 8px rgba(0,0,0,.08), 0 0 0 1px var(--border);
     --card-shadow-hover: 0 8px 24px rgba(37,99,235,.15), 0 0 0 1px var(--accent);
     --radius: 14px;
   }
   @media (prefers-color-scheme: dark) { :root {
-    --bg: #0f172a; --surface: #1e293b; --surface2: #162032;
-    --border: #334155; --text: #e2e8f0; --text-muted: #94a3b8;
-    --accent: #60a5fa; --accent-hover: #93c5fd; --accent-subtle: #1e3a5f;
-    --green: #4ade80; --green-bg: #052e16; --purple: #a78bfa; --purple-bg: #2e1065;
+    --bg: #0f172a; --surface: #1e293b; --surface2: #162032; --border: #334155;
+    --text: #e2e8f0; --text-muted: #94a3b8; --accent: #60a5fa; --accent-hover: #93c5fd;
+    --accent-subtle: #1e3a5f; --green: #4ade80; --green-bg: #052e16;
+    --purple: #a78bfa; --purple-bg: #2e1065;
     --card-shadow: 0 2px 8px rgba(0,0,0,.4), 0 0 0 1px var(--border);
     --card-shadow-hover: 0 8px 24px rgba(96,165,250,.2), 0 0 0 1px var(--accent);
   }}
@@ -50,216 +41,82 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+  /* ── Header ── */
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 10; gap: 12px; }
+  .logo { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: -.3px; display: flex; align-items: center; gap: 8px; }
+  .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 8px; }
+  .hdr-btn { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; color: var(--text-muted); cursor: pointer; font-size: .85rem; padding: 5px 10px; transition: background .15s, color .15s; user-select: none; white-space: nowrap; font-family: inherit; }
+  .hdr-btn:hover { background: var(--border); color: var(--text); }
 
-  /* ── Header ─────────────────────────────────────── */
-  header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-  .logo {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -.3px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .logo-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-  .theme-btn {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--text-muted);
-    cursor: pointer;
-    font-size: .85rem;
-    padding: 5px 10px;
-    transition: background .15s, color .15s;
-    user-select: none;
-  }
-  .theme-btn:hover { background: var(--border); color: var(--text); }
-
-  /* ── Hero ────────────────────────────────────────── */
-  .hero {
-    text-align: center;
-    padding: 72px 24px 48px;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--accent-subtle);
-    color: var(--accent);
-    border-radius: 999px;
-    font-size: .78rem;
-    font-weight: 600;
-    padding: 4px 12px;
-    margin-bottom: 20px;
-    letter-spacing: .3px;
-    text-transform: uppercase;
-  }
-  .hero h1 {
-    font-size: clamp(1.8rem, 5vw, 2.6rem);
-    font-weight: 800;
-    line-height: 1.15;
-    color: var(--text);
-    letter-spacing: -.5px;
-    margin-bottom: 16px;
-  }
+  /* ── Hero ── */
+  .hero { text-align: center; padding: 72px 24px 48px; max-width: 680px; margin: 0 auto; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-subtle); color: var(--accent); border-radius: 999px; font-size: .78rem; font-weight: 600; padding: 4px 12px; margin-bottom: 20px; letter-spacing: .3px; text-transform: uppercase; }
+  .hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800; line-height: 1.15; color: var(--text); letter-spacing: -.5px; margin-bottom: 16px; }
   .hero h1 span { color: var(--accent); }
-  .hero p {
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    max-width: 480px;
-    margin: 0 auto;
-  }
+  .hero p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.6; max-width: 480px; margin: 0 auto; }
 
-  /* ── Cards ───────────────────────────────────────── */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 20px;
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 0 24px 80px;
-    width: 100%;
-  }
-  .card {
-    background: var(--surface);
-    border-radius: var(--radius);
-    box-shadow: var(--card-shadow);
-    padding: 28px;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    transition: box-shadow .2s, transform .2s;
-    cursor: pointer;
-  }
-  .card:hover {
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(-3px);
-  }
+  /* ── Cards ── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; max-width: 820px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+  .card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--card-shadow); padding: 28px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 16px; transition: box-shadow .2s, transform .2s; cursor: pointer; position: relative; }
+  .card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-3px); }
+  .card.locked { cursor: default; }
+  .card.locked:hover { transform: none; box-shadow: var(--card-shadow); }
+  .card.locked .card-arrow { color: var(--text-muted); }
+  .card.locked:hover .card-arrow svg { transform: none !important; }
 
-  .card-icon {
-    width: 52px; height: 52px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    flex-shrink: 0;
-  }
+  .card-lock-badge { position: absolute; top: 14px; right: 16px; font-size: 1.1rem; line-height: 1; }
+
+  .card-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
   .card-icon.blue { background: var(--accent-subtle); }
   .card-icon.purple { background: var(--purple-bg); }
-
-  .card-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -.2px;
-  }
-  .card-desc {
-    font-size: .88rem;
-    color: var(--text-muted);
-    line-height: 1.55;
-    flex: 1;
-  }
-
-  .card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .tag {
-    font-size: .72rem;
-    font-weight: 600;
-    border-radius: 6px;
-    padding: 3px 8px;
-    letter-spacing: .2px;
-  }
+  .card-title { font-size: 1.15rem; font-weight: 700; color: var(--text); letter-spacing: -.2px; }
+  .card-desc { font-size: .88rem; color: var(--text-muted); line-height: 1.55; flex: 1; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: .72rem; font-weight: 600; border-radius: 6px; padding: 3px 8px; letter-spacing: .2px; }
   .tag.green { background: var(--green-bg); color: var(--green); }
   .tag.blue { background: var(--accent-subtle); color: var(--accent); }
   .tag.purple { background: var(--purple-bg); color: var(--purple); }
+  .card-arrow { display: flex; align-items: center; justify-content: space-between; font-size: .82rem; font-weight: 600; color: var(--accent); margin-top: 4px; }
+  .card-arrow svg { width: 16px; height: 16px; transition: transform .2s; }
+  .card:not(.locked):hover .card-arrow svg { transform: translateX(4px); }
+  .lock-label { display: none; }
+  .card.locked .lock-label { display: inline; }
+  .card.locked .open-label { display: none; }
 
-  .card-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: .82rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-top: 4px;
-  }
-  .card-arrow svg {
-    width: 16px; height: 16px;
-    transition: transform .2s;
-  }
-  .card:hover .card-arrow svg { transform: translateX(4px); }
+  /* ── Stats ── */
+  .stats { display: flex; gap: 16px; flex-wrap: wrap; }
+  .stat { display: flex; flex-direction: column; gap: 2px; }
+  .stat-val { font-size: 1.3rem; font-weight: 800; color: var(--text); letter-spacing: -.3px; }
+  .stat-lbl { font-size: .72rem; color: var(--text-muted); font-weight: 500; }
+  .stat-sep { width: 1px; background: var(--border); align-self: stretch; margin: 2px 0; }
 
-  /* ── Stats row ───────────────────────────────────── */
-  .stats {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .stat {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .stat-val {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--text);
-    letter-spacing: -.3px;
-  }
-  .stat-lbl {
-    font-size: .72rem;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-  .stat-sep {
-    width: 1px;
-    background: var(--border);
-    align-self: stretch;
-    margin: 2px 0;
-  }
+  /* ── Footer ── */
+  footer { margin-top: auto; text-align: center; padding: 20px 24px; font-size: .78rem; color: var(--text-muted); border-top: 1px solid var(--border); }
 
-  /* ── Footer ──────────────────────────────────────── */
-  footer {
-    margin-top: auto;
-    text-align: center;
-    padding: 20px 24px;
-    font-size: .78rem;
-    color: var(--text-muted);
-    border-top: 1px solid var(--border);
-  }
+  /* ── Overlays ── */
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 200; padding: 16px; }
+  .overlay.visible { display: flex; }
+  .modal-box { background: var(--surface); border-radius: 20px; padding: 36px 32px; width: 100%; box-shadow: 0 24px 80px rgba(0,0,0,.3); display: flex; flex-direction: column; gap: 18px; }
+  .modal-icon { font-size: 2rem; text-align: center; }
+  .modal-title { font-size: 1.25rem; font-weight: 800; text-align: center; letter-spacing: -.3px; }
+  .modal-sub { font-size: .88rem; color: var(--text-muted); text-align: center; line-height: 1.5; margin-top: -8px; }
+  .pw-wrap { position: relative; }
+  .pw-wrap input { width: 100%; padding: 11px 42px 11px 14px; border: 1.5px solid var(--border); border-radius: 10px; background: var(--surface2); color: var(--text); font-size: 1rem; font-family: inherit; outline: none; transition: border-color .15s; }
+  .pw-wrap input:focus { border-color: var(--accent); }
+  .pw-eye { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; padding: 4px; font-size: .9rem; color: var(--text-muted); line-height: 1; }
+  .modal-error { color: #dc2626; font-size: .82rem; text-align: center; min-height: 18px; margin-top: -8px; }
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+  .modal-actions button { padding: 9px 18px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: .88rem; font-family: inherit; font-weight: 600; cursor: pointer; transition: background .15s; }
+  .modal-actions button:hover { background: var(--border); }
+  .modal-actions button.primary { background: var(--accent); color: #fff; border-color: transparent; }
+  .modal-actions button.primary:hover { opacity: .9; }
+  .modal-actions button:disabled { opacity: .5; cursor: default; }
+  .setup-fields { display: flex; flex-direction: column; gap: 14px; }
+  .setup-field label { display: block; font-size: .78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 5px; }
+  .setup-note { font-size: .78rem; color: var(--text-muted); text-align: center; line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -269,7 +126,10 @@
     <div class="logo-dot"></div>
     Vergleichsportal
   </div>
-  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="header-right">
+    <button class="hdr-btn" onclick="openSetup()">🔑 Passwörter</button>
+    <button class="hdr-btn" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+  </div>
 </header>
 
 <main>
@@ -284,29 +144,17 @@
 
   <div class="cards">
 
-    <a href="index.html" class="card">
+    <div class="card" data-page="eauto" data-url="index.html" onclick="cardClick(this)">
+      <span class="card-lock-badge"></span>
       <div class="card-icon blue">🚗</div>
-      <div>
-        <div class="card-title">Elektroauto-Vergleich</div>
-      </div>
-      <div class="card-desc">
-        Alle relevanten BEVs auf einem Blick: Reichweite, Ladeleistung, Verbrauch, V2L, Fahrgeräusch und über 70 weitere Merkmale.
-      </div>
+      <div><div class="card-title">Elektroauto-Vergleich</div></div>
+      <div class="card-desc">Alle relevanten BEVs auf einem Blick: Reichweite, Ladeleistung, Verbrauch, V2L, Fahrgeräusch und über 70 weitere Merkmale.</div>
       <div class="stats">
-        <div class="stat">
-          <div class="stat-val" id="carCount">124</div>
-          <div class="stat-lbl">Fahrzeuge</div>
-        </div>
+        <div class="stat"><div class="stat-val" id="carCount">–</div><div class="stat-lbl">Fahrzeuge</div></div>
         <div class="stat-sep"></div>
-        <div class="stat">
-          <div class="stat-val">70+</div>
-          <div class="stat-lbl">Merkmale</div>
-        </div>
+        <div class="stat"><div class="stat-val">70+</div><div class="stat-lbl">Merkmale</div></div>
         <div class="stat-sep"></div>
-        <div class="stat">
-          <div class="stat-val">CSV</div>
-          <div class="stat-lbl">Export</div>
-        </div>
+        <div class="stat"><div class="stat-val">CSV</div><div class="stat-lbl">Export</div></div>
       </div>
       <div class="card-tags">
         <span class="tag green">Reichweite</span>
@@ -315,34 +163,23 @@
         <span class="tag green">Fahrgeräusch</span>
       </div>
       <div class="card-arrow">
-        Zur Übersicht
+        <span class="open-label">Zur Übersicht</span>
+        <span class="lock-label">Passwort eingeben</span>
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </div>
-    </a>
+    </div>
 
-    <a href="BrainDump.html" class="card">
+    <div class="card" data-page="braindump" data-url="BrainDump.html" onclick="cardClick(this)">
+      <span class="card-lock-badge"></span>
       <div class="card-icon purple">🧠</div>
-      <div>
-        <div class="card-title">Mind Map — BrainDump</div>
-      </div>
-      <div class="card-desc">
-        Visuelles Brainstorming direkt im Browser: Knoten erstellen, einfärben, verschieben und als JSON, Markdown oder PNG exportieren.
-      </div>
+      <div><div class="card-title">Mind Map — BrainDump</div></div>
+      <div class="card-desc">Visuelles Brainstorming direkt im Browser: Knoten erstellen, einfärben, verschieben und als JSON, Markdown oder PNG exportieren.</div>
       <div class="stats">
-        <div class="stat">
-          <div class="stat-val">8</div>
-          <div class="stat-lbl">Farben</div>
-        </div>
+        <div class="stat"><div class="stat-val">8</div><div class="stat-lbl">Farben</div></div>
         <div class="stat-sep"></div>
-        <div class="stat">
-          <div class="stat-val">4</div>
-          <div class="stat-lbl">Export-Formate</div>
-        </div>
+        <div class="stat"><div class="stat-val">4</div><div class="stat-lbl">Export-Formate</div></div>
         <div class="stat-sep"></div>
-        <div class="stat">
-          <div class="stat-val">∞</div>
-          <div class="stat-lbl">Knoten</div>
-        </div>
+        <div class="stat"><div class="stat-val">∞</div><div class="stat-lbl">Knoten</div></div>
       </div>
       <div class="card-tags">
         <span class="tag purple">Brainstorming</span>
@@ -350,10 +187,11 @@
         <span class="tag blue">Offline</span>
       </div>
       <div class="card-arrow">
-        Zur Mind Map
+        <span class="open-label">Zur Mind Map</span>
+        <span class="lock-label">Passwort eingeben</span>
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </div>
-    </a>
+    </div>
 
   </div>
 </main>
@@ -362,28 +200,256 @@
   Vergleichsportal · Alle Angaben ohne Gewähr · Stand Juli 2026
 </footer>
 
-<script>
-  fetch('eAuto.json?t=' + Date.now())
-    .then(r => r.json())
-    .then(d => {
-      const n = (d.fahrzeuge || []).length;
-      if (n > 0) document.getElementById('carCount').textContent = n;
-    })
-    .catch(() => {});
+<!-- Auth modal -->
+<div id="authOverlay" class="overlay">
+  <div class="modal-box" style="max-width:380px">
+    <div class="modal-icon">🔐</div>
+    <div class="modal-title" id="authTitle"></div>
+    <p class="modal-sub" id="authSub"></p>
+    <div class="pw-wrap">
+      <input type="password" id="authInput" placeholder="Passwort" autocomplete="current-password">
+      <button class="pw-eye" onclick="toggleEye('authInput',this)" tabindex="-1">👁</button>
+    </div>
+    <p class="modal-error" id="authError"></p>
+    <div class="modal-actions">
+      <button onclick="closeAuth()">Abbrechen</button>
+      <button class="primary" id="authBtn" onclick="submitAuth()">Entsperren</button>
+    </div>
+  </div>
+</div>
 
-  function getTheme() {
-    return localStorage.getItem('theme') ||
-      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+<!-- Setup modal -->
+<div id="setupOverlay" class="overlay">
+  <div class="modal-box" style="max-width:420px">
+    <div class="modal-icon">🔑</div>
+    <div class="modal-title">Passwörter einrichten</div>
+    <p class="modal-sub">Jede Kachel erhält ein eigenes Passwort. Alles wird per AES-256-GCM verschlüsselt — kein Klartext wird gespeichert.</p>
+    <div class="setup-fields" id="setupFields"></div>
+    <p class="setup-note" id="setupNote"></p>
+    <div class="modal-actions">
+      <button id="setupCancelBtn" onclick="closeSetup()">Abbrechen</button>
+      <button class="primary" id="setupSaveBtn" onclick="saveSetup()">Speichern</button>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+const SENTINEL    = 'PORTAL_ACCESS_v1';
+const AUTH_STORE  = 'portal_auth_v1';
+const PBKDF2_ITER = 180000;
+
+const PAGES = [
+  { id: 'eauto',     label: 'Elektroauto-Vergleich', url: 'index.html' },
+  { id: 'braindump', label: 'Mind Map — BrainDump',  url: 'BrainDump.html' },
+];
+
+/* ── Crypto ─────────────────────────────────────────── */
+function b64Enc(buf) { return btoa(String.fromCharCode(...new Uint8Array(buf))); }
+function b64Dec(b64) { return Uint8Array.from(atob(b64), c => c.charCodeAt(0)); }
+
+async function deriveKey(password, salt) {
+  const km = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey({ name: 'PBKDF2', salt, iterations: PBKDF2_ITER, hash: 'SHA-256' }, km, { name: 'AES-GCM', length: 256 }, true, ['encrypt', 'decrypt']);
+}
+
+async function encryptEntry(password) {
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const iv   = crypto.getRandomValues(new Uint8Array(12));
+  const key  = await deriveKey(password, salt);
+  const ct   = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new TextEncoder().encode(SENTINEL));
+  const raw  = await crypto.subtle.exportKey('raw', key);
+  return { salt: b64Enc(salt), iv: b64Enc(iv), ct: b64Enc(ct), tokenB64: b64Enc(raw) };
+}
+
+async function verifyPassword(password, entry) {
+  try {
+    const key = await deriveKey(password, b64Dec(entry.salt));
+    const pt  = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64Dec(entry.iv) }, key, b64Dec(entry.ct));
+    if (new TextDecoder().decode(pt) !== SENTINEL) return null;
+    return b64Enc(await crypto.subtle.exportKey('raw', key));
+  } catch { return null; }
+}
+
+async function verifyToken(tokenB64, entry) {
+  try {
+    const key = await crypto.subtle.importKey('raw', b64Dec(tokenB64), { name: 'AES-GCM' }, false, ['decrypt']);
+    const pt  = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64Dec(entry.iv) }, key, b64Dec(entry.ct));
+    return new TextDecoder().decode(pt) === SENTINEL;
+  } catch { return false; }
+}
+
+/* ── Config ─────────────────────────────────────────── */
+function loadCfg() { try { return JSON.parse(localStorage.getItem(AUTH_STORE)) || null; } catch { return null; } }
+function saveCfg(c) { localStorage.setItem(AUTH_STORE, JSON.stringify(c)); }
+
+/* ── Lock state ─────────────────────────────────────── */
+async function refreshCards() {
+  const cfg = loadCfg();
+  for (const p of PAGES) {
+    const card  = document.querySelector(`.card[data-page="${p.id}"]`);
+    const badge = card && card.querySelector('.card-lock-badge');
+    if (!card) continue;
+    if (!cfg || !cfg[p.id]) {
+      card.classList.remove('locked');
+      badge.textContent = '';
+      continue;
+    }
+    const token = sessionStorage.getItem('auth_' + p.id);
+    const ok    = token ? await verifyToken(token, cfg[p.id]) : false;
+    card.classList.toggle('locked', !ok);
+    badge.textContent = ok ? '🔓' : '🔒';
   }
-  function applyTheme(t) {
-    document.documentElement.setAttribute('data-theme', t);
-    document.getElementById('themeBtn').textContent = t === 'dark' ? '☀️ Hell' : '🌙 Dark';
-    localStorage.setItem('theme', t);
+}
+
+/* ── Card click ─────────────────────────────────────── */
+function cardClick(card) {
+  if (card.classList.contains('locked')) {
+    openAuth(card.dataset.page);
+  } else {
+    window.location.href = card.dataset.url;
   }
-  function toggleTheme() {
-    applyTheme(getTheme() === 'dark' ? 'light' : 'dark');
+}
+
+/* ── Auth modal ─────────────────────────────────────── */
+let _authPage = null;
+
+function openAuth(pageId) {
+  const p = PAGES.find(x => x.id === pageId);
+  _authPage = pageId;
+  document.getElementById('authTitle').textContent = p.label;
+  document.getElementById('authSub').textContent   = 'Gib das Passwort für diesen Bereich ein.';
+  document.getElementById('authError').textContent = '';
+  document.getElementById('authInput').value       = '';
+  document.getElementById('authBtn').disabled      = false;
+  document.getElementById('authBtn').textContent   = 'Entsperren';
+  document.getElementById('authOverlay').classList.add('visible');
+  setTimeout(() => document.getElementById('authInput').focus(), 50);
+}
+
+function closeAuth() {
+  document.getElementById('authOverlay').classList.remove('visible');
+  _authPage = null;
+}
+
+async function submitAuth() {
+  const pw  = document.getElementById('authInput').value;
+  const btn = document.getElementById('authBtn');
+  const err = document.getElementById('authError');
+  if (!pw) { err.textContent = 'Bitte ein Passwort eingeben.'; return; }
+  btn.disabled = true; btn.textContent = '…'; err.textContent = '';
+
+  const cfg = loadCfg();
+  if (!cfg || !cfg[_authPage]) {
+    err.textContent = 'Noch kein Passwort konfiguriert — bitte einrichten.';
+    btn.disabled = false; btn.textContent = 'Entsperren';
+    return;
   }
-  applyTheme(getTheme());
+
+  const token = await verifyPassword(pw, cfg[_authPage]);
+  btn.disabled = false; btn.textContent = 'Entsperren';
+
+  if (token) {
+    sessionStorage.setItem('auth_' + _authPage, token);
+    const url = PAGES.find(p => p.id === _authPage)?.url;
+    closeAuth();
+    await refreshCards();
+    if (url) window.location.href = url;
+  } else {
+    err.textContent = 'Falsches Passwort.';
+    document.getElementById('authInput').select();
+  }
+}
+
+/* ── Setup modal ─────────────────────────────────────── */
+function openSetup() {
+  const cfg = loadCfg();
+  document.getElementById('setupFields').innerHTML = PAGES.map(p => `
+    <div>
+      <label>${p.label}</label>
+      <div class="pw-wrap">
+        <input type="password" id="sp_${p.id}" placeholder="${cfg && cfg[p.id] ? 'Leer lassen = unverändert' : 'Neues Passwort festlegen'}" autocomplete="new-password">
+        <button class="pw-eye" onclick="toggleEye('sp_${p.id}',this)" tabindex="-1">👁</button>
+      </div>
+    </div>`).join('');
+  document.getElementById('setupNote').textContent = cfg
+    ? 'Leeres Feld = bestehendes Passwort bleibt erhalten.'
+    : 'Felder ausfüllen, um den Zugriffsschutz zu aktivieren.';
+  document.getElementById('setupCancelBtn').style.display = cfg ? '' : 'none';
+  document.getElementById('setupSaveBtn').disabled = false;
+  document.getElementById('setupSaveBtn').textContent = 'Speichern';
+  document.getElementById('setupOverlay').classList.add('visible');
+  setTimeout(() => document.getElementById('sp_' + PAGES[0].id).focus(), 50);
+}
+
+function closeSetup() {
+  document.getElementById('setupOverlay').classList.remove('visible');
+}
+
+async function saveSetup() {
+  const btn = document.getElementById('setupSaveBtn');
+  const note = document.getElementById('setupNote');
+  btn.disabled = true; btn.textContent = '…';
+
+  const cfg = loadCfg() || {};
+  let changed = false;
+
+  for (const p of PAGES) {
+    const pw = document.getElementById('sp_' + p.id).value;
+    if (!pw) continue;
+    const entry = await encryptEntry(pw);
+    cfg[p.id] = { salt: entry.salt, iv: entry.iv, ct: entry.ct };
+    sessionStorage.removeItem('auth_' + p.id);
+    changed = true;
+  }
+
+  btn.disabled = false; btn.textContent = 'Speichern';
+
+  if (changed) {
+    saveCfg(cfg);
+    closeSetup();
+    await refreshCards();
+  } else {
+    note.textContent = 'Kein Feld ausgefüllt — nichts gespeichert.';
+  }
+}
+
+/* ── Helpers ─────────────────────────────────────────── */
+function toggleEye(id, btn) {
+  const el = document.getElementById(id);
+  el.type = el.type === 'password' ? 'text' : 'password';
+  btn.textContent = el.type === 'password' ? '👁' : '🙈';
+}
+
+document.getElementById('authInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitAuth(); });
+document.getElementById('authOverlay').addEventListener('click', e => { if (e.target.id === 'authOverlay') closeAuth(); });
+document.getElementById('setupOverlay').addEventListener('click', e => { if (e.target.id === 'setupOverlay') closeSetup(); });
+
+/* ── Theme ───────────────────────────────────────────── */
+function getTheme() { return localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+function applyTheme(t) { document.documentElement.setAttribute('data-theme', t); document.getElementById('themeBtn').textContent = t === 'dark' ? '☀️ Hell' : '🌙 Dark'; localStorage.setItem('theme', t); }
+function toggleTheme() { applyTheme(getTheme() === 'dark' ? 'light' : 'dark'); }
+applyTheme(getTheme());
+
+/* ── Init ───────────────────────────────────────────── */
+fetch('eAuto.json?t=' + Date.now()).then(r => r.json()).then(d => {
+  const n = (d.fahrzeuge || []).length;
+  if (n > 0) document.getElementById('carCount').textContent = n;
+}).catch(() => {});
+
+// Return-URL from sub-page redirect
+const retPage = new URLSearchParams(location.search).get('return');
+if (retPage && PAGES.find(p => p.id === retPage)) {
+  history.replaceState(null, '', location.pathname);
+  openAuth(retPage);
+}
+
+// Init: show setup on first visit, refresh lock state
+(async () => {
+  await refreshCards();
+  if (!loadCfg()) openSetup();
+})();
 </script>
 
 </body>

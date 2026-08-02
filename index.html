@@ -6,6 +6,27 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<style>html{visibility:hidden!important}</style>
+<script>
+(async function(){
+  var PAGE_ID='eauto';
+  var SENTINEL='PORTAL_ACCESS_v1';
+  var AUTH_KEY='portal_auth_v1';
+  function b64Dec(b64){return Uint8Array.from(atob(b64),function(c){return c.charCodeAt(0);})}
+  function redirect(){window.location.replace('Start.html?return='+PAGE_ID);}
+  try{
+    var token=sessionStorage.getItem('auth_'+PAGE_ID);
+    if(!token){redirect();return;}
+    var cfg=JSON.parse(localStorage.getItem(AUTH_KEY)||'null');
+    if(!cfg||!cfg[PAGE_ID]){redirect();return;}
+    var e=cfg[PAGE_ID];
+    var key=await crypto.subtle.importKey('raw',b64Dec(token),{name:'AES-GCM'},false,['decrypt']);
+    var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64Dec(e.iv)},key,b64Dec(e.ct));
+    if(new TextDecoder().decode(pt)!==SENTINEL){redirect();return;}
+    document.documentElement.style.visibility='';
+  }catch(ex){redirect();}
+})();
+</script>
 <title>eAuto Vergleich</title>
 <style>
   :root {
