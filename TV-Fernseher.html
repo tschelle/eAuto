@@ -9,146 +9,326 @@
 <title>TV-Fernseher Vergleich 2025/2026</title>
 <style>
   :root {
-    --bg: #f4f6f8;
-    --surface: #ffffff;
-    --border: #d1d8e0;
-    --text: #1a1a2e;
-    --text-muted: #5a6a7a;
-    --accent: #2563eb;
-    --accent-hover: #1d4ed8;
-    --oled-clr: #7c3aed;
-    --oled-bg: #ede9fe;
-    --miniled-clr: #b45309;
-    --miniled-bg: #fef3c7;
-    --k8-clr: #0f766e;
-    --k8-bg: #ccfbf1;
-    --yes: #16a34a;
-    --no: #dc2626;
-    --sort-arrow: #94a3b8;
+    --bg:          #060c1a;
+    --surface:     #0c1828;
+    --border:      #1b2f4a;
+    --accent:      #4a94ff;
+    --text:        #edf2ff;
+    --muted:       #6e8fb0;
+    --oled-clr:    #a78bfa;
+    --oled-bg:     #1e1240;
+    --miniled-clr: #fbbf24;
+    --miniled-bg:  #2a1800;
+    --k8-clr:      #2dd4bf;
+    --k8-bg:       #0a2e2a;
+    --yes:         #4ade80;
+    --no:          #f87171;
+    --radius:      10px;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --border: #334155;
-      --text: #e2e8f0;
-      --text-muted: #94a3b8;
-      --accent: #60a5fa;
-      --accent-hover: #93c5fd;
-      --oled-clr: #a78bfa;
-      --oled-bg: #2e1065;
-      --miniled-clr: #fbbf24;
-      --miniled-bg: #451a03;
-      --k8-clr: #2dd4bf;
-      --k8-bg: #042f2e;
-      --yes: #4ade80;
-      --no: #f87171;
-      --sort-arrow: #475569;
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg:          #f0f4ff;
+      --surface:     #ffffff;
+      --border:      #bfcfe8;
+      --accent:      #2060df;
+      --text:        #08102a;
+      --muted:       #4a6080;
+      --oled-clr:    #7c3aed;
+      --oled-bg:     #ede9fe;
+      --miniled-clr: #b45309;
+      --miniled-bg:  #fef3c7;
+      --k8-clr:      #0f766e;
+      --k8-bg:       #ccfbf1;
+      --yes:         #16a34a;
+      --no:          #dc2626;
     }
   }
-  :root[data-theme="light"] {
-    --bg: #f4f6f8; --surface: #ffffff; --border: #d1d8e0; --text: #1a1a2e;
-    --text-muted: #5a6a7a; --accent: #2563eb; --oled-clr: #7c3aed;
-    --oled-bg: #ede9fe; --miniled-clr: #b45309; --miniled-bg: #fef3c7;
-    --k8-clr: #0f766e; --k8-bg: #ccfbf1; --yes: #16a34a; --no: #dc2626;
-  }
   :root[data-theme="dark"] {
-    --bg: #0f172a; --surface: #1e293b; --border: #334155; --text: #e2e8f0;
-    --text-muted: #94a3b8; --accent: #60a5fa; --oled-clr: #a78bfa;
-    --oled-bg: #2e1065; --miniled-clr: #fbbf24; --miniled-bg: #451a03;
-    --k8-clr: #2dd4bf; --k8-bg: #042f2e; --yes: #4ade80; --no: #f87171;
+    --bg:#060c1a; --surface:#0c1828; --border:#1b2f4a;
+    --accent:#4a94ff; --text:#edf2ff; --muted:#6e8fb0;
+    --oled-clr:#a78bfa; --oled-bg:#1e1240;
+    --miniled-clr:#fbbf24; --miniled-bg:#2a1800;
+    --k8-clr:#2dd4bf; --k8-bg:#0a2e2a;
+    --yes:#4ade80; --no:#f87171;
+  }
+  :root[data-theme="light"] {
+    --bg:#f0f4ff; --surface:#ffffff; --border:#bfcfe8;
+    --accent:#2060df; --text:#08102a; --muted:#4a6080;
+    --oled-clr:#7c3aed; --oled-bg:#ede9fe;
+    --miniled-clr:#b45309; --miniled-bg:#fef3c7;
+    --k8-clr:#0f766e; --k8-bg:#ccfbf1;
+    --yes:#16a34a; --no:#dc2626;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; font-size: 14px; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-  header h1 { font-size: 1.25rem; font-weight: 700; color: var(--accent); }
-  header a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; }
-  header a:hover { color: var(--accent); }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
 
-  .controls { background: var(--surface); border-bottom: 1px solid var(--border); padding: 10px 20px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-  .controls label { color: var(--text-muted); font-size: 0.8rem; }
+  /* ── Header ─────────────────────────────────── */
+  header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
 
-  .filter-btn { padding: 5px 14px; border: 1px solid var(--border); border-radius: 20px; background: var(--bg); color: var(--text); cursor: pointer; font-size: 0.82rem; transition: all .15s; }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .nav-link {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.15s;
+  }
+  .nav-link:hover { color: var(--accent); }
+
+  .theme-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-family: inherit;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .theme-btn:hover { color: var(--text); border-color: var(--muted); }
+
+  /* ── Controls ───────────────────────────────── */
+  .controls {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-right: 2px;
+  }
+
+  .filter-btn {
+    padding: 5px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-family: inherit;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
   .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
   .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-  .search-box { padding: 5px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 0.85rem; width: 200px; }
+  .search-box {
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.82rem;
+    font-family: inherit;
+    width: 200px;
+    transition: border-color 0.15s;
+  }
   .search-box:focus { outline: none; border-color: var(--accent); }
+  .search-box::placeholder { color: var(--muted); }
 
-  .status { margin-left: auto; color: var(--text-muted); font-size: 0.8rem; }
+  .export-btn {
+    padding: 5px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-family: inherit;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .export-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-  .table-wrap { overflow-x: auto; padding: 16px 20px; }
-  table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
-  th { background: var(--bg); color: var(--text-muted); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; padding: 9px 12px; text-align: left; white-space: nowrap; cursor: pointer; user-select: none; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 1; }
+  .status {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── Table ──────────────────────────────────── */
+  .table-wrap { overflow-x: auto; padding: 20px 24px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  th {
+    background: var(--bg);
+    color: var(--muted);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 10px 12px;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 58px;
+    z-index: 1;
+    transition: color 0.15s;
+  }
   th:hover { color: var(--accent); }
-  th.sorted-asc::after { content: ' ▲'; color: var(--accent); }
+  th.sorted-asc::after  { content: ' ▲'; color: var(--accent); }
   th.sorted-desc::after { content: ' ▼'; color: var(--accent); }
-  td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; white-space: nowrap; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: color-mix(in srgb, var(--accent) 5%, transparent); }
 
-  .rang { font-weight: 700; color: var(--text-muted); text-align: center; width: 36px; }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(74, 148, 255, 0.05); }
+
+  .rang { font-weight: 700; color: var(--muted); text-align: center; width: 36px; }
   .rang-1 { color: #f59e0b; }
   .rang-2 { color: #9ca3af; }
   .rang-3 { color: #92400e; }
 
   .tech-badge {
-    display: inline-block; padding: 2px 9px; border-radius: 20px;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: .03em;
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
   }
-  .tech-WOLED { background: var(--oled-bg); color: var(--oled-clr); }
-  .tech-QD-OLED { background: var(--oled-bg); color: var(--oled-clr); }
+  .tech-WOLED    { background: var(--oled-bg);    color: var(--oled-clr); }
+  .tech-QD-OLED  { background: var(--oled-bg);    color: var(--oled-clr); }
   .tech-Mini-LED { background: var(--miniled-bg); color: var(--miniled-clr); }
 
-  .res-8k { background: var(--k8-bg); color: var(--k8-clr); display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 700; }
+  .res-8k {
+    background: var(--k8-bg);
+    color: var(--k8-clr);
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
 
   .bool-yes { color: var(--yes); font-weight: 600; }
   .bool-no  { color: var(--no); }
 
-  .year-2026 { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  .year-2026 { background: rgba(74, 148, 255, 0.04); }
 
-  .preis { font-weight: 600; color: var(--text); }
-  .preis-null { color: var(--text-muted); }
+  .preis      { font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+  .preis-null { color: var(--muted); }
 
-  .score { font-weight: 700; }
+  .score      { font-weight: 700; font-variant-numeric: tabular-nums; }
   .score-high { color: var(--yes); }
   .score-mid  { color: #f59e0b; }
 
   .modell-link { color: var(--accent); text-decoration: none; font-weight: 600; }
   .modell-link:hover { text-decoration: underline; }
 
-  .besonderheit { max-width: 280px; white-space: normal; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+  .besonderheit { max-width: 280px; white-space: normal; font-size: 0.78rem; color: var(--muted); line-height: 1.45; }
+  .groessen     { font-size: 0.78rem; color: var(--muted); }
 
-  .groessen { font-size: 0.8rem; color: var(--text-muted); }
-
-  footer { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.78rem; }
-
-  .export-btn { padding: 5px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); cursor: pointer; font-size: 0.82rem; }
-  .export-btn:hover { border-color: var(--accent); color: var(--accent); }
+  /* ── Footer ─────────────────────────────────── */
+  footer {
+    text-align: center;
+    padding: 20px 24px;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>&#x1F4FA; TV-Fernseher Vergleich 2025 / 2026</h1>
-  <a href="Start.html">&#8592; Startseite</a>
-  <a href="index.html">&#x1F697; Autoübersicht</a>
+  <div class="header-left">
+    <div class="logo">TV-Fernseher</div>
+    <a href="Start.html" class="nav-link">&larr; Startseite</a>
+    <a href="index.html" class="nav-link">Elektroautos</a>
+  </div>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">Hell</button>
 </header>
 
 <div class="controls">
-  <label>Filter:</label>
+  <span class="filter-label">Filter</span>
   <button class="filter-btn active" data-filter="alle">Alle</button>
   <button class="filter-btn" data-filter="OLED">OLED</button>
   <button class="filter-btn" data-filter="Mini-LED">Mini-LED</button>
   <button class="filter-btn" data-filter="4K">4K</button>
   <button class="filter-btn" data-filter="8K">8K</button>
-  <button class="filter-btn" data-filter="2025">Nur 2025</button>
-  <button class="filter-btn" data-filter="2026">Nur 2026</button>
-  <input class="search-box" type="search" id="searchBox" placeholder="Suche Modell, Marke...">
+  <button class="filter-btn" data-filter="2025">2025</button>
+  <button class="filter-btn" data-filter="2026">2026</button>
+  <input class="search-box" type="search" id="searchBox" placeholder="Suche Modell, Marke&hellip;">
   <button class="export-btn" id="btnCSV">CSV Export</button>
-  <span class="status" id="statusLine">Lade...</span>
+  <span class="status" id="statusLine">Lade&hellip;</span>
 </div>
 
 <div class="table-wrap">
@@ -161,23 +341,23 @@
         <th data-key="jahr">Jahr</th>
         <th data-key="technologie">Technologie</th>
         <th data-key="panel">Panel</th>
-        <th data-key="aufloesung">Auflösung</th>
+        <th data-key="aufloesung">Aufl&ouml;sung</th>
         <th data-key="helligkeit_hdr_nits">Peak nits</th>
         <th data-key="helligkeit_sdr_nits">SDR nits</th>
         <th data-key="refresh_rate_hz">Hz</th>
-        <th data-key="hdmi_2_1_ports">HDMI 2.1</th>
-        <th data-key="dolby_vision">Dolby V.</th>
+        <th data-key="hdmi_2_1_ports">HDMI&nbsp;2.1</th>
+        <th data-key="dolby_vision">Dolby&nbsp;V.</th>
         <th data-key="hdr10_plus">HDR10+</th>
         <th data-key="vrr">VRR</th>
         <th data-key="g_sync">G-Sync</th>
         <th data-key="betriebssystem">OS</th>
         <th data-key="lautsprecher_watt">Watt</th>
         <th data-key="earc">eARC</th>
-        <th data-key="preis_55_eur">55" €</th>
-        <th data-key="preis_65_eur">65" €</th>
-        <th data-key="preis_77_eur">77" €</th>
+        <th data-key="preis_55_eur">55&Prime;&nbsp;&euro;</th>
+        <th data-key="preis_65_eur">65&Prime;&nbsp;&euro;</th>
+        <th data-key="preis_77_eur">77&Prime;&nbsp;&euro;</th>
         <th data-key="rtings_score">RTINGS</th>
-        <th data-key="groessen_zoll">Größen</th>
+        <th data-key="groessen_zoll">Gr&ouml;&szlig;en</th>
         <th>Besonderheit</th>
       </tr>
     </thead>
@@ -185,9 +365,7 @@
   </table>
 </div>
 
-<footer>
-  Daten: Herstellerangaben, RTINGS.com, Stiftung Warentest – Stand 2026. 2026er Modelle: vorläufige Specs. Preise: UVP, können abweichen.
-</footer>
+<footer>Daten: Herstellerangaben, RTINGS.com, Stiftung Warentest &mdash; Stand 2026 &middot; 2026er Modelle: vorläufige Specs &middot; Preise: UVP</footer>
 
 <script>
 'use strict';
@@ -353,6 +531,15 @@ async function loadData() {
   }
   renderTable();
 }
+
+function getTheme() { return localStorage.getItem('theme') || 'dark'; }
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('themeBtn').textContent = t === 'dark' ? 'Hell' : 'Dunkel';
+  localStorage.setItem('theme', t);
+}
+function toggleTheme() { applyTheme(getTheme() === 'dark' ? 'light' : 'dark'); }
+applyTheme(getTheme());
 
 loadData();
 </script>
