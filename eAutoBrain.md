@@ -56,6 +56,7 @@ Quelle: eAuto_intern.json → uebertragen in eAuto.json am 2026-06-20.
 | **TV-Fernseher.html** | TV-Vergleichstabelle (laedt TV-Fernseher.json per fetch); gleicher Dark-Stil wie index.html |
 | **TV-Fernseher.json** | Zentrale TV-Daten (20 Geraete, alle Felder) |
 | **TVBrain.md** | Projektdokumentation TV-Fernseher (analog zu dieser Datei) |
+| **design.md** | Vollstaendige Design-Dokumentation — Tokens, Typo, Komponenten, Theme-System, Checkliste fuer neue Seiten |
 
 ---
 
