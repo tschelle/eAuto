@@ -191,7 +191,11 @@
   }
   .node.dragging{ opacity:0.55; cursor:grabbing; z-index:50; }
   .node.selected{ border-color:var(--node-border-selected); box-shadow:0 0 0 3px rgba(74,148,255,0.18), var(--shadow); }
-  .node.drop-target{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(74,148,255,0.35); }
+  .node.drop-target{ border-color:var(--accent); box-shadow:0 0 0 4px rgba(74,148,255,0.45); }
+  /* Während des Umhängens: alle Knoten außer dem gezogenen und dem aktuellen
+     Ziel abdunkeln, damit sofort sichtbar ist, wohin man gerade zieht. */
+  #nodes.drag-active .node{ transition:opacity 0.12s ease; }
+  #nodes.drag-active .node:not(.dragging):not(.drop-target){ opacity:0.35; }
   .node.root-node{ font-weight:600; }
   .node .toggle{
     flex-shrink:0;
@@ -528,6 +532,7 @@
       </div>
       <div class="sep"></div>
       <button id="btn-undo">Rückgängig</button>
+      <button id="btn-redo">Wiederholen</button>
       <button id="btn-clear" class="danger">Alles löschen</button>
       <div class="sep"></div>
       <button id="btn-insert-legend" title="Legende einfügen">Legende einfügen</button>
@@ -565,7 +570,7 @@
       <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">Hell</button>
     </div>
     <div id="toolbar-hint">
-      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Strg/Cmd+Z = rückgängig</span>
+      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Strg/Cmd+Z = rückgängig · Strg/Cmd+Umschalt+Z = wiederholen · Strg/Cmd+D = duplizieren</span>
     </div>
   </div>
   <div id="viewport">
@@ -575,6 +580,7 @@
       <div id="node-toolbar" class="node-toolbar">
         <button class="tb-child" title="Kind hinzufügen">＋</button>
         <button class="tb-sibling" title="Geschwister hinzufügen">⏎</button>
+        <button class="tb-duplicate" title="Duplizieren (Item + Kinder)">⧉</button>
         <button class="tb-tags" title="Tags verwalten">#</button>
         <button class="tb-fix" title="Breite/Höhe fixieren">⤢</button>
         <button class="tb-delete" title="Löschen (Kinder bleiben erhalten)">×</button>
@@ -921,11 +927,14 @@
    * Undo (Snapshot-Stack der letzten Aktionen)
    * -------------------------------------------------------------*/
   var undoStack = [];
+  var redoStack = [];
   var MAX_UNDO = 50;
 
   function pushUndo(snapshotStr){
     undoStack.push(snapshotStr);
     if (undoStack.length > MAX_UNDO) undoStack.shift();
+    // Jede neue Aktion macht die bisherige Redo-Historie ungültig.
+    redoStack.length = 0;
   }
 
   function snapshot(){
@@ -934,7 +943,21 @@
 
   function undo(){
     if (!undoStack.length) return;
+    redoStack.push(JSON.stringify(roots));
+    if (redoStack.length > MAX_UNDO) redoStack.shift();
     roots = JSON.parse(undoStack.pop());
+    selectedId = null;
+    editingId = null;
+    hideToolbar();
+    render();
+  }
+
+  function redo(){
+    if (!redoStack.length) return;
+    // Direkt auf undoStack, nicht über pushUndo() — das würde redoStack sofort wieder leeren.
+    undoStack.push(JSON.stringify(roots));
+    if (undoStack.length > MAX_UNDO) undoStack.shift();
+    roots = JSON.parse(redoStack.pop());
     selectedId = null;
     editingId = null;
     hideToolbar();
@@ -1857,6 +1880,32 @@
     render();
   }
 
+  // Tiefe Kopie eines Knotens inkl. aller Kinder — mit frischen IDs, da IDs eindeutig sein müssen.
+  function cloneNodeDeep(node){
+    return {
+      id: nextId(),
+      text: node.text,
+      collapsed: node.collapsed,
+      width: node.width,
+      height: node.height,
+      color: node.color,
+      fixed: node.fixed,
+      isLegend: node.isLegend,
+      tags: node.tags.slice(),
+      children: node.children.map(cloneNodeDeep)
+    };
+  }
+
+  function duplicateNode(id){
+    var ref = findParentAndIndex(id);
+    if (!ref) return;
+    snapshot();
+    var copy = cloneNodeDeep(ref.list[ref.index]);
+    ref.list.splice(ref.index + 1, 0, copy);
+    selectedId = copy.id;
+    render();
+  }
+
   function toggleCollapse(id){
     var node = findNode(id);
     if (node){ node.collapsed = !node.collapsed; render(); }
@@ -1947,6 +1996,7 @@
     contentEl.addEventListener("keydown", function(e){
       if (e.key === "Enter" && !e.shiftKey){
         e.preventDefault();
+        e.stopPropagation();
         contentEl.blur();
         addSibling(id);
       } else if (e.key === "Tab" && !e.shiftKey){
@@ -2064,6 +2114,7 @@
       if (!moved && Math.hypot(dx,dy) > 6){
         moved = true;
         el.classList.add("dragging");
+        $nodes.classList.add("drag-active");
         drag = { id: id };
       }
       if (moved){
@@ -2079,6 +2130,7 @@
       document.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseup", onUp);
       el.classList.remove("dragging");
+      $nodes.classList.remove("drag-active");
       if (moved){
         var target = document.elementFromPoint(ev.clientX, ev.clientY);
         var targetNodeEl = target ? target.closest(".node") : null;
@@ -2525,6 +2577,12 @@
     var active = document.activeElement;
     if (active && active.classList && active.classList.contains("content")) active.blur();
     undo();
+  });
+
+  document.getElementById("btn-redo").addEventListener("click", function(){
+    var active = document.activeElement;
+    if (active && active.classList && active.classList.contains("content")) active.blur();
+    redo();
   });
 
   var $exportModal = document.getElementById("export-modal");
@@ -3730,6 +3788,10 @@
     e.stopPropagation();
     if (toolbarTargetId) addSibling(toolbarTargetId);
   });
+  $nodeToolbar.querySelector(".tb-duplicate").addEventListener("click", function(e){
+    e.stopPropagation();
+    if (toolbarTargetId) duplicateNode(toolbarTargetId);
+  });
   $nodeToolbar.querySelector(".tb-tags").addEventListener("click", function(e){
     e.stopPropagation();
     if (!toolbarTargetId) return;
@@ -4098,13 +4160,22 @@
    * Globale Tastenkürzel
    * -------------------------------------------------------------*/
   document.addEventListener("keydown", function(e){
-    if ((e.ctrlKey || e.metaKey) && !e.shiftKey && e.key.toLowerCase() === "z"){
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z"){
       e.preventDefault();
       var activeForUndo = document.activeElement;
       if (activeForUndo && activeForUndo.classList && activeForUndo.classList.contains("content")){
         activeForUndo.blur();
       }
-      undo();
+      if (e.shiftKey) redo(); else undo();
+      return;
+    }
+    if ((e.ctrlKey || e.metaKey) && !e.shiftKey && e.key.toLowerCase() === "y"){
+      e.preventDefault(); // Windows-Konvention für Wiederholen, zusätzlich zu Strg/Cmd+Umschalt+Z
+      var activeForRedo = document.activeElement;
+      if (activeForRedo && activeForRedo.classList && activeForRedo.classList.contains("content")){
+        activeForRedo.blur();
+      }
+      redo();
       return;
     }
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "f"){
@@ -4124,6 +4195,9 @@
     } else if (e.key === "Enter" && selectedId){
       e.preventDefault();
       addSibling(selectedId);
+    } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "d" && selectedId){
+      e.preventDefault(); // ersetzt den nativen Lesezeichen-Dialog, solange ein Item ausgewählt ist
+      duplicateNode(selectedId);
     }
   });
 

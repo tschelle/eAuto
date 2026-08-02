@@ -108,6 +108,11 @@ Verfügung.
   nicht mitgelöscht, sondern rücken eine Ebene nach oben (an die Stelle des gelöschten
   Knotens, direkt unter dessen ehemaligen Eltern bzw. als neue Wurzeln, falls der
   gelöschte Knoten selbst eine Wurzel war).
+- **Duplizieren**: der ⧉-Schalter in der schwebenden Node-Toolbar (oder `Strg`/`Cmd`+`D`
+  bei ausgewähltem Knoten) legt eine vollständige Kopie eines Items inkl. seines
+  kompletten Teilbaums an — mit frischen, eindeutigen IDs, aber identischem Text,
+  Größe, Farbe, Fixierung und Tags. Die Kopie wird direkt als nächstes Geschwister
+  neben dem Original eingefügt und automatisch ausgewählt.
 - **Zoom & Pan**: Mausrad + Strg/Cmd zum Zoomen, Ziehen auf leerer Fläche zum Verschieben
   der Ansicht.
 - **Alles einpassen**: der ⛶-Button in den Zoom-Controls berechnet die Bounding-Box
@@ -138,9 +143,14 @@ Verfügung.
   im HTML-Export.
 - **Ein-/Ausklappen**: Teilbäume lassen sich über das Dreieck-Symbol am Knoten
   kollabieren.
-- **Rückgängig**: die letzte Aktion (Anlegen, Löschen, Verschieben, Ein-/Ausrücken,
-  Text-Änderung, Import, Alles-löschen) lässt sich über `Strg`/`Cmd`+`Z` oder den
-  Toolbar-Button „↶ Rückgängig“ zurücknehmen (Snapshot-Stack, mehrstufig).
+- **Rückgängig & Wiederholen**: die letzte Aktion (Anlegen, Löschen, Duplizieren,
+  Verschieben, Ein-/Ausrücken, Text-Änderung, Import, Alles-löschen) lässt sich über
+  `Strg`/`Cmd`+`Z` oder den Toolbar-Button „Rückgängig“ zurücknehmen (Snapshot-Stack,
+  mehrstufig). Zurückgenommene Aktionen lassen sich über `Strg`/`Cmd`+`Umschalt`+`Z`
+  (bzw. `Strg`/`Cmd`+`Y`) oder den Toolbar-Button „Wiederholen“ erneut anwenden — ein
+  zweiter Stack, der bei jeder neuen Aktion automatisch geleert wird (klassisches
+  Undo/Redo-Verhalten: die „Zukunft“ verfällt, sobald man nach einem Rückgängig etwas
+  Neues tut).
 - **Autosave**: der aktuelle Stand wird laufend im `localStorage` des Browsers
   gesichert, damit ein versehentliches Neuladen der Seite keine Daten verliert. Die
   eigentliche, dateibasierte Sicherung erfolgt bewusst separat über JSON- (vollständig)
@@ -396,10 +406,14 @@ Die Datei ist bewusst in drei Blöcke gegliedert:
      `click`-Event auf Klartext zurücksetzen würde. Ein Klick ohne Modifier verhält
      sich wie bisher (Bearbeitung starten, `preventDefault()` unterbindet nur die
      Link-Navigation).
-   - **Undo**: `snapshot()`/`pushUndo()`/`undo()` verwalten einen Stack aus
+   - **Undo/Redo**: `snapshot()`/`pushUndo()`/`undo()` verwalten einen Stack aus
      JSON-Snapshots von `roots` (max. 50 Schritte); vor jeder strukturellen Änderung
      sowie vor abgeschlossenen Textbearbeitungen (Diff bei `blur`) wird ein Snapshot
-     abgelegt.
+     abgelegt. `redo()` nutzt einen zweiten Stack (`redoStack`): `undo()`/`redo()`
+     schieben den jeweils aktuellen Zustand auf den anderen Stack, bevor sie ihren
+     eigenen Stack poppen, damit man beliebig zwischen beiden hin- und herspringen
+     kann. `pushUndo()` — und damit jede reguläre Aktion über `snapshot()` — leert
+     `redoStack` sofort wieder, da die „Zukunft“ nach einer neuen Aktion ungültig wird.
    - **Zoom & Pan**: einfache CSS-`transform`-basierte Ansicht-Transformation.
      `fitToView()` berechnet die Bounding-Box aller aktuell sichtbaren Knoten aus
      `lastPositions` und setzt Zoomstufe/Position so, dass alles ins Viewport passt
@@ -440,6 +454,9 @@ versionieren.
    eine `http(s)`- oder `file`-URL, wird sie außerhalb der Bearbeitung automatisch
    klickbar (Cmd/Ctrl+Klick öffnet).
 3. Mit der schwebenden Node-Toolbar oder Tastatur (`Tab`/`Enter`) den Baum ausbauen.
+   Über den ⧉-Schalter (oder `Strg`/`Cmd`+`D`) einen Knoten inkl. Teilbaum duplizieren,
+   über `Strg`/`Cmd`+`Z`/`Strg`/`Cmd`+`Umschalt`+`Z` Aktionen rückgängig machen bzw.
+   wiederholen.
 4. Über „Speichern (JSON)“ den vollständigen Zustand sichern (inkl. Größen und Tags)
    oder über „MD“ im Export-Dropdown die Hierarchie inkl. Tags (nicht aber
    Größen/Farben) als portables Markdown exportieren.
@@ -479,8 +496,9 @@ versionieren.
   große Mindmaps (mehrere hundert Knoten) kann die Darstellung unübersichtlich werden.
 - Knotentext wird beim Export auf eine Zeile normalisiert (Zeilenumbrüche werden zu
   Leerzeichen), damit die Markdown-Listenstruktur gültig bleibt.
-- Es gibt nur Undo, kein Redo; der Undo-Stack ist auf 50 Schritte begrenzt und wird
-  beim Neuladen der Seite verworfen (nicht Teil des Autosave).
+- Undo- und Redo-Stack sind je auf 50 Schritte begrenzt und werden beim Neuladen der
+  Seite verworfen (nicht Teil des Autosave). Redo verfällt außerdem, sobald nach einem
+  Rückgängig eine neue Aktion ausgeführt wird (kein verzweigender Redo-Verlauf).
 - Manuell gesetzte Knotengrößen und Farben werden bewusst nicht in den Markdown-Export
   übernommen (der bildet nur Text/Hierarchie/Tags ab, bleibt dadurch portabel/lesbar) —
   für die vollständige, größen- und farberhaltende Sicherung den JSON-Export verwenden.
