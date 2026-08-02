@@ -570,7 +570,7 @@
       <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">Hell</button>
     </div>
     <div id="toolbar-hint">
-      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Strg/Cmd/Umschalt+Klick = Mehrfachauswahl · Entf = (Mehrfach-)Löschen · Strg/Cmd+Z = rückgängig · Strg/Cmd+Umschalt+Z = wiederholen · Strg/Cmd+D = duplizieren</span>
+      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Cmd/Umschalt+Klick = Mehrfachauswahl · Entf = (Mehrfach-)Löschen · Strg/Cmd+Z = rückgängig · Strg/Cmd+Umschalt+Z = wiederholen · Strg/Cmd+D = duplizieren</span>
     </div>
   </div>
   <div id="viewport">
@@ -711,7 +711,7 @@
   // color: null = keine Farbe, sonst ein COLOR_PALETTE-Key (z.B. "red")
   var roots = [];
   var selectedId = null;
-  var multiSelectIds = {}; // zusätzlich per Strg/Cmd/Umschalt+Klick markierte Knoten (id -> true)
+  var multiSelectIds = {}; // zusätzlich per Cmd/Umschalt+Klick markierte Knoten (id -> true)
 
   var COLOR_PALETTE = [
     { key:"red",    hex:"#e0554f", label:"Rot" },
@@ -1854,7 +1854,7 @@
     return selectedId ? [selectedId] : [];
   }
 
-  // Strg/Cmd/Umschalt+Klick auf einen Knoten schaltet ihn in der Mehrfachauswahl
+  // Cmd/Umschalt+Klick auf einen Knoten schaltet ihn in der Mehrfachauswahl
   // um, ohne die Bearbeitung zu starten oder einen Umhänge-Vorgang auszulösen. Die
   // schwebende Einzel-Node-Toolbar wird währenddessen ausgeblendet, da ihre Aktionen
   // (Kind/Geschwister hinzufügen, Tags, Fixieren) sich nur auf genau einen Knoten

@@ -108,7 +108,7 @@ Verfügung.
   nicht mitgelöscht, sondern rücken eine Ebene nach oben (an die Stelle des gelöschten
   Knotens, direkt unter dessen ehemaligen Eltern bzw. als neue Wurzeln, falls der
   gelöschte Knoten selbst eine Wurzel war).
-- **Mehrfachauswahl**: `Strg`/`Cmd`/`Umschalt`+Klick auf ein Item schaltet es zu einer
+- **Mehrfachauswahl**: `Cmd`/`Umschalt`+Klick auf ein Item schaltet es zu einer
   Mehrfachauswahl dazu (gleiche blaue Rahmen-Markierung wie bei Einzelauswahl), ohne
   Bearbeitung zu starten oder einen Umhänge-Vorgang auszulösen. `Entf`/`Rücktaste`
   löscht dann alle markierten Items auf einmal — als ein einzelner Undo-Schritt, auch
@@ -400,7 +400,7 @@ Die Datei ist bewusst in drei Blöcke gegliedert:
    - **Mehrfachauswahl**: `multiSelectIds` (id → true) ergänzt die bestehende
      Einzelauswahl `selectedId`, statt sie zu ersetzen — bei leerer Mehrfachauswahl
      verhält sich alles exakt wie zuvor. `toggleMultiSelect()` wird bei
-     Strg/Cmd/Umschalt+Klick im `mousedown`-Handler *vor* der normalen
+     Cmd/Umschalt+Klick im `mousedown`-Handler *vor* der normalen
      Klick-vs-Zug-Unterscheidung abgefangen (kein Editieren, kein Reparenting-Drag).
      `getSelectedIds()` liefert bei aktiver Mehrfachauswahl deren volle Menge, sonst
      `[selectedId]`. `deleteNodes(ids)` löscht sie in einem einzigen Snapshot; da
@@ -483,7 +483,7 @@ versionieren.
 3. Mit der schwebenden Node-Toolbar oder Tastatur (`Tab`/`Enter`) den Baum ausbauen.
    Über den ⧉-Schalter (oder `Strg`/`Cmd`+`D`) einen Knoten inkl. Teilbaum duplizieren,
    über `Strg`/`Cmd`+`Z`/`Strg`/`Cmd`+`Umschalt`+`Z` Aktionen rückgängig machen bzw.
-   wiederholen. Mit `Strg`/`Cmd`/`Umschalt`+Klick mehrere Items markieren und über
+   wiederholen. Mit `Cmd`/`Umschalt`+Klick mehrere Items markieren und über
    `Entf`/`Rücktaste` gemeinsam löschen.
 4. Über „Speichern (JSON)“ den vollständigen Zustand sichern (inkl. Größen und Tags)
    oder über „MD“ im Export-Dropdown die Hierarchie inkl. Tags (nicht aber
