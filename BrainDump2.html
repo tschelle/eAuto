@@ -570,7 +570,7 @@
       <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">Hell</button>
     </div>
     <div id="toolbar-hint">
-      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Strg/Cmd+Z = rückgängig · Strg/Cmd+Umschalt+Z = wiederholen · Strg/Cmd+D = duplizieren</span>
+      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Strg/Cmd/Umschalt+Klick = Mehrfachauswahl · Entf = (Mehrfach-)Löschen · Strg/Cmd+Z = rückgängig · Strg/Cmd+Umschalt+Z = wiederholen · Strg/Cmd+D = duplizieren</span>
     </div>
   </div>
   <div id="viewport">
@@ -711,6 +711,7 @@
   // color: null = keine Farbe, sonst ein COLOR_PALETTE-Key (z.B. "red")
   var roots = [];
   var selectedId = null;
+  var multiSelectIds = {}; // zusätzlich per Strg/Cmd/Umschalt+Klick markierte Knoten (id -> true)
 
   var COLOR_PALETTE = [
     { key:"red",    hex:"#e0554f", label:"Rot" },
@@ -947,6 +948,7 @@
     if (redoStack.length > MAX_UNDO) redoStack.shift();
     roots = JSON.parse(undoStack.pop());
     selectedId = null;
+    multiSelectIds = {};
     editingId = null;
     hideToolbar();
     render();
@@ -959,6 +961,7 @@
     if (undoStack.length > MAX_UNDO) undoStack.shift();
     roots = JSON.parse(redoStack.pop());
     selectedId = null;
+    multiSelectIds = {};
     editingId = null;
     hideToolbar();
     render();
@@ -1720,7 +1723,7 @@
         bindNodeEvents(el);
       }
       el.classList.toggle("root-node", depth === 0);
-      el.classList.toggle("selected", node.id === selectedId);
+      el.classList.toggle("selected", node.id === selectedId || !!multiSelectIds[node.id]);
       el.classList.toggle("collapsed", node.collapsed && node.children.length > 0);
       el.classList.toggle("size-fixed", !!node.fixed);
       el.classList.toggle("search-match", !!searchMatchIds[node.id]);
@@ -1836,10 +1839,39 @@
    * -------------------------------------------------------------*/
   function selectNode(id){
     selectedId = id;
+    multiSelectIds = {};
     Array.prototype.forEach.call($nodes.children, function(el){
       el.classList.toggle("selected", el.dataset.id === id);
     });
     if (id) showToolbarFor(id); else hideToolbar();
+  }
+
+  // Liefert alle aktuell markierten Knoten-IDs: bei aktiver Mehrfachauswahl deren
+  // vollständige Menge, sonst — falls vorhanden — nur die einfache Auswahl.
+  function getSelectedIds(){
+    var ids = Object.keys(multiSelectIds);
+    if (ids.length) return ids;
+    return selectedId ? [selectedId] : [];
+  }
+
+  // Strg/Cmd/Umschalt+Klick auf einen Knoten schaltet ihn in der Mehrfachauswahl
+  // um, ohne die Bearbeitung zu starten oder einen Umhänge-Vorgang auszulösen. Die
+  // schwebende Einzel-Node-Toolbar wird währenddessen ausgeblendet, da ihre Aktionen
+  // (Kind/Geschwister hinzufügen, Tags, Fixieren) sich nur auf genau einen Knoten
+  // sinnvoll anwenden lassen.
+  function toggleMultiSelect(id){
+    if (multiSelectIds[id]){
+      delete multiSelectIds[id];
+    } else {
+      if (selectedId && selectedId !== id) multiSelectIds[selectedId] = true;
+      multiSelectIds[id] = true;
+    }
+    selectedId = id;
+    hideToolbar();
+    Array.prototype.forEach.call($nodes.children, function(el){
+      var elId = el.dataset.id;
+      el.classList.toggle("selected", elId === selectedId || !!multiSelectIds[elId]);
+    });
   }
 
   function addChild(parentId){
@@ -1853,6 +1885,7 @@
       roots.push(node);
     }
     selectedId = node.id;
+    multiSelectIds = {};
     render();
     focusAndEdit(node.id);
   }
@@ -1864,6 +1897,7 @@
     var node = createNode("");
     ref.list.splice(ref.index+1, 0, node);
     selectedId = node.id;
+    multiSelectIds = {};
     render();
     focusAndEdit(node.id);
   }
@@ -1876,7 +1910,29 @@
     // Kinder bleiben erhalten: sie rücken an die Stelle des gelöschten Knotens
     Array.prototype.splice.apply(ref.list, [ref.index, 1].concat(node.children));
     if (selectedId === id) selectedId = null;
+    delete multiSelectIds[id];
     if (toolbarTargetId === id) hideToolbar();
+    render();
+  }
+
+  // Löscht mehrere Knoten (Mehrfachauswahl) als einen einzigen Undo-Schritt. Da
+  // deleteNode() Kinder statt sie mitzulöschen eine Ebene nach oben rücken lässt,
+  // ist die Reihenfolge unkritisch: jede ID wird zum Zeitpunkt ihrer Verarbeitung
+  // frisch per findParentAndIndex() gesucht, auch bereits umgehängte Kinder werden
+  // so gefunden, egal ob ihr (ebenfalls ausgewählter) Elternknoten vorher oder
+  // nachher an der Reihe war.
+  function deleteNodes(ids){
+    if (!ids.length) return;
+    snapshot();
+    ids.forEach(function(id){
+      var ref = findParentAndIndex(id);
+      if (!ref) return;
+      var node = ref.list[ref.index];
+      Array.prototype.splice.apply(ref.list, [ref.index, 1].concat(node.children));
+    });
+    selectedId = null;
+    multiSelectIds = {};
+    hideToolbar();
     render();
   }
 
@@ -1903,6 +1959,7 @@
     var copy = cloneNodeDeep(ref.list[ref.index]);
     ref.list.splice(ref.index + 1, 0, copy);
     selectedId = copy.id;
+    multiSelectIds = {};
     render();
   }
 
@@ -2045,6 +2102,13 @@
         // contenteditable-Feldes bei mousedown — sonst würde der focus-Handler den
         // Link sofort auf Klartext zurücksetzen, bevor das click-Event ihn öffnen kann.
         e.preventDefault();
+        return;
+      }
+      if (e.metaKey || e.ctrlKey || e.shiftKey){
+        // Mehrfachauswahl: weder Bearbeitung starten noch Umhängen erlauben, nur
+        // die Markierung dieses Knotens umschalten.
+        e.preventDefault();
+        toggleMultiSelect(id);
         return;
       }
       var rect = el.getBoundingClientRect();
@@ -2568,6 +2632,7 @@
       snapshot();
       roots = [];
       selectedId = null;
+      multiSelectIds = {};
       hideToolbar();
       render();
     }
@@ -2656,6 +2721,7 @@
       roots = importedRoots;
     }
     selectedId = null;
+    multiSelectIds = {};
     hideToolbar();
     render();
   }
@@ -3762,10 +3828,15 @@
    * Schwebende Node-Toolbar (＋ / ⏎ / ×), außerhalb des Rahmens unten rechts
    * -------------------------------------------------------------*/
   $nodes.addEventListener("mouseover", function(e){
+    // Bei aktiver Mehrfachauswahl bleibt die Einzel-Node-Toolbar unterdrückt (siehe
+    // toggleMultiSelect) — ihre Aktionen beziehen sich sonst irreführend nur auf den
+    // gerade gehoverten von mehreren markierten Knoten.
+    if (Object.keys(multiSelectIds).length) return;
     var nodeEl = e.target.closest(".node");
     if (nodeEl) showToolbarFor(nodeEl.dataset.id);
   });
   $nodes.addEventListener("mouseout", function(e){
+    if (Object.keys(multiSelectIds).length) return;
     var nodeEl = e.target.closest(".node");
     if (!nodeEl) return;
     var toEl = e.relatedTarget;
@@ -3774,6 +3845,7 @@
     if (selectedId){ showToolbarFor(selectedId); } else { hideToolbar(); }
   });
   $nodeToolbar.addEventListener("mouseleave", function(e){
+    if (Object.keys(multiSelectIds).length) return;
     var toEl = e.relatedTarget;
     var targetNodeEl = toolbarTargetId ? $nodes.querySelector('[data-id="'+toolbarTargetId+'"]') : null;
     var staysOnNode = toEl && toEl.closest && targetNodeEl && toEl.closest(".node") === targetNodeEl;
@@ -4186,9 +4258,10 @@
     var active = document.activeElement;
     var isEditing = active && active.classList && active.classList.contains("content");
     if (isEditing) return;
-    if ((e.key === "Delete" || e.key === "Backspace") && selectedId){
+    if ((e.key === "Delete" || e.key === "Backspace") && (selectedId || Object.keys(multiSelectIds).length)){
       e.preventDefault();
-      deleteNode(selectedId);
+      var idsToDelete = getSelectedIds();
+      if (idsToDelete.length > 1) deleteNodes(idsToDelete); else if (idsToDelete.length === 1) deleteNode(idsToDelete[0]);
     } else if (e.key === "Tab" && selectedId){
       e.preventDefault();
       addChild(selectedId);

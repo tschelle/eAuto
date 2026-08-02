@@ -108,6 +108,16 @@ Verfügung.
   nicht mitgelöscht, sondern rücken eine Ebene nach oben (an die Stelle des gelöschten
   Knotens, direkt unter dessen ehemaligen Eltern bzw. als neue Wurzeln, falls der
   gelöschte Knoten selbst eine Wurzel war).
+- **Mehrfachauswahl**: `Strg`/`Cmd`/`Umschalt`+Klick auf ein Item schaltet es zu einer
+  Mehrfachauswahl dazu (gleiche blaue Rahmen-Markierung wie bei Einzelauswahl), ohne
+  Bearbeitung zu starten oder einen Umhänge-Vorgang auszulösen. `Entf`/`Rücktaste`
+  löscht dann alle markierten Items auf einmal — als ein einzelner Undo-Schritt, auch
+  wenn dabei z. B. ein Eltern- und ein Kind-Item gleichzeitig markiert sind (Kinder
+  rücken wie bei der Einzel-Löschung eine Ebene nach oben, bevor sie ggf. selbst als
+  markiert an der Reihe sind). Ein Klick ohne gehaltene Modifier-Taste hebt die
+  Mehrfachauswahl wieder auf. Während einer Mehrfachauswahl bleibt die schwebende
+  Einzel-Node-Toolbar ausgeblendet, da deren Aktionen (Kind/Geschwister hinzufügen,
+  Duplizieren, Tags, Fixieren) sich nur auf genau ein Item sinnvoll anwenden lassen.
 - **Duplizieren**: der ⧉-Schalter in der schwebenden Node-Toolbar (oder `Strg`/`Cmd`+`D`
   bei ausgewähltem Knoten) legt eine vollständige Kopie eines Items inkl. seines
   kompletten Teilbaums an — mit frischen, eindeutigen IDs, aber identischem Text,
@@ -387,6 +397,23 @@ Die Datei ist bewusst in drei Blöcke gegliedert:
      (`!el.isConnected`) — sonst würde ein durch den Farbfilter ausgeblendeter Knoten
      beim Entfernen ein letztes Mal mit 0×0 gemessen und `width`/`height` im
      Datenmodell überschreiben.
+   - **Mehrfachauswahl**: `multiSelectIds` (id → true) ergänzt die bestehende
+     Einzelauswahl `selectedId`, statt sie zu ersetzen — bei leerer Mehrfachauswahl
+     verhält sich alles exakt wie zuvor. `toggleMultiSelect()` wird bei
+     Strg/Cmd/Umschalt+Klick im `mousedown`-Handler *vor* der normalen
+     Klick-vs-Zug-Unterscheidung abgefangen (kein Editieren, kein Reparenting-Drag).
+     `getSelectedIds()` liefert bei aktiver Mehrfachauswahl deren volle Menge, sonst
+     `[selectedId]`. `deleteNodes(ids)` löscht sie in einem einzigen Snapshot; da
+     `deleteNode()` Kinder statt sie mitzulöschen nur eine Ebene nach oben rücken
+     lässt, ist die Verarbeitungsreihenfolge unkritisch — jede ID wird zum
+     Verarbeitungszeitpunkt frisch per `findParentAndIndex()` gesucht, auch ein
+     bereits umgehängtes (ebenfalls markiertes) Kind wird so an seiner neuen Position
+     gefunden. Alle Stellen, die `selectedId` ohnehin zurücksetzen (Undo/Redo, Alles
+     löschen, Import, `selectNode()`), leeren `multiSelectIds` synchron mit, damit
+     keine verwaisten Markierungen stehen bleiben. Die schwebende Node-Toolbar wird
+     während einer Mehrfachauswahl sowohl beim Umschalten selbst als auch in den
+     Hover-Handlern (`mouseover`/`mouseout` auf `#nodes`, `mouseleave` auf der
+     Toolbar) unterdrückt, da ihre Aktionen nur für genau einen Knoten sinnvoll sind.
    - **Link-Erkennung**: `linkifyText()` escaped den Text (`xmlEscape()`) und verpackt
      erkannte `http(s)`- und `file`-URLs (`URL_RE`) in
      `<a target="_blank" rel="noopener noreferrer">`, inkl. Abtrennen typischer
@@ -456,7 +483,8 @@ versionieren.
 3. Mit der schwebenden Node-Toolbar oder Tastatur (`Tab`/`Enter`) den Baum ausbauen.
    Über den ⧉-Schalter (oder `Strg`/`Cmd`+`D`) einen Knoten inkl. Teilbaum duplizieren,
    über `Strg`/`Cmd`+`Z`/`Strg`/`Cmd`+`Umschalt`+`Z` Aktionen rückgängig machen bzw.
-   wiederholen.
+   wiederholen. Mit `Strg`/`Cmd`/`Umschalt`+Klick mehrere Items markieren und über
+   `Entf`/`Rücktaste` gemeinsam löschen.
 4. Über „Speichern (JSON)“ den vollständigen Zustand sichern (inkl. Größen und Tags)
    oder über „MD“ im Export-Dropdown die Hierarchie inkl. Tags (nicht aber
    Größen/Farben) als portables Markdown exportieren.
