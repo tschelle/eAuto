@@ -8,73 +8,73 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23004225'/><text x='16' y='23' font-family='Arial,sans-serif' font-size='15' font-weight='400' fill='white' text-anchor='middle'>TS</text></svg>">
 <style>
   :root{
-    --bg:#f4f5f7;
-    --canvas-bg:#eef0f3;
-    --node-bg:#ffffff;
-    --node-border:#c7cbd1;
-    --node-border-selected:#4a7dfc;
-    --node-text:#1c1f26;
-    --line:#9aa1ab;
-    --toolbar-bg:#ffffff;
-    --toolbar-border:#dde1e6;
-    --btn-bg:#f0f1f3;
-    --btn-bg-hover:#e2e5ea;
-    --btn-text:#1c1f26;
-    --accent:#4a7dfc;
-    --danger:#e0554f;
-    --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
+    --bg:#060c1a;
+    --canvas-bg:#040810;
+    --node-bg:#0c1828;
+    --node-border:#1b2f4a;
+    --node-border-selected:#4a94ff;
+    --node-text:#edf2ff;
+    --line:#6e8fb0;
+    --toolbar-bg:#0c1828;
+    --toolbar-border:#1b2f4a;
+    --btn-bg:#102038;
+    --btn-bg-hover:#162840;
+    --btn-text:#edf2ff;
+    --accent:#4a94ff;
+    --danger:#f07a75;
+    --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
   }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#1b1d22;
-      --canvas-bg:#202329;
-      --node-bg:#2a2d34;
-      --node-border:#40444d;
-      --node-border-selected:#6d94ff;
-      --node-text:#e7e9ec;
-      --line:#5a606b;
-      --toolbar-bg:#22252b;
-      --toolbar-border:#33363d;
-      --btn-bg:#33363d;
-      --btn-bg-hover:#3d4048;
-      --btn-text:#e7e9ec;
-      --accent:#6d94ff;
-      --danger:#f07a75;
-      --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#f0f4ff;
+      --canvas-bg:#e8ecf8;
+      --node-bg:#ffffff;
+      --node-border:#bfcfe8;
+      --node-border-selected:#2060df;
+      --node-text:#08102a;
+      --line:#4a6080;
+      --toolbar-bg:#ffffff;
+      --toolbar-border:#bfcfe8;
+      --btn-bg:#e8ecf8;
+      --btn-bg-hover:#dce6ff;
+      --btn-text:#08102a;
+      --accent:#2060df;
+      --danger:#e0554f;
+      --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
     }
   }
   /* Manuelle Theme-Wahl überschreibt die Systemeinstellung */
   :root[data-theme="light"]{
-    --bg:#f4f5f7;
-    --canvas-bg:#eef0f3;
+    --bg:#f0f4ff;
+    --canvas-bg:#e8ecf8;
     --node-bg:#ffffff;
-    --node-border:#c7cbd1;
-    --node-border-selected:#4a7dfc;
-    --node-text:#1c1f26;
-    --line:#9aa1ab;
+    --node-border:#bfcfe8;
+    --node-border-selected:#2060df;
+    --node-text:#08102a;
+    --line:#4a6080;
     --toolbar-bg:#ffffff;
-    --toolbar-border:#dde1e6;
-    --btn-bg:#f0f1f3;
-    --btn-bg-hover:#e2e5ea;
-    --btn-text:#1c1f26;
-    --accent:#4a7dfc;
+    --toolbar-border:#bfcfe8;
+    --btn-bg:#e8ecf8;
+    --btn-bg-hover:#dce6ff;
+    --btn-text:#08102a;
+    --accent:#2060df;
     --danger:#e0554f;
     --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
   }
   :root[data-theme="dark"]{
-    --bg:#1b1d22;
-    --canvas-bg:#202329;
-    --node-bg:#2a2d34;
-    --node-border:#40444d;
-    --node-border-selected:#6d94ff;
-    --node-text:#e7e9ec;
-    --line:#5a606b;
-    --toolbar-bg:#22252b;
-    --toolbar-border:#33363d;
-    --btn-bg:#33363d;
-    --btn-bg-hover:#3d4048;
-    --btn-text:#e7e9ec;
-    --accent:#6d94ff;
+    --bg:#060c1a;
+    --canvas-bg:#040810;
+    --node-bg:#0c1828;
+    --node-border:#1b2f4a;
+    --node-border-selected:#4a94ff;
+    --node-text:#edf2ff;
+    --line:#6e8fb0;
+    --toolbar-bg:#0c1828;
+    --toolbar-border:#1b2f4a;
+    --btn-bg:#102038;
+    --btn-bg-hover:#162840;
+    --btn-text:#edf2ff;
+    --accent:#4a94ff;
     --danger:#f07a75;
     --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
   }
@@ -105,21 +105,18 @@
   #toolbar .title{ font-weight:600; font-size:14px; margin-right:8px; white-space:nowrap; }
   #toolbar .sep{ width:1px; height:22px; background:var(--toolbar-border); margin:0 4px; }
   #btn-theme{
-    width:30px; height:30px;
-    padding:0;
-    justify-content:center;
-    border-radius:50%;
-    border:none;
-    background:transparent;
-    flex-shrink:0;
+    background: none;
+    border: 1px solid var(--toolbar-border);
+    color: var(--line);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 6px;
+    flex-shrink: 0;
   }
-  #btn-theme:hover{ background:var(--btn-bg-hover); }
-  #btn-theme svg{
-    width:22px; height:22px;
-    display:block;
-    transition:transform 0.35s ease;
-  }
-  #btn-theme.is-dark svg{ transform:rotate(180deg); }
+  #btn-theme:hover{ color: var(--node-text); border-color: var(--line); background: none; }
   #btn-minimap-toggle svg{ width:16px; height:16px; display:block; }
   button{
     font-family:inherit;
@@ -193,8 +190,12 @@
     overflow:auto;
   }
   .node.dragging{ opacity:0.55; cursor:grabbing; z-index:50; }
-  .node.selected{ border-color:var(--node-border-selected); box-shadow:0 0 0 3px rgba(74,125,252,0.18), var(--shadow); }
-  .node.drop-target{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(74,125,252,0.35); }
+  .node.selected{ border-color:var(--node-border-selected); box-shadow:0 0 0 3px rgba(74,148,255,0.18), var(--shadow); }
+  .node.drop-target{ border-color:var(--accent); box-shadow:0 0 0 4px rgba(74,148,255,0.45); }
+  /* Während des Umhängens: alle Knoten außer dem gezogenen und dem aktuellen
+     Ziel abdunkeln, damit sofort sichtbar ist, wohin man gerade zieht. */
+  #nodes.drag-active .node{ transition:opacity 0.12s ease; }
+  #nodes.drag-active .node:not(.dragging):not(.drop-target){ opacity:0.35; }
   .node.root-node{ font-weight:600; }
   .node .toggle{
     flex-shrink:0;
@@ -355,7 +356,7 @@
   #minimap-viewport-rect{
     position:absolute;
     border:1.5px solid var(--accent);
-    background:rgba(74,125,252,0.15);
+    background:rgba(74,148,255,0.15);
     pointer-events:none;
     display:none;
   }
@@ -384,8 +385,8 @@
   #search-count{ font-size:11.5px; color:var(--line); white-space:nowrap; min-width:38px; text-align:center; }
   #search-bar button{ width:24px; height:24px; padding:0; justify-content:center; font-size:13px; }
 
-  .node.search-match{ box-shadow:0 0 0 2px rgba(74,125,252,0.45), var(--shadow); }
-  .node.search-current{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(74,125,252,0.7), var(--shadow); }
+  .node.search-match{ box-shadow:0 0 0 2px rgba(74,148,255,0.45), var(--shadow); }
+  .node.search-current{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(74,148,255,0.7), var(--shadow); }
 
   #file-input{ display:none; }
 
@@ -531,6 +532,7 @@
       </div>
       <div class="sep"></div>
       <button id="btn-undo">Rückgängig</button>
+      <button id="btn-redo">Wiederholen</button>
       <button id="btn-clear" class="danger">Alles löschen</button>
       <div class="sep"></div>
       <button id="btn-insert-legend" title="Legende einfügen">Legende einfügen</button>
@@ -565,17 +567,10 @@
           <rect x="2" y="10.5" width="3.5" height="1.6" fill="#de6aa8"/>
         </svg>
       </button>
-      <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">
-        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="16" cy="16" r="14" fill="#fff" stroke="#000" stroke-width="1.6"/>
-          <path d="M16 2 A14 14 0 0 0 16 30 Z" fill="#000"/>
-          <circle cx="16" cy="16" r="6" fill="#fff" stroke="#000" stroke-width="1.6"/>
-          <path d="M16 10 A6 6 0 0 0 16 22 Z" fill="#000"/>
-        </svg>
-      </button>
+      <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">Hell</button>
     </div>
     <div id="toolbar-hint">
-      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Strg/Cmd+Z = rückgängig</span>
+      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Cmd/Umschalt+Klick = Mehrfachauswahl · Entf = (Mehrfach-)Löschen · Strg/Cmd+Z = rückgängig · Strg/Cmd+Umschalt+Z = wiederholen · Strg/Cmd+D = duplizieren</span>
     </div>
   </div>
   <div id="viewport">
@@ -585,6 +580,7 @@
       <div id="node-toolbar" class="node-toolbar">
         <button class="tb-child" title="Kind hinzufügen">＋</button>
         <button class="tb-sibling" title="Geschwister hinzufügen">⏎</button>
+        <button class="tb-duplicate" title="Duplizieren (Item + Kinder)">⧉</button>
         <button class="tb-tags" title="Tags verwalten">#</button>
         <button class="tb-fix" title="Breite/Höhe fixieren">⤢</button>
         <button class="tb-delete" title="Löschen (Kinder bleiben erhalten)">×</button>
@@ -661,7 +657,7 @@
   /* ---------------------------------------------------------------
    * Dark-/Hellmodus (manueller Switch überschreibt Systemeinstellung)
    * -------------------------------------------------------------*/
-  var THEME_KEY = "braindump_theme";
+  var THEME_KEY = "theme";
   var $btnTheme = document.getElementById("btn-theme");
   var darkMediaQuery = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -676,7 +672,7 @@
 
   function updateThemeButton(){
     var isDark = effectiveTheme() === "dark";
-    $btnTheme.classList.toggle("is-dark", isDark);
+    $btnTheme.textContent = isDark ? "Hell" : "Dunkel";
     $btnTheme.title = isDark ? "Zu Hellmodus wechseln" : "Zu Dunkelmodus wechseln";
   }
 
@@ -689,7 +685,7 @@
     updateThemeButton();
   }
 
-  applyTheme(localStorage.getItem(THEME_KEY));
+  applyTheme(localStorage.getItem(THEME_KEY) || "dark");
 
   $btnTheme.addEventListener("click", function(){
     var next = effectiveTheme() === "dark" ? "light" : "dark";
@@ -715,6 +711,7 @@
   // color: null = keine Farbe, sonst ein COLOR_PALETTE-Key (z.B. "red")
   var roots = [];
   var selectedId = null;
+  var multiSelectIds = {}; // zusätzlich per Cmd/Umschalt+Klick markierte Knoten (id -> true)
 
   var COLOR_PALETTE = [
     { key:"red",    hex:"#e0554f", label:"Rot" },
@@ -931,11 +928,14 @@
    * Undo (Snapshot-Stack der letzten Aktionen)
    * -------------------------------------------------------------*/
   var undoStack = [];
+  var redoStack = [];
   var MAX_UNDO = 50;
 
   function pushUndo(snapshotStr){
     undoStack.push(snapshotStr);
     if (undoStack.length > MAX_UNDO) undoStack.shift();
+    // Jede neue Aktion macht die bisherige Redo-Historie ungültig.
+    redoStack.length = 0;
   }
 
   function snapshot(){
@@ -944,8 +944,24 @@
 
   function undo(){
     if (!undoStack.length) return;
+    redoStack.push(JSON.stringify(roots));
+    if (redoStack.length > MAX_UNDO) redoStack.shift();
     roots = JSON.parse(undoStack.pop());
     selectedId = null;
+    multiSelectIds = {};
+    editingId = null;
+    hideToolbar();
+    render();
+  }
+
+  function redo(){
+    if (!redoStack.length) return;
+    // Direkt auf undoStack, nicht über pushUndo() — das würde redoStack sofort wieder leeren.
+    undoStack.push(JSON.stringify(roots));
+    if (undoStack.length > MAX_UNDO) undoStack.shift();
+    roots = JSON.parse(redoStack.pop());
+    selectedId = null;
+    multiSelectIds = {};
     editingId = null;
     hideToolbar();
     render();
@@ -1707,7 +1723,7 @@
         bindNodeEvents(el);
       }
       el.classList.toggle("root-node", depth === 0);
-      el.classList.toggle("selected", node.id === selectedId);
+      el.classList.toggle("selected", node.id === selectedId || !!multiSelectIds[node.id]);
       el.classList.toggle("collapsed", node.collapsed && node.children.length > 0);
       el.classList.toggle("size-fixed", !!node.fixed);
       el.classList.toggle("search-match", !!searchMatchIds[node.id]);
@@ -1823,10 +1839,39 @@
    * -------------------------------------------------------------*/
   function selectNode(id){
     selectedId = id;
+    multiSelectIds = {};
     Array.prototype.forEach.call($nodes.children, function(el){
       el.classList.toggle("selected", el.dataset.id === id);
     });
     if (id) showToolbarFor(id); else hideToolbar();
+  }
+
+  // Liefert alle aktuell markierten Knoten-IDs: bei aktiver Mehrfachauswahl deren
+  // vollständige Menge, sonst — falls vorhanden — nur die einfache Auswahl.
+  function getSelectedIds(){
+    var ids = Object.keys(multiSelectIds);
+    if (ids.length) return ids;
+    return selectedId ? [selectedId] : [];
+  }
+
+  // Cmd/Umschalt+Klick auf einen Knoten schaltet ihn in der Mehrfachauswahl
+  // um, ohne die Bearbeitung zu starten oder einen Umhänge-Vorgang auszulösen. Die
+  // schwebende Einzel-Node-Toolbar wird währenddessen ausgeblendet, da ihre Aktionen
+  // (Kind/Geschwister hinzufügen, Tags, Fixieren) sich nur auf genau einen Knoten
+  // sinnvoll anwenden lassen.
+  function toggleMultiSelect(id){
+    if (multiSelectIds[id]){
+      delete multiSelectIds[id];
+    } else {
+      if (selectedId && selectedId !== id) multiSelectIds[selectedId] = true;
+      multiSelectIds[id] = true;
+    }
+    selectedId = id;
+    hideToolbar();
+    Array.prototype.forEach.call($nodes.children, function(el){
+      var elId = el.dataset.id;
+      el.classList.toggle("selected", elId === selectedId || !!multiSelectIds[elId]);
+    });
   }
 
   function addChild(parentId){
@@ -1840,6 +1885,7 @@
       roots.push(node);
     }
     selectedId = node.id;
+    multiSelectIds = {};
     render();
     focusAndEdit(node.id);
   }
@@ -1851,6 +1897,7 @@
     var node = createNode("");
     ref.list.splice(ref.index+1, 0, node);
     selectedId = node.id;
+    multiSelectIds = {};
     render();
     focusAndEdit(node.id);
   }
@@ -1863,7 +1910,56 @@
     // Kinder bleiben erhalten: sie rücken an die Stelle des gelöschten Knotens
     Array.prototype.splice.apply(ref.list, [ref.index, 1].concat(node.children));
     if (selectedId === id) selectedId = null;
+    delete multiSelectIds[id];
     if (toolbarTargetId === id) hideToolbar();
+    render();
+  }
+
+  // Löscht mehrere Knoten (Mehrfachauswahl) als einen einzigen Undo-Schritt. Da
+  // deleteNode() Kinder statt sie mitzulöschen eine Ebene nach oben rücken lässt,
+  // ist die Reihenfolge unkritisch: jede ID wird zum Zeitpunkt ihrer Verarbeitung
+  // frisch per findParentAndIndex() gesucht, auch bereits umgehängte Kinder werden
+  // so gefunden, egal ob ihr (ebenfalls ausgewählter) Elternknoten vorher oder
+  // nachher an der Reihe war.
+  function deleteNodes(ids){
+    if (!ids.length) return;
+    snapshot();
+    ids.forEach(function(id){
+      var ref = findParentAndIndex(id);
+      if (!ref) return;
+      var node = ref.list[ref.index];
+      Array.prototype.splice.apply(ref.list, [ref.index, 1].concat(node.children));
+    });
+    selectedId = null;
+    multiSelectIds = {};
+    hideToolbar();
+    render();
+  }
+
+  // Tiefe Kopie eines Knotens inkl. aller Kinder — mit frischen IDs, da IDs eindeutig sein müssen.
+  function cloneNodeDeep(node){
+    return {
+      id: nextId(),
+      text: node.text,
+      collapsed: node.collapsed,
+      width: node.width,
+      height: node.height,
+      color: node.color,
+      fixed: node.fixed,
+      isLegend: node.isLegend,
+      tags: node.tags.slice(),
+      children: node.children.map(cloneNodeDeep)
+    };
+  }
+
+  function duplicateNode(id){
+    var ref = findParentAndIndex(id);
+    if (!ref) return;
+    snapshot();
+    var copy = cloneNodeDeep(ref.list[ref.index]);
+    ref.list.splice(ref.index + 1, 0, copy);
+    selectedId = copy.id;
+    multiSelectIds = {};
     render();
   }
 
@@ -1957,6 +2053,7 @@
     contentEl.addEventListener("keydown", function(e){
       if (e.key === "Enter" && !e.shiftKey){
         e.preventDefault();
+        e.stopPropagation();
         contentEl.blur();
         addSibling(id);
       } else if (e.key === "Tab" && !e.shiftKey){
@@ -2005,6 +2102,13 @@
         // contenteditable-Feldes bei mousedown — sonst würde der focus-Handler den
         // Link sofort auf Klartext zurücksetzen, bevor das click-Event ihn öffnen kann.
         e.preventDefault();
+        return;
+      }
+      if (e.metaKey || e.ctrlKey || e.shiftKey){
+        // Mehrfachauswahl: weder Bearbeitung starten noch Umhängen erlauben, nur
+        // die Markierung dieses Knotens umschalten.
+        e.preventDefault();
+        toggleMultiSelect(id);
         return;
       }
       var rect = el.getBoundingClientRect();
@@ -2074,6 +2178,7 @@
       if (!moved && Math.hypot(dx,dy) > 6){
         moved = true;
         el.classList.add("dragging");
+        $nodes.classList.add("drag-active");
         drag = { id: id };
       }
       if (moved){
@@ -2089,6 +2194,7 @@
       document.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseup", onUp);
       el.classList.remove("dragging");
+      $nodes.classList.remove("drag-active");
       if (moved){
         var target = document.elementFromPoint(ev.clientX, ev.clientY);
         var targetNodeEl = target ? target.closest(".node") : null;
@@ -2526,6 +2632,7 @@
       snapshot();
       roots = [];
       selectedId = null;
+      multiSelectIds = {};
       hideToolbar();
       render();
     }
@@ -2535,6 +2642,12 @@
     var active = document.activeElement;
     if (active && active.classList && active.classList.contains("content")) active.blur();
     undo();
+  });
+
+  document.getElementById("btn-redo").addEventListener("click", function(){
+    var active = document.activeElement;
+    if (active && active.classList && active.classList.contains("content")) active.blur();
+    redo();
   });
 
   var $exportModal = document.getElementById("export-modal");
@@ -2608,6 +2721,7 @@
       roots = importedRoots;
     }
     selectedId = null;
+    multiSelectIds = {};
     hideToolbar();
     render();
   }
@@ -2914,7 +3028,7 @@
     '#minimap.empty{ display:none; }',
     '#minimap canvas{ position:absolute; top:0; left:0; width:100%; height:100%; display:block; }',
     '#minimap-viewport-rect{ position:absolute; border:1.5px solid var(--accent);',
-    '  background:rgba(74,125,252,0.15); pointer-events:none; display:none; }'
+    '  background:rgba(74,148,255,0.15); pointer-events:none; display:none; }'
   ].join("\n");
 
   var STANDALONE_JS = [
@@ -2938,7 +3052,7 @@
     '    updateThemeButton();',
     '  }',
     '  var THEME_KEY = "braindump_view_theme";',
-    '  applyTheme(localStorage.getItem(THEME_KEY));',
+    '  applyTheme(localStorage.getItem(THEME_KEY) || "dark");',
     '  $btnTheme.addEventListener("click", function(){',
     '    var next = effectiveTheme() === "dark" ? "light" : "dark";',
     '    localStorage.setItem(THEME_KEY, next);',
@@ -3228,7 +3342,7 @@
       '<head>',
       '<meta charset="UTF-8">',
       '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
-      '<title>BrainDump</title>',
+      '<title>BrainDump 2</title>',
       '<style>',
       STANDALONE_CSS,
       '</style>',
@@ -3714,10 +3828,15 @@
    * Schwebende Node-Toolbar (＋ / ⏎ / ×), außerhalb des Rahmens unten rechts
    * -------------------------------------------------------------*/
   $nodes.addEventListener("mouseover", function(e){
+    // Bei aktiver Mehrfachauswahl bleibt die Einzel-Node-Toolbar unterdrückt (siehe
+    // toggleMultiSelect) — ihre Aktionen beziehen sich sonst irreführend nur auf den
+    // gerade gehoverten von mehreren markierten Knoten.
+    if (Object.keys(multiSelectIds).length) return;
     var nodeEl = e.target.closest(".node");
     if (nodeEl) showToolbarFor(nodeEl.dataset.id);
   });
   $nodes.addEventListener("mouseout", function(e){
+    if (Object.keys(multiSelectIds).length) return;
     var nodeEl = e.target.closest(".node");
     if (!nodeEl) return;
     var toEl = e.relatedTarget;
@@ -3726,6 +3845,7 @@
     if (selectedId){ showToolbarFor(selectedId); } else { hideToolbar(); }
   });
   $nodeToolbar.addEventListener("mouseleave", function(e){
+    if (Object.keys(multiSelectIds).length) return;
     var toEl = e.relatedTarget;
     var targetNodeEl = toolbarTargetId ? $nodes.querySelector('[data-id="'+toolbarTargetId+'"]') : null;
     var staysOnNode = toEl && toEl.closest && targetNodeEl && toEl.closest(".node") === targetNodeEl;
@@ -3739,6 +3859,10 @@
   $nodeToolbar.querySelector(".tb-sibling").addEventListener("click", function(e){
     e.stopPropagation();
     if (toolbarTargetId) addSibling(toolbarTargetId);
+  });
+  $nodeToolbar.querySelector(".tb-duplicate").addEventListener("click", function(e){
+    e.stopPropagation();
+    if (toolbarTargetId) duplicateNode(toolbarTargetId);
   });
   $nodeToolbar.querySelector(".tb-tags").addEventListener("click", function(e){
     e.stopPropagation();
@@ -4108,13 +4232,22 @@
    * Globale Tastenkürzel
    * -------------------------------------------------------------*/
   document.addEventListener("keydown", function(e){
-    if ((e.ctrlKey || e.metaKey) && !e.shiftKey && e.key.toLowerCase() === "z"){
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z"){
       e.preventDefault();
       var activeForUndo = document.activeElement;
       if (activeForUndo && activeForUndo.classList && activeForUndo.classList.contains("content")){
         activeForUndo.blur();
       }
-      undo();
+      if (e.shiftKey) redo(); else undo();
+      return;
+    }
+    if ((e.ctrlKey || e.metaKey) && !e.shiftKey && e.key.toLowerCase() === "y"){
+      e.preventDefault(); // Windows-Konvention für Wiederholen, zusätzlich zu Strg/Cmd+Umschalt+Z
+      var activeForRedo = document.activeElement;
+      if (activeForRedo && activeForRedo.classList && activeForRedo.classList.contains("content")){
+        activeForRedo.blur();
+      }
+      redo();
       return;
     }
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "f"){
@@ -4125,15 +4258,19 @@
     var active = document.activeElement;
     var isEditing = active && active.classList && active.classList.contains("content");
     if (isEditing) return;
-    if ((e.key === "Delete" || e.key === "Backspace") && selectedId){
+    if ((e.key === "Delete" || e.key === "Backspace") && (selectedId || Object.keys(multiSelectIds).length)){
       e.preventDefault();
-      deleteNode(selectedId);
+      var idsToDelete = getSelectedIds();
+      if (idsToDelete.length > 1) deleteNodes(idsToDelete); else if (idsToDelete.length === 1) deleteNode(idsToDelete[0]);
     } else if (e.key === "Tab" && selectedId){
       e.preventDefault();
       addChild(selectedId);
     } else if (e.key === "Enter" && selectedId){
       e.preventDefault();
       addSibling(selectedId);
+    } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "d" && selectedId){
+      e.preventDefault(); // ersetzt den nativen Lesezeichen-Dialog, solange ein Item ausgewählt ist
+      duplicateNode(selectedId);
     }
   });
 
