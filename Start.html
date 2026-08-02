@@ -291,7 +291,7 @@ async function refreshCards() {
     const card  = document.querySelector(`.card[data-page="${p.id}"]`);
     const badge = card && card.querySelector('.card-lock-badge');
     if (!card) continue;
-    if (!cfg || !cfg[p.id]) {
+    if (!cfg || !cfg[p.id] || cfg[p.id].protected === false) {
       card.classList.remove('locked');
       badge.textContent = '';
       continue;
@@ -365,14 +365,22 @@ async function submitAuth() {
 /* ── Setup modal ─────────────────────────────────────── */
 function openSetup() {
   const cfg = loadCfg();
-  document.getElementById('setupFields').innerHTML = PAGES.map(p => `
+  document.getElementById('setupFields').innerHTML = PAGES.map(p => {
+    const isOpen   = cfg && cfg[p.id] && cfg[p.id].protected === false;
+    const hasEntry = cfg && cfg[p.id] && cfg[p.id].protected !== false;
+    return `
     <div>
       <label>${p.label}</label>
-      <div class="pw-wrap">
-        <input type="password" id="sp_${p.id}" placeholder="${cfg && cfg[p.id] ? 'Leer lassen = unverändert' : 'Neues Passwort festlegen'}" autocomplete="new-password">
+      <div class="pw-wrap" id="sp_wrap_${p.id}"${isOpen ? ' style="display:none"' : ''}>
+        <input type="password" id="sp_${p.id}" placeholder="${hasEntry ? 'Leer lassen = unverändert' : 'Neues Passwort'}" autocomplete="new-password">
         <button class="pw-eye" onclick="toggleEye('sp_${p.id}',this)" tabindex="-1">👁</button>
       </div>
-    </div>`).join('');
+      <label style="display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:normal;text-transform:none;letter-spacing:0;margin-top:6px;cursor:pointer;">
+        <input type="checkbox" id="sp_open_${p.id}"${isOpen ? ' checked' : ''} onchange="toggleOpenCheck('${p.id}')">
+        Kein Passwort (offen zugänglich)
+      </label>
+    </div>`;
+  }).join('');
   document.getElementById('setupNote').textContent = cfg
     ? 'Leeres Feld = bestehendes Passwort bleibt erhalten.'
     : 'Felder ausfüllen, um den Zugriffsschutz zu aktivieren.';
@@ -396,6 +404,13 @@ async function saveSetup() {
   let changed = false;
 
   for (const p of PAGES) {
+    const openEl = document.getElementById('sp_open_' + p.id);
+    if (openEl && openEl.checked) {
+      cfg[p.id] = { protected: false };
+      sessionStorage.removeItem('auth_' + p.id);
+      changed = true;
+      continue;
+    }
     const pw = document.getElementById('sp_' + p.id).value;
     if (!pw) continue;
     const entry = await encryptEntry(pw);
@@ -420,6 +435,11 @@ function toggleEye(id, btn) {
   const el = document.getElementById(id);
   el.type = el.type === 'password' ? 'text' : 'password';
   btn.textContent = el.type === 'password' ? '👁' : '🙈';
+}
+
+function toggleOpenCheck(pageId) {
+  document.getElementById('sp_wrap_' + pageId).style.display =
+    document.getElementById('sp_open_' + pageId).checked ? 'none' : '';
 }
 
 document.getElementById('authInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitAuth(); });

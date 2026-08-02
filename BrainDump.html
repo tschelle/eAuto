@@ -14,10 +14,11 @@
   function redirect(){window.location.replace('Start.html?return='+PAGE_ID);}
   try{
     var token=sessionStorage.getItem('auth_'+PAGE_ID);
-    if(!token){redirect();return;}
     var cfg=JSON.parse(localStorage.getItem(AUTH_KEY)||'null');
     if(!cfg||!cfg[PAGE_ID]){redirect();return;}
     var e=cfg[PAGE_ID];
+    if(e.protected===false){document.documentElement.style.visibility='';return;}
+    if(!token){redirect();return;}
     var key=await crypto.subtle.importKey('raw',b64Dec(token),{name:'AES-GCM'},false,['decrypt']);
     var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64Dec(e.iv)},key,b64Dec(e.ct));
     if(new TextDecoder().decode(pt)!==SENTINEL){redirect();return;}
