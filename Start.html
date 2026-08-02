@@ -95,7 +95,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 76px 24px 100px;
+    padding: 64px 24px 96px;
     text-align: center;
   }
 
@@ -110,17 +110,17 @@
     text-transform: uppercase;
     padding: 6px 18px;
     border-radius: 999px;
-    margin-bottom: 44px;
+    margin-bottom: 36px;
   }
 
   /* ── Headline ───────────────────────────────── */
   h1 {
-    font-size: clamp(2.8rem, 10vw, 4rem);
+    font-size: clamp(2.6rem, 9vw, 3.8rem);
     font-weight: 800;
     line-height: 1.06;
     letter-spacing: -0.035em;
     text-wrap: balance;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     max-width: 520px;
   }
 
@@ -135,68 +135,91 @@
   /* ── Lead ───────────────────────────────────── */
   .lead {
     font-size: 0.96rem;
-    line-height: 1.74;
+    line-height: 1.72;
     color: var(--muted);
-    max-width: 400px;
-    margin: 0 auto 44px;
-  }
-
-  /* ── CTA ────────────────────────────────────── */
-  .btn-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--accent);
-    color: #fff;
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    padding: 15px 40px;
-    border-radius: 999px;
-    width: 100%;
     max-width: 380px;
-    transition: opacity 0.15s, transform 0.15s;
+    margin: 0 auto;
   }
-  .btn-cta:hover { opacity: 0.84; transform: translateY(-1px); }
 
-  /* ── Stats ──────────────────────────────────── */
-  .stats {
+  /* ── Tiles ──────────────────────────────────── */
+  .tiles {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 14px;
     width: 100%;
-    max-width: 380px;
-    margin-top: 60px;
+    max-width: 780px;
+    margin-top: 56px;
+    text-align: left;
   }
 
-  .stat-tile {
+  .tile {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 24px 16px 20px;
+    padding: 28px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 7px;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.18s, transform 0.18s;
+  }
+  .tile:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .tile-eyebrow {
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
-  .stat-val {
-    font-size: 1.9rem;
+  .tile-bigstat {
+    font-size: 2.6rem;
     font-weight: 800;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
     line-height: 1;
     color: var(--text);
     font-variant-numeric: tabular-nums;
   }
 
-  .stat-lbl {
-    font-size: 0.65rem;
+  .tile-bigstat-lbl {
+    font-size: 0.64rem;
     font-weight: 600;
-    letter-spacing: 0.13em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
+    margin-top: -4px;
+  }
+
+  .tile-desc {
+    font-size: 0.87rem;
+    line-height: 1.62;
+    color: var(--muted);
+    flex: 1;
+  }
+
+  .tile-meta {
+    display: flex;
+    gap: 18px;
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 2px;
+  }
+
+  .tile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.01em;
   }
 
   /* ── Footer ─────────────────────────────────── */
@@ -220,31 +243,40 @@
 </header>
 
 <main>
-  <div class="badge">Elektroauto-Vergleich</div>
+  <div class="badge">Persönliches Vergleichsportal</div>
 
-  <h1>Daten&shy;basiert<br><em>vergleichen.</em><br>Entscheiden.</h1>
+  <h1>Vergleichen.<br><em>Verstehen.</em><br>Entscheiden.</h1>
 
-  <p class="lead">Alle relevanten BEVs auf einem Blick — Reichweite, Ladeleistung, Verbrauch, V2L und über 70 weitere Merkmale. Sortierbar, filterbar, exportierbar.</p>
+  <p class="lead">Echte Daten, direkt vergleichbar — sortierbar, filterbar und exportierbar.</p>
 
-  <a href="index.html" class="btn-cta">Zum Vergleich &rarr;</a>
+  <div class="tiles">
 
-  <div class="stats">
-    <div class="stat-tile">
-      <div class="stat-val" id="carCount">–</div>
-      <div class="stat-lbl">Fahrzeuge</div>
-    </div>
-    <div class="stat-tile">
-      <div class="stat-val">70+</div>
-      <div class="stat-lbl">Merkmale</div>
-    </div>
-    <div class="stat-tile">
-      <div class="stat-val">CSV</div>
-      <div class="stat-lbl">Export</div>
-    </div>
-    <div class="stat-tile">
-      <div class="stat-val">V2L</div>
-      <div class="stat-lbl">Unterstützung</div>
-    </div>
+    <a class="tile" href="index.html">
+      <div class="tile-eyebrow">Elektroauto-Vergleich</div>
+      <div class="tile-bigstat" id="carCount">–</div>
+      <div class="tile-bigstat-lbl">BEVs verglichen</div>
+      <div class="tile-desc">Reichweite, Ladeleistung, Verbrauch, V2L und über 70 weitere Merkmale im direkten Vergleich.</div>
+      <div class="tile-meta">
+        <span>70+ Merkmale</span>
+        <span>V2L-Filter</span>
+        <span>CSV Export</span>
+      </div>
+      <div class="tile-link">Zur Übersicht &rarr;</div>
+    </a>
+
+    <a class="tile" href="TV-Fernseher.html">
+      <div class="tile-eyebrow">TV-Fernseher-Vergleich</div>
+      <div class="tile-bigstat" id="tvCount">–</div>
+      <div class="tile-bigstat-lbl">Geräte verglichen</div>
+      <div class="tile-desc">OLED, MiniLED, 8K — Bildqualität, Ausstattung und Preise aktueller Modelle im direkten Vergleich.</div>
+      <div class="tile-meta">
+        <span>OLED / MiniLED</span>
+        <span>8K</span>
+        <span>CSV Export</span>
+      </div>
+      <div class="tile-link">Zur Übersicht &rarr;</div>
+    </a>
+
   </div>
 </main>
 
@@ -261,10 +293,17 @@ function applyTheme(t) {
 function toggleTheme() { applyTheme(getTheme() === 'dark' ? 'light' : 'dark'); }
 applyTheme(getTheme());
 
-fetch('eAuto.json?t=' + Date.now()).then(r => r.json()).then(d => {
-  const n = (d.fahrzeuge || []).length;
-  if (n > 0) document.getElementById('carCount').textContent = n;
-}).catch(() => {});
+fetch('eAuto.json?t=' + Date.now())
+  .then(r => r.json()).then(d => {
+    const n = (d.fahrzeuge || []).length;
+    if (n > 0) document.getElementById('carCount').textContent = n;
+  }).catch(() => {});
+
+fetch('TV-Fernseher.json?t=' + Date.now())
+  .then(r => r.json()).then(d => {
+    const n = Array.isArray(d) ? d.length : (d.fernseher || d.geraete || []).length;
+    if (n > 0) document.getElementById('tvCount').textContent = n;
+  }).catch(() => {});
 </script>
 
 </body>
