@@ -62,13 +62,6 @@
   .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; max-width: 820px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
   .card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--card-shadow); padding: 28px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 16px; transition: box-shadow .2s, transform .2s; cursor: pointer; position: relative; }
   .card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-3px); }
-  .card.locked { cursor: default; }
-  .card.locked:hover { transform: none; box-shadow: var(--card-shadow); }
-  .card.locked .card-arrow { color: var(--text-muted); }
-  .card.locked:hover .card-arrow svg { transform: none !important; }
-
-  .card-lock-badge { position: absolute; top: 14px; right: 16px; font-size: 1.1rem; line-height: 1; }
-
   .card-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
   .card-icon.blue { background: var(--accent-subtle); }
   .card-icon.purple { background: var(--purple-bg); }
@@ -81,10 +74,7 @@
   .tag.purple { background: var(--purple-bg); color: var(--purple); }
   .card-arrow { display: flex; align-items: center; justify-content: space-between; font-size: .82rem; font-weight: 600; color: var(--accent); margin-top: 4px; }
   .card-arrow svg { width: 16px; height: 16px; transition: transform .2s; }
-  .card:not(.locked):hover .card-arrow svg { transform: translateX(4px); }
-  .lock-label { display: none; }
-  .card.locked .lock-label { display: inline; }
-  .card.locked .open-label { display: none; }
+  .card:hover .card-arrow svg { transform: translateX(4px); }
 
   /* ── Stats ── */
   .stats { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -95,28 +85,6 @@
 
   /* ── Footer ── */
   footer { margin-top: auto; text-align: center; padding: 20px 24px; font-size: .78rem; color: var(--text-muted); border-top: 1px solid var(--border); }
-
-  /* ── Overlays ── */
-  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 200; padding: 16px; }
-  .overlay.visible { display: flex; }
-  .modal-box { background: var(--surface); border-radius: 20px; padding: 36px 32px; width: 100%; box-shadow: 0 24px 80px rgba(0,0,0,.3); display: flex; flex-direction: column; gap: 18px; }
-  .modal-icon { font-size: 2rem; text-align: center; }
-  .modal-title { font-size: 1.25rem; font-weight: 800; text-align: center; letter-spacing: -.3px; }
-  .modal-sub { font-size: .88rem; color: var(--text-muted); text-align: center; line-height: 1.5; margin-top: -8px; }
-  .pw-wrap { position: relative; }
-  .pw-wrap input { width: 100%; padding: 11px 42px 11px 14px; border: 1.5px solid var(--border); border-radius: 10px; background: var(--surface2); color: var(--text); font-size: 1rem; font-family: inherit; outline: none; transition: border-color .15s; }
-  .pw-wrap input:focus { border-color: var(--accent); }
-  .pw-eye { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; padding: 4px; font-size: .9rem; color: var(--text-muted); line-height: 1; }
-  .modal-error { color: #dc2626; font-size: .82rem; text-align: center; min-height: 18px; margin-top: -8px; }
-  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
-  .modal-actions button { padding: 9px 18px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: .88rem; font-family: inherit; font-weight: 600; cursor: pointer; transition: background .15s; }
-  .modal-actions button:hover { background: var(--border); }
-  .modal-actions button.primary { background: var(--accent); color: #fff; border-color: transparent; }
-  .modal-actions button.primary:hover { opacity: .9; }
-  .modal-actions button:disabled { opacity: .5; cursor: default; }
-  .setup-fields { display: flex; flex-direction: column; gap: 14px; }
-  .setup-field label { display: block; font-size: .78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 5px; }
-  .setup-note { font-size: .78rem; color: var(--text-muted); text-align: center; line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -127,7 +95,6 @@
     Vergleichsportal
   </div>
   <div class="header-right">
-    <button class="hdr-btn" onclick="openSetup()">🔑 Passwörter</button>
     <button class="hdr-btn" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
   </div>
 </header>
@@ -144,8 +111,7 @@
 
   <div class="cards">
 
-    <div class="card" data-page="eauto" data-url="index.html" onclick="cardClick(this)">
-      <span class="card-lock-badge"></span>
+    <div class="card" onclick="window.location.href='index.html'">
       <div class="card-icon blue">🚗</div>
       <div><div class="card-title">Elektroauto-Vergleich</div></div>
       <div class="card-desc">Alle relevanten BEVs auf einem Blick: Reichweite, Ladeleistung, Verbrauch, V2L, Fahrgeräusch und über 70 weitere Merkmale.</div>
@@ -163,14 +129,12 @@
         <span class="tag green">Fahrgeräusch</span>
       </div>
       <div class="card-arrow">
-        <span class="open-label">Zur Übersicht</span>
-        <span class="lock-label">Passwort eingeben</span>
+        <span>Zur Übersicht</span>
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </div>
     </div>
 
-    <div class="card" data-page="braindump" data-url="BrainDump.html" onclick="cardClick(this)">
-      <span class="card-lock-badge"></span>
+    <div class="card" onclick="window.location.href='BrainDump.html'">
       <div class="card-icon purple">🧠</div>
       <div><div class="card-title">Mind Map — BrainDump</div></div>
       <div class="card-desc">Visuelles Brainstorming direkt im Browser: Knoten erstellen, einfärben, verschieben und als JSON, Markdown oder PNG exportieren.</div>
@@ -187,8 +151,7 @@
         <span class="tag blue">Offline</span>
       </div>
       <div class="card-arrow">
-        <span class="open-label">Zur Mind Map</span>
-        <span class="lock-label">Passwort eingeben</span>
+        <span>Zur Mind Map</span>
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </div>
     </div>
@@ -200,276 +163,20 @@
   Vergleichsportal · Alle Angaben ohne Gewähr · Stand Juli 2026
 </footer>
 
-<!-- Auth modal -->
-<div id="authOverlay" class="overlay">
-  <div class="modal-box" style="max-width:380px">
-    <div class="modal-icon">🔐</div>
-    <div class="modal-title" id="authTitle"></div>
-    <p class="modal-sub" id="authSub"></p>
-    <div class="pw-wrap">
-      <input type="password" id="authInput" placeholder="Passwort" autocomplete="current-password">
-      <button class="pw-eye" onclick="toggleEye('authInput',this)" tabindex="-1">👁</button>
-    </div>
-    <p class="modal-error" id="authError"></p>
-    <div class="modal-actions">
-      <button onclick="closeAuth()">Abbrechen</button>
-      <button class="primary" id="authBtn" onclick="submitAuth()">Entsperren</button>
-    </div>
-  </div>
-</div>
-
-<!-- Setup modal -->
-<div id="setupOverlay" class="overlay">
-  <div class="modal-box" style="max-width:420px">
-    <div class="modal-icon">🔑</div>
-    <div class="modal-title">Passwörter einrichten</div>
-    <p class="modal-sub">Jede Kachel erhält ein eigenes Passwort. Alles wird per AES-256-GCM verschlüsselt — kein Klartext wird gespeichert.</p>
-    <div class="setup-fields" id="setupFields"></div>
-    <p class="setup-note" id="setupNote"></p>
-    <div class="modal-actions">
-      <button id="setupCancelBtn" onclick="closeSetup()">Abbrechen</button>
-      <button class="primary" id="setupSaveBtn" onclick="saveSetup()">Speichern</button>
-    </div>
-  </div>
-</div>
-
 <script>
 'use strict';
 
-const SENTINEL    = 'PORTAL_ACCESS_v1';
-const AUTH_STORE  = 'portal_auth_v1';
-const PBKDF2_ITER = 180000;
-
-const PAGES = [
-  { id: 'eauto',     label: 'Elektroauto-Vergleich', url: 'index.html' },
-  { id: 'braindump', label: 'Mind Map — BrainDump',  url: 'BrainDump.html' },
-];
-
-/* ── Crypto ─────────────────────────────────────────── */
-function b64Enc(buf) { return btoa(String.fromCharCode(...new Uint8Array(buf))); }
-function b64Dec(b64) { return Uint8Array.from(atob(b64), c => c.charCodeAt(0)); }
-
-async function deriveKey(password, salt) {
-  const km = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']);
-  return crypto.subtle.deriveKey({ name: 'PBKDF2', salt, iterations: PBKDF2_ITER, hash: 'SHA-256' }, km, { name: 'AES-GCM', length: 256 }, true, ['encrypt', 'decrypt']);
-}
-
-async function encryptEntry(password) {
-  const salt = crypto.getRandomValues(new Uint8Array(16));
-  const iv   = crypto.getRandomValues(new Uint8Array(12));
-  const key  = await deriveKey(password, salt);
-  const ct   = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new TextEncoder().encode(SENTINEL));
-  const raw  = await crypto.subtle.exportKey('raw', key);
-  return { salt: b64Enc(salt), iv: b64Enc(iv), ct: b64Enc(ct), tokenB64: b64Enc(raw) };
-}
-
-async function verifyPassword(password, entry) {
-  try {
-    const key = await deriveKey(password, b64Dec(entry.salt));
-    const pt  = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64Dec(entry.iv) }, key, b64Dec(entry.ct));
-    if (new TextDecoder().decode(pt) !== SENTINEL) return null;
-    return b64Enc(await crypto.subtle.exportKey('raw', key));
-  } catch { return null; }
-}
-
-async function verifyToken(tokenB64, entry) {
-  try {
-    const key = await crypto.subtle.importKey('raw', b64Dec(tokenB64), { name: 'AES-GCM' }, false, ['decrypt']);
-    const pt  = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64Dec(entry.iv) }, key, b64Dec(entry.ct));
-    return new TextDecoder().decode(pt) === SENTINEL;
-  } catch { return false; }
-}
-
-/* ── Config ─────────────────────────────────────────── */
-function loadCfg() { try { return JSON.parse(localStorage.getItem(AUTH_STORE)) || null; } catch { return null; } }
-function saveCfg(c) { localStorage.setItem(AUTH_STORE, JSON.stringify(c)); }
-
-/* ── Lock state ─────────────────────────────────────── */
-async function refreshCards() {
-  const cfg = loadCfg();
-  for (const p of PAGES) {
-    const card  = document.querySelector(`.card[data-page="${p.id}"]`);
-    const badge = card && card.querySelector('.card-lock-badge');
-    if (!card) continue;
-    if (!cfg || !cfg[p.id] || cfg[p.id].protected === false) {
-      card.classList.remove('locked');
-      badge.textContent = '';
-      continue;
-    }
-    const token = sessionStorage.getItem('auth_' + p.id);
-    const ok    = token ? await verifyToken(token, cfg[p.id]) : false;
-    card.classList.toggle('locked', !ok);
-    badge.textContent = ok ? '🔓' : '🔒';
-  }
-}
-
-/* ── Card click ─────────────────────────────────────── */
-function cardClick(card) {
-  if (card.classList.contains('locked')) {
-    openAuth(card.dataset.page);
-  } else {
-    window.location.href = card.dataset.url;
-  }
-}
-
-/* ── Auth modal ─────────────────────────────────────── */
-let _authPage = null;
-
-function openAuth(pageId) {
-  const p = PAGES.find(x => x.id === pageId);
-  _authPage = pageId;
-  document.getElementById('authTitle').textContent = p.label;
-  document.getElementById('authSub').textContent   = 'Gib das Passwort für diesen Bereich ein.';
-  document.getElementById('authError').textContent = '';
-  document.getElementById('authInput').value       = '';
-  document.getElementById('authBtn').disabled      = false;
-  document.getElementById('authBtn').textContent   = 'Entsperren';
-  document.getElementById('authOverlay').classList.add('visible');
-  setTimeout(() => document.getElementById('authInput').focus(), 50);
-}
-
-function closeAuth() {
-  document.getElementById('authOverlay').classList.remove('visible');
-  _authPage = null;
-}
-
-async function submitAuth() {
-  const pw  = document.getElementById('authInput').value;
-  const btn = document.getElementById('authBtn');
-  const err = document.getElementById('authError');
-  if (!pw) { err.textContent = 'Bitte ein Passwort eingeben.'; return; }
-  btn.disabled = true; btn.textContent = '…'; err.textContent = '';
-
-  const cfg = loadCfg();
-  if (!cfg || !cfg[_authPage]) {
-    err.textContent = 'Noch kein Passwort konfiguriert — bitte einrichten.';
-    btn.disabled = false; btn.textContent = 'Entsperren';
-    return;
-  }
-
-  const token = await verifyPassword(pw, cfg[_authPage]);
-  btn.disabled = false; btn.textContent = 'Entsperren';
-
-  if (token) {
-    sessionStorage.setItem('auth_' + _authPage, token);
-    const url = PAGES.find(p => p.id === _authPage)?.url;
-    closeAuth();
-    await refreshCards();
-    if (url) window.location.href = url;
-  } else {
-    err.textContent = 'Falsches Passwort.';
-    document.getElementById('authInput').select();
-  }
-}
-
-/* ── Setup modal ─────────────────────────────────────── */
-function openSetup() {
-  const cfg = loadCfg();
-  document.getElementById('setupFields').innerHTML = PAGES.map(p => {
-    const isOpen   = cfg && cfg[p.id] && cfg[p.id].protected === false;
-    const hasEntry = cfg && cfg[p.id] && cfg[p.id].protected !== false;
-    return `
-    <div>
-      <label>${p.label}</label>
-      <div class="pw-wrap" id="sp_wrap_${p.id}"${isOpen ? ' style="display:none"' : ''}>
-        <input type="password" id="sp_${p.id}" placeholder="${hasEntry ? 'Leer lassen = unverändert' : 'Neues Passwort'}" autocomplete="new-password">
-        <button class="pw-eye" onclick="toggleEye('sp_${p.id}',this)" tabindex="-1">👁</button>
-      </div>
-      <label style="display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:normal;text-transform:none;letter-spacing:0;margin-top:6px;cursor:pointer;">
-        <input type="checkbox" id="sp_open_${p.id}"${isOpen ? ' checked' : ''} onchange="toggleOpenCheck('${p.id}')">
-        Kein Passwort (offen zugänglich)
-      </label>
-    </div>`;
-  }).join('');
-  document.getElementById('setupNote').textContent = cfg
-    ? 'Leeres Feld = bestehendes Passwort bleibt erhalten.'
-    : 'Felder ausfüllen, um den Zugriffsschutz zu aktivieren.';
-  document.getElementById('setupCancelBtn').style.display = cfg ? '' : 'none';
-  document.getElementById('setupSaveBtn').disabled = false;
-  document.getElementById('setupSaveBtn').textContent = 'Speichern';
-  document.getElementById('setupOverlay').classList.add('visible');
-  setTimeout(() => document.getElementById('sp_' + PAGES[0].id).focus(), 50);
-}
-
-function closeSetup() {
-  document.getElementById('setupOverlay').classList.remove('visible');
-}
-
-async function saveSetup() {
-  const btn = document.getElementById('setupSaveBtn');
-  const note = document.getElementById('setupNote');
-  btn.disabled = true; btn.textContent = '…';
-
-  const cfg = loadCfg() || {};
-  let changed = false;
-
-  for (const p of PAGES) {
-    const openEl = document.getElementById('sp_open_' + p.id);
-    if (openEl && openEl.checked) {
-      cfg[p.id] = { protected: false };
-      sessionStorage.removeItem('auth_' + p.id);
-      changed = true;
-      continue;
-    }
-    const pw = document.getElementById('sp_' + p.id).value;
-    if (!pw) continue;
-    const entry = await encryptEntry(pw);
-    cfg[p.id] = { salt: entry.salt, iv: entry.iv, ct: entry.ct };
-    sessionStorage.removeItem('auth_' + p.id);
-    changed = true;
-  }
-
-  btn.disabled = false; btn.textContent = 'Speichern';
-
-  if (changed) {
-    saveCfg(cfg);
-    closeSetup();
-    await refreshCards();
-  } else {
-    note.textContent = 'Kein Feld ausgefüllt — nichts gespeichert.';
-  }
-}
-
-/* ── Helpers ─────────────────────────────────────────── */
-function toggleEye(id, btn) {
-  const el = document.getElementById(id);
-  el.type = el.type === 'password' ? 'text' : 'password';
-  btn.textContent = el.type === 'password' ? '👁' : '🙈';
-}
-
-function toggleOpenCheck(pageId) {
-  document.getElementById('sp_wrap_' + pageId).style.display =
-    document.getElementById('sp_open_' + pageId).checked ? 'none' : '';
-}
-
-document.getElementById('authInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitAuth(); });
-document.getElementById('authOverlay').addEventListener('click', e => { if (e.target.id === 'authOverlay') closeAuth(); });
-document.getElementById('setupOverlay').addEventListener('click', e => { if (e.target.id === 'setupOverlay') closeSetup(); });
-
-/* ── Theme ───────────────────────────────────────────── */
+/* ── Theme ── */
 function getTheme() { return localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
 function applyTheme(t) { document.documentElement.setAttribute('data-theme', t); document.getElementById('themeBtn').textContent = t === 'dark' ? '☀️ Hell' : '🌙 Dark'; localStorage.setItem('theme', t); }
 function toggleTheme() { applyTheme(getTheme() === 'dark' ? 'light' : 'dark'); }
 applyTheme(getTheme());
 
-/* ── Init ───────────────────────────────────────────── */
+/* ── Init ── */
 fetch('eAuto.json?t=' + Date.now()).then(r => r.json()).then(d => {
   const n = (d.fahrzeuge || []).length;
   if (n > 0) document.getElementById('carCount').textContent = n;
 }).catch(() => {});
-
-// Return-URL from sub-page redirect
-const retPage = new URLSearchParams(location.search).get('return');
-if (retPage && PAGES.find(p => p.id === retPage)) {
-  history.replaceState(null, '', location.pathname);
-  openAuth(retPage);
-}
-
-// Init: show setup on first visit, refresh lock state
-(async () => {
-  await refreshCards();
-  if (!loadCfg()) openSetup();
-})();
 </script>
 
 </body>
