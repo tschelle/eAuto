@@ -51,8 +51,11 @@ Quelle: eAuto_intern.json → uebertragen in eAuto.json am 2026-06-20.
 | **eAuto.json** | Zentrale Fahrzeugdaten (125 Fahrzeuge, alle Felder) |
 | **eAuto_intern.json** | Persoenliche Arbeitsdatei mit Bemerkungen/Probefahrt-Notizen (nicht im Repo) |
 | **BMW_iX1.md** | Lesbares Datenblatt BMW iX1 (Detailansicht) |
-| **index.html** | Elektroauto-Vergleichstabelle (laedt eAuto.json per fetch) |
-| **Start.html** | Startseite / Vergleichsportal-Landingpage (Fahrzeugzahl wird per fetch aus eAuto.json geladen) |
+| **index.html** | Elektroauto-Vergleichstabelle (laedt eAuto.json per fetch); dunkles Navy-Design, kein direkter Link zu anderen Seiten |
+| **Start.html** | Portal-Landingpage mit zwei Kacheln (Elektroautos + TV-Fernseher); Fahrzeug- und TV-Zahl werden per fetch geladen |
+| **TV-Fernseher.html** | TV-Vergleichstabelle (laedt TV-Fernseher.json per fetch); gleicher Dark-Stil wie index.html |
+| **TV-Fernseher.json** | Zentrale TV-Daten (20 Geraete, alle Felder) |
+| **TVBrain.md** | Projektdokumentation TV-Fernseher (analog zu dieser Datei) |
 
 ---
 
@@ -79,9 +82,9 @@ Quelle: eAuto_intern.json → uebertragen in eAuto.json am 2026-06-20.
 ## Features von index.html
 
 ### Obere Leiste
-- **Titel** "eAuto Vergleich" (links) + Zurueck-Link zur Startseite
+- **Logo** "ELEKTROAUTOS" (links, im Rahmen — kein Link zur Startseite)
 - **Suche** — globale Volltextsuche ueber alle Felder (rechts)
-- **Dark/Light Toggle** — Sonne/Mond-Symbol (rechts)
+- **Hell/Dunkel Toggle** — Text-Button "Hell" / "Dunkel" (rechts); Standard: Dunkel; Praeferenz unter Key `theme` in LocalStorage (geteilt mit Start.html und TV-Fernseher.html)
 
 ### Autofilter-Presets
 Alle | Praeferenz | Reichweite > 400 km | Preis < 50.000 EUR | Allrad | DC > 150 kW | AC 22 kW | Waermepumpe | 0-100 < 6s
@@ -263,6 +266,9 @@ Wichtig fuer Claude Code:
 
 | Datum | Aenderung |
 |---|---|
+| 2026-08-02 | index.html: Kiberatung-Dark-Stil — dunkles Navy (#060c1a), Logo-Box, Pill-Buttons, Hell/Dunkel-Textschalter (Standard: Dunkel), keine Nav-Links mehr im Header |
+| 2026-08-02 | TV-Fernseher.html: Gleicher Dark-Stil wie index.html, kein Header-Nav mehr |
+| 2026-08-02 | Start.html: Portal-Landingpage mit zwei Kacheln (Elektroautos + TV-Fernseher), kiberatung-Stil |
 | 2026-07-23 | index.html: ⏰-Badge bei Fahrzeugen mit datenerfassung aelter als 6 Monate |
 | 2026-07-23 | eAutoBrain.md: Quartals-Review-Prompt und Aktualisierungsfahrplan ergaenzt |
 | 2026-07-23 | Farizon SV L2H2 (000125) hinzugefuegt — Elektro-Transporter von Geely CV, in Deutschland ab April 2026 |

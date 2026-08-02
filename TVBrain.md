@@ -40,15 +40,16 @@ Vergleich der besten Fernseher der Jahrgaenge 2025 und 2026 anhand einheitlicher
 |---|---|
 | **TVBrain.md** | Projektdokumentation und Anleitung (diese Datei) |
 | **TV-Fernseher.json** | Zentrale TV-Daten (20 Geraete, alle Felder) |
-| **TV-Fernseher.html** | TV-Vergleichstabelle (laedt TV-Fernseher.json per fetch) |
+| **TV-Fernseher.html** | TV-Vergleichstabelle (laedt TV-Fernseher.json per fetch); dunkles Navy-Design, kein direkter Link zu anderen Seiten |
+| **Start.html** | Portal-Landingpage mit Kacheln fuer Elektroautos und TV-Fernseher |
 
 ---
 
 ## Features von TV-Fernseher.html
 
 ### Obere Leiste
-- **Titel** "TV-Fernseher Vergleich 2025/2026" (links) + Zurueck-Links zur Startseite und Autoübersicht
-- **Dark/Light Toggle** — Sonne/Mond-Symbol (rechts)
+- **Logo** "TV-FERNSEHER" (links, im Rahmen — kein Link zur Startseite oder Elektroautos)
+- **Hell/Dunkel Toggle** — Text-Button "Hell" / "Dunkel" (rechts); Standard: Dunkel
 
 ### Filter-Buttons
 | Filter | Funktion |
@@ -77,8 +78,8 @@ Echtzeit-Suche ueber: Marke, Modell, Betriebssystem, Technologie
 - Dateiname: `TV-Fernseher-Export.csv`
 
 ### Dark / Light Mode
-- Automatisch per `prefers-color-scheme` (Systemeinstellung)
-- Manuell umschaltbar per Toggle-Button; Praeferenz wird in LocalStorage gespeichert
+- Standard: Dunkel; umschaltbar per "Hell/Dunkel"-Button
+- Praeferenz wird unter dem Key `theme` in LocalStorage gespeichert (geteilt mit Start.html und index.html)
 
 ### Statuszeile
 - Zeigt Anzahl der angezeigten Geraete (gefiltert / gesamt)
@@ -174,6 +175,16 @@ Wichtig fuer Claude Code:
 - Bewertungsquelle neben RTINGS ergaenzen (z.B. RTINGS vs. AVForums)
 - Filteroption "Gaming" (VRR + HDMI 2.1 + hohe Hz)
 - Filteroption "Kino" (Dolby Vision + WOLED/QD-OLED)
+
+---
+
+## Changelog
+
+| Datum | Aenderung |
+|---|---|
+| 2026-08-02 | TV-Fernseher.html: Kiberatung-Dark-Stil — dunkles Navy (#060c1a), Logo-Box, Pill-Filter-Buttons, Hell/Dunkel-Textschalter (Standard: Dunkel), keine Nav-Links im Header |
+| 2026-08-02 | Start.html als zentrales Portal-Hub; TV-Kachel mit dynamischer Geraetezahl per fetch |
+| 2026-07-05 | Erststand: 20 Geraete, 7 Marken, alle Features |
 
 ---
 
