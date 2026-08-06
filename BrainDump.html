@@ -101,8 +101,14 @@
     padding:8px 12px;
     flex-wrap:wrap;
   }
-  #toolbar-hint{ padding:0 12px 8px; }
-  #toolbar .title{ font-weight:600; font-size:14px; margin-right:8px; white-space:nowrap; }
+  #toolbar-hint{ display:none; padding:0 12px 8px; text-align:center; }
+  #toolbar-hint.visible{ display:block; }
+  #toolbar .title-block{ display:flex; flex-direction:column; margin-right:8px; line-height:1.25; }
+  #toolbar .title{ font-weight:600; font-size:14px; white-space:nowrap; }
+  #current-file{
+    font-size:11px; font-weight:400; color:var(--line);
+    white-space:nowrap;
+  }
   #toolbar .sep{ width:1px; height:22px; background:var(--toolbar-border); margin:0 4px; }
   #btn-theme{
     background: none;
@@ -140,7 +146,7 @@
   button:disabled:hover{ background:var(--btn-bg); }
   button.primary:disabled:hover{ background:var(--accent); opacity:0.45; }
   #toolbar .spacer{ flex:1; }
-  #hint{ font-size:12px; color:var(--line); }
+  #hint{ font-size:9px; color:var(--line); }
 
   /* Canvas / viewport */
   #viewport{
@@ -288,6 +294,16 @@
     display:none;
   }
   .node .color-dot.visible{ display:block; }
+  .node .notes-dot{
+    position:absolute;
+    top:5px; right:5px;
+    width:13px; height:13px;
+    color:var(--line);
+    display:none;
+  }
+  .node .notes-dot.visible{ display:block; }
+  .node .notes-dot svg{ width:13px; height:13px; display:block; }
+  .tb-notes svg{ width:13px; height:13px; display:block; }
 
   path.edge{
     fill:none;
@@ -306,6 +322,20 @@
     color:var(--line);
     font-size:14px;
     pointer-events:none;
+  }
+  #empty-hint.dropzone{
+    pointer-events:auto;
+    padding:36px 48px;
+    border:2px dashed var(--node-border);
+    border-radius:14px;
+    cursor:pointer;
+    transition:border-color 0.12s ease, background 0.12s ease;
+  }
+  #empty-hint.dropzone:hover{ border-color:var(--line); }
+  #empty-hint.dropzone.drag-over{
+    border-color:var(--accent);
+    background:rgba(74,148,255,0.08);
+    color:var(--node-text);
   }
 
   #zoom-controls{
@@ -445,7 +475,7 @@
 
   /* Farb- und Tag-Filter (Toolbar) + Node-Farbmenü (Kontextmenü) */
   #color-filter-wrap, #tag-filter-wrap{ position:relative; }
-  #btn-color-filter.active, #btn-tag-filter.active, #btn-minimap-toggle.active{ border-color:var(--accent); color:var(--accent); }
+  #btn-color-filter.active, #btn-tag-filter.active, #btn-minimap-toggle.active, #btn-hint-toggle.active{ border-color:var(--accent); color:var(--accent); }
   .dropdown-menu{
     display:none;
     position:absolute;
@@ -509,13 +539,48 @@
     border:1px solid var(--toolbar-border); background:var(--bg); color:var(--node-text);
     padding:6px 8px; border-radius:6px;
   }
+
+  .node-notes-menu{ position:fixed; top:0; left:0; width:260px; }
+  .node-notes-menu .notes-textarea{
+    width:100%; min-height:120px; resize:vertical;
+    font-family:inherit; font-size:13px; line-height:1.4;
+    border:1px solid var(--toolbar-border); background:var(--bg); color:var(--node-text);
+    padding:6px 8px; border-radius:6px;
+  }
+
+  /* Fokus-Leiste ("diesen Ast fokussieren") — Gegenstück zur Suchleiste, aber oben
+     rechts positioniert, damit sich beide bei gleichzeitiger Nutzung nicht überlappen. */
+  #focus-bar{
+    display:none;
+    position:absolute;
+    top:14px; right:14px;
+    align-items:center;
+    gap:8px;
+    max-width:min(60vw, 420px);
+    background:var(--toolbar-bg);
+    border:1px solid var(--toolbar-border);
+    border-radius:8px;
+    padding:6px 8px 6px 12px;
+    box-shadow:var(--shadow);
+    z-index:30;
+  }
+  #focus-bar.visible{ display:flex; }
+  #focus-bar-label{
+    font-size:12.5px; color:var(--line);
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  #focus-bar-label b{ color:var(--node-text); font-weight:600; }
+  #focus-bar-exit{ font-size:12px; padding:5px 9px; flex-shrink:0; }
 </style>
 </head>
 <body>
 <div id="app">
   <div id="toolbar">
     <div id="toolbar-row">
-      <span class="title">BrainDump</span>
+      <div class="title-block">
+        <span class="title">BrainDump</span>
+        <span id="current-file"></span>
+      </div>
       <button id="btn-new-root">＋ Neue Wurzel</button>
       <div class="sep"></div>
       <button id="btn-import">Import</button>
@@ -567,10 +632,11 @@
           <rect x="2" y="10.5" width="3.5" height="1.6" fill="#de6aa8"/>
         </svg>
       </button>
+      <button id="btn-hint-toggle" title="Tastaturkürzel-Hinweis einblenden">Help</button>
       <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">Hell</button>
     </div>
     <div id="toolbar-hint">
-      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Cmd/Umschalt+Klick = Mehrfachauswahl · Entf = (Mehrfach-)Löschen · Strg/Cmd+Z = rückgängig · Strg/Cmd+Umschalt+Z = wiederholen · Strg/Cmd+D = duplizieren</span>
+      <span id="hint">Klick = bearbeiten · Enter = Geschwister · Tab = Kind · Umschalt+Tab = ausrücken · Ziehen = umhängen · Ecke ziehen = Größe ändern · Cmd/Umschalt+Klick = Mehrfachauswahl · Entf = (Mehrfach-)Löschen · Strg/Cmd+Z = rückgängig · Strg/Cmd+Umschalt+Z = wiederholen · Shift/Cmd+D = duplizieren</span>
     </div>
   </div>
   <div id="viewport">
@@ -582,6 +648,12 @@
         <button class="tb-sibling" title="Geschwister hinzufügen">⏎</button>
         <button class="tb-duplicate" title="Duplizieren (Item + Kinder)">⧉</button>
         <button class="tb-tags" title="Tags verwalten">#</button>
+        <button class="tb-notes" title="Notizen bearbeiten">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="currentColor" d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12.1L19,14.1V19H5V5H13.1L15,3.1V3H19M21.7,7.35L19.65,9.4L16.6,6.35L18.65,4.3C18.85,4.1 19.15,4.1 19.35,4.3L21.7,6.65C21.9,6.85 21.9,7.15 21.7,7.35M9,12.94L15.06,6.88L18.12,9.94L12.06,16H9V12.94Z"/>
+          </svg>
+        </button>
+        <button class="tb-focus" title="Diesen Ast fokussieren">⊙</button>
         <button class="tb-fix" title="Breite/Höhe fixieren">⤢</button>
         <button class="tb-delete" title="Löschen (Kinder bleiben erhalten)">×</button>
       </div>
@@ -593,6 +665,10 @@
       <button id="search-prev" title="Vorheriger Treffer (Umschalt+Enter)">↑</button>
       <button id="search-next" title="Nächster Treffer (Enter)">↓</button>
       <button id="search-close" title="Suche schließen (Esc)">×</button>
+    </div>
+    <div id="focus-bar">
+      <span id="focus-bar-label"></span>
+      <button id="focus-bar-exit">× Alle anzeigen</button>
     </div>
     <div id="zoom-controls">
       <button id="zoom-in" title="Vergrößern">＋</button>
@@ -649,6 +725,9 @@
   <div class="tag-chip-list"></div>
   <input type="text" class="tag-input" placeholder="#tag hinzufügen und Enter">
 </div>
+<div id="node-notes-menu" class="dropdown-menu node-notes-menu">
+  <textarea class="notes-textarea" placeholder="Notizen zu diesem Item…"></textarea>
+</div>
 
 <script>
 (function(){
@@ -700,6 +779,34 @@
   }
 
   /* ---------------------------------------------------------------
+   * Aktueller Dateiname (unter dem "BrainDump"-Schriftzug)
+   *
+   * Es gibt kein echtes offenes Datei-Handle (kein File System Access API,
+   * nur Import/Export einzelner Dateien plus Autosave in localStorage) — der
+   * Name markiert daher bewusst nur "womit zuletzt gearbeitet wurde": gesetzt
+   * beim Import (Button oder Drag & Drop, jedes Format) sowie bei "Speichern
+   * (JSON)" (das verlustfreie Vollformat, entspricht "Speichern unter"),
+   * zurückgesetzt auf "Unbenannt" bei "Alles löschen". Reine Export-Ableitungen
+   * (MD/HTML/Excel/Graphik/MindManager) ändern ihn bewusst nicht, da sie nicht
+   * die Arbeitsdatei sind. Im localStorage gemerkt, bleibt also auch nach
+   * Neuladen der Seite erhalten (analog zum Autosave-Inhalt selbst).
+   * -------------------------------------------------------------*/
+  var CURRENT_FILE_KEY = "mindmapper_current_filename";
+  var $currentFile = document.getElementById("current-file");
+
+  function setCurrentFileName(name){
+    if (name){
+      localStorage.setItem(CURRENT_FILE_KEY, name);
+    } else {
+      localStorage.removeItem(CURRENT_FILE_KEY);
+    }
+    $currentFile.textContent = name || "Unbenannt";
+    $currentFile.title = name || "";
+  }
+
+  setCurrentFileName(localStorage.getItem(CURRENT_FILE_KEY) || "");
+
+  /* ---------------------------------------------------------------
    * Datenmodell
    * -------------------------------------------------------------*/
   var STORAGE_KEY = "mindmapper_state_v1";
@@ -738,8 +845,36 @@
     return -1;
   }
 
+  // MindManager-Farbmarkierungen (.mmap <ap:Color FillColor="ffRRGGBB"/>) auf die
+  // naheliegendste COLOR_PALETTE-Farbe runden statt beliebige Hex-Werte zu übernehmen —
+  // Entscheidung von Jonas: haelt BrainDumps Farbsystem konsistent (siehe Team-Status).
+  function nearestPaletteColorKey(argbHex){
+    var h = String(argbHex || "").replace(/^#/, "");
+    if (h.length < 6) return null;
+    var alpha = h.length >= 8 ? h.slice(0, 2) : "ff";
+    if (alpha === "00") return null; // vollstaendig transparent -> keine Farbe
+    var rgb = h.slice(-6);
+    var r = parseInt(rgb.slice(0, 2), 16), g = parseInt(rgb.slice(2, 4), 16), b = parseInt(rgb.slice(4, 6), 16);
+    if (isNaN(r) || isNaN(g) || isNaN(b)) return null;
+    var bestKey = null, bestDist = Infinity;
+    COLOR_PALETTE.forEach(function(c){
+      var ch = c.hex.replace(/^#/, "");
+      var cr = parseInt(ch.slice(0, 2), 16), cg = parseInt(ch.slice(2, 4), 16), cb = parseInt(ch.slice(4, 6), 16);
+      var dist = (r - cr) * (r - cr) + (g - cg) * (g - cg) + (b - cb) * (b - cb);
+      if (dist < bestDist){ bestDist = dist; bestKey = c.key; }
+    });
+    return bestKey;
+  }
+
+  // Umgekehrte Richtung fuer den Export: COLOR_PALETTE-Key -> mmap-ARGB-Hex (volle Deckkraft).
+  function paletteKeyToMmapFillColor(key){
+    var hex = colorHex(key);
+    if (!hex) return null;
+    return "ff" + hex.replace(/^#/, "").toLowerCase();
+  }
+
   function createNode(text){
-    return { id: nextId(), text: text || "", collapsed: false, width: null, height: null, color: null, fixed: false, isLegend: false, tags: [], children: [] };
+    return { id: nextId(), text: text || "", collapsed: false, width: null, height: null, color: null, fixed: false, isLegend: false, tags: [], notes: "", children: [] };
   }
 
   // Ein Tag ist "ein Wort" ohne führende(s) #: Buchstaben/Ziffern/Unterstrich/Bindestrich.
@@ -762,10 +897,13 @@
     return out;
   }
 
-  function ensureTagsDefaults(list){
+  // Normalisiert Felder, die in älteren Autosave-Ständen fehlen oder fehlerhaft sein
+  // können (z.B. vor Einführung von Tags bzw. Notizen gespeicherte Daten).
+  function ensureNodeDefaults(list){
     list.forEach(function(n){
       n.tags = sanitizeTagsArray(n.tags);
-      ensureTagsDefaults(n.children);
+      n.notes = typeof n.notes === "string" ? n.notes : "";
+      ensureNodeDefaults(n.children);
     });
   }
 
@@ -800,6 +938,20 @@
       return false;
     }
     return walk(node);
+  }
+
+  // Rekursive Gesamtzahl aller Unterthemen (nicht nur direkte Kinder) — für das
+  // Tooltip auf der Child-Count-Badge. Die Badge selbst zeigt bewusst nur die
+  // direkten Kinder (siehe Team-Diskussion 03.08.2026: eindeutiger, lokal
+  // wohldefiniert), der rekursive Gesamtwert steht zusätzlich im Tooltip, u.a.
+  // damit die Zahl beim Vergleich mit MindManager (das rekursiv zählt) nicht
+  // verwirrt.
+  function countAllDescendants(node){
+    var total = 0;
+    node.children.forEach(function(c){
+      total += 1 + countAllDescendants(c);
+    });
+    return total;
   }
 
   /* ---------------------------------------------------------------
@@ -915,10 +1067,27 @@
     return childEntries;
   }
 
+  // Fokus auf einen Teilbaum ("Diesen Ast fokussieren", ⊙-Schalter in der Node-
+  // Toolbar): rein visueller View-Zustand, nicht Teil von Undo/Redo, Autosave oder
+  // JSON-/Markdown-Export — vergleichbar mit selectedId oder dem Zoom/Pan-Zustand.
+  // Solange gesetzt, liefert getFocusRoots() statt der echten roots[] ein Array mit
+  // nur dem fokussierten Knoten, wodurch dieser (und sein Teilbaum) für Layout,
+  // Rendering und einen ggf. aktiven Farb-/Tag-Filter wie eine eigenständige Wurzel
+  // behandelt wird — seine tatsächlichen Vorfahren bleiben unsichtbar.
+  var subtreeFocusId = null;
+
+  function getFocusRoots(){
+    if (!subtreeFocusId) return roots;
+    var node = findNode(subtreeFocusId);
+    if (!node){ subtreeFocusId = null; return roots; }
+    return [node];
+  }
+
   function getDisplayRoots(){
-    if (!isFilterActive()) return roots.map(buildDisplayEntry);
+    var focusRoots = getFocusRoots();
+    if (!isFilterActive()) return focusRoots.map(buildDisplayEntry);
     var out = [];
-    roots.forEach(function(r){
+    focusRoots.forEach(function(r){
       collectVisibleEntries(r).forEach(function(e){ out.push(e); });
     });
     return out;
@@ -1073,7 +1242,7 @@
       var data = JSON.parse(raw);
       if (data && Array.isArray(data.roots)){
         roots = data.roots;
-        ensureTagsDefaults(roots);
+        ensureNodeDefaults(roots);
         uidCounter = data.uidCounter || (countAll(roots)+1);
         return true;
       }
@@ -1276,6 +1445,7 @@
         fixed: node.fixed,
         isLegend: node.isLegend,
         tags: node.tags,
+        notes: node.notes,
         children: node.children.map(toPlain)
       };
     }
@@ -1294,6 +1464,7 @@
       node.fixed = !!(raw && raw.fixed);
       node.isLegend = !!(raw && raw.isLegend);
       node.tags = sanitizeTagsArray(raw && raw.tags);
+      node.notes = (raw && typeof raw.notes === "string") ? raw.notes : "";
       node.children = nodesFromJSON(raw && raw.children);
       return node;
     });
@@ -1484,10 +1655,13 @@
   }
 
   // Baut aus dem entpackten MindManager-Document.xml einen BrainDump-Knotenbaum
-  // (ein einzelnes Wurzelelement: das zentrale Hauptthema). Bildet Text, Hierarchie
-  // und Ein-/Ausklapp-Zustand ab; ein Hyperlink wird best-effort an den Text
-  // angehängt (Attributname im Schema nicht mit einer echten Beispieldatei
-  // verifiziert, daher mehrere plausible Varianten).
+  // (ein einzelnes Wurzelelement: das zentrale Hauptthema). Bildet Text, Hierarchie,
+  // Ein-/Ausklapp-Zustand, Tags (TextLabel) und Farbmarkierung (Color/FillColor, auf
+  // COLOR_PALETTE gerundet) ab; ein Hyperlink wird best-effort an den Text angehängt
+  // (Attributname im Schema nicht mit einer echten Beispieldatei verifiziert, daher
+  // mehrere plausible Varianten). Tags sind an einer echten .mmap-Datei mit gesetzten
+  // Labels verifiziert; Farbmarkierung ist Schema-verifiziert (Element/Typ existieren),
+  // aber in keiner Testdatei mit tatsächlich gesetzter Themenfarbe geprüft.
   function parseMindManagerXml(xmlText){
     var doc = new DOMParser().parseFromString(xmlText, "text/xml");
     if (doc.querySelector("parsererror")) throw new Error("ungültiges MindManager-XML");
@@ -1520,6 +1694,59 @@
       if (viewGroup){
         var collapsedEl = localChild(viewGroup, "Collapsed");
         if (collapsedEl) node.collapsed = collapsedEl.getAttribute("Collapsed") === "true";
+      }
+      // Tags: MindManager nennt sie "TextLabel", pro Thema unter <ap:TextLabels>
+      // gewrappt, je Eintrag ein simpler Name-String (TextLabelName) — verifiziert
+      // an einer echten .mmap-Datei mit gesetzten Labels.
+      var textLabelsEl = localChild(topicEl, "TextLabels");
+      if (textLabelsEl){
+        node.tags = sanitizeTagsArray(localChildren(textLabelsEl, "TextLabel").map(function(el){
+          return el.getAttribute("TextLabelName") || "";
+        }));
+      }
+      // Farbmarkierung: <ap:Color FillColor="ffRRGGBB"/> direkt am Thema (Schema-Typ
+      // "ap:Color", derselbe Typ wie die StyleGroup-Defaults) — auf die naheliegendste
+      // COLOR_PALETTE-Farbe gerundet, keine beliebigen Hex-Werte (Entscheidung Jonas).
+      // In der Testdatei kam kein Thema mit gesetzter Farbe vor, daher best-effort:
+      // kein Fehler, wenn das Element fehlt oder die Farbe nicht gesetzt ist.
+      var colorEl = localChild(topicEl, "Color");
+      if (colorEl){
+        var fillHex = colorEl.getAttribute("FillColor") || "";
+        node.color = nearestPaletteColorKey(fillHex);
+      }
+      // Notizen: <ap:NotesGroup><ap:NotesXhtmlData PreviewPlainText="..."><html>...
+      // <p>Zeile</p>...</html></ap:NotesXhtmlData></ap:NotesGroup> — verifiziert an
+      // einer echten .mmap-Datei mit gesetzter Notiz. PreviewPlainText trägt bereits
+      // den reinen Text (Zeilenumbrüche als &#xA;, vom XML-Parser automatisch wieder
+      // zu "\n" dekodiert) inkl. eines von MindManager selbst angehängten
+      // abschließenden Zeilenumbruchs, der hier entfernt wird. Fehlt das Attribut
+      // (z.B. bei einer älteren/anderen Schreibweise), wird ersatzweise je <p>-Absatz
+      // im eingebetteten XHTML eine Zeile extrahiert.
+      var notesGroupEl = localChild(topicEl, "NotesGroup");
+      if (notesGroupEl){
+        var notesXhtmlEl = localChild(notesGroupEl, "NotesXhtmlData");
+        if (notesXhtmlEl){
+          var preview = notesXhtmlEl.getAttribute("PreviewPlainText");
+          if (preview != null){
+            node.notes = preview.replace(/\n$/, "");
+          } else {
+            var htmlEl = null;
+            for (var hi=0; hi<notesXhtmlEl.children.length; hi++){
+              if (notesXhtmlEl.children[hi].localName === "html"){ htmlEl = notesXhtmlEl.children[hi]; break; }
+            }
+            if (htmlEl){
+              var paragraphs = [];
+              (function collectParagraphs(el){
+                for (var pi=0; pi<el.children.length; pi++){
+                  var child = el.children[pi];
+                  if (child.localName === "p") paragraphs.push(child.textContent);
+                  else collectParagraphs(child);
+                }
+              })(htmlEl);
+              node.notes = paragraphs.length ? paragraphs.join("\n") : (htmlEl.textContent || "");
+            }
+          }
+        }
       }
       var subTopics = localChild(topicEl, "SubTopics");
       if (subTopics){
@@ -1655,8 +1882,12 @@
     snapshot();
     if (!node.fixed){
       if (el){
-        var w = Math.round(el.getBoundingClientRect().width);
-        var h = Math.round(el.getBoundingClientRect().height);
+        // offsetWidth/offsetHeight statt getBoundingClientRect(): Letzteres liefert die
+        // durch den Zoom (#canvas transform:scale()) verzerrte Bildschirmgröße, nicht die
+        // tatsächliche lokale CSS-Pixelgröße, die hier als style.width/height gebraucht
+        // wird — bei Zoom ≠ 100% würde sonst eine falsche Größe fixiert.
+        var w = el.offsetWidth;
+        var h = el.offsetHeight;
         node.width = w; node.height = h;
         el.style.width = w + "px";
         el.style.height = h + "px";
@@ -1686,12 +1917,15 @@
 
     if (!roots.length){
       $emptyHint.style.display = "block";
-      $emptyHint.textContent = "Noch keine Items. Klicke „＋ Neue Wurzel“ oder importiere eine .md- oder .json-Datei.";
+      $emptyHint.classList.add("dropzone");
+      $emptyHint.textContent = "Noch keine Items. Klicke „＋ Neue Wurzel“ oder importiere eine .md-, .json- oder .mmap-Datei — oder ziehe sie einfach hierher.";
     } else if (!displayRoots.length){
       $emptyHint.style.display = "block";
+      $emptyHint.classList.remove("dropzone");
       $emptyHint.textContent = "Der aktive Filter zeigt keine Items. Passe Farb-/Tag-Auswahl an oder klicke „Alle anzeigen“.";
     } else {
       $emptyHint.style.display = "none";
+      $emptyHint.classList.remove("dropzone");
     }
 
     var existingEls = {};
@@ -1715,7 +1949,10 @@
             '<div class="tags"></div>' +
           '</div>' +
           '<span class="child-count"></span>' +
-          '<span class="color-dot"></span>';
+          '<span class="color-dot"></span>' +
+          '<span class="notes-dot" title="Hat Notizen"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+            '<path fill="currentColor" d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12.1L19,14.1V19H5V5H13.1L15,3.1V3H19M21.7,7.35L19.65,9.4L16.6,6.35L18.65,4.3C18.85,4.1 19.15,4.1 19.35,4.3L21.7,6.65C21.9,6.85 21.9,7.15 21.7,7.35M9,12.94L15.06,6.88L18.12,9.94L12.06,16H9V12.94Z"/>' +
+          '</svg></span>';
         if (node.width) el.style.width = node.width + "px";
         if (node.fixed && node.height) el.style.height = node.height + "px";
         else if (node.height) el.style.minHeight = node.height + "px";
@@ -1737,7 +1974,12 @@
       }
       var toggleEl = el.querySelector(".toggle");
       toggleEl.textContent = node.children.length ? (node.collapsed ? "▸" : "▾") : "";
-      el.querySelector(".child-count").textContent = node.children.length;
+      var childCountEl = el.querySelector(".child-count");
+      childCountEl.textContent = node.children.length;
+      var totalDescendants = node.children.length ? countAllDescendants(node) : 0;
+      childCountEl.title = node.children.length
+        ? totalDescendants + " Themen insgesamt verschachtelt"
+        : "";
       var dotEl = el.querySelector(".color-dot");
       if (node.color){
         dotEl.style.background = colorHex(node.color);
@@ -1745,6 +1987,7 @@
       } else {
         dotEl.classList.remove("visible");
       }
+      el.querySelector(".notes-dot").classList.toggle("visible", !!(node.notes && node.notes.trim()));
       var tagsEl = el.querySelector(".tags");
       tagsEl.innerHTML = (node.tags || []).map(function(t){
         return '<span class="tag-chip">#' + xmlEscape(t) + '</span>';
@@ -1804,6 +2047,7 @@
       hideToolbar();
     }
     updateLegendButtonState();
+    updateFocusBar();
     autosave();
   }
 
@@ -1948,6 +2192,7 @@
       fixed: node.fixed,
       isLegend: node.isLegend,
       tags: node.tags.slice(),
+      notes: node.notes,
       children: node.children.map(cloneNodeDeep)
     };
   }
@@ -2130,8 +2375,9 @@
       if (!el.isConnected) return;
       var node = findNode(id);
       if (!node) return;
-      var w = Math.round(el.getBoundingClientRect().width);
-      var h = Math.round(el.getBoundingClientRect().height);
+      // offsetWidth/offsetHeight statt getBoundingClientRect(): siehe toggleFixedSize().
+      var w = el.offsetWidth;
+      var h = el.offsetHeight;
       if (node.width === w && node.height === h) return;
       node.width = w; node.height = h;
       clearTimeout(el._resizeLayoutTimer);
@@ -2308,6 +2554,41 @@
     applyView();
   }
 
+  /* ---------------------------------------------------------------
+   * Fokus auf einen Teilbaum ("Diesen Ast fokussieren", ⊙-Schalter in der
+   * schwebenden Node-Toolbar) — Datenmodell-Seite siehe subtreeFocusId/
+   * getFocusRoots() bei getDisplayRoots().
+   * -------------------------------------------------------------*/
+  var $focusBar = document.getElementById("focus-bar");
+  var $focusBarLabel = document.getElementById("focus-bar-label");
+
+  function updateFocusBar(){
+    var node = subtreeFocusId ? findNode(subtreeFocusId) : null;
+    if (!node){
+      $focusBar.classList.remove("visible");
+      return;
+    }
+    $focusBarLabel.innerHTML = "Fokus: <b>" + xmlEscape(textToMdLine(node.text) || "Text…") + "</b>";
+    $focusBar.classList.add("visible");
+  }
+
+  function enterSubtreeFocus(id){
+    if (!findNode(id)) return;
+    subtreeFocusId = id;
+    selectedId = id;
+    multiSelectIds = {};
+    render();
+    fitToView();
+  }
+
+  function exitSubtreeFocus(){
+    subtreeFocusId = null;
+    render();
+    fitToView();
+  }
+
+  document.getElementById("focus-bar-exit").addEventListener("click", exitSubtreeFocus);
+
   document.getElementById("zoom-in").addEventListener("click", function(){ setZoom(view.scale + 0.1); });
   document.getElementById("zoom-out").addEventListener("click", function(){ setZoom(view.scale - 0.1); });
   document.getElementById("zoom-fit").addEventListener("click", fitToView);
@@ -2449,6 +2730,28 @@
 
   applyMinimapVisibility();
 
+  // Ein-/Ausblenden der Tastaturkürzel-Hinweiszeile unterhalb der Toolbar — analog
+  // zum Mini-Karte-Schalter oben, aber standardmäßig ausgeblendet (erster Klick
+  // blendet ein, nicht aus).
+  var HINT_VISIBLE_KEY = "braindump_hint_visible";
+  var $toolbarHint = document.getElementById("toolbar-hint");
+  var $btnHintToggle = document.getElementById("btn-hint-toggle");
+  var hintVisible = localStorage.getItem(HINT_VISIBLE_KEY) === "1";
+
+  function applyHintVisibility(){
+    $toolbarHint.classList.toggle("visible", hintVisible);
+    $btnHintToggle.classList.toggle("active", hintVisible);
+    $btnHintToggle.title = hintVisible ? "Tastaturkürzel-Hinweis ausblenden" : "Tastaturkürzel-Hinweis einblenden";
+  }
+
+  $btnHintToggle.addEventListener("click", function(){
+    hintVisible = !hintVisible;
+    localStorage.setItem(HINT_VISIBLE_KEY, hintVisible ? "1" : "0");
+    applyHintVisibility();
+  });
+
+  applyHintVisibility();
+
   /* ---------------------------------------------------------------
    * Suche (Text und Tags über den kompletten Baum — unabhängig von
    * Ein-/Ausklapp-Zustand und einem aktiven Farb-/Tag-Filter; beim Sprung zu
@@ -2503,6 +2806,12 @@
       activeTagFilter = {};
       updateColorFilterButton();
       updateTagFilterButton();
+    }
+    // Ein aktiver Teilbaum-Fokus (siehe subtreeFocusId) würde einen Treffer außerhalb
+    // des fokussierten Asts sonst verdecken — Suche soll aber wie beim Farb-/Tag-
+    // Filter immer alles finden, unabhängig vom aktuellen Anzeigezustand.
+    if (subtreeFocusId && id !== subtreeFocusId && !isDescendant(id, subtreeFocusId)){
+      subtreeFocusId = null;
     }
   }
 
@@ -2634,6 +2943,7 @@
       selectedId = null;
       multiSelectIds = {};
       hideToolbar();
+      setCurrentFileName("");
       render();
     }
   });
@@ -2657,7 +2967,11 @@
   function doExport(format){
     var md = exportToMarkdown(format);
     var ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,"-");
-    downloadFile(md, "text/markdown;charset=utf-8", "braindump-" + ts + ".md");
+    var filename = promptForFilename("braindump-" + ts + ".md", ".md");
+    if (!filename) return;
+    saveFile(md, "text/markdown;charset=utf-8", filename, [
+      { description: "Markdown", accept: { "text/markdown": [".md"] } }
+    ]);
   }
 
   document.getElementById("btn-export").addEventListener("click", function(){
@@ -2701,13 +3015,80 @@
     setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
   }
 
+  // Speichert unter frei wählbarem Namen UND Ordner, sofern der Browser die File
+  // System Access API unterstützt (aktuell nur Chromium-Browser: Chrome, Edge, Opera
+  // — nicht Firefox/Safari). Dort öffnet showSaveFilePicker() einen echten nativen
+  // "Speichern unter"-Dialog; ohne API-Unterstützung fällt die Funktion auf den
+  // klassischen downloadFile()-Weg zurück (Browser entscheidet selbst über Ordner,
+  // Umbenennen nur möglich, wenn der Browser das beim Download anbietet).
+  // Gibt ein Promise zurück, das mit dem tatsächlich verwendeten Dateinamen erfüllt
+  // wird (bei showSaveFilePicker der vom Nutzer ggf. geänderte Name, sonst der
+  // vorgeschlagene) — oder mit null, wenn der Nutzer den Dialog abgebrochen hat.
+  function pickerSupported(){
+    return typeof window.showSaveFilePicker === "function";
+  }
+
+  async function saveFile(content, mimeType, suggestedName, pickerTypes){
+    if (pickerSupported()){
+      var handle;
+      try{
+        handle = await window.showSaveFilePicker({ suggestedName: suggestedName, types: pickerTypes });
+        var writable = await handle.createWritable();
+        await writable.write(content);
+        await writable.close();
+        return handle.name;
+      }catch(e){
+        // Chrome nutzt den DOMException-Namen "AbortError" NICHT nur für einen
+        // echten Nutzer-Abbruch (Klick auf "Abbrechen") — auf manchen Systemen wirft
+        // showSaveFilePicker() denselben Namen auch bei internen Fehlern (z.B.
+        // "Failed to create or truncate file" bei Dateisystem-/Sandbox-Problemen).
+        // Ein echter Abbruch trägt laut Spezifikation die generische Meldung "The
+        // user aborted a request." — nur DANN wird nichts weiter unternommen; jeder
+        // andere Fehler (auch mit dem Namen "AbortError") fällt auf den klassischen
+        // Download zurück, statt die Datei stillschweigend gar nicht zu speichern.
+        var isUserCancel = e && e.name === "AbortError" && /aborted a request/i.test(e.message || "");
+        if (isUserCancel) return null;
+        downloadFile(content, mimeType, suggestedName);
+        return suggestedName;
+      }
+    }
+    downloadFile(content, mimeType, suggestedName);
+    return suggestedName;
+  }
+
+  // Fragt den Dateinamen per prompt() beim Nutzer ab, BEVOR überhaupt gespeichert
+  // wird — statt uns auf den von showSaveFilePicker() zurückgelieferten Namen
+  // (handle.name) zu verlassen. Grund: auf manchen Systemen/Browsern schlägt
+  // showSaveFilePicker() fehl oder ist gar nicht verfügbar, und saveFile() fällt
+  // dann auf den klassischen Browser-Download zurück — dort kann ein Nutzer den
+  // Namen zwar im eigenen "Speichern unter"-Dialog des Browsers ändern, aber diese
+  // Änderung ist für JavaScript unsichtbar, wodurch die Dateinamen-Anzeige den
+  // falschen (nur vorgeschlagenen) Namen zeigen würde. Mit dieser Abfrage zeigt die
+  // Anzeige stattdessen immer exakt den Namen, den der Nutzer uns selbst genannt hat.
+  function promptForFilename(suggested, extension){
+    var input = prompt("Dateiname zum Speichern:", suggested);
+    if (input === null) return null;
+    input = input.trim();
+    if (!input) return null;
+    if (extension && input.slice(-extension.length).toLowerCase() !== extension.toLowerCase()){
+      input += extension;
+    }
+    return input;
+  }
+
   document.getElementById("btn-save-json").addEventListener("click", function(){
     if (!roots.length){
       alert("Es gibt noch nichts zu speichern.");
       return;
     }
     var ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,"-");
-    downloadFile(serializeToJSON(), "application/json;charset=utf-8", "braindump-" + ts + ".json");
+    var filename = promptForFilename("braindump-" + ts + ".json", ".json");
+    if (!filename) return;
+    saveFile(serializeToJSON(), "application/json;charset=utf-8", filename, [
+      { description: "BrainDump JSON", accept: { "application/json": [".json"] } }
+    ]).then(function(savedName){
+      if (savedName) setCurrentFileName(filename);
+    });
   });
 
   function applyImportedRoots(importedRoots){
@@ -2726,13 +3107,7 @@
     render();
   }
 
-  var $fileInput = document.getElementById("file-input");
-  document.getElementById("btn-import").addEventListener("click", function(){
-    $fileInput.value = "";
-    $fileInput.click();
-  });
-  $fileInput.addEventListener("change", function(){
-    var file = $fileInput.files[0];
+  function importFile(file){
     if (!file) return;
     var isMmap = /\.mmap$/i.test(file.name);
     var reader = new FileReader();
@@ -2764,9 +3139,49 @@
         return;
       }
       applyImportedRoots(imported);
+      setCurrentFileName(file.name);
     };
     if (isMmap) reader.readAsArrayBuffer(file);
     else reader.readAsText(file, "utf-8");
+  }
+
+  var $fileInput = document.getElementById("file-input");
+  document.getElementById("btn-import").addEventListener("click", function(){
+    $fileInput.value = "";
+    $fileInput.click();
+  });
+  $fileInput.addEventListener("change", function(){
+    importFile($fileInput.files[0]);
+  });
+
+  // Dropzone: nur aktiv, solange $emptyHint die "dropzone"-Klasse trägt, also
+  // solange noch gar keine Items existieren (siehe render()) — im Filter-
+  // Leerzustand (Items vorhanden, aber ausgeblendet) macht ein Datei-Import
+  // keinen Sinn, dort bleibt die Klasse entfernt und pointer-events:none aktiv.
+  ["dragenter", "dragover"].forEach(function(evtName){
+    $emptyHint.addEventListener(evtName, function(e){
+      if (!$emptyHint.classList.contains("dropzone")) return;
+      e.preventDefault();
+      e.dataTransfer.dropEffect = "copy";
+      $emptyHint.classList.add("drag-over");
+    });
+  });
+  ["dragleave", "dragend"].forEach(function(evtName){
+    $emptyHint.addEventListener(evtName, function(){
+      $emptyHint.classList.remove("drag-over");
+    });
+  });
+  $emptyHint.addEventListener("drop", function(e){
+    if (!$emptyHint.classList.contains("dropzone")) return;
+    e.preventDefault();
+    $emptyHint.classList.remove("drag-over");
+    var file = e.dataTransfer.files && e.dataTransfer.files[0];
+    importFile(file);
+  });
+  $emptyHint.addEventListener("click", function(){
+    if (!$emptyHint.classList.contains("dropzone")) return;
+    $fileInput.value = "";
+    $fileInput.click();
   });
 
   /* ---------------------------------------------------------------
@@ -2908,15 +3323,12 @@
 
     canvas.toBlob(function(blob){
       if (!blob) return;
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement("a");
       var ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,"-");
-      a.href = url;
-      a.download = "braindump-" + ts + ".png";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+      var filename = promptForFilename("braindump-" + ts + ".png", ".png");
+      if (!filename) return;
+      saveFile(blob, "image/png", filename, [
+        { description: "PNG-Bild", accept: { "image/png": [".png"] } }
+      ]);
     }, "image/png");
   }
 
@@ -2945,29 +3357,29 @@
 
   var STANDALONE_CSS = [
     ':root{',
-    '  --bg:#f4f5f7; --canvas-bg:#eef0f3; --node-bg:#ffffff; --node-border:#c7cbd1;',
-    '  --node-text:#1c1f26; --line:#9aa1ab; --toolbar-bg:#ffffff; --toolbar-border:#dde1e6;',
-    '  --btn-bg-hover:#e2e5ea; --accent:#4a7dfc;',
-    '  --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);',
+    '  --bg:#060c1a; --canvas-bg:#040810; --node-bg:#0c1828; --node-border:#1b2f4a;',
+    '  --node-text:#edf2ff; --line:#6e8fb0; --toolbar-bg:#0c1828; --toolbar-border:#1b2f4a;',
+    '  --btn-bg-hover:#162840; --accent:#4a94ff;',
+    '  --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);',
     '}',
-    '@media (prefers-color-scheme: dark){',
-    '  :root{',
-    '    --bg:#1b1d22; --canvas-bg:#202329; --node-bg:#2a2d34; --node-border:#40444d;',
-    '    --node-text:#e7e9ec; --line:#5a606b; --toolbar-bg:#22252b; --toolbar-border:#33363d;',
-    '    --btn-bg-hover:#3d4048; --accent:#6d94ff;',
-    '    --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);',
+    '@media (prefers-color-scheme: light){',
+    '  :root:not([data-theme="dark"]){',
+    '    --bg:#f0f4ff; --canvas-bg:#e8ecf8; --node-bg:#ffffff; --node-border:#bfcfe8;',
+    '    --node-text:#08102a; --line:#4a6080; --toolbar-bg:#ffffff; --toolbar-border:#bfcfe8;',
+    '    --btn-bg-hover:#dce6ff; --accent:#2060df;',
+    '    --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);',
     '  }',
     '}',
     ':root[data-theme="light"]{',
-    '  --bg:#f4f5f7; --canvas-bg:#eef0f3; --node-bg:#ffffff; --node-border:#c7cbd1;',
-    '  --node-text:#1c1f26; --line:#9aa1ab; --toolbar-bg:#ffffff; --toolbar-border:#dde1e6;',
-    '  --btn-bg-hover:#e2e5ea; --accent:#4a7dfc;',
+    '  --bg:#f0f4ff; --canvas-bg:#e8ecf8; --node-bg:#ffffff; --node-border:#bfcfe8;',
+    '  --node-text:#08102a; --line:#4a6080; --toolbar-bg:#ffffff; --toolbar-border:#bfcfe8;',
+    '  --btn-bg-hover:#dce6ff; --accent:#2060df;',
     '  --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);',
     '}',
     ':root[data-theme="dark"]{',
-    '  --bg:#1b1d22; --canvas-bg:#202329; --node-bg:#2a2d34; --node-border:#40444d;',
-    '  --node-text:#e7e9ec; --line:#5a606b; --toolbar-bg:#22252b; --toolbar-border:#33363d;',
-    '  --btn-bg-hover:#3d4048; --accent:#6d94ff;',
+    '  --bg:#060c1a; --canvas-bg:#040810; --node-bg:#0c1828; --node-border:#1b2f4a;',
+    '  --node-text:#edf2ff; --line:#6e8fb0; --toolbar-bg:#0c1828; --toolbar-border:#1b2f4a;',
+    '  --btn-bg-hover:#162840; --accent:#4a94ff;',
     '  --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);',
     '}',
     '*{box-sizing:border-box;}',
@@ -2978,11 +3390,10 @@
     '  border-bottom:1px solid var(--toolbar-border); flex-shrink:0; z-index:10; }',
     '#toolbar .title{ font-weight:600; font-size:14px; }',
     '#toolbar .spacer{ flex:1; }',
-    '#btn-theme{ width:30px; height:30px; padding:0; border-radius:50%; border:none; background:transparent;',
-    '  cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }',
-    '#btn-theme:hover{ background:var(--btn-bg-hover); }',
-    '#btn-theme svg{ width:22px; height:22px; display:block; transition:transform 0.35s ease; }',
-    '#btn-theme.is-dark svg{ transform:rotate(180deg); }',
+    '#btn-theme{ background:none; border:1px solid var(--toolbar-border); color:var(--line);',
+    '  font-size:0.7rem; font-weight:600; letter-spacing:0.09em; text-transform:uppercase;',
+    '  padding:6px 12px; border-radius:6px; cursor:pointer; flex-shrink:0; }',
+    '#btn-theme:hover{ color:var(--node-text); border-color:var(--line); background:none; }',
     '#viewport{ position:relative; flex:1; overflow:hidden; background:var(--canvas-bg);',
     '  background-image:radial-gradient(circle, var(--node-border) 1px, transparent 1px);',
     '  background-size:22px 22px; background-position:-6px -6px; cursor:grab; }',
@@ -3028,7 +3439,24 @@
     '#minimap.empty{ display:none; }',
     '#minimap canvas{ position:absolute; top:0; left:0; width:100%; height:100%; display:block; }',
     '#minimap-viewport-rect{ position:absolute; border:1.5px solid var(--accent);',
-    '  background:rgba(74,148,255,0.15); pointer-events:none; display:none; }'
+    '  background:rgba(74,148,255,0.15); pointer-events:none; display:none; }',
+    '#btn-search-toggle{ width:30px; height:30px; padding:0; border-radius:50%; border:none; background:transparent;',
+    '  cursor:pointer; display:inline-flex; align-items:center; justify-content:center; color:var(--line); margin-right:4px; }',
+    '#btn-search-toggle:hover{ background:var(--btn-bg-hover); color:var(--node-text); }',
+    '#btn-search-toggle.active{ color:var(--accent); }',
+    '#btn-search-toggle svg{ width:18px; height:18px; display:block; }',
+    '#search-bar{ display:none; position:absolute; top:14px; left:50%; transform:translateX(-50%);',
+    '  align-items:center; gap:6px; background:var(--toolbar-bg); border:1px solid var(--toolbar-border);',
+    '  border-radius:8px; padding:6px 8px; box-shadow:var(--shadow); z-index:30; }',
+    '#search-bar.visible{ display:flex; }',
+    '#search-input{ font-family:inherit; font-size:13px; border:1px solid var(--toolbar-border); background:var(--bg);',
+    '  color:var(--node-text); padding:5px 8px; border-radius:6px; width:200px; }',
+    '#search-count{ font-size:11.5px; color:var(--line); white-space:nowrap; min-width:38px; text-align:center; }',
+    '#search-bar button{ width:24px; height:24px; padding:0; border:none; background:transparent; border-radius:4px;',
+    '  cursor:pointer; font-size:13px; color:var(--node-text); display:inline-flex; align-items:center; justify-content:center; }',
+    '#search-bar button:hover{ background:var(--btn-bg-hover); }',
+    '.node.search-match{ box-shadow:0 0 0 2px rgba(74,148,255,0.45), var(--shadow); }',
+    '.node.search-current{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(74,148,255,0.7), var(--shadow); }'
   ].join("\n");
 
   var STANDALONE_JS = [
@@ -3043,7 +3471,7 @@
     '  }',
     '  function updateThemeButton(){',
     '    var isDark = effectiveTheme() === "dark";',
-    '    $btnTheme.classList.toggle("is-dark", isDark);',
+    '    $btnTheme.textContent = isDark ? "Hell" : "Dunkel";',
     '    $btnTheme.title = isDark ? "Zu Hellmodus wechseln" : "Zu Dunkelmodus wechseln";',
     '  }',
     '  function applyTheme(theme){',
@@ -3172,17 +3600,27 @@
     '      }',
     '      el.classList.toggle("root-node", depth === 0);',
     '      el.classList.toggle("collapsed", node.collapsed && node.children.length > 0);',
+    '      el.classList.toggle("search-match", !!searchMatchIds[node.id]);',
+    '      el.classList.toggle("search-current", node.id === searchCurrentId);',
     '      el.querySelector(".content").innerHTML = linkifyText(node.text);',
     '      var tagsEl = el.querySelector(".tags");',
     '      tagsEl.innerHTML = (node.tags||[]).map(function(t){ return \'<span class="tag-chip">#\'+t+\'</span>\'; }).join("");',
     '      var toggleEl = el.querySelector(".toggle");',
     '      toggleEl.textContent = node.children.length ? (node.collapsed ? "▸" : "▾") : "";',
-    '      el.querySelector(".child-count").textContent = node.children.length;',
+    '      var childCountEl = el.querySelector(".child-count");',
+    '      childCountEl.textContent = node.children.length;',
+    '      var totalDescendants = node.children.length ? countAllDescendants(node) : 0;',
+    '      childCountEl.title = node.children.length ? (totalDescendants + " Themen insgesamt verschachtelt") : "";',
     '      var dotEl = el.querySelector(".color-dot");',
     '      if (node.color){ dotEl.style.background = node.color; dotEl.classList.add("visible"); }',
     '      else { dotEl.classList.remove("visible"); }',
     '      if (!node.collapsed){ node.children.forEach(function(c){ buildEl(c, depth+1); }); }',
     '      else { removeDescendants(node); }',
+    '    }',
+    '    function countAllDescendants(node){',
+    '      var total = 0;',
+    '      node.children.forEach(function(c){ total += 1 + countAllDescendants(c); });',
+    '      return total;',
     '    }',
     '    function removeDescendants(node){',
     '      node.children.forEach(function(c){',
@@ -3210,6 +3648,129 @@
     '    lastPositions = positions;',
     '    renderMinimap();',
     '  }',
+    '',
+    '  var $searchBar = document.getElementById("search-bar");',
+    '  var $searchInput = document.getElementById("search-input");',
+    '  var $searchCount = document.getElementById("search-count");',
+    '  var $btnSearchToggle = document.getElementById("btn-search-toggle");',
+    '  var searchMatchIds = {};',
+    '  var searchMatchOrder = [];',
+    '  var searchCurrentId = null;',
+    '  function collectSearchMatches(query){',
+    '    var order = [];',
+    '    var byTag = query.charAt(0) === "#";',
+    '    var needle = (byTag ? query.slice(1) : query).trim().toLowerCase();',
+    '    if (!needle) return order;',
+    '    function walk(list){',
+    '      list.forEach(function(n){',
+    '        var hit = byTag',
+    '          ? (n.tags || []).some(function(t){ return t.toLowerCase().indexOf(needle) !== -1; })',
+    '          : (n.text || "").toLowerCase().indexOf(needle) !== -1;',
+    '        if (hit) order.push(n.id);',
+    '        walk(n.children);',
+    '      });',
+    '    }',
+    '    walk(DATA);',
+    '    return order;',
+    '  }',
+    '  function updateSearchCount(){',
+    '    var total = searchMatchOrder.length;',
+    '    var pos = total ? (searchMatchOrder.indexOf(searchCurrentId) + 1) : 0;',
+    '    $searchCount.textContent = pos + "/" + total;',
+    '  }',
+    '  function findParentInData(id, list, parent){',
+    '    list = list || DATA;',
+    '    for (var i=0;i<list.length;i++){',
+    '      if (list[i].id === id) return { parent: parent };',
+    '      var r = findParentInData(id, list[i].children, list[i]);',
+    '      if (r) return r;',
+    '    }',
+    '    return null;',
+    '  }',
+    '  function revealNode(id){',
+    '    var ref = findParentInData(id);',
+    '    var p = ref ? ref.parent : null;',
+    '    while (p){',
+    '      p.collapsed = false;',
+    '      var pref = findParentInData(p.id);',
+    '      p = pref ? pref.parent : null;',
+    '    }',
+    '  }',
+    '  function centerViewOnMatch(id){',
+    '    var p = lastPositions[id];',
+    '    if (!p) return;',
+    '    var rect = $viewport.getBoundingClientRect();',
+    '    view.x = rect.width/2 - (p.x + p.w/2) * view.scale;',
+    '    view.y = rect.height/2 - (p.y + p.h/2) * view.scale;',
+    '    applyView();',
+    '  }',
+    '  function jumpToSearchMatch(id){',
+    '    searchCurrentId = id;',
+    '    revealNode(id);',
+    '    render();',
+    '    centerViewOnMatch(id);',
+    '    updateSearchCount();',
+    '  }',
+    '  function runSearch(){',
+    '    searchMatchOrder = collectSearchMatches($searchInput.value);',
+    '    searchMatchIds = {};',
+    '    searchMatchOrder.forEach(function(id){ searchMatchIds[id] = true; });',
+    '    if (!searchMatchOrder.length){',
+    '      searchCurrentId = null;',
+    '      render();',
+    '      updateSearchCount();',
+    '      return;',
+    '    }',
+    '    if (searchMatchOrder.indexOf(searchCurrentId) === -1){',
+    '      jumpToSearchMatch(searchMatchOrder[0]);',
+    '    } else {',
+    '      render();',
+    '      updateSearchCount();',
+    '    }',
+    '  }',
+    '  function searchStep(delta){',
+    '    if (!searchMatchOrder.length) return;',
+    '    var idx = searchMatchOrder.indexOf(searchCurrentId);',
+    '    idx = (idx === -1 ? 0 : idx + delta + searchMatchOrder.length) % searchMatchOrder.length;',
+    '    jumpToSearchMatch(searchMatchOrder[idx]);',
+    '  }',
+    '  function openSearchBar(){',
+    '    $searchBar.classList.add("visible");',
+    '    $btnSearchToggle.classList.add("active");',
+    '    $searchInput.focus();',
+    '    $searchInput.select();',
+    '  }',
+    '  function closeSearchBar(){',
+    '    $searchBar.classList.remove("visible");',
+    '    $btnSearchToggle.classList.remove("active");',
+    '    $searchInput.value = "";',
+    '    searchMatchIds = {};',
+    '    searchMatchOrder = [];',
+    '    searchCurrentId = null;',
+    '    render();',
+    '  }',
+    '  $btnSearchToggle.addEventListener("click", function(){',
+    '    if ($searchBar.classList.contains("visible")) closeSearchBar(); else openSearchBar();',
+    '  });',
+    '  $searchInput.addEventListener("input", runSearch);',
+    '  $searchInput.addEventListener("keydown", function(e){',
+    '    if (e.key === "Enter"){',
+    '      e.preventDefault();',
+    '      searchStep(e.shiftKey ? -1 : 1);',
+    '    } else if (e.key === "Escape"){',
+    '      e.preventDefault();',
+    '      closeSearchBar();',
+    '    }',
+    '  });',
+    '  document.getElementById("search-next").addEventListener("click", function(){ searchStep(1); });',
+    '  document.getElementById("search-prev").addEventListener("click", function(){ searchStep(-1); });',
+    '  document.getElementById("search-close").addEventListener("click", closeSearchBar);',
+    '  document.addEventListener("keydown", function(e){',
+    '    if ((e.metaKey || e.ctrlKey) && (e.key === "f" || e.key === "F")){',
+    '      e.preventDefault();',
+    '      openSearchBar();',
+    '    }',
+    '  });',
     '',
     '  var view = { scale:1, x:0, y:0 };',
     '  var $viewport = document.getElementById("viewport");',
@@ -3352,14 +3913,13 @@
       '  <div id="toolbar">',
       '    <span class="title">BrainDump</span>',
       '    <div class="spacer"></div>',
-      '    <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">',
-      '      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">',
-      '        <circle cx="16" cy="16" r="14" fill="#fff" stroke="#000" stroke-width="1.6"/>',
-      '        <path d="M16 2 A14 14 0 0 0 16 30 Z" fill="#000"/>',
-      '        <circle cx="16" cy="16" r="6" fill="#fff" stroke="#000" stroke-width="1.6"/>',
-      '        <path d="M16 10 A6 6 0 0 0 16 22 Z" fill="#000"/>',
+      '    <button id="btn-search-toggle" title="Suchen (Strg/Cmd+F)">',
+      '      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">',
+      '        <circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2"/>',
+      '        <line x1="15" y1="15" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
       '      </svg>',
       '    </button>',
+      '    <button id="btn-theme" title="Dunkel-/Hellmodus umschalten">Hell</button>',
       '  </div>',
       '  <div id="viewport">',
       '    <div id="canvas">',
@@ -3367,6 +3927,13 @@
       '      <div id="nodes"></div>',
       '    </div>',
       '    <div id="empty-hint">Keine Items in dieser Ansicht.</div>',
+      '    <div id="search-bar">',
+      '      <input type="text" id="search-input" placeholder="Suchen (Text oder #Tag)...">',
+      '      <span id="search-count">0/0</span>',
+      '      <button id="search-prev" title="Vorheriger Treffer (Umschalt+Enter)">↑</button>',
+      '      <button id="search-next" title="Nächster Treffer (Enter)">↓</button>',
+      '      <button id="search-close" title="Suche schließen (Esc)">×</button>',
+      '    </div>',
       '    <div id="zoom-controls">',
       '      <button id="zoom-in" title="Vergrößern">＋</button>',
       '      <div id="zoom-level">100%</div>',
@@ -3400,7 +3967,11 @@
     }
     var html = generateStandaloneHtml();
     var ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,"-");
-    downloadFile(html, "text/html;charset=utf-8", "braindump-view-" + ts + ".html");
+    var filename = promptForFilename("braindump-view-" + ts + ".html", ".html");
+    if (!filename) return;
+    saveFile(html, "text/html;charset=utf-8", filename, [
+      { description: "HTML-Datei", accept: { "text/html": [".html"] } }
+    ]);
   });
 
   /* ---------------------------------------------------------------
@@ -3679,7 +4250,11 @@
     }
     var xlsx = generateXlsx();
     var ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,"-");
-    downloadFile(xlsx, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "braindump-" + ts + ".xlsx");
+    var filename = promptForFilename("braindump-" + ts + ".xlsx", ".xlsx");
+    if (!filename) return;
+    saveFile(xlsx, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", filename, [
+      { description: "Excel-Datei", accept: { "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [".xlsx"] } }
+    ]);
   });
 
   /* ---------------------------------------------------------------
@@ -3717,7 +4292,10 @@
   // wie ihn der MindManager-Export unten erwartet (analog zu den Plain-Node-
   // Konvertern der anderen Export-Formate).
   function displayEntryToPlainNodeForMmap(entry){
-    return { text: entry.node.text, collapsed: entry.node.collapsed, children: entry.children.map(displayEntryToPlainNodeForMmap) };
+    return {
+      text: entry.node.text, collapsed: entry.node.collapsed, tags: entry.node.tags, color: entry.node.color,
+      children: entry.children.map(displayEntryToPlainNodeForMmap)
+    };
   }
 
   function nodeToMmapTopic(node){
@@ -3732,8 +4310,42 @@
       ? '<ap:TopicViewGroup ViewIndex="0"><ap:Collapsed Collapsed="' + (node.collapsed ? "true" : "false") + '" Dirty="0000000000000001"/></ap:TopicViewGroup>'
       : '<ap:TopicViewGroup ViewIndex="0"/>';
     var textXml = '<ap:Text Dirty="0000000000000001" PlainText="' + xmlEscape(textToMdLine(node.text)) + '" ReadOnly="false"><ap:Font/></ap:Text>';
+    // Farbe -> <ap:Color FillColor="ffRRGGBB"/>, Schema-verifiziert (siehe Import-Kommentar).
+    // Muss laut XSD-Sequenz direkt nach <ap:Text/> stehen, vor allen anderen optionalen
+    // Feldern inkl. TextLabels — falsche Reihenfolge liess MindManager frueher schon
+    // beim StyleGroup-Aufbau mit "Speicherfehler" scheitern, siehe Export-Kommentar unten.
+    var mmapFill = node.color ? paletteKeyToMmapFillColor(node.color) : null;
+    var colorXml = mmapFill ? '<ap:Color Dirty="0000000000000001" FillColor="' + mmapFill + '"/>' : "";
+    // Notizen -> <ap:NotesGroup><ap:NotesXhtmlData ...><html>...</html></ap:NotesXhtmlData></ap:NotesGroup>,
+    // Gegenrichtung zum Import (siehe parseMindManagerXml/createNode-Aufruf dort).
+    // Muss laut XSD-Sequenz direkt nach Color stehen (Text, Color, NotesGroup, Offset,
+    // ... — schema-verifiziert anhand der mit einer echten .mmap-Datei mitgelieferten
+    // MindManagerApplication.xsd). Jede Zeile wird als eigener <p>-Absatz geschrieben,
+    // analog zu echten MindManager-Notizen (ein <p> pro Zeile, per-Attribut-Style wie
+    // beobachtet); eine leere Zeile wird als geschütztes Leerzeichen geschrieben, damit
+    // kein leeres <font></font> entsteht. PreviewPlainText trägt den reinen Text (inkl.
+    // als &#xA; escapter Zeilenumbrüche, mit abschließendem &#xA; wie im Original).
+    var notesXml = "";
+    if (node.notes && node.notes.trim()){
+      var notesHtml = node.notes.split(/\r\n|\r|\n/).map(function(line){
+        var escaped = xmlEscape(line);
+        return '<p style="margin: 0.0px 0.0px 0.0px 0.0px"><font>' + (escaped || "&#160;") + '</font></p>';
+      }).join("");
+      var previewText = xmlEscape(node.notes).replace(/\r\n|\r|\n/g, "&#xA;") + "&#xA;";
+      notesXml = '<ap:NotesGroup><ap:NotesXhtmlData Dirty="0000000000000001" PreviewPlainText="' + previewText + '">' +
+        '<html xmlns="http://www.w3.org/1999/xhtml">' + notesHtml + '</html>' +
+        '</ap:NotesXhtmlData></ap:NotesGroup>';
+    }
+    // Tags -> <ap:TextLabels><ap:TextLabel TextLabelName="..."/>...</ap:TextLabels>,
+    // Gegenrichtung zum Import, gleiche verifizierte Struktur. Muss laut XSD-Sequenz
+    // nach Color stehen (kommt im Schema erst nach Hyperlink/Task/Bookmark/Comments).
+    var tagsXml = (node.tags && node.tags.length)
+      ? "<ap:TextLabels Dirty=\"0000000000000001\">" + node.tags.map(function(t){
+          return '<ap:TextLabel TextLabelName="' + xmlEscape(t) + '"/>';
+        }).join("") + "</ap:TextLabels>"
+      : "";
     return '<ap:Topic Dirty="0000000000000001" OId="' + oid + '" Gen="0000000000000000">' +
-      subTopicsXml + viewGroupXml + textXml +
+      subTopicsXml + viewGroupXml + textXml + colorXml + notesXml + tagsXml +
       '</ap:Topic>';
   }
 
@@ -3821,7 +4433,11 @@
     }
     var mmap = generateMmap();
     var ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,"-");
-    downloadFile(mmap, "application/octet-stream", "braindump-" + ts + ".mmap");
+    var filename = promptForFilename("braindump-" + ts + ".mmap", ".mmap");
+    if (!filename) return;
+    saveFile(mmap, "application/octet-stream", filename, [
+      { description: "MindManager-Datei", accept: { "application/octet-stream": [".mmap"] } }
+    ]);
   });
 
   /* ---------------------------------------------------------------
@@ -3870,9 +4486,19 @@
     var rect = e.currentTarget.getBoundingClientRect();
     openNodeTagMenu(toolbarTargetId, rect.left, rect.bottom + 4);
   });
+  $nodeToolbar.querySelector(".tb-notes").addEventListener("click", function(e){
+    e.stopPropagation();
+    if (!toolbarTargetId) return;
+    var rect = e.currentTarget.getBoundingClientRect();
+    openNodeNotesMenu(toolbarTargetId, rect.left, rect.bottom + 4);
+  });
   $nodeToolbar.querySelector(".tb-fix").addEventListener("click", function(e){
     e.stopPropagation();
     if (toolbarTargetId) toggleFixedSize(toolbarTargetId);
+  });
+  $nodeToolbar.querySelector(".tb-focus").addEventListener("click", function(e){
+    e.stopPropagation();
+    if (toolbarTargetId) enterSubtreeFocus(toolbarTargetId);
   });
   $nodeToolbar.querySelector(".tb-delete").addEventListener("click", function(e){
     e.stopPropagation();
@@ -4018,6 +4644,65 @@
   });
   document.addEventListener("keydown", function(e){
     if (e.key === "Escape") closeNodeTagMenu();
+  });
+
+  /* ---------------------------------------------------------------
+   * Node-Notizen-Menü (über den 📝-Button in der schwebenden Node-Toolbar)
+   *
+   * Anders als der Tag-Popup (der jede Änderung sofort per snapshot() ins
+   * Datenmodell schreibt) sammelt das Notizen-Textfeld Änderungen erst beim
+   * Schließen ein — analog zum Diff-beim-Blur-Muster der normalen Inline-
+   * Textbearbeitung (siehe contentEl "blur"-Handler in bindNodeEvents): ein
+   * Snapshot vor dem Öffnen, geschrieben wird nur, wenn sich der Text beim
+   * Schließen tatsächlich geändert hat — so entsteht pro Bearbeitung ein
+   * einzelner Undo-Schritt statt einem pro Tastendruck.
+   * -------------------------------------------------------------*/
+  var $nodeNotesMenu = document.getElementById("node-notes-menu");
+  var $notesTextarea = $nodeNotesMenu.querySelector(".notes-textarea");
+  var notesMenuTargetId = null;
+  var notesMenuStartSnapshot = null;
+
+  function openNodeNotesMenu(id, x, y){
+    closeNodeColorMenu();
+    closeNodeTagMenu();
+    notesMenuTargetId = id;
+    var node = findNode(id);
+    $notesTextarea.value = (node && node.notes) || "";
+    notesMenuStartSnapshot = JSON.stringify(roots);
+    $nodeNotesMenu.classList.add("visible");
+    var menuW = $nodeNotesMenu.offsetWidth, menuH = $nodeNotesMenu.offsetHeight;
+    var left = Math.min(x, window.innerWidth - menuW - 8);
+    var top = Math.min(y, window.innerHeight - menuH - 8);
+    $nodeNotesMenu.style.left = Math.max(4, left) + "px";
+    $nodeNotesMenu.style.top = Math.max(4, top) + "px";
+    requestAnimationFrame(function(){ $notesTextarea.focus(); });
+  }
+
+  function closeNodeNotesMenu(){
+    if (!notesMenuTargetId){ $nodeNotesMenu.classList.remove("visible"); return; }
+    var node = findNode(notesMenuTargetId);
+    if (node && node.notes !== $notesTextarea.value){
+      if (notesMenuStartSnapshot) pushUndo(notesMenuStartSnapshot);
+      node.notes = $notesTextarea.value;
+      render();
+    }
+    notesMenuTargetId = null;
+    notesMenuStartSnapshot = null;
+    $nodeNotesMenu.classList.remove("visible");
+  }
+
+  $notesTextarea.addEventListener("keydown", function(e){
+    e.stopPropagation();
+    if (e.key === "Escape"){ e.preventDefault(); closeNodeNotesMenu(); }
+  });
+
+  document.addEventListener("click", function(e){
+    if (!$nodeNotesMenu.classList.contains("visible")) return;
+    if (e.target.closest("#node-notes-menu") || e.target.closest(".tb-notes")) return;
+    closeNodeNotesMenu();
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") closeNodeNotesMenu();
   });
 
   /* ---------------------------------------------------------------
